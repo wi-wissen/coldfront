@@ -2,7 +2,6 @@
   "name": "coldfront",
   "private": true,
   "version": "0.1.0",
-  "license": "MIT",
   "type": "module",
   "workspaces": ["packages/*", "pipeline", "site"],
   "engines": { "node": ">=22" },

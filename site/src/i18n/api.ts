@@ -78,7 +78,7 @@ export const messages = {
     versionText: 'Jede Prognosedatei trägt schema_version. Die aktuelle Version ist 1. Prüfen Sie diesen Wert, bevor Sie die Datei auswerten.',
     reuseHeading: 'Nachnutzung und Nennung',
     reuseText:
-      'Der Programmcode steht unter der MIT-Lizenz. Die Daten behalten die Lizenz ihrer Quelle; Einzelheiten stehen unter Daten & Quellen. Prognosen sind eigene Berechnungen auf Basis dieser Daten und müssen entsprechend genannt werden. Verwenden Sie den folgenden Nennungstext:',
+      'Für den Programmcode ist noch keine Lizenz festgelegt. Die Daten behalten die Lizenz ihrer Quelle; Einzelheiten stehen unter Daten & Quellen. Prognosen sind eigene Berechnungen auf Basis dieser Daten und müssen entsprechend genannt werden. Verwenden Sie den folgenden Nennungstext:',
     attributionText: 'Quelle: Robert Koch-Institut, Umweltbundesamt, Deutscher Wetterdienst; eigene Berechnung',
   },
   en: {
@@ -159,7 +159,7 @@ export const messages = {
     versionText: 'Every forecast file carries schema_version. The current version is 1. Check this value before you process the file.',
     reuseHeading: 'Reuse and attribution',
     reuseText:
-      'The program code is licensed under the MIT licence. The data keep the licence of their source; details are under Data & sources. Forecasts are our own calculations based on this data and must be attributed accordingly. Use the following attribution text:',
+      'No licence has been chosen for the program code yet. The data keep the licence of their source; details are under Data & sources. Forecasts are our own calculations based on this data and must be attributed accordingly. Use the following attribution text:',
     attributionText: 'Quelle: Robert Koch-Institut, Umweltbundesamt, Deutscher Wetterdienst; eigene Berechnung',
   },
 };

@@ -26,7 +26,7 @@ export const messages = {
     operatorLink: 'Code-Repository und Issues',
     licenceHeading: 'Lizenzen',
     licenceText:
-      'Der Programmcode steht unter der MIT-Lizenz. Die Daten behalten die Lizenz ihrer Quelle. Die Nennungspflichten und Lizenzen je Quelle finden Sie unter',
+      'Für den Programmcode ist noch keine Lizenz festgelegt. Die Daten behalten die Lizenz ihrer Quelle. Die Nennungspflichten und Lizenzen je Quelle finden Sie unter',
     licenceLink: 'Daten & Quellen',
   },
   en: {
@@ -55,7 +55,7 @@ export const messages = {
     operatorLink: 'Code repository and issues',
     licenceHeading: 'Licences',
     licenceText:
-      'The program code is licensed under the MIT licence. The data keep the licence of their source. The attribution duties and licences per source are listed under',
+      'No licence has been chosen for the program code yet. The data keep the licence of their source. The attribution duties and licences per source are listed under',
     licenceLink: 'Data & sources',
   },
 };
