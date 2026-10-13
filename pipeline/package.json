@@ -1,0 +1,28 @@
+{
+  "name": "@coldfront/pipeline",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "typecheck": "tsc -p tsconfig.json",
+    "test": "vitest run",
+    "ingest": "tsx src/cli.ts ingest",
+    "build:series": "tsx src/cli.ts build-series",
+    "forecast": "tsx src/cli.ts forecast",
+    "backtest": "tsx src/cli.ts backtest"
+  },
+  "dependencies": {
+    "@coldfront/forecast-core": "*",
+    "fflate": "^0.8.2",
+    "topojson-client": "^3.1.0",
+    "topojson-server": "^3.0.1",
+    "topojson-simplify": "^3.0.3"
+  },
+  "devDependencies": {
+    "@types/geojson": "^7946.0.16",
+    "@types/topojson-client": "^3.1.5",
+    "@types/topojson-server": "^3.0.4",
+    "@types/topojson-simplify": "^3.0.3",
+    "@types/topojson-specification": "^1.0.5"
+  }
+}

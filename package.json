@@ -1,0 +1,27 @@
+{
+  "name": "coldfront",
+  "private": true,
+  "version": "0.1.0",
+  "license": "MIT",
+  "type": "module",
+  "workspaces": ["packages/*", "pipeline", "site"],
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "test": "npm run test --workspaces --if-present",
+    "check": "npm run typecheck && npm run test",
+    "ingest": "npm run ingest -w pipeline",
+    "build:series": "npm run build:series -w pipeline",
+    "forecast": "npm run forecast -w pipeline",
+    "backtest": "npm run backtest -w pipeline",
+    "build": "npm run build -w site",
+    "e2e": "playwright test -c e2e/playwright.config.ts"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.64.0",
+    "typescript": "~5.9.3",
+    "vitest": "^5.0.4",
+    "tsx": "^4.23.15",
+    "@types/node": "^22.0.0"
+  }
+}

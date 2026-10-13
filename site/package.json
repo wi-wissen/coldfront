@@ -1,0 +1,28 @@
+{
+  "name": "@coldfront/site",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "typecheck": "vue-tsc --noEmit -p tsconfig.json",
+    "test": "vitest run",
+    "build": "vite build && vite build --ssr src/ssr.ts --outDir dist-ssr && tsx scripts/prerender.ts",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@coldfront/charts": "*",
+    "@coldfront/forecast-core": "*",
+    "vue": "^3.5.44",
+    "vue-i18n": "^11.4.14"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.3.3",
+    "@vitejs/plugin-vue": "^6.0.10",
+    "@vue/test-utils": "^2.5.1",
+    "happy-dom": "^21.0.1",
+    "tailwindcss": "^4.3.3",
+    "vite": "^8.3.4",
+    "vue-tsc": "^3.3.13"
+  }
+}
