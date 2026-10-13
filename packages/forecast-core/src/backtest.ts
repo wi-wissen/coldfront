@@ -48,6 +48,13 @@ export interface BacktestConfig {
   evaluateRegions: string[];
   /** Weeks excluded from evaluation (e.g. pandemic). */
   excludeWeek?: (week: IsoWeek) => boolean;
+  /**
+   * Refit learned models only at every n-th origin and reuse the fitted model in
+   * between (coefficients then lag behind by up to n-1 weeks, but never see the
+   * future). Default 1 = refit at every origin.
+   */
+  refitEvery?: number;
+  onProgress?: (done: number, total: number) => void;
 }
 
 /** Rolling-origin evaluation. Records only origins where every model produced a forecast. */
@@ -55,9 +62,12 @@ export function runBacktest(cfg: BacktestConfig): BacktestRecord[] {
   const horizons = cfg.horizons ?? HORIZONS;
   const truthBy = new Map(cfg.truth.map((d) => [d.region, d]));
   const records: BacktestRecord[] = [];
-  for (const origin of cfg.origins) {
+  const every = Math.max(1, cfg.refitEvery ?? 1);
+  let fitted: Forecaster[] = [];
+  for (const [oi, origin] of cfg.origins.entries()) {
+    cfg.onProgress?.(oi, cfg.origins.length);
     const known = cfg.dataAtOrigin ? cfg.dataAtOrigin(origin) : cfg.truth.map((d) => truncateRegionData(d, origin, cfg.lags));
-    const fitted = cfg.models.map((m) => ('fit' in m ? m.fit(known, origin) : m));
+    if (oi % every === 0 || fitted.length === 0) fitted = cfg.models.map((m) => ('fit' in m ? m.fit(known, origin) : m));
     for (const region of cfg.evaluateRegions) {
       const data = known.find((d) => d.region === region);
       const truth = truthBy.get(region);

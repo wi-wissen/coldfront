@@ -4,11 +4,11 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --configLoader runner",
     "typecheck": "vue-tsc --noEmit -p tsconfig.json",
     "test": "vitest run",
-    "build": "vite build && vite build --ssr src/ssr.ts --outDir dist-ssr && tsx scripts/prerender.ts",
-    "preview": "vite preview"
+    "build": "vite build --configLoader runner && vite build --ssr --configLoader runner && tsx scripts/prerender.ts",
+    "preview": "vite preview --configLoader runner"
   },
   "dependencies": {
     "@coldfront/charts": "*",

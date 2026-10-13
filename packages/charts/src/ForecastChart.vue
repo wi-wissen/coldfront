@@ -305,7 +305,7 @@ export default defineComponent({
   --c-accent: var(--cf-accent, #0b5f8a);
   --c-prev: var(--cf-prev, #adb5be);
   --c-band50: var(--cf-band50, rgba(11, 95, 138, 0.4));
-  --c-band80: var(--cf-band80, rgba(11, 95, 138, 0.16));
+  --c-band80: var(--cf-band80, rgba(11, 95, 138, 0.2));
   color: var(--c-text);
   font: 14px/1.4 system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
   margin: 0;
@@ -316,9 +316,9 @@ export default defineComponent({
     --c-muted: var(--cf-muted, #a3adb8);
     --c-grid: var(--cf-grid, #2e3742);
     --c-accent: var(--cf-accent, #7cc4ea);
-    --c-prev: var(--cf-prev, #5d6772);
+    --c-prev: var(--cf-prev, #6b7682);
     --c-band50: var(--cf-band50, rgba(124, 196, 234, 0.4));
-    --c-band80: var(--cf-band80, rgba(124, 196, 234, 0.16));
+    --c-band80: var(--cf-band80, rgba(124, 196, 234, 0.26));
   }
 }
 :root[data-theme='dark'] .cf-chart {
@@ -326,9 +326,9 @@ export default defineComponent({
   --c-muted: var(--cf-muted, #a3adb8);
   --c-grid: var(--cf-grid, #2e3742);
   --c-accent: var(--cf-accent, #7cc4ea);
-  --c-prev: var(--cf-prev, #5d6772);
+  --c-prev: var(--cf-prev, #6b7682);
   --c-band50: var(--cf-band50, rgba(124, 196, 234, 0.4));
-  --c-band80: var(--cf-band80, rgba(124, 196, 234, 0.16));
+  --c-band80: var(--cf-band80, rgba(124, 196, 234, 0.26));
 }
 
 .cf-svg {
@@ -396,7 +396,7 @@ export default defineComponent({
 .cf-legend {
   display: flex;
   flex-wrap: wrap;
-  gap: 6px 16px;
+  gap: 4px 14px;
   margin: 10px 0 0;
   padding: 0;
   list-style: none;
@@ -410,7 +410,7 @@ export default defineComponent({
 }
 .cf-sw {
   display: inline-block;
-  width: 22px;
+  width: 20px;
   height: 0;
   border-top: 2.5px solid var(--c-accent);
 }
@@ -462,9 +462,12 @@ export default defineComponent({
   border-bottom: 1px solid var(--c-grid);
   vertical-align: top;
 }
+.cf-table th,
+.cf-table td {
+  white-space: nowrap;
+}
 .cf-table th:first-child,
 .cf-table td:first-child {
   text-align: left;
-  white-space: nowrap;
 }
 </style>

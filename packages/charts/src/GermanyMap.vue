@@ -64,9 +64,9 @@
 
 <script lang="ts">
 import { defineComponent, type PropType } from 'vue';
-import { geoConicConformal, geoPath, type GeoPermissibleObjects } from 'd3-geo';
+import { geoArea, geoConicEqualArea, geoPath, type GeoPermissibleObjects } from 'd3-geo';
 import { feature } from 'topojson-client';
-import type { Geometry, FeatureCollection } from 'geojson';
+import type { Feature, FeatureCollection, Geometry, Polygon, Position } from 'geojson';
 import type { ActivityLevel } from '@coldfront/forecast-core';
 import type { GermanyMapLabels, MapValue } from './types';
 import { VIRIDIS_STOPS, viridisScale } from './viridis';
@@ -87,13 +87,34 @@ interface RegionShape {
 
 let instanceSeq = 0;
 
+type Rings = Position[][];
+
+/**
+ * d3-geo reads a polygon whose exterior ring is wound counter-clockwise (RFC 7946) as the
+ * complement of that polygon. Polygon parts larger than a hemisphere are flipped back.
+ * Decided per polygon part: Hamburg has an enclave part that is already wound correctly.
+ */
+function orientRings(rings: Rings): Rings {
+  const area = geoArea({ type: 'Polygon', coordinates: rings } as Polygon);
+  return area > 2 * Math.PI ? rings.map((r) => [...r].reverse()) : rings;
+}
+
+function orient(f: Feature<Geometry, RegionProps>): Feature<Geometry, RegionProps> {
+  const g = f.geometry;
+  if (g.type === 'Polygon') return { ...f, geometry: { type: 'Polygon', coordinates: orientRings(g.coordinates) } };
+  if (g.type === 'MultiPolygon') {
+    return { ...f, geometry: { type: 'MultiPolygon', coordinates: g.coordinates.map(orientRings) } };
+  }
+  return f;
+}
+
 export default defineComponent({
   name: 'GermanyMap',
   props: {
     topology: { type: Object as PropType<unknown>, required: true },
     values: { type: Array as PropType<MapValue[]>, required: true },
     labels: { type: Object as PropType<GermanyMapLabels>, required: true },
-    selected: { type: String as PropType<string | null>, required: true },
+    selected: { type: String as PropType<string | null>, default: null },
     sourceLine: { type: String, required: true },
     domain: {
       type: Array as unknown as PropType<[number, number]>,
@@ -114,8 +135,10 @@ export default defineComponent({
       const topo = this.topology as Topo;
       const obj = (topo as unknown as { objects: Record<string, Obj> }).objects['laender'];
       if (!obj) return empty;
-      const fc = feature(topo, obj) as unknown as FeatureCollection<Geometry, RegionProps>;
-      const projection = geoConicConformal()
+      const raw = feature(topo, obj) as unknown as FeatureCollection<Geometry, RegionProps>;
+      const fc: FeatureCollection<Geometry, RegionProps> = { type: 'FeatureCollection', features: raw.features.map(orient) };
+      // Albers equal-area conic; geoConicConformal fits Germany with a degenerate scale.
+      const projection = geoConicEqualArea()
         .parallels([48.5, 53.5])
         .rotate([-10.5, 0])
         .fitSize(PROJECTION_SIZE, fc as GeoPermissibleObjects);

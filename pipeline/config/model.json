@@ -1,0 +1,129 @@
+{
+ "frozen_note": "Chosen on the tuning seasons only.",
+ "chosen": {
+  "candidate": "dyn-season-holiday",
+  "groups": [
+   "dynamics",
+   "season",
+   "holiday"
+  ],
+  "spread_factor": 1.35
+ },
+ "tuned_on": [
+  "2023/24",
+  "2024/25"
+ ],
+ "candidates": [
+  {
+   "name": "dyn",
+   "groups": [
+    "dynamics"
+   ],
+   "wis_ensemble": 205.62498174943659,
+   "wis_model": 237.65087240876454,
+   "n": 6976
+  },
+  {
+   "name": "dyn-season",
+   "groups": [
+    "dynamics",
+    "season"
+   ],
+   "wis_ensemble": 205.11992700117747,
+   "wis_model": 211.52174865197665,
+   "n": 6976
+  },
+  {
+   "name": "dyn-season-holiday",
+   "groups": [
+    "dynamics",
+    "season",
+    "holiday"
+   ],
+   "wis_ensemble": 194.03872701655217,
+   "wis_model": 187.77465509826573,
+   "n": 6976
+  },
+  {
+   "name": "dyn-season-weather",
+   "groups": [
+    "dynamics",
+    "season",
+    "weather"
+   ],
+   "wis_ensemble": 205.66888500058334,
+   "wis_model": 209.12797440258439,
+   "n": 6976
+  },
+  {
+   "name": "dyn-season-wastewater",
+   "groups": [
+    "dynamics",
+    "season",
+    "wastewater"
+   ],
+   "wis_ensemble": 205.99973915094566,
+   "wis_model": 216.20182271098906,
+   "n": 6976
+  },
+  {
+   "name": "all",
+   "groups": [
+    "dynamics",
+    "season",
+    "holiday",
+    "weather",
+    "wastewater"
+   ],
+   "wis_ensemble": 194.57128207713876,
+   "wis_model": 192.6705174204527,
+   "n": 6976
+  }
+ ],
+ "baseline_wis": 269.14525630733937,
+ "persistence_wis": 254.98929281397233,
+ "spread_grid": [
+  {
+   "k": 1,
+   "wis": 194.0387270165522,
+   "coverage80": 0.6330275229357798,
+   "coverage50": 0.38245412844036697
+  },
+  {
+   "k": 1.1,
+   "wis": 192.34100142170345,
+   "coverage80": 0.6787557339449541,
+   "coverage50": 0.41341743119266056
+  },
+  {
+   "k": 1.2,
+   "wis": 191.41030097190665,
+   "coverage80": 0.7164564220183486,
+   "coverage50": 0.4450974770642202
+  },
+  {
+   "k": 1.35,
+   "wis": 191.19346468638886,
+   "coverage80": 0.7664850917431193,
+   "coverage50": 0.48609518348623854
+  },
+  {
+   "k": 1.5,
+   "wis": 192.295937833049,
+   "coverage80": 0.8086295871559633,
+   "coverage50": 0.5235091743119266
+  },
+  {
+   "k": 1.75,
+   "wis": 196.5673398313778,
+   "coverage80": 0.8599483944954128,
+   "coverage50": 0.5868692660550459
+  },
+  {
+   "k": 2,
+   "wis": 203.5753176845275,
+   "coverage80": 0.9039564220183486,
+   "coverage50": 0.6483658256880734
+  }
+ ]
+}

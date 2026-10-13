@@ -1,4 +1,4 @@
-import { existsSync, mkdirSync, writeFileSync } from 'node:fs';
+import { copyFileSync, existsSync, mkdirSync, writeFileSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { buildCleanSeries, loadRegionData } from './clean-series';
 import { loadEvalConfig, runTest, runTuning, type ModelChoice } from './evaluation';
@@ -15,6 +15,13 @@ const opt = (name: string) => {
 };
 const today = () => new Date().toISOString().slice(0, 10);
 const asOf = opt('as-of') ?? today();
+
+/** Publish the protocol and the chosen model next to the results (the in-browser self-check reads them). */
+function publishConfig(): void {
+  mkdirSync(resolve(FORECASTS, 'backtest'), { recursive: true });
+  copyFileSync(resolve(CONFIG, 'evaluation.json'), resolve(FORECASTS, 'backtest/evaluation.json'));
+  if (existsSync(resolve(CONFIG, 'model.json'))) copyFileSync(resolve(CONFIG, 'model.json'), resolve(FORECASTS, 'backtest/model.json'));
+}
 
 function write(path: string, value: unknown): void {
   mkdirSync(dirname(path), { recursive: true });
@@ -39,6 +46,7 @@ async function main(): Promise<void> {
         const res = runTuning(data, cfg, console.log);
         write(resolve(CONFIG, 'model.json'), { frozen_note: 'Chosen on the tuning seasons only.', ...res });
         write(resolve(FORECASTS, 'backtest/tuning.json'), res);
+        publishConfig();
         console.log('chosen:', res.chosen);
       } else if (phase === 'test') {
         const out = resolve(FORECASTS, 'backtest/test.json');
@@ -54,6 +62,7 @@ async function main(): Promise<void> {
       const idx = runForecast(loadRegionData(), asOf, asOf);
       console.log(`forecasts for ${idx.regions.length} regions (model ${idx.model})`);
       exportSeries();
+      publishConfig();
       break;
     }
     default:

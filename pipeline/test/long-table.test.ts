@@ -13,3 +13,11 @@ describe('long table csv', () => {
     expect(() => parseLong('a,b\n1,2\n')).toThrow();
   });
 });
+
+import { assertFresh } from '../src/run-forecast';
+describe('data freshness gate', () => {
+  it('accepts recent data and rejects stalled sources', () => {
+    expect(() => assertFresh('2026-W40', '2026-10-13')).not.toThrow();
+    expect(() => assertFresh('2026-W30', '2026-10-13')).toThrow(/stale/);
+  });
+});

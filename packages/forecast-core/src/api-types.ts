@@ -1,4 +1,5 @@
-import { QUANTILE_LEVELS, type Horizon, type IsoWeek, type QuantileSet } from './types';
+import type { ModelComparison } from './backtest';
+import { QUANTILE_LEVELS, type Horizon, type IsoWeek, type MetricSummary, type QuantileSet } from './types';
 
 /** Traffic-light class of a forecast relative to the seasonal norm. */
 export type ActivityLevel = 'normal' | 'elevated' | 'high';
@@ -73,6 +74,31 @@ export interface ForecastIndex {
   data_version: string;
   model: string;
   regions: RegionIndexEntry[];
+}
+
+/** forecasts/backtest/test.json: evaluation of the untouched test season (published on the site). */
+export interface BacktestPublic {
+  generated: string;
+  season: string;
+  model_choice: { candidate: string; groups: string[]; spread_factor: number };
+  models: string[];
+  overall: Record<string, MetricSummary>;
+  by_region: Record<string, Record<string, MetricSummary>>;
+  by_horizon: Record<string, Record<string, MetricSummary>>;
+  by_phase: Record<string, Record<string, MetricSummary>>;
+  comparisons: Record<string, ModelComparison | null>;
+  peak: Record<string, { n: number; median_abs_timing_weeks: number; mean_height_rel: number }>;
+  gate: { shipped: 'ensemble' | 'baseline'; rel_wis_improvement: number | null; threshold: number; reason: string };
+}
+
+/** forecasts/backtest/tuning.json */
+export interface TuningPublic {
+  chosen: { candidate: string; groups: string[]; spread_factor: number };
+  tuned_on: string[];
+  candidates: { name: string; groups: string[]; wis_ensemble: number; wis_model: number; n: number }[];
+  baseline_wis: number;
+  persistence_wis: number;
+  spread_grid: { k: number; wis: number; coverage80: number; coverage50: number }[];
 }
 
 export function validateForecastFile(f: unknown): string[] {

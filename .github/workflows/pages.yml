@@ -1,0 +1,57 @@
+name: data-and-pages
+on:
+  schedule:
+    # Thursday: RKI publishes weekly data on Wednesday evening / Thursday morning
+    - cron: '17 6 * * 4'
+  workflow_dispatch:
+    inputs:
+      refresh:
+        description: 'Fetch sources and recompute forecasts'
+        type: boolean
+        default: true
+  push:
+    branches: [main]
+    paths-ignore: ['data/**', 'forecasts/**']
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+concurrency:
+  group: pages
+  cancel-in-progress: false
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: npm }
+      - run: npm ci
+      - name: Refresh data and forecasts
+        if: github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && inputs.refresh)
+        run: |
+          npm run ingest
+          npm run build:series
+          npm run forecast
+      - name: Tests
+        run: npm run check
+      - name: Commit data
+        if: github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && inputs.refresh)
+        run: |
+          git config user.name "coldfront-bot"
+          git config user.email "coldfront-bot@users.noreply.github.com"
+          git add data forecasts
+          git diff --cached --quiet || git commit -m "data: Stand $(date -u +%F)"
+          git push
+      - run: npm run build
+      - uses: actions/upload-pages-artifact@v3
+        with: { path: site/dist }
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

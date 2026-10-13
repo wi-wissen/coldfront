@@ -11,3 +11,5 @@ export * from './regional-model';
 export * from './ensemble';
 export * from './backtest';
 export * from './api-types';
+export * from './evaluation';
+export * from './series-export';

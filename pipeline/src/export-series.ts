@@ -1,17 +1,8 @@
-import { REGIONS } from '@coldfront/forecast-core';
+import { REGIONS, type SeriesExport } from '@coldfront/forecast-core';
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { cleanPath, FORECASTS } from './paths';
 import { CLEAN_COLUMNS } from './clean-series';
-
-export interface SeriesExport {
-  schema_version: 1;
-  /** ISO week of the first value of every array */
-  start: string;
-  /** Per region and column, dense weekly arrays (null = missing). Calendar column "holiday" extends past the last observation. */
-  regions: Record<string, Record<string, (number | null)[]>>;
-  columns: readonly string[];
-}
 
 /** Write forecasts/series.json (cleaned inputs of all regions, used by the in-browser self-check). */
 export function exportSeries(): SeriesExport {

@@ -1,5 +1,5 @@
 import {
-  HORIZONS, REGIONS, activityLevel, addWeeks, empiricalQuantile, parseWeek, scaleSpreadFactory, seriesGet, weekRange,
+  HORIZONS, REGIONS, activityLevel, addWeeks, empiricalQuantile, parseWeek, scaleSpreadFactory, seriesGet, validateForecastFile, weekOfDate, weeksBetween, weekRange,
   type ForecastFile, type ForecastHorizon, type ForecastIndex, type IsoWeek, type NormalPoint, type ObservedPoint, type RegionData,
   type RegionIndexEntry,
 } from '@coldfront/forecast-core';
@@ -63,6 +63,7 @@ export function runForecast(data: RegionData[], issued: string, dataVersion: str
 
   const national = data.find((d) => d.region === 'de')!;
   const origin = addWeeks(national.target.start, national.target.values.length - 1);
+  assertFresh(origin, issued);
 
   const ens = scaleSpreadFactory(buildEnsemble(cfg, `ensemble-${choice.candidate}`, choice.groups), choice.spread_factor, `ensemble-${choice.candidate}`);
   const fitted = ens.fit(data.map((d) => ({ ...d })), origin);
@@ -105,6 +106,8 @@ export function runForecast(data: RegionData[], issued: string, dataVersion: str
       normal,
       horizons,
     };
+    const errors = validateForecastFile(file);
+    if (errors.length) throw new Error(`Invalid forecast for ${info.id}: ${errors.join('; ')}`);
     writeJson(resolve(FORECASTS, info.id, 'latest.json'), file);
     archive[info.id] = file;
     regions.push({
@@ -123,4 +126,13 @@ export function runForecast(data: RegionData[], issued: string, dataVersion: str
   mkdirSync(dirname(archivePath), { recursive: true });
   writeFileSync(archivePath, gzipSync(new TextEncoder().encode(JSON.stringify({ issued, forecasts: archive })), { level: 9, mtime: 0 }));
   return index;
+}
+
+/**
+ * Quality gate on the data: the newest ARE week must be at most `maxWeeks` behind the
+ * issue date, otherwise a source stalled and nothing is published.
+ */
+export function assertFresh(lastObserved: IsoWeek, issued: string, maxWeeks = 3): void {
+  const behind = weeksBetween(lastObserved, weekOfDate(new Date(`${issued}T00:00:00Z`)));
+  if (behind > maxWeeks) throw new Error(`Data is stale: last ARE week ${lastObserved} is ${behind} weeks behind ${issued}`);
 }
