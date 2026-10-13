@@ -1,0 +1,11 @@
+{
+  "id": "geonames-cities",
+  "name": "GeoNames Cities (population > 500), Germany",
+  "url": "https://download.geonames.org/export/dump/cities500.zip",
+  "attribution": "GeoNames, https://www.geonames.org, CC BY 4.0",
+  "license": "CC BY 4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/",
+  "doi": "",
+  "retrieved": "2026-10-13",
+  "sha256": "f92aa55f4a60db8cda449f67bce1b3b5ceb4dc4f767ab0ee491c18aaabb0cfd4"
+}
