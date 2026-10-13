@@ -59,6 +59,50 @@ export const messages = {
       intro: 'Jedes Bundesland führt zu seiner eigenen Prognoseseite.',
       range80: '80 %-Bereich {low} bis {high}',
     },
+    wastewater: {
+      heading: 'Abwasser als Frühindikator',
+      intro:
+        'In Kläranlagen wird die Virenlast von SARS-CoV-2, Influenza und RSV im Abwasser gemessen. Die Messung hängt nicht davon ab, ob Menschen eine Praxis aufsuchen, und hilft deshalb auch dann, wenn Praxen geschlossen sind, etwa über Weihnachten.',
+      timing:
+        'Die Werte kommen mit bis zu zwei Wochen Verzug und hängen auch von Starkregen und Reiseverkehr ab. Das Robert Koch-Institut zieht aus Abwasserwerten keine Schlüsse auf Schwere oder Inzidenz.',
+      positions:
+        'Die Standorte sind Mittelpunkte der Gemeinden und nur näherungsweise eingezeichnet.',
+      percentile:
+        'Perzentil: Anteil der bisherigen Wochenwerte dieses Standorts, die höchstens so hoch lagen wie der aktuelle Wert. Stufen: niedrig unter 50, mittel 50 bis 80, hoch über 80. Diese Grenzen sind Startwerte ohne Validierung.',
+      stale: 'Standorte, deren Werte für den gewählten Erreger mehr als vier Wochen zurückliegen, sind grau markiert.',
+      dataLine: 'Abwasserdaten bis {week} · Datenstand {data}',
+      hidden: '{n} Standorte sind auf der Karte nicht dargestellt: ohne Messung in den letzten vier Wochen oder ohne bekannte Position.',
+      pathogenLegend: 'Erreger wählen',
+      pathogens: { sars: 'SARS-CoV-2', flu: 'Influenza', rsv: 'RSV' },
+      map: {
+        title: 'Karte: Abwasserstandorte nach Stufe für den gewählten Erreger',
+        neutral: 'keine Farbwertung (nur Standorte)',
+        pointsTitle: 'Stufe je Standort',
+        low: 'niedriges Perzentil (unter 50)',
+        medium: 'mittleres Perzentil (50 bis 80)',
+        high: 'hohes Perzentil (über 80)',
+        none: 'keine aktuellen Daten (älter als vier Wochen)',
+        summary: 'Standorte als Tabelle anzeigen',
+        tableSite: 'Standort',
+        tableValue: 'Perzentil und Stand',
+        intro:
+          'Form und Größe zeigen die Stufe; die Farbe dient nur der Unterscheidung der Bundesländer. Die Tabelle unter der Karte nennt alle Standorte mit Position als Text, die Liste rechts die zehn höchsten Werte.',
+      },
+      point: {
+        label: 'Perzentil {p} · {week}',
+        stale: 'keine aktuellen Daten, zuletzt {week}',
+      },
+      top: {
+        heading: 'Standorte mit den höchsten Perzentilen',
+        intro: 'Die zehn Standorte mit dem höchsten Perzentil für den gewählten Erreger; nur Standorte mit aktuellem Wert.',
+        site: 'Standort',
+        state: 'Bundesland',
+        percentile: 'Perzentil',
+        trend: 'Trend',
+        empty: 'Für diesen Erreger liegen derzeit keine aktuellen Werte vor.',
+      },
+      trend: { up: 'steigend', flat: 'gleichbleibend', down: 'fallend' },
+    },
     postcode: {
       heading: 'Prognose für Ihre Region',
       intro:
@@ -140,6 +184,50 @@ export const messages = {
       heading: 'Federal states',
       intro: 'Each federal state has its own forecast page.',
       range80: '80 % range {low} to {high}',
+    },
+    wastewater: {
+      heading: 'Wastewater as an early indicator',
+      intro:
+        'Treatment plants measure the viral load of SARS-CoV-2, influenza and RSV in wastewater. The measurement does not depend on whether people visit a doctor, so it also helps when practices are closed, for example over Christmas.',
+      timing:
+        'The values arrive with up to two weeks of delay and also depend on heavy rain and travel. The Robert Koch Institute does not draw conclusions about severity or incidence from wastewater values.',
+      positions:
+        'The sites are the centres of their municipalities and are only approximately placed.',
+      percentile:
+        'Percentile: share of the site’s earlier weekly values that were at most as high as the current value. Levels: low below 50, medium 50 to 80, high above 80. These cut-offs are starting values and have not been validated.',
+      stale: 'Sites whose values for the selected pathogen are more than four weeks old are shown in grey.',
+      dataLine: 'Wastewater data up to {week} · Data version {data}',
+      hidden: '{n} sites are not shown on the map: no measurement in the last four weeks or no known position.',
+      pathogenLegend: 'Choose a pathogen',
+      pathogens: { sars: 'SARS-CoV-2', flu: 'Influenza', rsv: 'RSV' },
+      map: {
+        title: 'Map: wastewater sites by level for the selected pathogen',
+        neutral: 'no colour value (sites only)',
+        pointsTitle: 'Level per site',
+        low: 'low percentile (below 50)',
+        medium: 'medium percentile (50 to 80)',
+        high: 'high percentile (above 80)',
+        none: 'no current data (older than four weeks)',
+        summary: 'Show sites as a table',
+        tableSite: 'Site',
+        tableValue: 'Percentile and week',
+        intro:
+          'Shape and size show the level; colour only tells the federal states apart. The table below the map lists all sites with a position as text; the list on the right shows the ten highest values.',
+      },
+      point: {
+        label: 'Percentile {p} · {week}',
+        stale: 'no current data, last {week}',
+      },
+      top: {
+        heading: 'Sites with the highest percentiles',
+        intro: 'The ten sites with the highest percentile for the selected pathogen; only sites with a current value.',
+        site: 'Site',
+        state: 'Federal state',
+        percentile: 'Percentile',
+        trend: 'Trend',
+        empty: 'No current values are available for this pathogen.',
+      },
+      trend: { up: 'rising', flat: 'unchanged', down: 'falling' },
     },
     postcode: {
       heading: 'Forecast for your area',

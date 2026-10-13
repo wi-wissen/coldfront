@@ -52,7 +52,8 @@ test.describe('start page', () => {
 
   test('the horizon picker changes the displayed week', async ({ page }) => {
     await page.goto('index.html');
-    const radios = page.getByRole('radio');
+    // The first radio group is the forecast horizon (the wastewater section adds a second group).
+    const radios = page.locator('fieldset').first().getByRole('radio');
     expect(await radios.count()).toBe(4);
     const before = await page.locator('main').innerText();
     await radios.nth(3).check();

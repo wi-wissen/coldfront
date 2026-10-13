@@ -6,13 +6,14 @@ import { pageHref } from '../../scripts/pages';
 import { formatDate } from '../api';
 import RegionHorizonTable from '../components/RegionHorizonTable.vue';
 import RegionSummary from '../components/RegionSummary.vue';
+import RegionWastewater from '../components/RegionWastewater.vue';
 import { isoWeekNumber } from '../lib/forecast-text';
 import type { PageContext } from '../types';
 
 /** Region page: one federal state, prerendered per state (regions/<id>.html). */
 export default defineComponent({
   name: 'RegionPage',
-  components: { ForecastChart, RegionHorizonTable, RegionSummary },
+  components: { ForecastChart, RegionHorizonTable, RegionSummary, RegionWastewater },
   props: { ctx: { type: Object as PropType<PageContext>, required: true } },
   computed: {
     region(): ForecastFile | null {
@@ -93,6 +94,11 @@ export default defineComponent({
       <section aria-labelledby="region-table" class="space-y-3">
         <h2 id="region-table" class="text-xl font-semibold">{{ $t('pages.region.table.heading') }}</h2>
         <RegionHorizonTable :horizons="region.horizons" :locale="ctx.locale" />
+      </section>
+
+      <section v-if="ctx.data.wastewater" aria-labelledby="region-wastewater" class="space-y-3">
+        <h2 id="region-wastewater" class="text-xl font-semibold">{{ $t('pages.region.wastewater.heading') }}</h2>
+        <RegionWastewater :wastewater="ctx.data.wastewater" :region-name="regionName" :locale="ctx.locale" />
       </section>
 
       <RegionSummary :row="horizon1" :region-name="regionName" :locale="ctx.locale" />

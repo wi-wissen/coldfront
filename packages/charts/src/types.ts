@@ -56,6 +56,37 @@ export interface GermanyMapLabels {
   levels: Record<ActivityLevel, string>;
 }
 
+/** A point marker (e.g. a wastewater plant) drawn on top of the states. */
+export interface MapPoint {
+  id: string;
+  /** WGS84 longitude and latitude; projected with the same projection as the states */
+  lon: number;
+  lat: number;
+  /** display name, used in the accessible name and the points table */
+  name: string;
+  /** localised value text for the accessible name and the points table */
+  label: string;
+  /** shape, size and outline encode the level; colour is never the only signal */
+  level: 'low' | 'medium' | 'high' | 'none';
+  /** optional base radius in px for the level's circle (default by level) */
+  radius?: number;
+}
+
+export interface MapPointsLegend {
+  title: string;
+  low: string;
+  medium: string;
+  high: string;
+  none: string;
+}
+
+export interface MapPointsTableLabels {
+  name: string;
+  value: string;
+  /** summary of the points table; default labels.showTable */
+  summary?: string;
+}
+
 export interface GermanyMapProps {
   /** Parsed TopoJSON (object "laender", geometries with properties.id). */
   topology: unknown;
@@ -65,4 +96,15 @@ export interface GermanyMapProps {
   sourceLine: string;
   /** colour domain, default [0.5, 2] (index relative to norm) */
   domain?: [number, number];
+  /** optional point markers; when given, a points legend and a points table are rendered */
+  points?: MapPoint[];
+  pointsLegend?: MapPointsLegend;
+  /** column headers of the points table; default to labels.tableRegion / labels.tableValue */
+  pointsTableLabels?: MapPointsTableLabels;
+  /** default true; false hides the colour scale (use when the states carry no colour value) */
+  showScale?: boolean;
+  /** default true; false hides the states table (use when the states carry no colour value) */
+  showStateTable?: boolean;
+  /** default false; true draws states without a value in a plain neutral fill instead of the hatch */
+  plainStates?: boolean;
 }

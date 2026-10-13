@@ -82,13 +82,13 @@ describe('buildWastewaterExport', () => {
     expect(flu.recent.filter((x) => x === null)).toHaveLength(25);
   });
 
-  it('aligns plants that stopped early to the global last week', () => {
+  it('ends the window of plants that stopped early at their own last week', () => {
     const p = exp.sites[1]!.pathogens['SARS-CoV-2']!;
     expect(p.last_week).toBe('2026-W38');
     expect(p.value).toBe(20);
     expect(p.percentile).toBe(0.667);
-    expect(p.recent.slice(-2)).toEqual([null, null]);
-    expect(p.recent.slice(-5, -2)).toEqual([10, 30, 20]);
+    expect(p.recent).toHaveLength(26);
+    expect(p.recent.slice(-3)).toEqual([10, 30, 20]);
   });
 
   it('is JSON-serialisable and stays small', () => {

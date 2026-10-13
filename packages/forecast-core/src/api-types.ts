@@ -145,7 +145,7 @@ export interface WastewaterSiteExport {
       /** share (0..1) of the plant's own weekly values since the start of its record that are <= value */
       percentile: number;
       trend: 'up' | 'flat' | 'down';
-      /** last 26 weekly values ending at last_week, null = missing */
+      /** last 26 weekly values ending at this pathogen's own last_week (plants that stopped keep their last curve), null = missing */
       recent: (number | null)[];
     }
   >;

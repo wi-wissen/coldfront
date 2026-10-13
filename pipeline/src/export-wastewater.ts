@@ -87,7 +87,6 @@ export function buildWastewaterExport(
     for (const w of m.keys()) if (globalLast === null || compareWeeks(w, globalLast) > 0) globalLast = w;
   }
   if (globalLast === null) throw new Error('wastewater export: no measurements');
-  const windowWeeks = weekRange(addWeeks(globalLast, -(RECENT_WEEKS - 1)), globalLast);
 
   const out: WastewaterSiteExport[] = [];
   for (const site of [...sites].sort((a, b) => (a.id < b.id ? -1 : a.id > b.id ? 1 : 0))) {
@@ -108,8 +107,8 @@ export function buildWastewaterExport(
         value: roundTo(value, 2),
         percentile: roundTo(le / m.size, 3),
         trend: trendOf(near),
-        // The window ends at the export's newest week so that all plants align.
-        recent: windowWeeks.map((w) => {
+        // The window ends at the plant's own last week, so plants that stopped measuring keep a readable curve.
+        recent: weekRange(addWeeks(last, -(RECENT_WEEKS - 1)), last).map((w) => {
           const x = m.get(w);
           return x === undefined ? null : roundTo(x, 2);
         }),

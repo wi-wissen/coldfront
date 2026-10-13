@@ -9,6 +9,7 @@ import HomeNationalSummary from '../components/HomeNationalSummary.vue';
 import HomePostcodeSearch from '../components/HomePostcodeSearch.vue';
 import HomeQualityNote from '../components/HomeQualityNote.vue';
 import HomeRegionList, { type RegionListRow } from '../components/HomeRegionList.vue';
+import HomeWastewater from '../components/HomeWastewater.vue';
 import { formatCount, formatIndex, isStale, isoWeekNumber } from '../lib/forecast-text';
 import type { Locale, PageContext } from '../types';
 
@@ -28,6 +29,7 @@ export default defineComponent({
     HomePostcodeSearch,
     HomeQualityNote,
     HomeRegionList,
+    HomeWastewater,
   },
   props: { ctx: { type: Object as PropType<PageContext>, required: true } },
   data() {
@@ -218,6 +220,16 @@ export default defineComponent({
             <HomeRegionList :rows="regionRows" />
           </div>
         </div>
+      </section>
+
+      <section v-if="ctx.data.wastewater" aria-labelledby="home-wastewater" class="space-y-4">
+        <h2 id="home-wastewater" class="text-xl font-semibold">{{ $t('pages.index.wastewater.heading') }}</h2>
+        <HomeWastewater
+          :wastewater="ctx.data.wastewater"
+          :topology="ctx.data.topology"
+          :locale="locale"
+          :path="ctx.entry.path"
+        />
       </section>
 
       <HomePostcodeSearch :path="ctx.entry.path" :locale="locale" />

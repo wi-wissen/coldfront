@@ -24,23 +24,55 @@
       >
         <title>{{ r.ariaLabel }}</title>
       </path>
+      <!-- Points are drawn above the states but do not catch pointer events, so states stay clickable. -->
+      <g v-if="pointShapes.length" class="cf-points">
+        <g
+          v-for="p in pointShapes"
+          :key="p.id"
+          :class="['cf-point', `cf-point-${p.level}`]"
+          :transform="`translate(${p.cx} ${p.cy})`"
+          role="img"
+          :aria-label="p.ariaLabel"
+          :data-point="p.id"
+        >
+          <title>{{ p.ariaLabel }}</title>
+          <path v-if="p.level === 'none'" :d="p.d" />
+          <circle v-else :r="p.r" />
+        </g>
+      </g>
     </svg>
 
     <div class="cf-legend-map">
-      <p class="cf-legend-title">{{ labels.legendTitle }}</p>
-      <div class="cf-bar" role="img" :aria-label="labels.legendTitle" :style="{ background: gradient }" />
-      <div class="cf-bar-labels">
-        <span>{{ labels.legendLow }}</span>
-        <span>{{ labels.legendHigh }}</span>
-      </div>
+      <template v-if="showScale">
+        <p class="cf-legend-title">{{ labels.legendTitle }}</p>
+        <div class="cf-bar" role="img" :aria-label="labels.legendTitle" :style="{ background: gradient }" />
+        <div class="cf-bar-labels">
+          <span>{{ labels.legendLow }}</span>
+          <span>{{ labels.legendHigh }}</span>
+        </div>
+      </template>
       <p class="cf-nodata-key">
         <span class="cf-nodata-swatch" aria-hidden="true" />{{ labels.noData }}
       </p>
+      <div v-if="points && pointsLegend" class="cf-points-legend">
+        <p class="cf-legend-title">{{ pointsLegend.title }}</p>
+        <ul class="cf-points-keys">
+          <li v-for="k in pointKeys" :key="k.level">
+            <svg class="cf-key" viewBox="-9 -9 18 18" aria-hidden="true" focusable="false">
+              <g :class="['cf-point', `cf-point-${k.level}`]">
+                <path v-if="k.level === 'none'" :d="k.d" />
+                <circle v-else :r="k.r" />
+              </g>
+            </svg>
+            <span>{{ pointsLegend[k.level] }}</span>
+          </li>
+        </ul>
+      </div>
     </div>
 
     <p class="cf-source">{{ sourceLine }}</p>
 
-    <details class="cf-details">
+    <details v-if="showStateTable" class="cf-details">
       <summary>{{ labels.showTable }}</summary>
       <div class="cf-table-wrap">
         <table class="cf-table">
@@ -59,6 +91,26 @@
         </table>
       </div>
     </details>
+
+    <details v-if="points" class="cf-details cf-points-details">
+      <summary>{{ pointsTableLabels?.summary ?? labels.showTable }}</summary>
+      <div class="cf-table-wrap">
+        <table class="cf-table">
+          <thead>
+            <tr>
+              <th scope="col">{{ pointsTableLabels?.name ?? labels.tableRegion }}</th>
+              <th scope="col">{{ pointsTableLabels?.value ?? labels.tableValue }}</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="p in pointTableRows" :key="p.id">
+              <th scope="row">{{ p.name }}</th>
+              <td>{{ p.text }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </details>
   </div>
 </template>
 
@@ -68,11 +120,15 @@ import { geoArea, geoConicEqualArea, geoPath, type GeoPermissibleObjects } from 
 import { feature } from 'topojson-client';
 import type { Feature, FeatureCollection, Geometry, Polygon, Position } from 'geojson';
 import type { ActivityLevel } from '@coldfront/forecast-core';
-import type { GermanyMapLabels, MapValue } from './types';
+import type { GermanyMapLabels, MapPoint, MapPointsLegend, MapPointsTableLabels, MapValue } from './types';
 import { VIRIDIS_STOPS, viridisScale } from './viridis';
 
 const PROJECTION_SIZE: [number, number] = [460, 560];
 const VIEW_PAD = 6;
+
+/** Default circle radius per level (px in the map's user units). */
+const POINT_RADIUS: Record<MapPoint['level'], number> = { low: 3.5, medium: 5.5, high: 8.5, none: 3 };
+const POINT_LEVELS: MapPoint['level'][] = ['low', 'medium', 'high', 'none'];
 
 interface RegionProps {
   id: string;
@@ -85,9 +141,16 @@ interface RegionShape {
   d: string;
 }
 
+type Project = (lonLat: [number, number]) => [number, number] | null;
+
 let instanceSeq = 0;
 
 type Rings = Position[][];
+
+/** Grey cross for level 'none': two diagonals of half-size r. */
+function crossPath(r: number): string {
+  return `M${-r} ${-r}L${r} ${r}M${-r} ${r}L${r} ${-r}`;
+}
 
 /**
  * d3-geo reads a polygon whose exterior ring is wound counter-clockwise (RFC 7946) as the
@@ -120,6 +183,12 @@ export default defineComponent({
       type: Array as unknown as PropType<[number, number]>,
       default: (): [number, number] => [0.5, 2],
     },
+    points: { type: Array as PropType<MapPoint[]>, default: undefined },
+    pointsLegend: { type: Object as PropType<MapPointsLegend>, default: undefined },
+    pointsTableLabels: { type: Object as PropType<MapPointsTableLabels>, default: undefined },
+    showScale: { type: Boolean, default: true },
+    showStateTable: { type: Boolean, default: true },
+    plainStates: { type: Boolean, default: false },
   },
   emits: ['select'],
   data() {
@@ -127,8 +196,8 @@ export default defineComponent({
     return { hatchId: `cf-hatch-${instanceSeq}` };
   },
   computed: {
-    geo(): { shapes: RegionShape[]; viewBox: string } {
-      const empty = { shapes: [], viewBox: `0 0 ${PROJECTION_SIZE[0]} ${PROJECTION_SIZE[1]}` };
+    geo(): { shapes: RegionShape[]; viewBox: string; project: Project | null } {
+      const empty = { shapes: [], viewBox: `0 0 ${PROJECTION_SIZE[0]} ${PROJECTION_SIZE[1]}`, project: null };
       if (!this.topology || typeof this.topology !== 'object' || !('objects' in this.topology)) return empty;
       type Topo = Parameters<typeof feature>[0];
       type Obj = Parameters<typeof feature>[1];
@@ -150,13 +219,50 @@ export default defineComponent({
         d: path(f as GeoPermissibleObjects) ?? '',
       }));
       const viewBox = `${x0 - VIEW_PAD} ${y0 - VIEW_PAD} ${x1 - x0 + 2 * VIEW_PAD} ${y1 - y0 + 2 * VIEW_PAD}`;
-      return { shapes, viewBox };
+      const project: Project = (lonLat) => {
+        const p = projection(lonLat);
+        return p && Number.isFinite(p[0]) && Number.isFinite(p[1]) ? p : null;
+      };
+      return { shapes, viewBox, project };
     },
     shapes(): RegionShape[] {
       return this.geo.shapes;
     },
     viewBox(): string {
       return this.geo.viewBox;
+    },
+    pointShapes(): Array<{ id: string; cx: number; cy: number; level: MapPoint['level']; r: number; d: string; ariaLabel: string }> {
+      const project = this.geo.project;
+      if (!project || !this.points) return [];
+      const out: Array<{ id: string; cx: number; cy: number; level: MapPoint['level']; r: number; d: string; ariaLabel: string }> = [];
+      for (const p of this.points) {
+        if (!Number.isFinite(p.lon) || !Number.isFinite(p.lat)) continue;
+        const xy = project([p.lon, p.lat]);
+        if (!xy) continue;
+        const r = p.radius ?? POINT_RADIUS[p.level];
+        out.push({
+          id: p.id,
+          cx: xy[0],
+          cy: xy[1],
+          level: p.level,
+          r,
+          d: crossPath(r),
+          ariaLabel: `${p.name}: ${p.label}`,
+        });
+      }
+      return out;
+    },
+    pointKeys(): Array<{ level: MapPoint['level']; r: number; d: string }> {
+      return POINT_LEVELS.map((level) => ({ level, r: POINT_RADIUS[level], d: crossPath(POINT_RADIUS[level]) }));
+    },
+    pointTableRows(): Array<{ id: string; name: string; text: string }> {
+      return (this.points ?? [])
+        .map((p) => ({
+          id: p.id,
+          name: p.name,
+          text: [p.label, this.pointsLegend?.[p.level] ?? ''].filter(Boolean).join(' · '),
+        }))
+        .sort((a, b) => a.name.localeCompare(b.name));
     },
     colour(): (value: number) => string {
       return viridisScale(this.domain);
@@ -183,7 +289,7 @@ export default defineComponent({
         return {
           id: s.id,
           d: s.d,
-          fill: value === null ? `url(#${this.hatchId})` : this.colour(value),
+          fill: value === null ? (this.plainStates ? 'var(--c-nodata)' : `url(#${this.hatchId})`) : this.colour(value),
           value,
           selected: s.id === this.selected,
           ariaLabel: `${name}: ${text}`,
@@ -282,6 +388,49 @@ export default defineComponent({
 .cf-hatch-line {
   stroke: var(--c-hatch);
   stroke-width: 1.5;
+}
+
+/* Points: shape, size and outline carry the level; fill adds a second cue. Never receive pointer events. */
+.cf-points {
+  pointer-events: none;
+}
+.cf-point circle {
+  fill: var(--c-accent);
+  stroke: var(--c-surface);
+  stroke-width: 1.2;
+}
+.cf-point path {
+  fill: none;
+  stroke: var(--c-muted);
+  stroke-width: 1.4;
+  stroke-linecap: round;
+}
+.cf-point-low circle {
+  fill: none;
+  stroke: var(--c-text);
+  stroke-width: 1.6;
+}
+.cf-point-high circle {
+  stroke: var(--c-text);
+  stroke-width: 2.8;
+}
+.cf-points-keys {
+  list-style: none;
+  margin: 6px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 2px;
+}
+.cf-points-keys li {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.cf-key {
+  width: 18px;
+  height: 18px;
+  flex: none;
+  overflow: visible;
 }
 
 .cf-legend-map {
