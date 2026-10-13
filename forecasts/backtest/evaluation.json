@@ -1,0 +1,44 @@
+{
+  "_comment": "Pre-registered evaluation protocol. Frozen before the first backtest run; do not adapt to results. Values marked start_value have no evidence behind them.",
+  "frozen_on": "2026-10-13",
+  "target": { "indicator": "are", "series": "00+", "unit": "per_100k" },
+  "pandemic_exclusion": { "from": "2020-W10", "to": "2022-W39", "reason": "Testing, closure and quarantine rules distort the series; not used for baselines, training or scoring." },
+  "horizons": [1, 2, 3, 4],
+  "seasons": {
+    "definition": "ISO week 40 to week 39 of the following year",
+    "tuning": ["2023/24", "2024/25"],
+    "test": "2025/26",
+    "test_rule": "The test season is evaluated once; `backtest test` refuses to overwrite its result without --force."
+  },
+  "availability_lags_weeks": { "target": 0, "wastewater_sars": 1, "wastewater_flu": 1, "wastewater_rsv": 1, "tmax": 0, "tmin": 0 },
+  "vintage_note": "Archived data versions (as_of) exist only from the first ingest on. Until enough versions are archived the backtest uses today's corrected data and therefore looks somewhat better than a live forecast would.",
+  "models": {
+    "baseline": { "name": "baseline-seasonal", "window_weeks": 1, "min_samples": 2 },
+    "persistence": { "name": "persistence", "min_samples": 20 },
+    "regional": { "ridge": 1.0, "ridge_status": "start_value", "min_train_rows": 300, "max_iter": 60 },
+    "ensemble": { "model_weight": 0.5, "baseline_weight": 0.5, "weight_status": "start_value" },
+    "feature_candidates": [
+      { "name": "dyn", "groups": ["dynamics"] },
+      { "name": "dyn-season", "groups": ["dynamics", "season"] },
+      { "name": "dyn-season-holiday", "groups": ["dynamics", "season", "holiday"] },
+      { "name": "dyn-season-weather", "groups": ["dynamics", "season", "weather"] },
+      { "name": "dyn-season-wastewater", "groups": ["dynamics", "season", "wastewater"] },
+      { "name": "all", "groups": ["dynamics", "season", "holiday", "weather", "wastewater"] }
+    ],
+    "spread_factor_grid": [1.0, 1.1, 1.2, 1.35, 1.5, 1.75, 2.0],
+    "selection_rule": "Feature set with the lowest mean WIS of the ensemble on the tuning seasons; then the spread factor with the lowest ensemble WIS on the tuning seasons."
+  },
+  "metrics": ["mae", "wis", "coverage50", "coverage80"],
+  "breakdowns": ["region", "horizon", "wave_phase", "season"],
+  "peak_scoring": "Timing (weeks) and height (relative) of the peak of the median forecast versus the actual peak, per region, season and horizon.",
+  "gate": {
+    "reference": "baseline-seasonal",
+    "min_rel_wis_improvement": 0.1,
+    "min_rel_wis_improvement_status": "start_value",
+    "evaluated_on": "test season, all regions and horizons",
+    "if_failed": "ship the baseline"
+  },
+  "bootstrap": { "block_weeks": 4, "n": 1000, "seed": 20261013 },
+  "external_comparison": ["RESPINOW", "RespiCast"],
+  "external_comparison_note": "Pending: requires the archived forecasts of both initiatives; reported as not done until implemented."
+}

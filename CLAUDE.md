@@ -32,6 +32,15 @@ all UI text via i18n (de + en), never hard-coded in components.
 Region ids: `de`, `de-<iso2 lower>` (e.g. `de-sn`), `ww-<slug>` for wastewater plants.
 Quantile levels: 0.1/0.25/0.5/0.75/0.9, flat keys `q10…q90`. 50 % band = q25–q75, 80 % band = q10–q90.
 
+## Implemented layout notes (deviations from the first sketch)
+
+* Cleaned inputs live in `data/clean/<region>/series.csv` (one wide CSV per region: `week,are,wastewater_*,tmax,tmin,holiday`), not one file per indicator. Weather is stored in the append-only table `data/long/weather.csv.gz` (weekly values since 2012) instead of separate files.
+* Evaluation protocol code (`EvalConfig`, builders, `runTuning`, `runTest`) lives in `packages/forecast-core/src/evaluation.ts` so the browser self-check runs the very same code as the pipeline. Config files: `pipeline/config/evaluation.json` (frozen) and `pipeline/config/model.json` (chosen on tuning seasons); both are copied to `forecasts/backtest/` on every run.
+* Public API (static, `/api/v1/…`) is produced from repo files by `site/scripts/api.ts`: `index.json`, `regions/<id>.json`, `series.json`, `backtest/*.json`, `geo/*`, `sources.json`, `archive/<date>.json.gz`, `holidays/<year>.json`.
+* Data gates (publish only if all hold): schema validation of every forecast file; newest ARE week at most 3 weeks behind the issue date; `forecasts/backtest/test.json` gate decides ensemble vs baseline. `backtest test` refuses to overwrite the single test-season evaluation without `--force`.
+* Vacation periods are called "Ferienzeiten"/"vacation periods" (state-wide, from the KMK overview); unknown before the first recorded entry (autumn 2022) → missing, not zero.
+* Parallel builds: set `CF_TAG=<name>` to isolate `.gen<tag>`, `dist<tag>`, `dist-ssr<tag>`; each agent uses its own port (5171–5179; 5177 = lead's preview/E2E).
+
 ## Site: Vite multi-page + prerender
 
 * Every page is its own HTML entry per locale: `site/<page>.html` (de) and `site/en/<page>.html` (en). Shell files only set `<html lang>`, `data-locale`, and load `src/pages/<page>.ts`.
