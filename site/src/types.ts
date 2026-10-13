@@ -1,4 +1,4 @@
-import type { BacktestPublic, ForecastFile, ForecastIndex, TuningPublic } from '@coldfront/forecast-core';
+import type { BacktestPublic, ForecastFile, ForecastIndex, TuningPublic, WastewaterExport } from '@coldfront/forecast-core';
 import type { Locale, PageEntry } from '../scripts/pages';
 
 export type { Locale, PageEntry };
@@ -27,9 +27,11 @@ export interface PageData {
   tuning: TuningPublic | null;
   /** start page only (map) */
   topology: unknown | null;
+  /** start page: all plants; region pages: only the plants of that state */
+  wastewater: WastewaterExport | null;
 }
 
-export const EMPTY_DATA: PageData = { index: null, region: null, national: null, sources: null, backtest: null, tuning: null, topology: null };
+export const EMPTY_DATA: PageData = { index: null, region: null, national: null, sources: null, backtest: null, tuning: null, topology: null, wastewater: null };
 
 /** Per-page context provided to all components. */
 export interface PageContext {

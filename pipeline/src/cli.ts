@@ -7,6 +7,7 @@ import { CONFIG, FORECASTS } from './paths';
 import { readJson, runForecast } from './run-forecast';
 import { exportHubverse } from './export-hubverse';
 import { exportSeries } from './export-series';
+import { exportWastewater } from './export-wastewater';
 import { evaluateArchive, readArchive, writeLiveReport } from './monitor';
 import { runIngest } from './run-ingest';
 
@@ -69,6 +70,7 @@ async function main(): Promise<void> {
       const idx = runForecast(data, asOf, asOf);
       console.log(`forecasts for ${idx.regions.length} regions (model ${idx.model})`);
       exportSeries();
+      exportWastewater(asOf);
       publishConfig();
       exportHubverse(idx.regions.map((r) => readJson<ForecastFile>(resolve(FORECASTS, r.file))));
       break;

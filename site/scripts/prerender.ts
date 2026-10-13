@@ -30,12 +30,16 @@ async function main(): Promise<void> {
   const tuning = api<PageData['tuning']>('backtest/tuning.json');
   const sources = api<{ sources: PageData['sources'] }>('sources.json')?.sources ?? null;
   const topology = api<unknown>('geo/laender.topo.json');
+  const wastewater = api<PageData['wastewater']>('wastewater.json');
 
   let n = 0;
   for (const entry of allPages()) {
     const data: PageData = { ...EMPTY_DATA, index };
-    if (entry.page === 'index') Object.assign(data, { national, topology, backtest });
-    if (entry.page === 'region') data.region = api<PageData['region']>(`regions/${entry.region}.json`);
+    if (entry.page === 'index') Object.assign(data, { national, topology, backtest, wastewater });
+    if (entry.page === 'region') {
+      data.region = api<PageData['region']>(`regions/${entry.region}.json`);
+      data.wastewater = wastewater ? { ...wastewater, sites: wastewater.sites.filter((s) => s.region === entry.region) } : null;
+    }
     if (entry.page === 'sources') data.sources = sources;
     if (entry.page === 'method') Object.assign(data, { backtest, tuning });
     const ctx = { entry, locale: entry.locale, data };
