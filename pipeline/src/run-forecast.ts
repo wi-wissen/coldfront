@@ -7,6 +7,7 @@ import { gzipSync } from 'fflate';
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { buildBaseline, buildEnsemble, isPandemicWeek, loadEvalConfig, type ModelChoice, type TestResult } from './evaluation';
+import { readLiveReport } from './monitor';
 import { FORECASTS, CONFIG } from './paths';
 
 const SOURCES_USED = [
@@ -68,7 +69,14 @@ export function runForecast(data: RegionData[], issued: string, dataVersion: str
   const ens = scaleSpreadFactory(buildEnsemble(cfg, `ensemble-${choice.candidate}`, choice.groups), choice.spread_factor, `ensemble-${choice.candidate}`);
   const fitted = ens.fit(data.map((d) => ({ ...d })), origin);
   const baseline = buildBaseline(cfg);
-  const shipped = gate.shipped === 'ensemble' ? fitted : baseline;
+  // Live safety net: if archived forecasts have been worse than the baseline over enough runs, ship the baseline.
+  const live = readLiveReport();
+  const fallbackLive = live?.fallback === true;
+  const useEnsemble = gate.shipped === 'ensemble' && !fallbackLive;
+  const reason = fallbackLive
+    ? `Archived forecasts scored worse than the seasonal baseline over ${live!.evaluated_runs} runs; the baseline is shipped.`
+    : gate.reason;
+  const shipped = useEnsemble ? fitted : baseline;
 
   const regions: RegionIndexEntry[] = [];
   const archive: Record<string, ForecastFile> = {};
@@ -98,8 +106,8 @@ export function runForecast(data: RegionData[], issued: string, dataVersion: str
       issued,
       data_version: dataVersion,
       last_observed_week: last,
-      model: gate.shipped === 'ensemble' ? fitted.name : baseline.name,
-      gate: { shipped: gate.shipped === 'ensemble' ? fitted.name : baseline.name, reason: gate.reason },
+      model: useEnsemble ? fitted.name : baseline.name,
+      gate: { shipped: useEnsemble ? fitted.name : baseline.name, reason },
       sources: SOURCES_USED,
       attribution: ATTRIBUTION,
       observed,
@@ -120,7 +128,7 @@ export function runForecast(data: RegionData[], issued: string, dataVersion: str
       summary: horizons.map((h) => ({ h: h.h, index: h.index, level: h.level, q10: h.q10, q50: h.q50, q90: h.q90, iso_week: h.iso_week })),
     });
   }
-  const index: ForecastIndex = { schema_version: 1, issued, data_version: dataVersion, model: gate.shipped === 'ensemble' ? fitted.name : baseline.name, regions };
+  const index: ForecastIndex = { schema_version: 1, issued, data_version: dataVersion, model: useEnsemble ? fitted.name : baseline.name, regions };
   writeJson(resolve(FORECASTS, 'index.json'), index);
   const archivePath = resolve(FORECASTS, 'archive', `${issued}.json.gz`);
   mkdirSync(dirname(archivePath), { recursive: true });

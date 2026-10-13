@@ -54,3 +54,11 @@ describe('regionDataFromExport', () => {
     expect(addWeeks(d!.signals['tmax']!.start, 3)).toBe('2026-W04');
   });
 });
+
+describe('runTest onRecords', () => {
+  it('hands the scored records to the caller', () => {
+    let recs: { model: string }[] = [];
+    runTest(data(), cfg, { candidate: 'dyn-season', groups: ['dynamics', 'season'], spread_factor: 1 }, { evaluateRegions: ['de'], refitEvery: 10, onRecords: (r) => (recs = r) });
+    expect(new Set(recs.map((r) => r.model))).toEqual(new Set(['baseline-seasonal', 'persistence', 'regional-model', 'ensemble']));
+  });
+});

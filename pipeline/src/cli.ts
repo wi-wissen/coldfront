@@ -5,6 +5,7 @@ import { loadEvalConfig, runTest, runTuning, type ModelChoice } from './evaluati
 import { CONFIG, FORECASTS } from './paths';
 import { readJson, runForecast } from './run-forecast';
 import { exportSeries } from './export-series';
+import { evaluateArchive, readArchive, writeLiveReport } from './monitor';
 import { runIngest } from './run-ingest';
 
 const [cmd = '', ...rest] = process.argv.slice(2);
@@ -59,7 +60,11 @@ async function main(): Promise<void> {
       break;
     }
     case 'forecast': {
-      const idx = runForecast(loadRegionData(), asOf, asOf);
+      const data = loadRegionData();
+      const live = evaluateArchive(readArchive(), data, loadEvalConfig(), asOf);
+      writeLiveReport(live);
+      console.log(`live monitor: ${live.evaluated_runs} runs scored, fallback=${live.fallback}`);
+      const idx = runForecast(data, asOf, asOf);
       console.log(`forecasts for ${idx.regions.length} regions (model ${idx.model})`);
       exportSeries();
       publishConfig();

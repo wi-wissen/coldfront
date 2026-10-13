@@ -70,6 +70,8 @@ export interface RunOptions {
   /** Refit the learned model only every n-th origin (speed for the browser). Default 1. */
   refitEvery?: number;
   onProgress?: (done: number, total: number) => void;
+  /** Receives the scored per-week records (models: baseline, persistence, regional-model, ensemble) for charts. */
+  onRecords?: (records: BacktestRecord[]) => void;
 }
 
 function run(cfg: EvalConfig, data: RegionData[], seasons: string[], models: (ForecasterFactory | ReturnType<typeof buildBaseline>)[], opts: RunOptions = {}): BacktestRecord[] {
@@ -136,6 +138,7 @@ export function runTest(data: RegionData[], cfg: EvalConfig, choice: ModelChoice
   const ensName = `ens-${choice.candidate}`;
   const recs0 = run(cfg, data, [season], [buildBaseline(cfg), buildPersistence(cfg), buildRegional(cfg, 'regional-model', choice.groups), buildEnsemble(cfg, ensName, choice.groups)], opts);
   const recs = [...recs0.filter((r) => r.model !== ensName), ...rescaleRecords(recs0, ensName, choice.spread_factor, 'ensemble')];
+  opts.onRecords?.(recs);
   const models = [cfg.models.baseline.name, cfg.models.persistence.name, 'regional-model', 'ensemble'];
   const grouped = (key: (r: BacktestRecord) => string) => {
     const out: Record<string, Record<string, MetricSummary>> = {};
