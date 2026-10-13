@@ -6,7 +6,7 @@ import {
 import { gzipSync } from 'fflate';
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
-import { buildBaseline, buildEnsemble, isPandemicWeek, loadEvalConfig, type ModelChoice, type TestResult } from './evaluation';
+import { buildBaseline, buildEnsemble, choiceWeight, isPandemicWeek, loadEvalConfig, type ModelChoice, type TestResult } from './evaluation';
 import { readLiveReport } from './monitor';
 import { FORECASTS, CONFIG } from './paths';
 
@@ -66,7 +66,7 @@ export function runForecast(data: RegionData[], issued: string, dataVersion: str
   const origin = addWeeks(national.target.start, national.target.values.length - 1);
   assertFresh(origin, issued);
 
-  const ens = scaleSpreadFactory(buildEnsemble(cfg, `ensemble-${choice.candidate}`, choice.groups), choice.spread_factor, `ensemble-${choice.candidate}`);
+  const ens = scaleSpreadFactory(buildEnsemble(cfg, `ensemble-${choice.candidate}`, choice.groups, choiceWeight(cfg, choice)), choice.spread_factor, `ensemble-${choice.candidate}`);
   const fitted = ens.fit(data.map((d) => ({ ...d })), origin);
   const baseline = buildBaseline(cfg);
   // Live safety net: if archived forecasts have been worse than the baseline over enough runs, ship the baseline.

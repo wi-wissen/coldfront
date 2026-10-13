@@ -1,3 +1,4 @@
+import { calendarEffect } from './calendar';
 import { addWeeks, formatWeek, isoWeeksInYear, parseWeek, weeksBetween } from './isoweek';
 import { seriesGet } from './series';
 import type { Forecaster, Horizon, IsoWeek, QuantileSet, RegionData } from './types';
@@ -12,6 +13,13 @@ export interface BaselineOptions {
   windowWeeks?: number;
   /** Minimum number of samples; fewer -> forecast returns null. Default 2. */
   minSamples?: number;
+  /**
+   * Remove the calendar effect (closed days, between the years) of each sample week and apply the
+   * target week's, so that e.g. a Christmas-week target is not compared with ordinary weeks. Default false.
+   */
+  calendarAlign?: boolean;
+  /** Model name reported in results. Default "baseline-seasonal". */
+  name?: string;
 }
 
 /**
@@ -25,7 +33,7 @@ export function seasonalBaseline(opts: BaselineOptions = {}): Forecaster {
   const windowWeeks = opts.windowWeeks ?? 1;
   const minSamples = opts.minSamples ?? 2;
   return {
-    name: 'baseline-seasonal',
+    name: opts.name ?? 'baseline-seasonal',
     forecast(data: RegionData, origin: IsoWeek, horizons: readonly Horizon[]): QuantileSet[] | null {
       const firstYear = parseWeek(data.target.start).year;
       const out: QuantileSet[] = [];
@@ -33,6 +41,7 @@ export function seasonalBaseline(opts: BaselineOptions = {}): Forecaster {
         const target = addWeeks(origin, h);
         const targetYear = parseWeek(target).year;
         const weekNo = Math.min(parseWeek(target).week, 52);
+        const ct = opts.calendarAlign ? calendarEffect(target, data.region) : 0;
         const sample: number[] = [];
         for (let y = firstYear; y < targetYear; y++) {
           for (let wk = weekNo - windowWeeks; wk <= weekNo + windowWeeks; wk++) {
@@ -41,7 +50,9 @@ export function seasonalBaseline(opts: BaselineOptions = {}): Forecaster {
             if (weeksBetween(w, origin) < 0) continue; // never use weeks after the origin
             if (opts.excludeWeek?.(w)) continue;
             const v = seriesGet(data.target, w);
-            if (v !== null) sample.push(v);
+            if (v !== null) {
+              sample.push(opts.calendarAlign ? v * Math.exp(ct - calendarEffect(w, data.region)) : v);
+            }
           }
         }
         if (sample.length < minSamples) return null;

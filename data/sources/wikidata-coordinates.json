@@ -1,0 +1,12 @@
+{
+  "id": "wikidata-coordinates",
+  "name": "Wikidata entity data (coordinates P625, administrative units P131) used to identify and cross-check wastewater plant localities",
+  "url": "https://www.wikidata.org/wiki/Special:EntityData/",
+  "attribution": "Wikidata, CC0 1.0",
+  "license": "CC0 1.0",
+  "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "retrieved": "2026-10-13",
+  "sha256": "e1a2b714fcca623fe1daee7ab7b2b5ad6e63784f61cefbc6e393513a7702bae3",
+  "sha256_of": "concatenated entity JSON of Q3939, Q6880, Q15982, Q537196, Q552793, Q559835, Q628741, Q945391, Q2164336, Q2286364, Q2557728, Q125117191 (version-sorted)",
+  "doi": ""
+}

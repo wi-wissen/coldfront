@@ -13,3 +13,4 @@ export * from './backtest';
 export * from './api-types';
 export * from './evaluation';
 export * from './series-export';
+export * from './calendar';

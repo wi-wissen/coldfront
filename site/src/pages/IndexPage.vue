@@ -59,7 +59,8 @@ export default defineComponent({
     horizonOptions(): HorizonOption[] {
       return (this.national?.horizons ?? []).map((h) => ({
         value: h.h,
-        label: this.$t('pages.index.hero.horizon', { n: h.h, week: this.weekLabel(h.iso_week) }, h.h),
+        label: this.$t('pages.index.hero.horizon', { n: h.h }, h.h),
+        sub: this.weekLabel(h.iso_week),
       }));
     },
     chartLabels(): ForecastChartLabels {

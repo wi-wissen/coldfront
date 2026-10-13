@@ -4,6 +4,8 @@ import { defineComponent, type PropType } from 'vue';
 export interface HorizonOption {
   value: number;
   label: string;
+  /** second, smaller line (the target week), always on its own line */
+  sub?: string;
 }
 
 /** Radio group for the forecast horizon (native radios: keyboard and screen reader support for free). */
@@ -40,7 +42,10 @@ export default defineComponent({
           :checked="modelValue === o.value"
           @change="choose(o.value)"
         />
-        <span>{{ o.label }}</span>
+        <span class="flex flex-col leading-tight">
+          <span>{{ o.label }}</span>
+          <span v-if="o.sub" class="text-xs font-normal cf-muted">{{ o.sub }}</span>
+        </span>
       </label>
     </div>
   </fieldset>

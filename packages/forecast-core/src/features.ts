@@ -1,3 +1,4 @@
+import { calendarEffect } from './calendar';
 import { addWeeks, parseWeek, weeksBetween } from './isoweek';
 import { seriesGet } from './series';
 import type { Horizon, IsoWeek, RegionData, WeeklySeries } from './types';
@@ -35,6 +36,12 @@ export function logTarget(data: RegionData, week: IsoWeek): number | null {
   return logOrNull(seriesGet(data.target, week));
 }
 
+/** Log of the target, optionally with the calendar effect (closed days, between the years) removed. */
+export function logInput(data: RegionData, week: IsoWeek, calendarAdjust: boolean): number | null {
+  const v = logTarget(data, week);
+  return v === null ? null : calendarAdjust ? v - calendarEffect(week, data.region) : v;
+}
+
 function lastKnown(s: WeeklySeries | undefined, origin: IsoWeek, maxBack: number): { week: IsoWeek; value: number } | null {
   if (!s) return null;
   for (let b = 0; b <= maxBack; b++) {
@@ -56,10 +63,11 @@ export function buildFeatureRow(
   origin: IsoWeek,
   h: Horizon,
   groups: readonly FeatureGroup[],
+  calendarAdjust = false,
 ): number[] | null {
-  const ly0 = logTarget(data, origin);
-  const ly1 = logTarget(data, addWeeks(origin, -1));
-  const ly2 = logTarget(data, addWeeks(origin, -2));
+  const ly0 = logInput(data, origin, calendarAdjust);
+  const ly1 = logInput(data, addWeeks(origin, -1), calendarAdjust);
+  const ly2 = logInput(data, addWeeks(origin, -2), calendarAdjust);
   if (ly0 === null || ly1 === null || ly2 === null) return null;
   const target = addWeeks(origin, h);
   const row: number[] = [];
@@ -69,7 +77,7 @@ export function buildFeatureRow(
       case 'dynamics': {
         const hist: number[] = [];
         for (let b = 0; b < 52; b++) {
-          const v = logTarget(data, addWeeks(origin, -b));
+          const v = logInput(data, addWeeks(origin, -b), calendarAdjust);
           if (v !== null) hist.push(v);
         }
         const mean = hist.length >= 26 ? hist.reduce((a, b) => a + b, 0) / hist.length : NaN;

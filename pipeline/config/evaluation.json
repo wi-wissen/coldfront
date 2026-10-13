@@ -1,44 +1,174 @@
 {
   "_comment": "Pre-registered evaluation protocol. Frozen before the first backtest run; do not adapt to results. Values marked start_value have no evidence behind them.",
   "frozen_on": "2026-10-13",
-  "target": { "indicator": "are", "series": "00+", "unit": "per_100k" },
-  "pandemic_exclusion": { "from": "2020-W10", "to": "2022-W39", "reason": "Testing, closure and quarantine rules distort the series; not used for baselines, training or scoring." },
-  "horizons": [1, 2, 3, 4],
+  "target": {
+    "indicator": "are",
+    "series": "00+",
+    "unit": "per_100k"
+  },
+  "pandemic_exclusion": {
+    "from": "2020-W10",
+    "to": "2022-W39",
+    "reason": "Testing, closure and quarantine rules distort the series; not used for baselines, training or scoring."
+  },
+  "horizons": [
+    1,
+    2,
+    3,
+    4
+  ],
   "seasons": {
     "definition": "ISO week 40 to week 39 of the following year",
-    "tuning": ["2023/24", "2024/25"],
+    "tuning": [
+      "2023/24",
+      "2024/25"
+    ],
     "test": "2025/26",
     "test_rule": "The test season is evaluated once; `backtest test` refuses to overwrite its result without --force."
   },
-  "availability_lags_weeks": { "target": 0, "wastewater_sars": 1, "wastewater_flu": 1, "wastewater_rsv": 1, "tmax": 0, "tmin": 0 },
-  "vintage_note": "Archived data versions (as_of) exist only from the first ingest on. Until enough versions are archived the backtest uses today's corrected data and therefore looks somewhat better than a live forecast would.",
-  "models": {
-    "baseline": { "name": "baseline-seasonal", "window_weeks": 1, "min_samples": 2 },
-    "persistence": { "name": "persistence", "min_samples": 20 },
-    "regional": { "ridge": 1.0, "ridge_status": "start_value", "min_train_rows": 300, "max_iter": 60 },
-    "ensemble": { "model_weight": 0.5, "baseline_weight": 0.5, "weight_status": "start_value" },
-    "feature_candidates": [
-      { "name": "dyn", "groups": ["dynamics"] },
-      { "name": "dyn-season", "groups": ["dynamics", "season"] },
-      { "name": "dyn-season-holiday", "groups": ["dynamics", "season", "holiday"] },
-      { "name": "dyn-season-weather", "groups": ["dynamics", "season", "weather"] },
-      { "name": "dyn-season-wastewater", "groups": ["dynamics", "season", "wastewater"] },
-      { "name": "all", "groups": ["dynamics", "season", "holiday", "weather", "wastewater"] }
-    ],
-    "spread_factor_grid": [1.0, 1.1, 1.2, 1.35, 1.5, 1.75, 2.0],
-    "selection_rule": "Feature set with the lowest mean WIS of the ensemble on the tuning seasons; then the spread factor with the lowest ensemble WIS on the tuning seasons."
+  "availability_lags_weeks": {
+    "target": 0,
+    "wastewater_sars": 1,
+    "wastewater_flu": 1,
+    "wastewater_rsv": 1,
+    "tmax": 0,
+    "tmin": 0
   },
-  "metrics": ["mae", "wis", "coverage50", "coverage80"],
-  "breakdowns": ["region", "horizon", "wave_phase", "season"],
-  "peak_scoring": "Timing (weeks) and height (relative) of the peak of the median forecast versus the actual peak, per region, season and horizon.",
+  "vintage_note": "Real data versions of ARE exist since 2023-09 (reconstructed from the RKI's public git history, data/long/are.csv.gz). The tuning and test backtests still use today's corrected data; a separate descriptive comparison with the data versions known at each origin is in forecasts/backtest/vintage.json.",
+  "models": {
+    "baseline": {
+      "name": "baseline-seasonal",
+      "window_weeks": 1,
+      "min_samples": 2,
+      "calendar_align": true
+    },
+    "persistence": {
+      "name": "persistence",
+      "min_samples": 20
+    },
+    "regional": {
+      "ridge": 1.0,
+      "ridge_status": "start_value",
+      "min_train_rows": 300,
+      "max_iter": 60,
+      "calendar_adjust": true
+    },
+    "ensemble": {
+      "model_weight": 0.5,
+      "baseline_weight": 0.5,
+      "weight_status": "start_value (v1: 0.5); v2 searches the grid on the tuning seasons",
+      "model_weight_grid": [
+        0.5,
+        0.6,
+        0.75
+      ]
+    },
+    "feature_candidates": [
+      {
+        "name": "dyn",
+        "groups": [
+          "dynamics"
+        ]
+      },
+      {
+        "name": "dyn-season",
+        "groups": [
+          "dynamics",
+          "season"
+        ]
+      },
+      {
+        "name": "dyn-season-holiday",
+        "groups": [
+          "dynamics",
+          "season",
+          "holiday"
+        ]
+      },
+      {
+        "name": "dyn-season-weather",
+        "groups": [
+          "dynamics",
+          "season",
+          "weather"
+        ]
+      },
+      {
+        "name": "dyn-season-wastewater",
+        "groups": [
+          "dynamics",
+          "season",
+          "wastewater"
+        ]
+      },
+      {
+        "name": "all",
+        "groups": [
+          "dynamics",
+          "season",
+          "holiday",
+          "weather",
+          "wastewater"
+        ]
+      }
+    ],
+    "spread_factor_grid": [
+      1.0,
+      1.1,
+      1.2,
+      1.35,
+      1.5,
+      1.75,
+      2.0
+    ],
+    "selection_rule": "Feature set and ensemble weight/spread with the lowest ensemble WIS over the weight x spread grid on the tuning seasons."
+  },
+  "metrics": [
+    "mae",
+    "wis",
+    "coverage50",
+    "coverage80"
+  ],
+  "breakdowns": [
+    "region",
+    "horizon",
+    "wave_phase",
+    "season"
+  ],
+  "peak_scoring": "v2: per horizon, argmax of the centred 3-week mean over W45..W15 (week between the years and the week after removed) of the median forecast versus the actual values; median |timing error| in weeks and share within one week; persistence lags by about h weeks by construction (reference). v1 pooled all horizons and weeks and was discontinuous.",
   "gate": {
     "reference": "baseline-seasonal",
     "min_rel_wis_improvement": 0.1,
     "min_rel_wis_improvement_status": "start_value",
     "evaluated_on": "test season, all regions and horizons",
-    "if_failed": "ship the baseline"
+    "if_failed": "ship the baseline",
+    "reference_note": "v2: 'baseline-seasonal' is the calendar-aligned baseline."
   },
-  "bootstrap": { "block_weeks": 4, "n": 1000, "seed": 20261013 },
-  "external_comparison": ["RESPINOW", "RespiCast"],
-  "external_comparison_note": "Pending: requires the archived forecasts of both initiatives; reported as not done until implemented."
+  "bootstrap": {
+    "block_weeks": 4,
+    "n": 1000,
+    "seed": 20261013
+  },
+  "external_comparison": [
+    "RESPINOW",
+    "RespiCast"
+  ],
+  "external_comparison_note": "RESPINOW comparison (national, absolute counts converted to per 100k) is in forecasts/backtest/external.json; RespiCast was not reachable.",
+  "amendments": [
+    {
+      "version": 2,
+      "date": "2026-10-13",
+      "reason": "A diagnosis on the tuning seasons only (2023/24, 2024/25) found a large, regular care-seeking calendar effect in ARE (week between the years about 0.4x, each closed weekday about 0.81x; absent in GrippeWeb) that the v1 model could not explain, a flawed peak-timing metric, and an inconsistency of the lag of wastewater features between training and prediction.",
+      "changes": [
+        "Calendar adjustment: fixed log effect -1.175*closed_share - 0.356*[week contains 28 Dec], estimated on national ARE before 2023-W36 only; applied to the regional model (dynamics features, training target, forecast) and to the seasonal baseline (samples aligned to the target week).",
+        "Regional model: availability lags are now applied identically in training and prediction.",
+        "Ensemble weight of the regional model and spread factor are chosen jointly on the tuning seasons from grids (weights 0.5/0.6/0.75, the existing spread grid); the feature candidates are unchanged.",
+        "Peak timing: per horizon, winter window W45..W15, centred 3-week mean, week between the years and the week after removed; share within one week reported; the persistence lag is the reference.",
+        "Gate reference is now the calendar-aligned seasonal baseline (stricter and also what is shipped on fallback); the plain v1 baseline is reported as 'baseline-plain'.",
+        "Vacation periods now cover 2012/13 onward (KMK PDFs), so the Christmas dips of earlier winters enter training with their calendar features."
+      ],
+      "test_season_status": "Season 2025/26 was evaluated once under protocol v1 (forecasts/backtest/test-v1.json, untouched at that time). Under v2 it is evaluated again for description only and is no longer an untouched test season. The next untouched test season is 2026/27: evaluate it once after ISO week 2027-W39.",
+      "selection_data": "Tuning seasons only; the v1 test-season results were not used to select anything in v2 (the diagnosis explicitly excluded season 2025/26)."
+    }
+  ]
 }

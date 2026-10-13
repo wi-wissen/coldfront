@@ -1,6 +1,6 @@
 import { rescaleQuantiles } from './ensemble';
 import { KNOWN_AHEAD_SIGNALS } from './features';
-import { addWeeks, compareWeeks, seasonOf, weekRange } from './isoweek';
+import { addWeeks, compareWeeks, seasonOf, weekOfDate, weekRange } from './isoweek';
 import { summarize, weightedIntervalScore } from './metrics';
 import { seriesGet, truncateSeries } from './series';
 import type { AvailabilityLags, Forecaster, ForecasterFactory, Horizon, IsoWeek, MetricSummary, QuantileSet, RegionData } from './types';
@@ -269,4 +269,151 @@ function weeksDiff(a: IsoWeek, b: IsoWeek): number {
 /** Copy of the records of `model` with the band spread rescaled by k, under a new model name. */
 export function rescaleRecords(records: readonly BacktestRecord[], model: string, k: number, newName: string): BacktestRecord[] {
   return records.filter((r) => r.model === model).map((r) => ({ ...r, model: newName, forecast: rescaleQuantiles(r.forecast, k) }));
+}
+
+/**
+ * Quantile-average two models' records cell by cell: weight `wB` for model B, 1 - wB for model A
+ * (exactly what `ensemble()` does at forecast time, but without refitting). Only cells present in both.
+ */
+export function blendRecords(records: readonly BacktestRecord[], modelA: string, modelB: string, wB: number, newName: string): BacktestRecord[] {
+  const cell = (r: BacktestRecord) => `${r.region}|${r.origin}|${r.forecast.h}`;
+  const a = new Map(records.filter((r) => r.model === modelA).map((r) => [cell(r), r]));
+  const out: BacktestRecord[] = [];
+  for (const rb of records) {
+    if (rb.model !== modelB) continue;
+    const ra = a.get(cell(rb));
+    if (!ra) continue;
+    const mix = (k: 'q10' | 'q25' | 'q50' | 'q75' | 'q90') => (1 - wB) * ra.forecast[k] + wB * rb.forecast[k];
+    out.push({ ...rb, model: newName, forecast: { iso_week: rb.forecast.iso_week, h: rb.forecast.h, q10: mix('q10'), q25: mix('q25'), q50: mix('q50'), q75: mix('q75'), q90: mix('q90') } });
+  }
+  return out;
+}
+
+export interface PeakTimingSummary {
+  /** number of region-season groups scored */
+  n: number;
+  median_abs_timing_weeks: number;
+  within_one_week_share: number;
+  /** mean relative error of the predicted peak height versus the actual peak height (smoothed curves) */
+  mean_height_rel: number;
+  /** region-seasons whose actual curve has a second peak >= 90 % of the maximum (timing is ambiguous there) */
+  ambiguous: number;
+}
+
+const WINDOW_START = 45; // ISO week numbers W45..W53 and W01..W15 form the winter window
+const WINDOW_END = 15;
+
+function inWinterWindow(week: IsoWeek): boolean {
+  const n = Number(week.slice(6));
+  return n >= WINDOW_START || n <= WINDOW_END;
+}
+
+/** ISO week containing 28 December (week "between the years") and the week after it. */
+function betweenYearsWeeks(week: IsoWeek): boolean {
+  const y = Number(week.slice(0, 4));
+  // The week after the week between the years lies in the next ISO year, so check this year and the one before.
+  for (const year of [y, y - 1]) {
+    const x = weekOfDate(new Date(Date.UTC(year, 11, 28)));
+    if (week === x || week === addWeeks(x, 1)) return true;
+  }
+  return false;
+}
+
+/** Centred 3-week mean over the weeks that are present; the series is a map week -> value. */
+function smooth3(m: Map<IsoWeek, number>): Map<IsoWeek, number> {
+  const out = new Map<IsoWeek, number>();
+  for (const w of m.keys()) {
+    const vals = [-1, 0, 1].map((d) => m.get(addWeeks(w, d))).filter((v): v is number => v !== undefined);
+    if (vals.length >= 2) out.set(w, vals.reduce((a, b) => a + b, 0) / vals.length);
+  }
+  return out;
+}
+
+function argmaxWeek(m: Map<IsoWeek, number>): IsoWeek | null {
+  let best: IsoWeek | null = null;
+  let bv = -Infinity;
+  for (const [w, v] of [...m].sort((a, b) => compareWeeks(a[0], b[0]))) {
+    if (v > bv) {
+      bv = v;
+      best = w;
+    }
+  }
+  return best;
+}
+
+/** True when the curve has a local maximum >= 90 % of the global maximum at least 3 weeks away from it. */
+function hasSecondPeak(m: Map<IsoWeek, number>, peak: IsoWeek): boolean {
+  const max = m.get(peak) ?? 0;
+  for (const [w, v] of m) {
+    if (Math.abs(weeksBetweenLocal(peak, w)) < 3 || v < 0.9 * max) continue;
+    const l = m.get(addWeeks(w, -1));
+    const r = m.get(addWeeks(w, 1));
+    if ((l === undefined || v >= l) && (r === undefined || v >= r)) return true;
+  }
+  return false;
+}
+
+function weeksBetweenLocal(a: IsoWeek, b: IsoWeek): number {
+  let n = 0;
+  let w = a;
+  const dir = compareWeeks(a, b) <= 0 ? 1 : -1;
+  while (w !== b && Math.abs(n) < 200) {
+    w = addWeeks(w, dir);
+    n += dir;
+  }
+  return n;
+}
+
+/**
+ * Peak timing per model and horizon (never pooled over horizons). For each region, season and
+ * horizon: the week of the maximum of the centred 3-week mean of the median forecast versus the
+ * same for the actual values, restricted to the winter window W45..W15 with the week between the
+ * years and the week after it removed from both curves. Persistence scores about h weeks by
+ * construction (it lags), which is the reference to compare with. Groups need >= 12 weeks.
+ */
+export function peakTiming(records: readonly BacktestRecord[]): Record<string, Record<string, PeakTimingSummary>> {
+  type Key = string;
+  const groups = new Map<Key, BacktestRecord[]>();
+  for (const r of records) {
+    if (!inWinterWindow(r.forecast.iso_week) || betweenYearsWeeks(r.forecast.iso_week)) continue;
+    const k = `${r.model}\u0000${r.region}\u0000${r.season}\u0000${r.forecast.h}`;
+    if (!groups.has(k)) groups.set(k, []);
+    groups.get(k)!.push(r);
+  }
+  const errs = new Map<string, { abs: number[]; within: number; n: number; height: number[]; amb: number }>();
+  for (const [k, rs] of groups) {
+    if (rs.length < 12) continue;
+    const [model, , , h] = k.split('\u0000') as [string, string, string, string];
+    const actual = smooth3(new Map(rs.map((r) => [r.forecast.iso_week, r.actual])));
+    const pred = smooth3(new Map(rs.map((r) => [r.forecast.iso_week, r.forecast.q50])));
+    const pa = argmaxWeek(actual);
+    const pp = argmaxWeek(pred);
+    if (!pa || !pp) continue;
+    const e = weeksBetweenLocal(pa, pp);
+    for (const key of [`${model}\u0000all`, `${model}\u0000h${h}`]) {
+      const s = errs.get(key) ?? { abs: [], within: 0, n: 0, height: [], amb: 0 };
+      s.abs.push(Math.abs(e));
+      s.within += Math.abs(e) <= 1 ? 1 : 0;
+      s.n += 1;
+      s.height.push(((pred.get(pp) ?? 0) - (actual.get(pa) ?? 1)) / (actual.get(pa) ?? 1));
+      s.amb += hasSecondPeak(actual, pa) ? 1 : 0;
+      errs.set(key, s);
+    }
+  }
+  const median = (xs: number[]) => {
+    const s = [...xs].sort((a, b) => a - b);
+    return s.length ? (s.length % 2 ? s[(s.length - 1) / 2]! : (s[s.length / 2 - 1]! + s[s.length / 2]!) / 2) : NaN;
+  };
+  const out: Record<string, Record<string, PeakTimingSummary>> = {};
+  for (const [key, s] of errs) {
+    const [model, scope] = key.split('\u0000') as [string, string];
+    (out[model] ??= {})[scope] = {
+      n: s.n,
+      median_abs_timing_weeks: median(s.abs),
+      within_one_week_share: s.within / s.n,
+      mean_height_rel: s.height.reduce((a, b) => a + b, 0) / s.height.length,
+      ambiguous: s.amb,
+    };
+  }
+  return out;
 }

@@ -1,5 +1,5 @@
 import type { BacktestPublic, TuningPublic } from './api-types';
-import { peakErrors, compareModels, rescaleRecords, runBacktest, summarizeBy, type BacktestRecord } from './backtest';
+import { blendRecords, compareModels, peakTiming, rescaleRecords, runBacktest, summarizeBy, type BacktestRecord } from './backtest';
 import { persistence, seasonalBaseline } from './baseline';
 import { ensembleFactory } from './ensemble';
 import type { FeatureGroup } from './features';
@@ -16,10 +16,11 @@ export interface EvalConfig {
   seasons: { tuning: string[]; test: string };
   availability_lags_weeks: AvailabilityLags;
   models: {
-    baseline: { name: string; window_weeks: number; min_samples: number };
+    baseline: { name: string; window_weeks: number; min_samples: number; calendar_align?: boolean };
     persistence: { name: string; min_samples: number };
-    regional: { ridge: number; min_train_rows: number; max_iter: number };
-    ensemble: { model_weight: number; baseline_weight: number };
+    regional: { ridge: number; min_train_rows: number; max_iter: number; calendar_adjust?: boolean };
+    /** `model_weight` is the weight of the regional model (baseline gets 1 - weight); the grid is searched on the tuning seasons. */
+    ensemble: { model_weight: number; baseline_weight: number; model_weight_grid?: number[] };
     feature_candidates: { name: string; groups: FeatureGroup[] }[];
     spread_factor_grid: number[];
   };
@@ -38,23 +39,45 @@ export interface ModelChoice {
   candidate: string;
   groups: FeatureGroup[];
   spread_factor: number;
+  /** weight of the regional model in the ensemble; default: cfg.models.ensemble.model_weight */
+  model_weight?: number;
 }
 
+export const choiceWeight = (cfg: EvalConfig, choice: ModelChoice): number => choice.model_weight ?? cfg.models.ensemble.model_weight;
+
 export function buildBaseline(cfg: EvalConfig) {
-  return seasonalBaseline({ excludeWeek: isPandemicWeek(cfg), windowWeeks: cfg.models.baseline.window_weeks, minSamples: cfg.models.baseline.min_samples });
+  return seasonalBaseline({
+    excludeWeek: isPandemicWeek(cfg),
+    windowWeeks: cfg.models.baseline.window_weeks,
+    minSamples: cfg.models.baseline.min_samples,
+    calendarAlign: cfg.models.baseline.calendar_align === true,
+    name: cfg.models.baseline.name,
+  });
+}
+/** The seasonal baseline without calendar alignment (continuity with protocol v1). */
+export function buildBaselinePlain(cfg: EvalConfig) {
+  return seasonalBaseline({ excludeWeek: isPandemicWeek(cfg), windowWeeks: cfg.models.baseline.window_weeks, minSamples: cfg.models.baseline.min_samples, name: 'baseline-plain' });
 }
 export function buildPersistence(cfg: EvalConfig) {
   return persistence({ excludeWeek: isPandemicWeek(cfg), minSamples: cfg.models.persistence.min_samples });
 }
 export function buildRegional(cfg: EvalConfig, name: string, groups: FeatureGroup[]): ForecasterFactory {
   const r = cfg.models.regional;
-  return regionalQuantileModel({ name, featureGroups: groups, ridge: r.ridge, minTrainRows: r.min_train_rows, maxIter: r.max_iter, excludeWeek: isPandemicWeek(cfg) });
+  return regionalQuantileModel({
+    name,
+    featureGroups: groups,
+    ridge: r.ridge,
+    minTrainRows: r.min_train_rows,
+    maxIter: r.max_iter,
+    excludeWeek: isPandemicWeek(cfg),
+    calendarAdjust: r.calendar_adjust === true,
+    lags: cfg.availability_lags_weeks,
+  });
 }
-export function buildEnsemble(cfg: EvalConfig, name: string, groups: FeatureGroup[]): ForecasterFactory {
-  const e = cfg.models.ensemble;
+export function buildEnsemble(cfg: EvalConfig, name: string, groups: FeatureGroup[], modelWeight = cfg.models.ensemble.model_weight): ForecasterFactory {
   return ensembleFactory(name, [
-    { factory: buildBaseline(cfg), weight: e.baseline_weight },
-    { factory: buildRegional(cfg, `rqm-${name}`, groups), weight: e.model_weight },
+    { factory: buildBaseline(cfg), weight: 1 - modelWeight },
+    { factory: buildRegional(cfg, `rqm-${name}`, groups), weight: modelWeight },
   ]);
 }
 
@@ -92,38 +115,57 @@ function run(cfg: EvalConfig, data: RegionData[], seasons: string[], models: (Fo
 
 export type TuningResult = Omit<TuningPublic, 'chosen'> & { chosen: ModelChoice };
 
+/**
+ * Tuning on the tuning seasons only. Per feature-set candidate the regional model is fitted once per
+ * origin; the ensemble is then formed after the fact for every weight of the grid (quantile
+ * averaging, identical to the forecast-time ensemble) and every spread factor. The candidate with the
+ * lowest ensemble WIS over the (weight, spread) grid wins and brings its best weight and spread.
+ */
 export function runTuning(data: RegionData[], cfg: EvalConfig, log: (m: string) => void = () => {}): TuningResult {
   const seasons = cfg.seasons.tuning;
+  const weights = cfg.models.ensemble.model_weight_grid ?? [cfg.models.ensemble.model_weight];
   const candidates: TuningResult['candidates'] = [];
-  let bestName = '';
-  let bestWis = Infinity;
-  let bestRecords: BacktestRecord[] = [];
+  const base = cfg.models.baseline.name;
+  let best: { name: string; w: number; k: number; wis: number; recs: BacktestRecord[] } | null = null;
   let baseWis = NaN;
+  let plainWis = NaN;
   let persWis = NaN;
   for (const c of cfg.models.feature_candidates) {
     const t0 = Date.now();
-    const ensName = `ens-${c.name}`;
-    const recs = run(cfg, data, seasons, [buildBaseline(cfg), buildPersistence(cfg), buildRegional(cfg, `rqm-${c.name}`, c.groups), buildEnsemble(cfg, ensName, c.groups)]);
+    const rqm = `rqm-${c.name}`;
+    const recs = run(cfg, data, seasons, [buildBaseline(cfg), buildBaselinePlain(cfg), buildPersistence(cfg), buildRegional(cfg, rqm, c.groups)]);
     const by = summarizeBy(recs, (r) => r.model);
-    const ens = by.get(ensName)!;
-    const mod = by.get(`rqm-${c.name}`)!;
-    candidates.push({ name: c.name, groups: c.groups, wis_ensemble: ens.wis, wis_model: mod.wis, n: ens.n });
-    baseWis = by.get(cfg.models.baseline.name)!.wis;
+    baseWis = by.get(base)!.wis;
+    plainWis = by.get('baseline-plain')!.wis;
     persWis = by.get(cfg.models.persistence.name)!.wis;
-    log(`tune ${c.name}: ens WIS ${ens.wis.toFixed(2)} model ${mod.wis.toFixed(2)} baseline ${baseWis.toFixed(2)} (n=${ens.n}, ${((Date.now() - t0) / 1000).toFixed(0)}s)`);
-    if (ens.wis < bestWis) {
-      bestWis = ens.wis;
-      bestName = c.name;
-      bestRecords = recs.filter((r) => r.model === ensName);
+    const mod = by.get(rqm)!;
+    let cBest: { w: number; k: number; wis: number } | null = null;
+    for (const w of weights) {
+      const blended = blendRecords(recs, base, rqm, w, 'blend');
+      for (const k of cfg.models.spread_factor_grid) {
+        const wis = summarize(rescaleRecords(blended, 'blend', k, 'x')).wis;
+        if (!cBest || wis < cBest.wis - 1e-9) cBest = { w, k, wis };
+      }
     }
+    const n = summarize(blendRecords(recs, base, rqm, cBest!.w, 'blend')).n;
+    candidates.push({ name: c.name, groups: c.groups, wis_ensemble: cBest!.wis, wis_model: mod.wis, n, model_weight: cBest!.w, spread_factor: cBest!.k });
+    log(`tune ${c.name}: best ensemble WIS ${cBest!.wis.toFixed(2)} (w=${cBest!.w}, k=${cBest!.k}), model ${mod.wis.toFixed(2)}, baseline ${baseWis.toFixed(2)}, plain ${plainWis.toFixed(2)} (n=${n}, ${((Date.now() - t0) / 1000).toFixed(0)}s)`);
+    if (!best || cBest!.wis < best.wis) best = { name: c.name, ...cBest!, recs: blendRecords(recs, base, rqm, cBest!.w, 'blend') };
   }
   const spread_grid = cfg.models.spread_factor_grid.map((k) => {
-    const s = summarize(rescaleRecords(bestRecords, `ens-${bestName}`, k, 'x'));
+    const s = summarize(rescaleRecords(best!.recs, 'blend', k, 'x'));
     return { k, wis: s.wis, coverage80: s.coverage80, coverage50: s.coverage50 };
   });
-  const bestK = spread_grid.reduce((a, b) => (b.wis < a.wis - 1e-9 ? b : a)).k;
-  const groups = cfg.models.feature_candidates.find((c) => c.name === bestName)!.groups;
-  return { chosen: { candidate: bestName, groups, spread_factor: bestK }, tuned_on: seasons, candidates, baseline_wis: baseWis, persistence_wis: persWis, spread_grid };
+  const groups = cfg.models.feature_candidates.find((c) => c.name === best!.name)!.groups;
+  return {
+    chosen: { candidate: best!.name, groups, spread_factor: best!.k, model_weight: best!.w },
+    tuned_on: seasons,
+    candidates,
+    baseline_wis: baseWis,
+    baseline_plain_wis: plainWis,
+    persistence_wis: persWis,
+    spread_grid,
+  };
 }
 
 export type TestResult = Omit<BacktestPublic, 'generated'>;
@@ -135,11 +177,19 @@ const median = (xs: number[]) => {
 
 export function runTest(data: RegionData[], cfg: EvalConfig, choice: ModelChoice, opts: RunOptions & { season?: string } = {}): TestResult {
   const season = opts.season ?? cfg.seasons.test;
-  const ensName = `ens-${choice.candidate}`;
-  const recs0 = run(cfg, data, [season], [buildBaseline(cfg), buildPersistence(cfg), buildRegional(cfg, 'regional-model', choice.groups), buildEnsemble(cfg, ensName, choice.groups)], opts);
-  const recs = [...recs0.filter((r) => r.model !== ensName), ...rescaleRecords(recs0, ensName, choice.spread_factor, 'ensemble')];
+  const base = cfg.models.baseline.name;
+  const aligned = cfg.models.baseline.calendar_align === true;
+  const recs0 = run(
+    cfg,
+    data,
+    [season],
+    [buildBaseline(cfg), ...(aligned ? [buildBaselinePlain(cfg)] : []), buildPersistence(cfg), buildRegional(cfg, 'regional-model', choice.groups)],
+    opts,
+  );
+  const blended = blendRecords(recs0, base, 'regional-model', choiceWeight(cfg, choice), 'ensemble-raw');
+  const recs = [...recs0, ...rescaleRecords(blended, 'ensemble-raw', choice.spread_factor, 'ensemble')];
   opts.onRecords?.(recs);
-  const models = [cfg.models.baseline.name, cfg.models.persistence.name, 'regional-model', 'ensemble'];
+  const models = [base, ...(aligned ? ['baseline-plain'] : []), cfg.models.persistence.name, 'regional-model', 'ensemble'];
   const grouped = (key: (r: BacktestRecord) => string) => {
     const out: Record<string, Record<string, MetricSummary>> = {};
     for (const m of models) {
@@ -150,17 +200,25 @@ export function runTest(data: RegionData[], cfg: EvalConfig, choice: ModelChoice
   const overall = Object.fromEntries([...summarizeBy(recs, (r) => r.model)]);
   const bs = { blockSize: cfg.bootstrap.block_weeks, nBoot: cfg.bootstrap.n, seed: cfg.bootstrap.seed };
   const comparisons: TestResult['comparisons'] = {
-    'ensemble vs baseline-seasonal': compareModels(recs, 'ensemble', cfg.gate.reference, bs),
+    [`ensemble vs ${base}`]: compareModels(recs, 'ensemble', cfg.gate.reference, bs),
+    ...(aligned ? { 'ensemble vs baseline-plain': compareModels(recs, 'ensemble', 'baseline-plain', bs) } : {}),
     'ensemble vs persistence': compareModels(recs, 'ensemble', cfg.models.persistence.name, bs),
-    'regional-model vs baseline-seasonal': compareModels(recs, 'regional-model', cfg.gate.reference, bs),
+    [`regional-model vs ${base}`]: compareModels(recs, 'regional-model', cfg.gate.reference, bs),
   };
-  const peaks = peakErrors(recs);
+  const timing = peakTiming(recs);
   const peak: TestResult['peak'] = {};
   for (const m of models) {
-    const p = peaks.filter((x) => x.model === m);
-    peak[m] = { n: p.length, median_abs_timing_weeks: median(p.map((x) => Math.abs(x.timingWeeks))), mean_height_rel: p.length ? p.reduce((a, x) => a + x.heightRel, 0) / p.length : NaN };
+    const t = timing[m];
+    if (!t?.['all']) continue;
+    const { n, median_abs_timing_weeks, mean_height_rel, within_one_week_share, ambiguous } = t['all'];
+    const by_horizon: Record<string, { n: number; median_abs_timing_weeks: number; within_one_week_share: number }> = {};
+    for (const h of ['h1', 'h2', 'h3', 'h4']) {
+      const x = t[h];
+      if (x) by_horizon[h] = { n: x.n, median_abs_timing_weeks: x.median_abs_timing_weeks, within_one_week_share: x.within_one_week_share };
+    }
+    peak[m] = { n, median_abs_timing_weeks, mean_height_rel, within_one_week_share, ambiguous, by_horizon };
   }
-  const cmp = comparisons['ensemble vs baseline-seasonal'];
+  const cmp = comparisons[`ensemble vs ${base}`];
   const rel = cmp ? cmp.relImprovement : null;
   const pass = rel !== null && rel >= cfg.gate.min_rel_wis_improvement;
   return {
@@ -178,9 +236,8 @@ export function runTest(data: RegionData[], cfg: EvalConfig, choice: ModelChoice
       rel_wis_improvement: rel,
       threshold: cfg.gate.min_rel_wis_improvement,
       reason: pass
-        ? `Ensemble WIS is ${(rel! * 100).toFixed(1)} % below the seasonal baseline on the untouched test season (threshold ${(cfg.gate.min_rel_wis_improvement * 100).toFixed(0)} %).`
+        ? `Ensemble WIS is ${(rel! * 100).toFixed(1)} % below the seasonal baseline (threshold ${(cfg.gate.min_rel_wis_improvement * 100).toFixed(0)} %).`
         : `Ensemble improvement over the seasonal baseline is ${rel === null ? 'not available' : (rel * 100).toFixed(1) + ' %'}, below the ${(cfg.gate.min_rel_wis_improvement * 100).toFixed(0)} % threshold; the baseline is shipped.`,
     },
   };
 }
-

@@ -1,7 +1,8 @@
+import { calendarEffect } from './calendar';
 import { buildFeatureRow, featureNames, logTarget, type FeatureGroup } from './features';
 import { addWeeks, compareWeeks, weeksBetween } from './isoweek';
 import { fitQuantileRegression, predictLinear } from './quantile-regression';
-import { QUANTILE_LEVELS, HORIZONS, type Forecaster, type ForecasterFactory, type Horizon, type IsoWeek, type QuantileSet, type RegionData } from './types';
+import { QUANTILE_LEVELS, HORIZONS, type AvailabilityLags, type Forecaster, type ForecasterFactory, type Horizon, type IsoWeek, type QuantileSet, type RegionData } from './types';
 
 export interface RegionalModelConfig {
   name: string;
@@ -14,6 +15,16 @@ export interface RegionalModelConfig {
   excludeWeek?: (week: IsoWeek) => boolean;
   /** Max IRLS iterations (speed vs. precision in the backtest). */
   maxIter?: number;
+  /**
+   * Learn the growth of the calendar-corrected log ARE (closed days and the week between the years
+   * removed) and add the target week's calendar effect back to the forecast.
+   */
+  calendarAdjust?: boolean;
+  /**
+   * Publication lags per signal (weeks). Training applies them exactly like prediction does, so
+   * features are built from the same information at both times.
+   */
+  lags?: AvailabilityLags;
 }
 
 interface Fitted {
@@ -35,6 +46,8 @@ function standardise(row: number[], mean: number[], sd: number[]): number[] {
 export function regionalQuantileModel(cfg: RegionalModelConfig): ForecasterFactory {
   const groups = cfg.featureGroups;
   const nFeat = featureNames(groups).length;
+  const adjust = cfg.calendarAdjust === true;
+  const corr = (w: IsoWeek, region: string) => (adjust ? calendarEffect(w, region) : 0);
   return {
     name: cfg.name,
     fit(training: RegionData[], origin: IsoWeek): Forecaster {
@@ -48,12 +61,13 @@ export function regionalQuantileModel(cfg: RegionalModelConfig): ForecasterFacto
           const out: QuantileSet[] = [];
           for (const h of horizons) {
             const coefs = fitted.coef.get(h);
-            const row = buildFeatureRow(data, o, h, groups);
+            const row = buildFeatureRow(data, o, h, groups, adjust);
             if (!coefs || !row) return null;
             const x = standardise(row, fitted.mean, fitted.sd);
             const z = coefs.map((c) => predictLinear(c, x)).sort((a, b) => a - b);
-            const v = z.map((q) => Math.exp(ly0 + q));
-            out.push({ iso_week: addWeeks(o, h), h, q10: v[0]!, q25: v[1]!, q50: v[2]!, q75: v[3]!, q90: v[4]! });
+            const t = addWeeks(o, h);
+            const v = z.map((q) => Math.exp(ly0 - corr(o, data.region) + corr(t, data.region) + q));
+            out.push({ iso_week: t, h, q10: v[0]!, q25: v[1]!, q50: v[2]!, q75: v[3]!, q90: v[4]! });
           }
           return out;
         },
@@ -69,6 +83,7 @@ function trainAll(
   groups: readonly FeatureGroup[],
   nFeat: number,
 ): Fitted | null {
+  const adjust = cfg.calendarAdjust === true;
   const perH = new Map<Horizon, { rows: number[][]; y: number[] }>();
   for (const h of HORIZONS) perH.set(h, { rows: [], y: [] });
   for (const data of training) {
@@ -77,7 +92,7 @@ function trainAll(
     for (let i = 0; i <= n; i++) {
       const s = addWeeks(start, i);
       if (cfg.excludeWeek?.(s)) continue;
-      const view = viewUntil(data, s);
+      const view = viewUntil(data, s, cfg.lags);
       for (const h of HORIZONS) {
         const t = addWeeks(s, h);
         if (compareWeeks(t, origin) > 0 || cfg.excludeWeek?.(t)) continue;
@@ -86,11 +101,11 @@ function trainAll(
         if (ly0 === null || lyT === null) continue;
         // Features must only see data up to s: the caller truncated at `origin`,
         // so build the row on a view that ends at s.
-        const row = buildFeatureRow(view, s, h, groups);
+        const row = buildFeatureRow(view, s, h, groups, adjust);
         if (!row) continue;
         const b = perH.get(h)!;
         b.rows.push(row);
-        b.y.push(lyT - ly0);
+        b.y.push(lyT - (adjust ? calendarEffect(t, data.region) : 0) - (ly0 - (adjust ? calendarEffect(s, data.region) : 0)));
       }
     }
   }
@@ -121,12 +136,12 @@ function trainAll(
 }
 
 /** View of the data in which no series extends beyond `week` (known-ahead signals stay). */
-function viewUntil(data: RegionData, week: IsoWeek): RegionData {
-  const cut = (s: { start: IsoWeek; values: (number | null)[] }) => {
-    const n = weeksBetween(s.start, week) + 1;
+function viewUntil(data: RegionData, week: IsoWeek, lags: AvailabilityLags = {}): RegionData {
+  const cut = (s: { start: IsoWeek; values: (number | null)[] }, lag = 0) => {
+    const n = weeksBetween(s.start, week) + 1 - lag;
     return { start: s.start, values: n <= 0 ? [] : s.values.slice(0, n) };
   };
   const signals: RegionData['signals'] = {};
-  for (const [k, s] of Object.entries(data.signals)) signals[k] = k === 'holiday' ? s : cut(s);
+  for (const [k, s] of Object.entries(data.signals)) signals[k] = k === 'holiday' ? s : cut(s, lags[k] ?? 0);
   return { region: data.region, target: cut(data.target), signals };
 }

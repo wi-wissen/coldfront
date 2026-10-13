@@ -29,7 +29,7 @@ export const messages = {
     hero: {
       heading: 'Bundesweite Prognose',
       horizonLegend: 'Prognosezeitraum wählen',
-      horizon: '{n} Woche voraus ({week})|{n} Wochen voraus ({week})',
+      horizon: '{n} Woche voraus|{n} Wochen voraus',
       sentence:
         'In {week} erwarten wir bundesweit rund {median} Arztbesuche wegen akuter Atemwegserkrankungen je 100.000 Einwohner. Mit 80 % Wahrscheinlichkeit liegt der Wert zwischen {low} und {high}.',
       indexSimilar: 'Das ist etwa so viel wie üblich für diese Woche.',
@@ -155,7 +155,7 @@ export const messages = {
     hero: {
       heading: 'Nationwide forecast',
       horizonLegend: 'Choose the forecast horizon',
-      horizon: '{n} week ahead ({week})|{n} weeks ahead ({week})',
+      horizon: '{n} week ahead|{n} weeks ahead',
       sentence:
         'In {week} we expect nationwide about {median} doctor visits for acute respiratory illness per 100,000 inhabitants. With 80 % probability the value lies between {low} and {high}.',
       indexSimilar: 'That is about as much as usual for this week.',

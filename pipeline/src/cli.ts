@@ -62,7 +62,11 @@ async function main(): Promise<void> {
         if (existsSync(out) && !flag('force')) throw new Error('Test season already evaluated; the protocol allows one evaluation (use --force to override and document it).');
         const choice = readJson<{ chosen: ModelChoice }>(resolve(CONFIG, 'model.json')).chosen;
         const res = runTest(data, cfg, choice);
-        write(out, { generated: asOf, ...res });
+        const notes = [
+          'Protocol v2 (see amendments in evaluation.json). Season ' + cfg.seasons.test + ' was already evaluated once under v1 (test-v1.json); this second evaluation is descriptive and the season is no longer untouched.',
+          'The backtest uses today\'s corrected data; see vintage.json for the effect of real data versions.',
+        ];
+        write(out, { generated: asOf, protocol_version: 2, notes, ...res });
         console.log(JSON.stringify(res.gate), JSON.stringify(res.overall));
       } else if (phase === 'vintage') {
         // Descriptive comparison: today's corrected data vs. the data versions known at each origin.

@@ -2,5 +2,45 @@
   "ww-koenigsbach": {
     "geonames_id": 3206188,
     "reason": "Only GeoNames place in Baden-Wuerttemberg whose name starts with Koenigsbach: the municipality Koenigsbach-Stein; the plant is named after the municipality (AMELAG gives no further position)."
+  },
+  "ww-emschermuendung": {
+    "geonames_id": 2936871,
+    "reason": "Klaerwerk Emscher-Muendung of the Emschergenossenschaft is one of its four large plants and lies in Dinslaken (NRW); a 906k catchment fits a large-scale plant, so the city of Dinslaken is used as the approximate position. Confidence: high.",
+    "source": "https://www.geonames.org/2936871 ; identification: https://www.zfk.de/wasser-abwasser/abwasser/emschergenossenschaft-investition-dinslaken-klaerwerk ; Wikidata cross-check Q3939: https://www.wikidata.org/wiki/Special:EntityData/Q3939.json"
+  },
+  "ww-gleisdreieck": {
+    "geonames_id": 2859815,
+    "reason": "Klaeranlage Gleisdreieck (KWA Meininger Umland) lies between Obermassfeld and Untermassfeld (Thuringia); the municipality Obermassfeld-Grimmenthal has about 2.5k inhabitants, matching the 2,468 catchment. Confidence: medium-high.",
+    "source": "https://www.geonames.org/2859815 ; identification: https://ikth.de/startseite/project/abwasserbeseitigung-werratal-wiesgrund/ ; Wikidata cross-check Q559835: https://www.wikidata.org/wiki/Special:EntityData/Q559835.json"
+  },
+  "ww-leinetal": {
+    "geonames_id": 2820498,
+    "reason": "Verbandsklaeranlage Leinetal of the WAZ Obereichsfeld (largest of its 24 plants) lies in the municipality Uder (Eichsfeld, Thuringia; reports also name the district Schoenau); the municipality is used as the approximate position. Confidence: medium.",
+    "source": "https://www.geonames.org/2820498 ; identification: https://umweltdienstleister.de/2013/07/30/klaranlage-leinetal-optimiert/ ; Wikidata cross-check Q552793: https://www.wikidata.org/wiki/Special:EntityData/Q552793.json"
+  },
+  "ww-linsenstein": {
+    "geonames_id": 2857388,
+    "reason": "The central plant 'Linsenstein' of the AZV Thueringer Pforte stands on the former sugar-factory sludge beds in Oldisleben (Thuringia); it serves most member municipalities, hence the catchment of 8.5k. Confidence: medium-high.",
+    "source": "https://www.geonames.org/2857388 ; identification: http://www.azv-thueringer-pforte.de/klaeranlage.html ; Wikidata cross-check Q628741: https://www.wikidata.org/wiki/Special:EntityData/Q628741.json"
+  },
+  "ww-rollsdorf": {
+    "geonames_id": 2833904,
+    "reason": "Central plant Rollsdorf of the AZV Eisleben-Suesser See (about 50k inhabitants/EW connected) lies in the district Rollsdorf of Seegebiet Mansfelder Land; Rollsdorf itself is not in the GeoNames cities dump, so the neighbouring district Seeburg of the same municipality (about 2 km away) is used. Confidence: medium.",
+    "source": "https://www.geonames.org/2833904 ; identification: https://azv-eisleben.de/historie/ ; Wikidata cross-check Q2164336 (Rollsdorf, 51.4897 N 11.7264 E, in Seegebiet Mansfelder Land Q537196): https://www.wikidata.org/wiki/Special:EntityData/Q2164336.json"
+  },
+  "ww-silstedt": {
+    "geonames_id": 2810808,
+    "reason": "The central plant of the WAHB (Wasser- und Abwasserverband Holtemme-Bode) is in Wernigerode-Silstedt and serves the town; Silstedt is not in the GeoNames cities dump, so the town Wernigerode (about 5 km away) is used, which also fits the 45k catchment. Confidence: high for the town, approximate for the plant.",
+    "source": "https://www.geonames.org/2810808 ; identification: https://presse.sachsen-anhalt.de/wp-content/uploads/pdf/lvwa_07_08_2024_Pressemitteilung_groesste-massnahme-des-verbandes-holthemme-in-planung-modernisierung-der-verbandsklaeranlage-in-wernigerode-silstedt-innovation-im-sinne-des-umweltschutzes.pdf ; Wikidata cross-check Q2286364 (Silstedt): https://www.wikidata.org/wiki/Special:EntityData/Q2286364.json"
+  },
+  "ww-wellesweiler": {
+    "geonames_id": 2864435,
+    "reason": "EVS plant Neunkirchen-Wellesweiler (Am Ochsenwald 2a, Neunkirchen/Saar) treats the inner city and surroundings of Neunkirchen; Wellesweiler is not in the GeoNames cities dump, so the city of Neunkirchen (about 3 km away; 50k inhabitants vs 44.9k catchment) is used. Confidence: high.",
+    "source": "https://www.geonames.org/2864435 ; identification: https://www.evs.de/abwasser/klaeranlagen/klaeranlagenstandorte ; Wikidata cross-check Q2557728 (Wellesweiler): https://www.wikidata.org/wiki/Special:EntityData/Q2557728.json"
+  },
+  "ww-wustweiler": {
+    "geonames_id": 2896538,
+    "reason": "EVS plant Illingen-Wustweiler lies west of Wustweiler (district of Illingen, Saarland) and treats wastewater of Illingen, Merchweiler, Schiffweiler, Quierschied and Marpingen; Wustweiler is not in the GeoNames cities dump, so the municipality seat Illingen (about 3 km away) is used. Confidence: high for the municipality.",
+    "source": "https://www.geonames.org/2896538 ; identification: https://www.av-illtal.de/kanalnetz/klaeranlage-wustweiler ; Wikidata cross-check Q945391 (Wustweiler): https://www.wikidata.org/wiki/Special:EntityData/Q945391.json"
   }
 }

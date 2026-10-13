@@ -80,23 +80,39 @@ export interface ForecastIndex {
 export interface BacktestPublic {
   generated: string;
   season: string;
-  model_choice: { candidate: string; groups: string[]; spread_factor: number };
+  model_choice: { candidate: string; groups: string[]; spread_factor: number; model_weight?: number };
   models: string[];
   overall: Record<string, MetricSummary>;
   by_region: Record<string, Record<string, MetricSummary>>;
   by_horizon: Record<string, Record<string, MetricSummary>>;
   by_phase: Record<string, Record<string, MetricSummary>>;
   comparisons: Record<string, ModelComparison | null>;
-  peak: Record<string, { n: number; median_abs_timing_weeks: number; mean_height_rel: number }>;
+  /** Protocol v1 results have n/median/height only; v2 adds the share within one week, ambiguous seasons and a per-horizon split. */
+  peak: Record<
+    string,
+    {
+      n: number;
+      median_abs_timing_weeks: number;
+      mean_height_rel: number;
+      within_one_week_share?: number;
+      ambiguous?: number;
+      by_horizon?: Record<string, { n: number; median_abs_timing_weeks: number; within_one_week_share: number }>;
+    }
+  >;
+  /** Evaluation round: 1 = first protocol (season evaluated once, untouched), 2 = amended protocol (descriptive for that season). */
+  protocol_version?: number;
+  notes?: string[];
   gate: { shipped: 'ensemble' | 'baseline'; rel_wis_improvement: number | null; threshold: number; reason: string };
 }
 
 /** forecasts/backtest/tuning.json */
 export interface TuningPublic {
-  chosen: { candidate: string; groups: string[]; spread_factor: number };
+  chosen: { candidate: string; groups: string[]; spread_factor: number; model_weight?: number };
   tuned_on: string[];
-  candidates: { name: string; groups: string[]; wis_ensemble: number; wis_model: number; n: number }[];
+  candidates: { name: string; groups: string[]; wis_ensemble: number; wis_model: number; n: number; model_weight?: number; spread_factor?: number }[];
   baseline_wis: number;
+  /** seasonal baseline without calendar alignment (protocol v1), for continuity */
+  baseline_plain_wis?: number;
   persistence_wis: number;
   spread_grid: { k: number; wis: number; coverage80: number; coverage50: number }[];
 }
