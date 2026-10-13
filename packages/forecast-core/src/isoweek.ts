@@ -43,13 +43,38 @@ export function weekOfDate(d: Date): IsoWeek {
   return formatWeek(year, week);
 }
 
+const WEEK_MS = 7 * 86400000;
+// Mondays are 3 days before the Thursday epoch week boundary; shift so ordinals are integers.
+const ORDINAL_SHIFT_MS = 3 * 86400000;
+const ordinalCache = new Map<string, number>();
+const labelCache = new Map<number, IsoWeek>();
+
+/** Consecutive integer per ISO week (cached; the hot path of the backtest). */
+function ordinal(w: IsoWeek): number {
+  let o = ordinalCache.get(w);
+  if (o === undefined) {
+    o = Math.round((weekStart(w).getTime() + ORDINAL_SHIFT_MS) / WEEK_MS);
+    ordinalCache.set(w, o);
+  }
+  return o;
+}
+
+function labelOf(o: number): IsoWeek {
+  let w = labelCache.get(o);
+  if (w === undefined) {
+    w = weekOfDate(new Date(o * WEEK_MS - ORDINAL_SHIFT_MS));
+    labelCache.set(o, w);
+  }
+  return w;
+}
+
 /** Number of weeks from a to b (b - a); negative if b is earlier. */
 export function weeksBetween(a: IsoWeek, b: IsoWeek): number {
-  return Math.round((weekStart(b).getTime() - weekStart(a).getTime()) / (7 * 86400000));
+  return ordinal(b) - ordinal(a);
 }
 
 export function addWeeks(w: IsoWeek, n: number): IsoWeek {
-  return weekOfDate(new Date(weekStart(w).getTime() + n * 7 * 86400000));
+  return labelOf(ordinal(w) + n);
 }
 
 export function compareWeeks(a: IsoWeek, b: IsoWeek): number {

@@ -6,3 +6,7 @@ export * from './quantile-regression';
 export * from './metrics';
 export * from './baseline';
 export * from './regions';
+export * from './features';
+export * from './regional-model';
+export * from './ensemble';
+export * from './backtest';
