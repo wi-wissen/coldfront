@@ -51,7 +51,7 @@
           <span>{{ labels.legendHigh }}</span>
         </div>
       </template>
-      <p class="cf-nodata-key">
+      <p v-if="!plainStates" class="cf-nodata-key">
         <span class="cf-nodata-swatch" aria-hidden="true" />{{ labels.noData }}
       </p>
       <div v-if="points && pointsLegend" class="cf-points-legend">
@@ -253,7 +253,9 @@ export default defineComponent({
       return out;
     },
     pointKeys(): Array<{ level: MapPoint['level']; r: number; d: string }> {
-      return POINT_LEVELS.map((level) => ({ level, r: POINT_RADIUS[level], d: crossPath(POINT_RADIUS[level]) }));
+      // A level that no point uses is not listed in the legend (e.g. 'none' when stale plants are hidden).
+      const used = new Set((this.points ?? []).map((p) => p.level));
+      return POINT_LEVELS.filter((level) => used.has(level)).map((level) => ({ level, r: POINT_RADIUS[level], d: crossPath(POINT_RADIUS[level]) }));
     },
     pointTableRows(): Array<{ id: string; name: string; text: string }> {
       return (this.points ?? [])

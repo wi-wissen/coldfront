@@ -69,7 +69,7 @@ export const messages = {
         'Die Standorte sind Mittelpunkte der Gemeinden und nur näherungsweise eingezeichnet.',
       percentile:
         'Perzentil: Anteil der bisherigen Wochenwerte dieses Standorts, die höchstens so hoch lagen wie der aktuelle Wert. Stufen: niedrig unter 50, mittel 50 bis 80, hoch über 80. Diese Grenzen sind Startwerte ohne Validierung.',
-      stale: 'Standorte, deren Werte für den gewählten Erreger mehr als vier Wochen zurückliegen, sind grau markiert.',
+      stale: 'Standorte, deren Werte für den gewählten Erreger mehr als vier Wochen zurückliegen, werden auf der Karte nicht gezeigt.',
       dataLine: 'Abwasserdaten bis {week} · Datenstand {data}',
       hidden: '{n} Standorte sind auf der Karte nicht dargestellt: ohne Messung in den letzten vier Wochen oder ohne bekannte Position.',
       pathogenLegend: 'Erreger wählen',
@@ -195,7 +195,7 @@ export const messages = {
         'The sites are the centres of their municipalities and are only approximately placed.',
       percentile:
         'Percentile: share of the site’s earlier weekly values that were at most as high as the current value. Levels: low below 50, medium 50 to 80, high above 80. These cut-offs are starting values and have not been validated.',
-      stale: 'Sites whose values for the selected pathogen are more than four weeks old are shown in grey.',
+      stale: 'Sites whose values for the selected pathogen are more than four weeks old are not shown on the map.',
       dataLine: 'Wastewater data up to {week} · Data version {data}',
       hidden: '{n} sites are not shown on the map: no measurement in the last four weeks or no known position.',
       pathogenLegend: 'Choose a pathogen',
