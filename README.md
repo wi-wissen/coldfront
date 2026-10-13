@@ -18,7 +18,7 @@ Known artefact: ISO week 52 (between Christmas and New Year) is depressed becaus
 
 1. **Ingest** public weekly data and append only new or changed values to versioned tables, so any earlier data version can be reconstructed.
 2. **Clean** the series per region (national level and federal states).
-3. **Forecast** with an ensemble of a seasonal baseline and a pooled linear quantile regression on log growth. Features: dynamics, season, vacation periods (further feature groups are tested in the backtest).
+3. **Forecast** with an ensemble of a seasonal baseline and a pooled linear quantile regression on log growth. Features: dynamics, season, vacation periods (further feature groups are tested in the backtest); closed days are corrected by a calendar effect.
 4. **Evaluate** with a rolling-origin backtest that uses only the knowledge available at each origin. Quality gates decide what is published; if the model does not beat the seasonal baseline by the pre-registered margin, the baseline is shipped.
 5. **Publish** a static site (Vite multi-page, prerendered) and a static JSON API on GitHub Pages. The "Check it yourself" page recomputes a past season in your browser with the very same code.
 
@@ -88,7 +88,10 @@ GitHub Pages via GitHub Actions (`.github/workflows/pages.yml`): build, then dep
 
 ## Honest limits
 
-- State-level ARE data exist only since 2022-W40, so there are few seasons to learn from and to evaluate on.
-- The RKI corrects recent values retroactively. Earlier data versions are reconstructed from the RKI's public git history where available; see the Method page for what the evaluation used.
-- Peak timing is hard to predict and is reported as a separate, weaker result.
+- State-level ARE data exist only since 2022-W40, so there are few seasons to learn from and to evaluate on. National results rest on a longer history.
+- ARE counts consultations, so closed days (and especially the week between Christmas and New Year) depress it independent of disease. The model corrects for this with a fixed calendar effect.
+- The RKI corrects recent values retroactively. Earlier data versions are rebuilt from the RKI's public git history (since 2023-09); the backtest uses today's corrected data and a separate comparison shows the effect of real data versions (a few percent in WIS).
+- Protocol v2 was amended after the first evaluation of the 2025/26 season. That season is therefore only a descriptive re-evaluation; the next untouched test season is 2026/27. The Method page shows both rounds.
+- Peak timing is predicted only at a horizon of one week (about half of the seasons within one week); at two to four weeks ahead it is clearly weak.
+- A comparison with the RESPINOW forecasts exists for the national level only and is not a fair contest (see the Method page).
 - No individual-level statements and no medical statements are made.

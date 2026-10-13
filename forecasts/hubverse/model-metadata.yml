@@ -1,0 +1,8 @@
+team_name: Coldfront
+model_name: Coldfront ensemble (seasonal baseline + pooled quantile regression)
+model_abbr: coldfront-ensemble
+target: are_consultation_incidence_per_100k
+horizon_definition: weeks after the last observed ISO week (reference_date = Saturday of that week)
+quantiles: [0.1, 0.25, 0.5, 0.75, 0.9]
+license: data derived from RKI, UBA and DWD open data (CC BY 4.0); forecasts are derivative works, attribute accordingly
+website_url: https://coldfront.wi7.net/

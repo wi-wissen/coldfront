@@ -81,6 +81,11 @@ export function buildEnsemble(cfg: EvalConfig, name: string, groups: FeatureGrou
   ]);
 }
 
+/** The shipped ensemble exactly as chosen in tuning: feature groups, regional-model weight (spread is applied separately). */
+export function buildChosenEnsemble(cfg: EvalConfig, choice: ModelChoice, name = `ens-${choice.candidate}`): ForecasterFactory {
+  return buildEnsemble(cfg, name, choice.groups, choiceWeight(cfg, choice));
+}
+
 /** Origins whose forecasts can reach into the given seasons. */
 function originsFor(seasons: string[]): IsoWeek[] {
   const all = seasons.flatMap(seasonWeeks).sort();

@@ -41,6 +41,14 @@ Quantile levels: 0.1/0.25/0.5/0.75/0.9, flat keys `q10…q90`. 50 % band = q25�
 * Vacation periods are called "Ferienzeiten"/"vacation periods" (state-wide, from the KMK overview); unknown before the first recorded entry (autumn 2022) → missing, not zero.
 * Parallel builds: set `CF_TAG=<name>` to isolate `.gen<tag>`, `dist<tag>`, `dist-ssr<tag>`; each agent uses its own port (5171–5179; 5177 = lead's preview/E2E).
 
+## Protocol v2 (amended 2026-10-13, see `amendments` in `pipeline/config/evaluation.json`)
+
+* Why: a diagnosis on the tuning seasons only found a large care-seeking calendar effect in ARE (closed weekday ≈ 0.81×, week between the years ≈ 0.4×; not in GrippeWeb), a flawed peak metric and an inconsistent wastewater lag. Fixes: `packages/forecast-core/src/calendar.ts` (holidays incl. state holidays, Easter, fixed log effects), calendar-adjusted regional model and calendar-aligned baseline, lags applied identically in training and prediction, joint (ensemble weight, spread) choice on a grid, per-horizon `peakTiming`.
+* The first protocol's test season 2025/26 was evaluated once (`forecasts/backtest/test-v1.json`, `tuning-v1.json`, `pipeline/config/model-v1.json`). Under v2 it was evaluated again for description only; **it is no longer untouched**. The next untouched test season is 2026/27: evaluate once after 2027-W39 (`backtest test --force` only for that purpose, and document it).
+* Real data versions: `data/long/are.csv.gz` holds 158 ARE versions rebuilt from the RKI git history (`pipeline backfill --repo <clone>`); `backtest vintage` compares today's data with the data known at each origin; the RESPINOW comparison is `pipeline external --respinow <clone>`.
+* Gate reference is the calendar-aligned baseline; `baseline-plain` is reported for continuity. Live monitor: archived forecasts are scored against later actuals; the baseline replaces the ensemble after ≥ 8 runs if it scores worse.
+* Licence of the code: not chosen yet (do not claim MIT or any licence).
+
 ## Site: Vite multi-page + prerender
 
 * Every page is its own HTML entry per locale: `site/<page>.html` (de) and `site/en/<page>.html` (en). Shell files only set `<html lang>`, `data-locale`, and load `src/pages/<page>.ts`.

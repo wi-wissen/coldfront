@@ -1,5 +1,5 @@
 import {
-  addWeeks, buildBaseline, buildEnsemble, buildPersistence, compareModels, compareWeeks, isPandemicWeek, rescaleRecords, runBacktest,
+  addWeeks, buildBaseline, buildChosenEnsemble, buildPersistence, compareModels, compareWeeks, isPandemicWeek, rescaleRecords, runBacktest,
   seasonOf, seasonWeeks, summarizeBy, truncateRegionData, weekRange, weeksBetween, HORIZONS,
   type BacktestRecord, type EvalConfig, type IsoWeek, type LongRow, type MetricSummary, type ModelChoice, type ModelComparison,
   type RegionData, type WeeklySeries,
@@ -187,7 +187,7 @@ export function runVintageComparison(data: RegionData[], cfg: EvalConfig, choice
   const origins = all.filter((o) => dataAtOrigin.info(o).kind === 'vintage');
   const ensName = `ens-${choice.candidate}`;
   const seasons = new Set(opts.seasons);
-  const models = () => [buildBaseline(cfg), buildPersistence(cfg), buildEnsemble(cfg, ensName, choice.groups)];
+  const models = () => [buildBaseline(cfg), buildPersistence(cfg), buildChosenEnsemble(cfg, choice, ensName)];
   const runMode = (vintage: boolean): BacktestRecord[] => {
     const recs = runBacktest({
       truth: data,

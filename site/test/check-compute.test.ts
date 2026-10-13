@@ -15,7 +15,7 @@ const choice = read<{ chosen: ModelChoice }>('backtest/model.json').chosen;
 describe('computeCheck on the published inputs', () => {
   it('computes de-sn for 2024/25 and horizon 2 with all models', () => {
     const r = computeCheck(series, cfg, choice, 'de-sn', '2024/25', 2);
-    expect(r.models).toEqual(['baseline-seasonal', 'persistence', 'regional-model', 'ensemble']);
+    expect(r.models).toEqual(['baseline-seasonal', 'baseline-plain', 'persistence', 'regional-model', 'ensemble']);
     for (const m of r.models) {
       const s = r.metrics[m]!;
       expect(s.n).toBeGreaterThan(40);

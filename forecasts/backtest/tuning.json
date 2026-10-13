@@ -1,0 +1,142 @@
+{
+ "chosen": {
+  "candidate": "dyn-season-holiday",
+  "groups": [
+   "dynamics",
+   "season",
+   "holiday"
+  ],
+  "spread_factor": 1.1,
+  "model_weight": 0.75
+ },
+ "tuned_on": [
+  "2023/24",
+  "2024/25"
+ ],
+ "candidates": [
+  {
+   "name": "dyn",
+   "groups": [
+    "dynamics"
+   ],
+   "wis_ensemble": 169.32545708621095,
+   "wis_model": 193.6281958918304,
+   "n": 6976,
+   "model_weight": 0.6,
+   "spread_factor": 1.1
+  },
+  {
+   "name": "dyn-season",
+   "groups": [
+    "dynamics",
+    "season"
+   ],
+   "wis_ensemble": 161.75195362439672,
+   "wis_model": 170.30184620543702,
+   "n": 6976,
+   "model_weight": 0.75,
+   "spread_factor": 1.1
+  },
+  {
+   "name": "dyn-season-holiday",
+   "groups": [
+    "dynamics",
+    "season",
+    "holiday"
+   ],
+   "wis_ensemble": 155.54976906873452,
+   "wis_model": 160.1802248381449,
+   "n": 6976,
+   "model_weight": 0.75,
+   "spread_factor": 1.1
+  },
+  {
+   "name": "dyn-season-weather",
+   "groups": [
+    "dynamics",
+    "season",
+    "weather"
+   ],
+   "wis_ensemble": 160.03278846992126,
+   "wis_model": 167.40470889970794,
+   "n": 6976,
+   "model_weight": 0.75,
+   "spread_factor": 1.1
+  },
+  {
+   "name": "dyn-season-wastewater",
+   "groups": [
+    "dynamics",
+    "season",
+    "wastewater"
+   ],
+   "wis_ensemble": 166.5980484193072,
+   "wis_model": 176.88240460312272,
+   "n": 6976,
+   "model_weight": 0.75,
+   "spread_factor": 1
+  },
+  {
+   "name": "all",
+   "groups": [
+    "dynamics",
+    "season",
+    "holiday",
+    "weather",
+    "wastewater"
+   ],
+   "wis_ensemble": 160.24129325398656,
+   "wis_model": 167.54878345051017,
+   "n": 6976,
+   "model_weight": 0.75,
+   "spread_factor": 1.1
+  }
+ ],
+ "baseline_wis": 249.65764895698572,
+ "baseline_plain_wis": 269.14525630733937,
+ "persistence_wis": 254.98929281397233,
+ "spread_grid": [
+  {
+   "k": 1,
+   "wis": 156.06324010391572,
+   "coverage80": 0.7206135321100917,
+   "coverage50": 0.4299025229357798
+  },
+  {
+   "k": 1.1,
+   "wis": 155.54976906873452,
+   "coverage80": 0.7623279816513762,
+   "coverage50": 0.46961009174311924
+  },
+  {
+   "k": 1.2,
+   "wis": 155.77091744665063,
+   "coverage80": 0.7983084862385321,
+   "coverage50": 0.502723623853211
+  },
+  {
+   "k": 1.35,
+   "wis": 157.20717815012503,
+   "coverage80": 0.8387327981651376,
+   "coverage50": 0.5553325688073395
+  },
+  {
+   "k": 1.5,
+   "wis": 159.81655210987657,
+   "coverage80": 0.8788704128440367,
+   "coverage50": 0.5969036697247706
+  },
+  {
+   "k": 1.75,
+   "wis": 166.57859457246104,
+   "coverage80": 0.9221616972477065,
+   "coverage50": 0.6688646788990825
+  },
+  {
+   "k": 2,
+   "wis": 175.6539594337695,
+   "coverage80": 0.9519782110091743,
+   "coverage50": 0.7283543577981652
+  }
+ ]
+}

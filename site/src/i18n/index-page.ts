@@ -118,10 +118,13 @@ export const messages = {
     quality: {
       link: 'Warum Sie der Prognose trauen können — und warum nicht blind',
       shipped:
-        'Im unabhängigen Testzeitraum hatte das Modell einen um {pct} kleineren Prognosefehler (WIS, kleiner ist besser) als die saisonale Referenz. Veröffentlicht wird es nur bei mindestens {threshold} Vorsprung; ausgeliefert wird das Modell.',
+        'In der aktuellen Auswertung hatte das Modell einen um {pct} kleineren Prognosefehler (WIS, kleiner ist besser) als die kalenderbereinigte saisonale Referenz. Veröffentlicht wird es nur bei mindestens {threshold} Vorsprung; ausgeliefert wird das Modell.',
       baseline:
-        'Im unabhängigen Testzeitraum erreichte das Modell den nötigen Vorsprung von {threshold} nicht; ausgeliefert wird deshalb die saisonale Referenz.',
+        'In der aktuellen Auswertung erreichte das Modell den nötigen Vorsprung von {threshold} gegenüber der kalenderbereinigten saisonalen Referenz nicht; ausgeliefert wird deshalb die Referenz.',
       none: 'Für diese Auswertung liegt kein Ergebnis vor.',
+      protocolNote:
+        'Die erste unberührte Auswertung gab es nach dem ersten Protokoll. Danach wurde das Protokoll geändert; die aktuellen Zahlen sind eine beschreibende Neuauswertung derselben Saison, kein unabhängiger Test.',
+      amendmentLink: 'Was sich geändert hat',
       evaluationNote:
         'Hinweis: Die Auswertung nutzt die heute korrigierten Daten, nicht die damals gemeldeten Erstwerte. Die Trefferquote im laufenden Betrieb kann davon abweichen.',
     },
@@ -244,10 +247,13 @@ export const messages = {
     quality: {
       link: 'Why you can trust the forecast — and why not blindly',
       shipped:
-        'In the untouched test season the model had a {pct} smaller forecast error (WIS, lower is better) than the seasonal reference. It is only published with at least {threshold} advantage; the model is shipped.',
+        'In the current evaluation the model had a {pct} smaller forecast error (WIS, lower is better) than the calendar-aligned seasonal reference. It is only published with at least {threshold} advantage; the model is shipped.',
       baseline:
-        'In the untouched test season the model did not reach the required advantage of {threshold}; the seasonal reference is therefore shipped.',
+        'In the current evaluation the model did not reach the required advantage of {threshold} over the calendar-aligned seasonal reference; the reference is therefore shipped.',
       none: 'No result is available for this evaluation.',
+      protocolNote:
+        'The first untouched evaluation took place under the first protocol. The protocol was amended afterwards; the current figures are a descriptive re-evaluation of the same season, not an independent test.',
+      amendmentLink: 'What changed',
       evaluationNote:
         'Note: The evaluation uses today’s corrected data, not the first reported values that were available at the time. Hit rates in day-to-day operation may differ.',
     },

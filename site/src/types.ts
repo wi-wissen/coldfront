@@ -1,4 +1,4 @@
-import type { BacktestPublic, ForecastFile, ForecastIndex, TuningPublic, WastewaterExport } from '@coldfront/forecast-core';
+import type { BacktestPublic, ExternalPublic, ForecastFile, ForecastIndex, TuningPublic, VintagePublic, WastewaterExport } from '@coldfront/forecast-core';
 import type { Locale, PageEntry } from '../scripts/pages';
 
 export type { Locale, PageEntry };
@@ -24,6 +24,12 @@ export interface PageData {
   national: ForecastFile | null;
   sources: SourceRecord[] | null;
   backtest: BacktestPublic | null;
+  /** method page only: first-protocol results, data-version comparison, external comparison */
+  backtestV1: BacktestPublic | null;
+  vintage: VintagePublic | null;
+  /** live monitor of archived forecasts (forecasts/backtest/live.json) */
+  live: { evaluated_runs: number; min_runs: number; fallback: boolean } | null;
+  external: ExternalPublic | null;
   tuning: TuningPublic | null;
   /** start page only (map) */
   topology: unknown | null;
@@ -31,7 +37,7 @@ export interface PageData {
   wastewater: WastewaterExport | null;
 }
 
-export const EMPTY_DATA: PageData = { index: null, region: null, national: null, sources: null, backtest: null, tuning: null, topology: null, wastewater: null };
+export const EMPTY_DATA: PageData = { index: null, region: null, national: null, sources: null, backtest: null, backtestV1: null, vintage: null, live: null, external: null, tuning: null, topology: null, wastewater: null };
 
 /** Per-page context provided to all components. */
 export interface PageContext {

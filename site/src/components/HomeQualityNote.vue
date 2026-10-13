@@ -6,7 +6,7 @@ import { formatPercent } from '../lib/forecast-text';
 
 type Gate = BacktestPublic['gate'];
 
-/** Short quality note linking to the method page, built from the backtest gate. */
+/** Short quality note linking to the method page (and its protocol-amendment anchor), built from the backtest gate. */
 export default defineComponent({
   name: 'HomeQualityNote',
   props: {
@@ -15,6 +15,9 @@ export default defineComponent({
     methodHref: { type: String, required: true },
   },
   computed: {
+    amendmentHref(): string {
+      return `${this.methodHref}#m-amendment`;
+    },
     gateText(): string {
       const g = this.gate;
       if (!g) return this.$t('pages.index.quality.none');
@@ -35,6 +38,10 @@ export default defineComponent({
   <section class="space-y-2">
     <p class="text-lg font-semibold"><a :href="methodHref">{{ $t('pages.index.quality.link') }}</a></p>
     <p>{{ gateText }}</p>
-    <p class="text-sm cf-muted">{{ $t('pages.index.quality.evaluationNote') }}</p>
+    <p class="text-sm cf-muted">
+      {{ $t('pages.index.quality.protocolNote') }}
+      <a :href="amendmentHref">{{ $t('pages.index.quality.amendmentLink') }}</a>.
+      {{ $t('pages.index.quality.evaluationNote') }}
+    </p>
   </section>
 </template>

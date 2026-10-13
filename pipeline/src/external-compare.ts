@@ -6,7 +6,7 @@ import {
   wavePhase, type BacktestRecord, type EvalConfig, type Horizon, type IsoWeek, type MetricSummary, type ModelChoice, type ModelComparison,
   type QuantileSet, type RegionData,
 } from '@coldfront/forecast-core';
-import { buildBaseline, buildEnsemble, buildPersistence, isPandemicWeek } from '@coldfront/forecast-core';
+import { buildBaseline, buildChosenEnsemble, buildPersistence, isPandemicWeek } from '@coldfront/forecast-core';
 import type { SourceMeta } from './types';
 
 // External comparison of Coldfront's national ARE forecasts with the public RESPINOW-Hub forecast archive
@@ -451,7 +451,7 @@ export function runExternalComparison(opts: RunExternalOptions): ExternalCompari
     lags: cfg.availability_lags_weeks,
     origins: externalOrigins(submissions, seasons),
     horizons: [1, 2, 3, 4],
-    models: [buildBaseline(cfg), buildPersistence(cfg), buildEnsemble(cfg, ensName, choice.groups)],
+    models: [buildBaseline(cfg), buildPersistence(cfg), buildChosenEnsemble(cfg, choice, ensName)],
     evaluateRegions: ['de'],
     excludeWeek: isPandemicWeek(cfg),
     onProgress: opts.onProgress,

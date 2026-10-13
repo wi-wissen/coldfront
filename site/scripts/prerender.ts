@@ -41,7 +41,16 @@ async function main(): Promise<void> {
       data.wastewater = wastewater ? { ...wastewater, sites: wastewater.sites.filter((s) => s.region === entry.region) } : null;
     }
     if (entry.page === 'sources') data.sources = sources;
-    if (entry.page === 'method') Object.assign(data, { backtest, tuning });
+    if (entry.page === 'method') {
+      Object.assign(data, {
+        backtest,
+        tuning,
+        backtestV1: api<PageData['backtestV1']>('backtest/test-v1.json'),
+        vintage: api<PageData['vintage']>('backtest/vintage.json'),
+        live: api<PageData['live']>('backtest/live.json'),
+        external: api<PageData['external']>('backtest/external.json'),
+      });
+    }
     const ctx = { entry, locale: entry.locale, data };
     const out = await render(ctx);
 

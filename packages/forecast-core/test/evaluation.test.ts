@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { addWeeks, regionDataFromExport, runTest, type EvalConfig, type RegionData, type SeriesExport } from '../src';
+import { addWeeks, regionDataFromExport, runTest, truncateRegionData, type EvalConfig, type RegionData, type SeriesExport } from '../src';
 import { syntheticRegion } from './helpers';
 
 const cfg: EvalConfig = {
@@ -60,5 +60,26 @@ describe('runTest onRecords', () => {
     let recs: { model: string }[] = [];
     runTest(data(), cfg, { candidate: 'dyn-season', groups: ['dynamics', 'season'], spread_factor: 1 }, { evaluateRegions: ['de'], refitEvery: 10, onRecords: (r) => (recs = r) });
     expect(new Set(recs.map((r) => r.model))).toEqual(new Set(['baseline-seasonal', 'persistence', 'regional-model', 'ensemble']));
+  });
+});
+
+import { buildChosenEnsemble, choiceWeight } from '../src';
+describe('chosen ensemble', () => {
+  it('uses the weight of the choice and falls back to the config default', () => {
+    expect(choiceWeight(cfg, { candidate: 'x', groups: ['dynamics'], spread_factor: 1 })).toBe(0.5);
+    expect(choiceWeight(cfg, { candidate: 'x', groups: ['dynamics'], spread_factor: 1, model_weight: 0.75 })).toBe(0.75);
+  });
+  it('averages baseline and regional quantiles with the chosen weight', () => {
+    const d = data();
+    const origin = '2025-W20';
+    const known = d.map((r) => truncateRegionData(r, origin));
+    const mk = (w: number) => buildChosenEnsemble(cfg, { candidate: 'dyn-season', groups: ['dynamics', 'season'], spread_factor: 1, model_weight: w }).fit(known, origin).forecast(known[1]!, origin, [2])![0]!.q50;
+    // the weight moves the median monotonically between baseline-only and regional-only
+    const a = mk(0.05);
+    const b = mk(0.95);
+    const m = mk(0.5);
+    expect(m).toBeGreaterThanOrEqual(Math.min(a, b) - 1e-9);
+    expect(m).toBeLessThanOrEqual(Math.max(a, b) + 1e-9);
+    expect(Math.abs(a - b)).toBeGreaterThan(1e-6);
   });
 });

@@ -31,10 +31,12 @@ export function isHorizon(v: number): v is Horizon {
 }
 
 /** Message key suffix of a protocol model name, or null for unknown names. */
-export function modelKey(model: string): 'baseline' | 'persistence' | 'regional' | 'ensemble' | null {
+export function modelKey(model: string): 'baseline' | 'baselinePlain' | 'persistence' | 'regional' | 'ensemble' | null {
   switch (model) {
     case 'baseline-seasonal':
       return 'baseline';
+    case 'baseline-plain':
+      return 'baselinePlain';
     case 'persistence':
       return 'persistence';
     case 'regional-model':

@@ -176,3 +176,44 @@ export interface WastewaterExport {
   attribution: string;
   sites: WastewaterSiteExport[];
 }
+
+/** forecasts/backtest/vintage.json: today's corrected data versus the data versions known at each origin. */
+export interface VintagePublic {
+  generated: string;
+  note: string;
+  seasons: Record<
+    string,
+    {
+      seasons: string[];
+      origins_total: number;
+      origins_vintage: number;
+      origins_fallback: number;
+      n_cells: number;
+      models: Record<string, { final: MetricSummary; vintage: MetricSummary; rel_degradation: number }>;
+      comparisons: { final: Record<string, ModelComparison | null>; vintage: Record<string, ModelComparison | null> };
+    }
+  >;
+}
+
+/** forecasts/backtest/external.json: comparison with the RESPINOW-Hub forecast archive (national level). */
+export interface ExternalPublic {
+  generated: string;
+  source: { id: string; name: string; url: string; attribution: string; license: string; license_url: string; retrieved?: string };
+  seasons: string[];
+  unit_ratio: { ratio: number };
+  panels: Record<
+    string,
+    {
+      description: string;
+      models: string[];
+      n_cells: number;
+      n_origins: number;
+      cells_by_season: Record<string, number>;
+      overall: Record<string, MetricSummary>;
+      by_season: Record<string, Record<string, MetricSummary>>;
+      by_horizon: Record<string, Record<string, MetricSummary>>;
+      comparisons: Record<string, ModelComparison | null>;
+    }
+  >;
+  notes: string[];
+}

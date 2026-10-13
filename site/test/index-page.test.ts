@@ -9,6 +9,7 @@ import { createCfApp } from '../src/app';
 import IndexPage from '../src/pages/IndexPage.vue';
 import HomePostcodeSearch from '../src/components/HomePostcodeSearch.vue';
 import { createCfI18n } from '../src/i18n/setup';
+import { formatCount } from '../src/lib/forecast-text';
 import { EMPTY_DATA, type Locale, type PageContext } from '../src/types';
 
 const REPO = resolve(dirname(fileURLToPath(import.meta.url)), '../..');
@@ -50,8 +51,9 @@ describe('start page (de)', () => {
   it('states the national horizon-1 numbers in plain language, rounded', () => {
     const wrapper = mountPage('de');
     const text = wrapper.text();
-    expect(text).toContain('In KW 41 erwarten wir bundesweit rund 1.230 Arztbesuche');
-    expect(text).toContain('zwischen 900 und 1.840');
+    const h1 = national.horizons[0]!;
+    expect(text).toContain(`In KW 41 erwarten wir bundesweit rund ${formatCount(h1.q50, 'de')} Arztbesuche`);
+    expect(text).toContain(`zwischen ${formatCount(h1.q10, 'de')} und ${formatCount(h1.q90, 'de')}`);
     expect(text).toContain('etwa so viel wie üblich');
     expect(text).toContain('Einstufung:');
     expect(wrapper.find('[aria-hidden="true"]').text()).toBe('●');
@@ -73,8 +75,9 @@ describe('start page (de)', () => {
 
     expect((radios[1]!.element as HTMLInputElement).checked).toBe(true);
     const text = wrapper.text();
-    expect(text).toContain('In KW 42 erwarten wir bundesweit rund 1.200 Arztbesuche');
-    expect(text).toContain('zwischen 845 und 1.800');
+    const h2 = national.horizons[1]!;
+    expect(text).toContain(`In KW 42 erwarten wir bundesweit rund ${formatCount(h2.q50, 'de')} Arztbesuche`);
+    expect(text).toContain(`zwischen ${formatCount(h2.q10, 'de')} und ${formatCount(h2.q90, 'de')}`);
     const after = wrapper.find('path[data-region="de-sn"]').attributes('aria-label');
     expect(after).not.toBe(before);
     expect(after).toContain(`Index ${stateLabel(2, 'de-sn')}`);
@@ -148,8 +151,15 @@ describe('start page (de)', () => {
   it('renders the quality sentence from the gate, with the evaluation note', () => {
     const wrapper = mountPage('de');
     expect(wrapper.text()).toContain('Warum Sie der Prognose trauen können — und warum nicht blind');
-    expect(wrapper.text()).toContain('23,6 % kleineren Prognosefehler');
+    const pct = new Intl.NumberFormat('de', { minimumFractionDigits: 1, maximumFractionDigits: 1 }).format(backtest.gate.rel_wis_improvement! * 100);
+    expect(wrapper.text()).toContain(`${pct} % kleineren Prognosefehler`);
     expect(wrapper.text()).toContain('heute korrigierten Daten');
+    // honest wording: the first untouched evaluation was under protocol 1, the current figures are descriptive
+    expect(wrapper.text()).toContain('Die erste unberührte Auswertung gab es nach dem ersten Protokoll');
+    expect(wrapper.text()).toContain('beschreibende Neuauswertung');
+    expect(wrapper.text()).not.toContain('im unabhängigen Testzeitraum');
+    const link = wrapper.findAll('a').find((a) => a.text() === 'Was sich geändert hat');
+    expect(link?.attributes('href')).toBe('./method.html#m-amendment');
     wrapper.unmount();
   });
 });
@@ -157,8 +167,9 @@ describe('start page (de)', () => {
 describe('start page (en)', () => {
   it('uses English text and English week labels', () => {
     const wrapper = mountPage('en');
-    expect(wrapper.text()).toContain('In W41 we expect nationwide about 1,230 doctor visits');
-    expect(wrapper.text()).toContain('between 900 and 1,840');
+    const h1 = national.horizons[0]!;
+    expect(wrapper.text()).toContain(`In W41 we expect nationwide about ${formatCount(h1.q50, 'en')} doctor visits`);
+    expect(wrapper.text()).toContain(`between ${formatCount(h1.q10, 'en')} and ${formatCount(h1.q90, 'en')}`);
     expect(wrapper.text()).toContain('Why you can trust the forecast');
     expect(wrapper.text()).toContain('Federal states');
     wrapper.unmount();
@@ -168,7 +179,7 @@ describe('start page (en)', () => {
 describe('start page SSR', () => {
   it('contains the national sentence and the 16 region links in the static HTML', async () => {
     const html = await renderToString(createCfApp(ctxFor('de')));
-    expect(html).toContain('In KW 41 erwarten wir bundesweit rund 1.230 Arztbesuche');
+    expect(html).toContain(`In KW 41 erwarten wir bundesweit rund ${formatCount(national.horizons[0]!.q50, 'de')} Arztbesuche`);
     expect(html.match(/regions\/de-[a-z]{2}\.html/g)?.length ?? 0).toBeGreaterThanOrEqual(16);
     expect(html).toContain('id="cf-plz"');
   });

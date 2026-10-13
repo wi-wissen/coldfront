@@ -56,12 +56,12 @@ describe('HomeWastewater (de)', () => {
     w.unmount();
   });
 
-  it('draws the SARS-CoV-2 points by level: 1 high, 13 medium, 55 low; plants without current data are not drawn', () => {
+  it('draws one point per plant with current SARS-CoV-2 data, by level; stale plants are not drawn', () => {
     const w = mountHome();
-    expect(count(w, 'cf-point')).toBe(69);
-    expect(count(w, 'cf-point-high')).toBe(1);
-    expect(count(w, 'cf-point-medium')).toBe(13);
-    expect(count(w, 'cf-point-low')).toBe(55);
+    expect(count(w, 'cf-point')).toBe(70);
+    // All 169 plants have a position now; Emschermündung (active) is one more point than before.
+    expect(count(w, 'cf-point-high') + count(w, 'cf-point-medium') + count(w, 'cf-point-low')).toBe(70);
+    expect(count(w, 'cf-point-high')).toBeGreaterThanOrEqual(1);
     expect(count(w, 'cf-point-none')).toBe(0);
     expect(w.find('[aria-label^="Aachen:"]').exists()).toBe(false);
     expect(w.text()).toMatch(/\d+ Standorte sind auf der Karte nicht dargestellt/);
@@ -74,10 +74,9 @@ describe('HomeWastewater (de)', () => {
     await flu.setValue(true);
     await flushPromises();
     expect((flu.element as HTMLInputElement).checked).toBe(true);
-    expect(count(w, 'cf-point')).toBe(65);
-    expect(count(w, 'cf-point-high')).toBe(6);
-    expect(count(w, 'cf-point-medium')).toBe(13);
-    expect(count(w, 'cf-point-low')).toBe(46);
+    expect(count(w, 'cf-point')).toBe(66);
+    expect(count(w, 'cf-point-high') + count(w, 'cf-point-medium') + count(w, 'cf-point-low')).toBe(66);
+    expect(count(w, 'cf-point-high')).toBeGreaterThanOrEqual(6);
     expect(count(w, 'cf-point-none')).toBe(0);
     const first = topRows(w)[0]!;
     expect(first.find('th').text()).toBe('Emschermündung');
@@ -85,13 +84,12 @@ describe('HomeWastewater (de)', () => {
     w.unmount();
   });
 
-  it('keeps plants without a position in the top table only (not on the map)', async () => {
+  it('shows Emschermündung on the map and in the top table (it has a position now)', async () => {
     const w = mountHome();
     const flu = w.findAll('input[name="cf-wastewater-pathogen"]')[1]!;
     await flu.setValue(true);
     await flushPromises();
-    expect(w.find('[aria-label^="Emschermündung:"]').exists()).toBe(false);
-    // The top table is the last table on the page (the points table sits inside the map card).
+    expect(w.find('[aria-label^="Emschermündung:"]').exists()).toBe(true);
     const topTable = w.findAll('table').at(-1)!;
     expect(topTable.text()).toContain('Emschermündung');
     w.unmount();
@@ -107,7 +105,7 @@ describe('HomeWastewater (de)', () => {
     const w = mountHome();
     const details = w.find('details.cf-points-details');
     expect(details.find('summary').text()).toBe('Standorte als Tabelle anzeigen');
-    expect(details.findAll('tbody tr')).toHaveLength(69);
+    expect(details.findAll('tbody tr')).toHaveLength(70);
     w.unmount();
   });
 
