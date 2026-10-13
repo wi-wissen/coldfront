@@ -2,7 +2,7 @@ export const common = {
   de: {
     brand: 'Coldfront',
     tagline: 'Prognose akuter Atemwegserkrankungen für Deutschland',
-    nav: { home: 'Start', check: 'Selbst prüfen', sources: 'Daten & Quellen', api: 'API', method: 'Methode', legal: 'Hinweise', menu: 'Menü', language: 'Sprache' },
+    nav: { home: 'Start', check: 'Selbst prüfen', sources: 'Daten & Quellen', api: 'API', method: 'Methode', legal: 'Hinweise', menu: 'Menü', language: 'Sprache', switchTo: 'Auf Englisch wechseln' },
     footer: {
       disclaimer:
         'Coldfront ist nicht vom RKI, DWD oder anderen genannten Stellen erstellt oder gebilligt. Die Prognose ist eine statistische Schätzung mit Unsicherheit, keine medizinische Beratung und kein amtliches Produkt. Daten Dritter ohne Gewähr.',
@@ -20,7 +20,7 @@ export const common = {
   en: {
     brand: 'Coldfront',
     tagline: 'Forecasts of acute respiratory illness for Germany',
-    nav: { home: 'Home', check: 'Check it yourself', sources: 'Data & sources', api: 'API', method: 'Method', legal: 'Notices', menu: 'Menu', language: 'Language' },
+    nav: { home: 'Home', check: 'Check it yourself', sources: 'Data & sources', api: 'API', method: 'Method', legal: 'Notices', menu: 'Menu', language: 'Language', switchTo: 'Switch to German' },
     footer: {
       disclaimer:
         'Coldfront is not created or endorsed by RKI, DWD or any other named body. The forecast is a statistical estimate with uncertainty, not medical advice and not an official product. Third-party data without warranty.',

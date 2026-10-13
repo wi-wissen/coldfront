@@ -1,4 +1,6 @@
 @import 'tailwindcss';
+/* The Vite root is the generated shell dir, so point Tailwind at the real sources. */
+@source './';
 
 :root {
   color-scheme: light dark;

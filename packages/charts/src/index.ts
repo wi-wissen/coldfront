@@ -4,3 +4,4 @@ export type { ForecastChartLabels, ForecastChartProps, GermanyMapLabels, Germany
 export { buildAxis, splitSeasons, seasonIndex, seasonStartYear, seasonLength } from './season';
 export type { Season, SeasonAxis, SeasonPoint } from './season';
 export { VIRIDIS_STOPS, viridisScale } from './viridis';
+export { default as BacktestChart } from './BacktestChart.vue'; export type { BacktestChartLabels, BacktestChartPoint, BacktestChartProps } from './backtest-types';

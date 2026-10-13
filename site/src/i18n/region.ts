@@ -1,5 +1,111 @@
 /** Messages of the "region" page (German and English). Owned by the page author. */
 export const messages = {
-  de: { title: 'region', description: '', heading: 'region' },
-  en: { title: 'region', description: '', heading: 'region' },
-};
+  de: {
+    title: 'Regionalprognose',
+    description:
+      'Prognose der Arztbesuche wegen akuter Atemwegserkrankungen für ein Bundesland: Verlauf, Unsicherheit und Einordnung gegenüber dem üblichen Wert.',
+    heading: 'Prognose für {region}',
+    breadcrumb: 'Navigationspfad',
+    dataLine: 'Datenstand {data} · Prognose vom {issued}',
+    missing: 'Für diese Region liegt derzeit keine Prognose vor.',
+    backToStart: 'Zurück zur Startseite',
+    chart: {
+      title: 'Arztbesuche wegen akuter Atemwegserkrankungen je 100.000 Einwohner in {region}',
+      currentSeason: 'Aktuelle Saison',
+      previousSeasons: 'Frühere Saisons',
+      forecast: 'Prognose (Median)',
+      band50: '50 %-Bereich',
+      band80: '80 %-Bereich',
+      yAxis: 'Arztbesuche je 100.000',
+      showTable: 'Daten als Tabelle anzeigen',
+      tableWeek: 'Woche',
+      tableObserved: 'Beobachtet',
+      tableMedian: 'Median',
+      tableRange50: '50 %-Bereich',
+      tableRange80: '80 %-Bereich',
+      sourceLine: 'Quelle: Robert Koch-Institut; eigene Berechnung (Prognose)',
+    },
+    table: {
+      heading: 'Die vier Prognosewochen',
+      ahead: 'Wochen voraus',
+      target: 'Zielwoche',
+      median: 'Median',
+      range50: '50 %-Bereich',
+      range80: '80 %-Bereich',
+      index: 'Index',
+      level: 'Einstufung',
+      caption: 'Prognose für die nächsten vier Wochen, Werte je 100.000 Einwohner',
+    },
+    summary: {
+      heading: 'Was bedeutet das?',
+      sentence:
+        'In {week} erwarten wir in {region} rund {median} Arztbesuche wegen akuter Atemwegserkrankungen je 100.000 Einwohner. Mit 80 % Wahrscheinlichkeit liegt der Wert zwischen {low} und {high}.',
+      indexSimilar: 'Das ist etwa so viel wie üblich für diese Woche.',
+      indexTimes: 'Das ist das {index}-fache des für diese Woche üblichen Wertes.',
+      level: 'Einstufung:',
+    },
+    norm: {
+      heading: 'Einordnung gegenüber dem üblichen Verlauf',
+      text:
+        'Der Index ist der Median der Prognose geteilt durch den üblichen Wert derselben Kalenderwoche aus früheren Jahren; 1,00 bedeutet üblich. Ab dem {elevated}-fachen gilt die Aktivität als erhöht, ab dem {high}-fachen als hoch. Diese Schwellen sind Startwerte und nicht validiert.',
+    },
+    levels: { normal: 'normal', elevated: 'erhöht', high: 'hoch' },
+    notice:
+      'Für Bundesländer liegen ARE-Daten erst seit 2022-W40 vor. Es gibt daher nur wenige Winter als Vergleich, und die Unsicherheit ist entsprechend groß.',
+    nationalLink: 'Zur bundesweiten Prognose',
+  },
+  en: {
+    title: 'Regional forecast',
+    description:
+      'Forecast of doctor visits for acute respiratory illness in one federal state: trend, uncertainty and classification against the usual value.',
+    heading: 'Forecast for {region}',
+    breadcrumb: 'Breadcrumb',
+    dataLine: 'Data version {data} · Forecast issued {issued}',
+    missing: 'No forecast is currently available for this region.',
+    backToStart: 'Back to the start page',
+    chart: {
+      title: 'Doctor visits for acute respiratory illness per 100,000 inhabitants in {region}',
+      currentSeason: 'Current season',
+      previousSeasons: 'Previous seasons',
+      forecast: 'Forecast (median)',
+      band50: '50 % range',
+      band80: '80 % range',
+      yAxis: 'Doctor visits per 100,000',
+      showTable: 'Show data as a table',
+      tableWeek: 'Week',
+      tableObserved: 'Observed',
+      tableMedian: 'Median',
+      tableRange50: '50 % range',
+      tableRange80: '80 % range',
+      sourceLine: 'Source: Robert Koch Institute; own calculation (forecast)',
+    },
+    table: {
+      heading: 'The four forecast weeks',
+      ahead: 'Weeks ahead',
+      target: 'Target week',
+      median: 'Median',
+      range50: '50 % range',
+      range80: '80 % range',
+      index: 'Index',
+      level: 'Classification',
+      caption: 'Forecast for the next four weeks, values per 100,000 inhabitants',
+    },
+    summary: {
+      heading: 'What does this mean?',
+      sentence:
+        'In {week} we expect in {region} about {median} doctor visits for acute respiratory illness per 100,000 inhabitants. With 80 % probability the value lies between {low} and {high}.',
+      indexSimilar: 'That is about as much as usual for this week.',
+      indexTimes: 'That is {index} times the usual value for this week.',
+      level: 'Classification:',
+    },
+    norm: {
+      heading: 'Classification against the usual pattern',
+      text:
+        'The index is the median of the forecast divided by the usual value of the same calendar week in earlier years; 1.00 means usual. From {elevated} times the usual value the activity counts as elevated, from {high} times as high. These thresholds are starting values and have not been validated.',
+    },
+    levels: { normal: 'normal', elevated: 'elevated', high: 'high' },
+    notice:
+      'For federal states, ARE data only exist from 2022-W40 onwards. There are therefore only a few winters to compare with, and the uncertainty is correspondingly large.',
+    nationalLink: 'To the nationwide forecast',
+  },
+} as const;

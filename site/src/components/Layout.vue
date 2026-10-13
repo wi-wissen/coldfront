@@ -45,7 +45,7 @@ export default defineComponent({
       <nav :aria-label="$t('nav.menu')" class="flex flex-wrap gap-x-4 gap-y-1 text-sm">
         <a v-for="n in nav" :key="n.href" :href="n.href" :aria-current="n.current ? 'page' : undefined" :class="n.current ? 'font-semibold' : ''">{{ n.label }}</a>
       </nav>
-      <a :href="otherLocale.href" :hreflang="otherLocale.lang" :lang="otherLocale.lang" class="ml-auto text-sm" :aria-label="$t('nav.language')">{{ otherLocale.label }}</a>
+      <a :href="otherLocale.href" :hreflang="otherLocale.lang" :lang="otherLocale.lang" class="ml-auto text-sm" :aria-label="`${$t('nav.switchTo')} (${otherLocale.label})`">{{ otherLocale.label }}</a>
     </div>
   </header>
   <main id="main" class="mx-auto max-w-6xl px-4 py-6">

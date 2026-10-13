@@ -77,7 +77,7 @@ test.describe('start page', () => {
 
   test('language switch keeps the page', async ({ page }) => {
     await page.goto('regions/de-sn.html');
-    await page.getByRole('link', { name: 'EN' }).click();
+    await page.getByRole('link', { name: /Auf Englisch wechseln/ }).click();
     await page.waitForURL(/en\/regions\/de-sn\.html/);
     await expect(page.locator('html')).toHaveAttribute('lang', 'en');
     await expect(page.locator('h1')).toContainText('Saxony');
@@ -89,7 +89,8 @@ test.describe('self-check', () => {
     test.setTimeout(240_000);
     const w = watch(page);
     await page.goto('check.html');
-    await page.getByRole('combobox').first().selectOption({ label: 'Sachsen' });
+    await page.getByRole('combobox').nth(0).selectOption({ label: 'Sachsen' });
+    await page.getByRole('combobox').nth(1).selectOption({ label: '2024/25' });
     await page.getByRole('button', { name: /nachrechnen/i }).click();
     await expect(page.getByRole('table').first()).toBeVisible({ timeout: 200_000 });
     await expect(page.locator('main')).toContainText(/korrigiert/i);
