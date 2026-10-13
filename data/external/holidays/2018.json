@@ -1,0 +1,691 @@
+{
+  "year": 2018,
+  "entries": [
+    {
+      "region": "de-bb",
+      "kind": "winter",
+      "start": "2018-02-05",
+      "end": "2018-02-10",
+      "source": "KMK Ferienkalender 2017/18 (FER17_18.pdf)"
+    },
+    {
+      "region": "de-bb",
+      "kind": "easter",
+      "start": "2018-03-26",
+      "end": "2018-04-06",
+      "source": "KMK Ferienkalender 2017/18 (FER17_18.pdf)"
+    },
+    {
+      "region": "de-bb",
+      "kind": "summer",
+      "start": "2018-07-05",
+      "end": "2018-08-18",
+      "source": "KMK Ferienkalender 2017/18 (FER17_18.pdf)"
+    },
+    {
+      "region": "de-bb",
+      "kind": "autumn",
+      "start": "2018-10-22",
+      "end": "2018-11-02",
+      "source": "KMK Ferienkalender 2018/19 (FER18_19.pdf)"
+    },
+    {
+      "region": "de-bb",
+      "kind": "christmas",
+      "start": "2018-12-22",
+      "end": "2019-01-05",
+      "source": "KMK Ferienkalender 2018/19 (FER18_19.pdf)"
+    },
+    {
+      "region": "de-be",
+      "kind": "winter",
+      "start": "2018-02-05",
+      "end": "2018-02-10",
+      "source": "KMK Ferienkalender 2017/18 (FER17_18.pdf)"
+    },
+    {
+      "region": "de-be",
+      "kind": "easter",
+      "start": "2018-03-26",
+      "end": "2018-04-06",
+      "source": "KMK Ferienkalender 2017/18 (FER17_18.pdf)"
+    },
+    {
+      "region": "de-be",
+      "kind": "other",
+      "start": "2018-04-30",
+      "end": "2018-04-30",
+      "source": "KMK Ferienkalender 2017/18 (FER17_18.pdf)"
+    },
+    {
+      "region": "de-be",
+      "kind": "other",
+      "start": "2018-05-11",
+      "end": "2018-05-11",
+      "source": "KMK Ferienkalender 2017/18 (FER17_18.pdf)"
+    },
+    {
+      "region": "de-be",
+      "kind": "other",
+      "start": "2018-05-22",
+      "end": "2018-05-22",
+      "source": "KMK Ferienkalender 2017/18 (FER17_18.pdf)"
+    },
+    {
+      "region": "de-be",
+      "kind": "summer",
+      "start": "2018-07-05",
+      "end": "2018-08-17",
+      "source": "KMK Ferienkalender 2017/18 (FER17_18.pdf)"
+    },
+    {
+      "region": "de-be",
+      "kind": "autumn",
+      "start": "2018-10-22",
+      "end": "2018-11-02",
+      "source": "KMK Ferienkalender 2018/19 (FER18_19.pdf)"
+    },
+    {
+      "region": "de-be",
+      "kind": "christmas",
+      "start": "2018-12-22",
+      "end": "2019-01-05",
+      "source": "KMK Ferienkalender 2018/19 (FER18_19.pdf)"
+    },
+    {
+      "region": "de-bw",
+      "kind": "easter",
+      "start": "2018-03-26",
+      "end": "2018-04-06",
+      "source": "KMK Ferienkalender 2017/18 (FER17_18.pdf)"
+    },
+    {
+      "region": "de-bw",
+      "kind": "pentecost",
+      "start": "2018-05-22",
+      "end": "2018-06-02",
+      "source": "KMK Ferienkalender 2017/18 (FER17_18.pdf)"
+    },
+    {
+      "region": "de-bw",
+      "kind": "summer",
+      "start": "2018-07-26",
+      "end": "2018-09-08",
+      "source": "KMK Ferienkalender 2017/18 (FER17_18.pdf)"
+    },
+    {
+      "region": "de-bw",
+      "kind": "autumn",
+      "start": "2018-10-29",
+      "end": "2018-11-02",
+      "source": "KMK Ferienkalender 2018/19 (FER18_19.pdf)"
+    },
+    {
+      "region": "de-bw",
+      "kind": "christmas",
+      "start": "2018-12-24",
+      "end": "2019-01-05",
+      "source": "KMK Ferienkalender 2018/19 (FER18_19.pdf)"
+    },
+    {
+      "region": "de-by",
+      "kind": "winter",
+      "start": "2018-02-12",
+      "end": "2018-02-16",
+      "source": "KMK Ferienkalender 2017/18 (FER17_18.pdf)"
+    },
+    {
+      "region": "de-by",
+      "kind": "easter",
+      "start": "2018-03-26",
+      "end": "2018-04-07",
+      "source": "KMK Ferienkalender 2017/18 (FER17_18.pdf)"
+    },
+    {
+      "region": "de-by",
+      "kind": "pentecost",
+      "start": "2018-05-22",
+      "end": "2018-06-02",
+      "source": "KMK Ferienkalender 2017/18 (FER17_18.pdf)"
+    },
+    {
+      "region": "de-by",
+      "kind": "summer",
+      "start": "2018-07-30",
+      "end": "2018-09-10",
+      "source": "KMK Ferienkalender 2017/18 (FER17_18.pdf)"
+    },
+    {
+      "region": "de-by",
+      "kind": "autumn",
+      "start": "2018-10-29",
+      "end": "2018-11-02",
+      "source": "KMK Ferienkalender 2018/19 (FER18_19.pdf)"
+    },
+    {
+      "region": "de-by",
+      "kind": "christmas",
+      "start": "2018-12-22",
+      "end": "2019-01-05",
+      "source": "KMK Ferienkalender 2018/19 (FER18_19.pdf)"
+    },
+    {
+      "region": "de-hb",
+      "kind": "winter",
+      "start": "2018-02-01",
+      "end": "2018-02-02",
+      "source": "KMK Ferienkalender 2017/18 (FER17_18.pdf)"
+    },
+    {
+      "region": "de-hb",
+      "kind": "easter",
+      "start": "2018-03-19",
+      "end": "2018-04-03",
+      "source": "KMK Ferienkalender 2017/18 (FER17_18.pdf)"
+    },
+    {
+      "region": "de-hb",
+      "kind": "other",
+      "start": "2018-04-30",
+      "end": "2018-04-30",
+      "source": "KMK Ferienkalender 2017/18 (FER17_18.pdf)"
+    },
+    {
+      "region": "de-hb",
+      "kind": "other",
+      "start": "2018-05-11",
+      "end": "2018-05-11",
+      "source": "KMK Ferienkalender 2017/18 (FER17_18.pdf)"
+    },
+    {
+      "region": "de-hb",
+      "kind": "other",
+      "start": "2018-05-22",
+      "end": "2018-05-22",
+      "source": "KMK Ferienkalender 2017/18 (FER17_18.pdf)"
+    },
+    {
+      "region": "de-hb",
+      "kind": "summer",
+      "start": "2018-06-28",
+      "end": "2018-08-08",
+      "source": "KMK Ferienkalender 2017/18 (FER17_18.pdf)"
+    },
+    {
+      "region": "de-hb",
+      "kind": "autumn",
+      "start": "2018-10-01",
+      "end": "2018-10-13",
+      "source": "KMK Ferienkalender 2018/19 (FER18_19.pdf)"
+    },
+    {
+      "region": "de-hb",
+      "kind": "christmas",
+      "start": "2018-12-24",
+      "end": "2019-01-04",
+      "source": "KMK Ferienkalender 2018/19 (FER18_19.pdf)"
+    },
+    {
+      "region": "de-he",
+      "kind": "easter",
+      "start": "2018-03-26",
+      "end": "2018-04-07",
+      "source": "KMK Ferienkalender 2017/18 (FER17_18.pdf)"
+    },
+    {
+      "region": "de-he",
+      "kind": "summer",
+      "start": "2018-06-25",
+      "end": "2018-08-03",
+      "source": "KMK Ferienkalender 2017/18 (FER17_18.pdf)"
+    },
+    {
+      "region": "de-he",
+      "kind": "autumn",
+      "start": "2018-10-01",
+      "end": "2018-10-13",
+      "source": "KMK Ferienkalender 2018/19 (FER18_19.pdf)"
+    },
+    {
+      "region": "de-he",
+      "kind": "christmas",
+      "start": "2018-12-24",
+      "end": "2019-01-12",
+      "source": "KMK Ferienkalender 2018/19 (FER18_19.pdf)"
+    },
+    {
+      "region": "de-hh",
+      "kind": "other",
+      "start": "2018-02-02",
+      "end": "2018-02-02",
+      "source": "KMK Ferienkalender 2017/18 (FER17_18.pdf)"
+    },
+    {
+      "region": "de-hh",
+      "kind": "easter",
+      "start": "2018-03-05",
+      "end": "2018-03-16",
+      "source": "KMK Ferienkalender 2017/18 (FER17_18.pdf)"
+    },
+    {
+      "region": "de-hh",
+      "kind": "other",
+      "start": "2018-04-30",
+      "end": "2018-04-30",
+      "source": "KMK Ferienkalender 2017/18 (FER17_18.pdf)"
+    },
+    {
+      "region": "de-hh",
+      "kind": "pentecost",
+      "start": "2018-05-07",
+      "end": "2018-05-11",
+      "source": "KMK Ferienkalender 2017/18 (FER17_18.pdf)"
+    },
+    {
+      "region": "de-hh",
+      "kind": "summer",
+      "start": "2018-07-05",
+      "end": "2018-08-15",
+      "source": "KMK Ferienkalender 2017/18 (FER17_18.pdf)"
+    },
+    {
+      "region": "de-hh",
+      "kind": "autumn",
+      "start": "2018-10-01",
+      "end": "2018-10-12",
+      "source": "KMK Ferienkalender 2018/19 (FER18_19.pdf)"
+    },
+    {
+      "region": "de-hh",
+      "kind": "christmas",
+      "start": "2018-12-20",
+      "end": "2019-01-04",
+      "source": "KMK Ferienkalender 2018/19 (FER18_19.pdf)"
+    },
+    {
+      "region": "de-mv",
+      "kind": "winter",
+      "start": "2018-02-05",
+      "end": "2018-02-16",
+      "source": "KMK Ferienkalender 2017/18 (FER17_18.pdf)"
+    },
+    {
+      "region": "de-mv",
+      "kind": "easter",
+      "start": "2018-03-26",
+      "end": "2018-04-04",
+      "source": "KMK Ferienkalender 2017/18 (FER17_18.pdf)"
+    },
+    {
+      "region": "de-mv",
+      "kind": "other",
+      "start": "2018-05-11",
+      "end": "2018-05-11",
+      "source": "KMK Ferienkalender 2017/18 (FER17_18.pdf)"
+    },
+    {
+      "region": "de-mv",
+      "kind": "pentecost",
+      "start": "2018-05-18",
+      "end": "2018-05-22",
+      "source": "KMK Ferienkalender 2017/18 (FER17_18.pdf)"
+    },
+    {
+      "region": "de-mv",
+      "kind": "summer",
+      "start": "2018-07-09",
+      "end": "2018-08-18",
+      "source": "KMK Ferienkalender 2017/18 (FER17_18.pdf)"
+    },
+    {
+      "region": "de-mv",
+      "kind": "other",
+      "start": "2018-10-08",
+      "end": "2018-10-13",
+      "source": "KMK Ferienkalender 2018/19 (FER18_19.pdf)"
+    },
+    {
+      "region": "de-mv",
+      "kind": "other",
+      "start": "2018-11-01",
+      "end": "2018-11-02",
+      "source": "KMK Ferienkalender 2018/19 (FER18_19.pdf)"
+    },
+    {
+      "region": "de-mv",
+      "kind": "christmas",
+      "start": "2018-12-24",
+      "end": "2019-01-05",
+      "source": "KMK Ferienkalender 2018/19 (FER18_19.pdf)"
+    },
+    {
+      "region": "de-ni",
+      "kind": "winter",
+      "start": "2018-02-01",
+      "end": "2018-02-02",
+      "source": "KMK Ferienkalender 2017/18 (FER17_18.pdf)"
+    },
+    {
+      "region": "de-ni",
+      "kind": "easter",
+      "start": "2018-03-19",
+      "end": "2018-04-03",
+      "source": "KMK Ferienkalender 2017/18 (FER17_18.pdf)"
+    },
+    {
+      "region": "de-ni",
+      "kind": "other",
+      "start": "2018-04-30",
+      "end": "2018-04-30",
+      "source": "KMK Ferienkalender 2017/18 (FER17_18.pdf)"
+    },
+    {
+      "region": "de-ni",
+      "kind": "other",
+      "start": "2018-05-11",
+      "end": "2018-05-11",
+      "source": "KMK Ferienkalender 2017/18 (FER17_18.pdf)"
+    },
+    {
+      "region": "de-ni",
+      "kind": "other",
+      "start": "2018-05-22",
+      "end": "2018-05-22",
+      "source": "KMK Ferienkalender 2017/18 (FER17_18.pdf)"
+    },
+    {
+      "region": "de-ni",
+      "kind": "summer",
+      "start": "2018-06-28",
+      "end": "2018-08-08",
+      "source": "KMK Ferienkalender 2017/18 (FER17_18.pdf)"
+    },
+    {
+      "region": "de-ni",
+      "kind": "autumn",
+      "start": "2018-10-01",
+      "end": "2018-10-12",
+      "source": "KMK Ferienkalender 2018/19 (FER18_19.pdf)"
+    },
+    {
+      "region": "de-ni",
+      "kind": "christmas",
+      "start": "2018-12-24",
+      "end": "2019-01-04",
+      "source": "KMK Ferienkalender 2018/19 (FER18_19.pdf)"
+    },
+    {
+      "region": "de-nw",
+      "kind": "easter",
+      "start": "2018-03-26",
+      "end": "2018-04-07",
+      "source": "KMK Ferienkalender 2017/18 (FER17_18.pdf)"
+    },
+    {
+      "region": "de-nw",
+      "kind": "pentecost",
+      "start": "2018-05-22",
+      "end": "2018-05-25",
+      "source": "KMK Ferienkalender 2017/18 (FER17_18.pdf)"
+    },
+    {
+      "region": "de-nw",
+      "kind": "summer",
+      "start": "2018-07-16",
+      "end": "2018-08-28",
+      "source": "KMK Ferienkalender 2017/18 (FER17_18.pdf)"
+    },
+    {
+      "region": "de-nw",
+      "kind": "autumn",
+      "start": "2018-10-15",
+      "end": "2018-10-27",
+      "source": "KMK Ferienkalender 2018/19 (FER18_19.pdf)"
+    },
+    {
+      "region": "de-nw",
+      "kind": "christmas",
+      "start": "2018-12-21",
+      "end": "2019-01-04",
+      "source": "KMK Ferienkalender 2018/19 (FER18_19.pdf)"
+    },
+    {
+      "region": "de-rp",
+      "kind": "easter",
+      "start": "2018-03-26",
+      "end": "2018-04-06",
+      "source": "KMK Ferienkalender 2017/18 (FER17_18.pdf)"
+    },
+    {
+      "region": "de-rp",
+      "kind": "summer",
+      "start": "2018-06-25",
+      "end": "2018-08-03",
+      "source": "KMK Ferienkalender 2017/18 (FER17_18.pdf)"
+    },
+    {
+      "region": "de-rp",
+      "kind": "autumn",
+      "start": "2018-10-01",
+      "end": "2018-10-12",
+      "source": "KMK Ferienkalender 2018/19 (FER18_19.pdf)"
+    },
+    {
+      "region": "de-rp",
+      "kind": "christmas",
+      "start": "2018-12-20",
+      "end": "2019-01-04",
+      "source": "KMK Ferienkalender 2018/19 (FER18_19.pdf)"
+    },
+    {
+      "region": "de-sh",
+      "kind": "easter",
+      "start": "2018-03-29",
+      "end": "2018-04-13",
+      "source": "KMK Ferienkalender 2017/18 (FER17_18.pdf)"
+    },
+    {
+      "region": "de-sh",
+      "kind": "other",
+      "start": "2018-05-11",
+      "end": "2018-05-11",
+      "source": "KMK Ferienkalender 2017/18 (FER17_18.pdf)"
+    },
+    {
+      "region": "de-sh",
+      "kind": "summer",
+      "start": "2018-07-09",
+      "end": "2018-08-18",
+      "source": "KMK Ferienkalender 2017/18 (FER17_18.pdf)"
+    },
+    {
+      "region": "de-sh",
+      "kind": "autumn",
+      "start": "2018-10-01",
+      "end": "2018-10-19",
+      "source": "KMK Ferienkalender 2018/19 (FER18_19.pdf)"
+    },
+    {
+      "region": "de-sh",
+      "kind": "christmas",
+      "start": "2018-12-21",
+      "end": "2019-01-04",
+      "source": "KMK Ferienkalender 2018/19 (FER18_19.pdf)"
+    },
+    {
+      "region": "de-sl",
+      "kind": "winter",
+      "start": "2018-02-12",
+      "end": "2018-02-17",
+      "source": "KMK Ferienkalender 2017/18 (FER17_18.pdf)"
+    },
+    {
+      "region": "de-sl",
+      "kind": "easter",
+      "start": "2018-03-26",
+      "end": "2018-04-06",
+      "source": "KMK Ferienkalender 2017/18 (FER17_18.pdf)"
+    },
+    {
+      "region": "de-sl",
+      "kind": "summer",
+      "start": "2018-06-25",
+      "end": "2018-08-03",
+      "source": "KMK Ferienkalender 2017/18 (FER17_18.pdf)"
+    },
+    {
+      "region": "de-sl",
+      "kind": "autumn",
+      "start": "2018-10-01",
+      "end": "2018-10-12",
+      "source": "KMK Ferienkalender 2018/19 (FER18_19.pdf)"
+    },
+    {
+      "region": "de-sl",
+      "kind": "christmas",
+      "start": "2018-12-20",
+      "end": "2019-01-04",
+      "source": "KMK Ferienkalender 2018/19 (FER18_19.pdf)"
+    },
+    {
+      "region": "de-sn",
+      "kind": "winter",
+      "start": "2018-02-12",
+      "end": "2018-02-23",
+      "source": "KMK Ferienkalender 2017/18 (FER17_18.pdf)"
+    },
+    {
+      "region": "de-sn",
+      "kind": "easter",
+      "start": "2018-03-29",
+      "end": "2018-04-06",
+      "source": "KMK Ferienkalender 2017/18 (FER17_18.pdf)"
+    },
+    {
+      "region": "de-sn",
+      "kind": "other",
+      "start": "2018-05-11",
+      "end": "2018-05-11",
+      "source": "KMK Ferienkalender 2017/18 (FER17_18.pdf)"
+    },
+    {
+      "region": "de-sn",
+      "kind": "pentecost",
+      "start": "2018-05-19",
+      "end": "2018-05-22",
+      "source": "KMK Ferienkalender 2017/18 (FER17_18.pdf)"
+    },
+    {
+      "region": "de-sn",
+      "kind": "summer",
+      "start": "2018-07-02",
+      "end": "2018-08-10",
+      "source": "KMK Ferienkalender 2017/18 (FER17_18.pdf)"
+    },
+    {
+      "region": "de-sn",
+      "kind": "autumn",
+      "start": "2018-10-08",
+      "end": "2018-10-20",
+      "source": "KMK Ferienkalender 2018/19 (FER18_19.pdf)"
+    },
+    {
+      "region": "de-sn",
+      "kind": "christmas",
+      "start": "2018-12-22",
+      "end": "2019-01-04",
+      "source": "KMK Ferienkalender 2018/19 (FER18_19.pdf)"
+    },
+    {
+      "region": "de-st",
+      "kind": "winter",
+      "start": "2018-02-05",
+      "end": "2018-02-09",
+      "source": "KMK Ferienkalender 2017/18 (FER17_18.pdf)"
+    },
+    {
+      "region": "de-st",
+      "kind": "easter",
+      "start": "2018-03-26",
+      "end": "2018-03-31",
+      "source": "KMK Ferienkalender 2017/18 (FER17_18.pdf)"
+    },
+    {
+      "region": "de-st",
+      "kind": "other",
+      "start": "2018-04-30",
+      "end": "2018-04-30",
+      "source": "KMK Ferienkalender 2017/18 (FER17_18.pdf)"
+    },
+    {
+      "region": "de-st",
+      "kind": "pentecost",
+      "start": "2018-05-11",
+      "end": "2018-05-19",
+      "source": "KMK Ferienkalender 2017/18 (FER17_18.pdf)"
+    },
+    {
+      "region": "de-st",
+      "kind": "summer",
+      "start": "2018-06-28",
+      "end": "2018-08-08",
+      "source": "KMK Ferienkalender 2017/18 (FER17_18.pdf)"
+    },
+    {
+      "region": "de-st",
+      "kind": "autumn",
+      "start": "2018-10-01",
+      "end": "2018-10-12",
+      "source": "KMK Ferienkalender 2018/19 (FER18_19.pdf)"
+    },
+    {
+      "region": "de-st",
+      "kind": "christmas",
+      "start": "2018-12-19",
+      "end": "2019-01-04",
+      "source": "KMK Ferienkalender 2018/19 (FER18_19.pdf)"
+    },
+    {
+      "region": "de-th",
+      "kind": "winter",
+      "start": "2018-02-05",
+      "end": "2018-02-09",
+      "source": "KMK Ferienkalender 2017/18 (FER17_18.pdf)"
+    },
+    {
+      "region": "de-th",
+      "kind": "easter",
+      "start": "2018-03-26",
+      "end": "2018-04-07",
+      "source": "KMK Ferienkalender 2017/18 (FER17_18.pdf)"
+    },
+    {
+      "region": "de-th",
+      "kind": "other",
+      "start": "2018-05-11",
+      "end": "2018-05-11",
+      "source": "KMK Ferienkalender 2017/18 (FER17_18.pdf)"
+    },
+    {
+      "region": "de-th",
+      "kind": "summer",
+      "start": "2018-07-02",
+      "end": "2018-08-11",
+      "source": "KMK Ferienkalender 2017/18 (FER17_18.pdf)"
+    },
+    {
+      "region": "de-th",
+      "kind": "autumn",
+      "start": "2018-10-01",
+      "end": "2018-10-13",
+      "source": "KMK Ferienkalender 2018/19 (FER18_19.pdf)"
+    },
+    {
+      "region": "de-th",
+      "kind": "christmas",
+      "start": "2018-12-21",
+      "end": "2019-01-04",
+      "source": "KMK Ferienkalender 2018/19 (FER18_19.pdf)"
+    }
+  ]
+}

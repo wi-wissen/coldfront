@@ -3,6 +3,27 @@
   "entries": [
     {
       "region": "de-bb",
+      "kind": "winter",
+      "start": "2022-01-31",
+      "end": "2022-02-05",
+      "source": "KMK Ferienkalender 2021/22 (FER2021_22-neu.pdf)"
+    },
+    {
+      "region": "de-bb",
+      "kind": "easter",
+      "start": "2022-04-11",
+      "end": "2022-04-23",
+      "source": "KMK Ferienkalender 2021/22 (FER2021_22-neu.pdf)"
+    },
+    {
+      "region": "de-bb",
+      "kind": "summer",
+      "start": "2022-07-07",
+      "end": "2022-08-20",
+      "source": "KMK Ferienkalender 2021/22 (FER2021_22-neu.pdf)"
+    },
+    {
+      "region": "de-bb",
       "kind": "autumn",
       "start": "2022-10-24",
       "end": "2022-11-05",
@@ -17,6 +38,48 @@
     },
     {
       "region": "de-be",
+      "kind": "winter",
+      "start": "2022-01-29",
+      "end": "2022-02-05",
+      "source": "KMK Ferienkalender 2021/22 (FER2021_22-neu.pdf)"
+    },
+    {
+      "region": "de-be",
+      "kind": "other",
+      "start": "2022-03-07",
+      "end": "2022-03-07",
+      "source": "KMK Ferienkalender 2021/22 (FER2021_22-neu.pdf)"
+    },
+    {
+      "region": "de-be",
+      "kind": "easter",
+      "start": "2022-04-11",
+      "end": "2022-04-23",
+      "source": "KMK Ferienkalender 2021/22 (FER2021_22-neu.pdf)"
+    },
+    {
+      "region": "de-be",
+      "kind": "other",
+      "start": "2022-05-27",
+      "end": "2022-05-27",
+      "source": "KMK Ferienkalender 2021/22 (FER2021_22-neu.pdf)"
+    },
+    {
+      "region": "de-be",
+      "kind": "other",
+      "start": "2022-06-07",
+      "end": "2022-06-07",
+      "source": "KMK Ferienkalender 2021/22 (FER2021_22-neu.pdf)"
+    },
+    {
+      "region": "de-be",
+      "kind": "summer",
+      "start": "2022-07-07",
+      "end": "2022-08-19",
+      "source": "KMK Ferienkalender 2021/22 (FER2021_22-neu.pdf)"
+    },
+    {
+      "region": "de-be",
       "kind": "autumn",
       "start": "2022-10-24",
       "end": "2022-11-05",
@@ -28,6 +91,34 @@
       "start": "2022-12-22",
       "end": "2023-01-02",
       "source": "KMK Ferienkalender 2022/23 (FER2022_23-neu.pdf)"
+    },
+    {
+      "region": "de-bw",
+      "kind": "other",
+      "start": "2022-04-14",
+      "end": "2022-04-14",
+      "source": "KMK Ferienkalender 2021/22 (FER2021_22-neu.pdf)"
+    },
+    {
+      "region": "de-bw",
+      "kind": "easter",
+      "start": "2022-04-19",
+      "end": "2022-04-23",
+      "source": "KMK Ferienkalender 2021/22 (FER2021_22-neu.pdf)"
+    },
+    {
+      "region": "de-bw",
+      "kind": "pentecost",
+      "start": "2022-06-07",
+      "end": "2022-06-18",
+      "source": "KMK Ferienkalender 2021/22 (FER2021_22-neu.pdf)"
+    },
+    {
+      "region": "de-bw",
+      "kind": "summer",
+      "start": "2022-07-28",
+      "end": "2022-09-10",
+      "source": "KMK Ferienkalender 2021/22 (FER2021_22-neu.pdf)"
     },
     {
       "region": "de-bw",
@@ -52,6 +143,34 @@
     },
     {
       "region": "de-by",
+      "kind": "other",
+      "start": "2022-02-28",
+      "end": "2022-03-04",
+      "source": "KMK Ferienkalender 2021/22 (FER2021_22-neu.pdf)"
+    },
+    {
+      "region": "de-by",
+      "kind": "other",
+      "start": "2022-04-11",
+      "end": "2022-04-23",
+      "source": "KMK Ferienkalender 2021/22 (FER2021_22-neu.pdf)"
+    },
+    {
+      "region": "de-by",
+      "kind": "pentecost",
+      "start": "2022-06-07",
+      "end": "2022-06-18",
+      "source": "KMK Ferienkalender 2021/22 (FER2021_22-neu.pdf)"
+    },
+    {
+      "region": "de-by",
+      "kind": "summer",
+      "start": "2022-08-01",
+      "end": "2022-09-12",
+      "source": "KMK Ferienkalender 2021/22 (FER2021_22-neu.pdf)"
+    },
+    {
+      "region": "de-by",
       "kind": "autumn",
       "start": "2022-10-31",
       "end": "2022-11-04",
@@ -63,6 +182,41 @@
       "start": "2022-12-24",
       "end": "2023-01-07",
       "source": "KMK Ferienkalender 2022/23 (FER2022_23-neu.pdf)"
+    },
+    {
+      "region": "de-hb",
+      "kind": "winter",
+      "start": "2022-01-31",
+      "end": "2022-02-01",
+      "source": "KMK Ferienkalender 2021/22 (FER2021_22-neu.pdf)"
+    },
+    {
+      "region": "de-hb",
+      "kind": "easter",
+      "start": "2022-04-04",
+      "end": "2022-04-19",
+      "source": "KMK Ferienkalender 2021/22 (FER2021_22-neu.pdf)"
+    },
+    {
+      "region": "de-hb",
+      "kind": "other",
+      "start": "2022-05-27",
+      "end": "2022-05-27",
+      "source": "KMK Ferienkalender 2021/22 (FER2021_22-neu.pdf)"
+    },
+    {
+      "region": "de-hb",
+      "kind": "other",
+      "start": "2022-06-07",
+      "end": "2022-06-07",
+      "source": "KMK Ferienkalender 2021/22 (FER2021_22-neu.pdf)"
+    },
+    {
+      "region": "de-hb",
+      "kind": "summer",
+      "start": "2022-07-14",
+      "end": "2022-08-24",
+      "source": "KMK Ferienkalender 2021/22 (FER2021_22-neu.pdf)"
     },
     {
       "region": "de-hb",
@@ -80,6 +234,20 @@
     },
     {
       "region": "de-he",
+      "kind": "easter",
+      "start": "2022-04-11",
+      "end": "2022-04-23",
+      "source": "KMK Ferienkalender 2021/22 (FER2021_22-neu.pdf)"
+    },
+    {
+      "region": "de-he",
+      "kind": "summer",
+      "start": "2022-07-25",
+      "end": "2022-09-02",
+      "source": "KMK Ferienkalender 2021/22 (FER2021_22-neu.pdf)"
+    },
+    {
+      "region": "de-he",
       "kind": "autumn",
       "start": "2022-10-24",
       "end": "2022-10-29",
@@ -94,6 +262,34 @@
     },
     {
       "region": "de-hh",
+      "kind": "other",
+      "start": "2022-01-28",
+      "end": "2022-01-28",
+      "source": "KMK Ferienkalender 2021/22 (FER2021_22-neu.pdf)"
+    },
+    {
+      "region": "de-hh",
+      "kind": "easter",
+      "start": "2022-03-07",
+      "end": "2022-03-18",
+      "source": "KMK Ferienkalender 2021/22 (FER2021_22-neu.pdf)"
+    },
+    {
+      "region": "de-hh",
+      "kind": "pentecost",
+      "start": "2022-05-23",
+      "end": "2022-05-27",
+      "source": "KMK Ferienkalender 2021/22 (FER2021_22-neu.pdf)"
+    },
+    {
+      "region": "de-hh",
+      "kind": "summer",
+      "start": "2022-07-07",
+      "end": "2022-08-17",
+      "source": "KMK Ferienkalender 2021/22 (FER2021_22-neu.pdf)"
+    },
+    {
+      "region": "de-hh",
       "kind": "autumn",
       "start": "2022-10-10",
       "end": "2022-10-21",
@@ -105,6 +301,48 @@
       "start": "2022-12-23",
       "end": "2023-01-06",
       "source": "KMK Ferienkalender 2022/23 (FER2022_23-neu.pdf)"
+    },
+    {
+      "region": "de-mv",
+      "kind": "winter",
+      "start": "2022-02-05",
+      "end": "2022-02-17",
+      "source": "KMK Ferienkalender 2021/22 (FER2021_22-neu.pdf)"
+    },
+    {
+      "region": "de-mv",
+      "kind": "other",
+      "start": "2022-02-18",
+      "end": "2022-02-18",
+      "source": "KMK Ferienkalender 2021/22 (FER2021_22-neu.pdf)"
+    },
+    {
+      "region": "de-mv",
+      "kind": "easter",
+      "start": "2022-04-11",
+      "end": "2022-04-20",
+      "source": "KMK Ferienkalender 2021/22 (FER2021_22-neu.pdf)"
+    },
+    {
+      "region": "de-mv",
+      "kind": "other",
+      "start": "2022-05-27",
+      "end": "2022-05-27",
+      "source": "KMK Ferienkalender 2021/22 (FER2021_22-neu.pdf)"
+    },
+    {
+      "region": "de-mv",
+      "kind": "pentecost",
+      "start": "2022-06-03",
+      "end": "2022-06-07",
+      "source": "KMK Ferienkalender 2021/22 (FER2021_22-neu.pdf)"
+    },
+    {
+      "region": "de-mv",
+      "kind": "summer",
+      "start": "2022-07-04",
+      "end": "2022-08-13",
+      "source": "KMK Ferienkalender 2021/22 (FER2021_22-neu.pdf)"
     },
     {
       "region": "de-mv",
@@ -129,6 +367,41 @@
     },
     {
       "region": "de-ni",
+      "kind": "winter",
+      "start": "2022-01-31",
+      "end": "2022-02-01",
+      "source": "KMK Ferienkalender 2021/22 (FER2021_22-neu.pdf)"
+    },
+    {
+      "region": "de-ni",
+      "kind": "easter",
+      "start": "2022-04-04",
+      "end": "2022-04-19",
+      "source": "KMK Ferienkalender 2021/22 (FER2021_22-neu.pdf)"
+    },
+    {
+      "region": "de-ni",
+      "kind": "other",
+      "start": "2022-05-27",
+      "end": "2022-05-27",
+      "source": "KMK Ferienkalender 2021/22 (FER2021_22-neu.pdf)"
+    },
+    {
+      "region": "de-ni",
+      "kind": "other",
+      "start": "2022-06-07",
+      "end": "2022-06-07",
+      "source": "KMK Ferienkalender 2021/22 (FER2021_22-neu.pdf)"
+    },
+    {
+      "region": "de-ni",
+      "kind": "summer",
+      "start": "2022-07-14",
+      "end": "2022-08-24",
+      "source": "KMK Ferienkalender 2021/22 (FER2021_22-neu.pdf)"
+    },
+    {
+      "region": "de-ni",
       "kind": "autumn",
       "start": "2022-10-17",
       "end": "2022-10-28",
@@ -140,6 +413,20 @@
       "start": "2022-12-23",
       "end": "2023-01-06",
       "source": "KMK Ferienkalender 2022/23 (FER2022_23-neu.pdf)"
+    },
+    {
+      "region": "de-nw",
+      "kind": "easter",
+      "start": "2022-04-11",
+      "end": "2022-04-23",
+      "source": "KMK Ferienkalender 2021/22 (FER2021_22-neu.pdf)"
+    },
+    {
+      "region": "de-nw",
+      "kind": "summer",
+      "start": "2022-06-27",
+      "end": "2022-08-09",
+      "source": "KMK Ferienkalender 2021/22 (FER2021_22-neu.pdf)"
     },
     {
       "region": "de-nw",
@@ -157,6 +444,27 @@
     },
     {
       "region": "de-rp",
+      "kind": "winter",
+      "start": "2022-02-21",
+      "end": "2022-02-25",
+      "source": "KMK Ferienkalender 2021/22 (FER2021_22-neu.pdf)"
+    },
+    {
+      "region": "de-rp",
+      "kind": "easter",
+      "start": "2022-04-13",
+      "end": "2022-04-22",
+      "source": "KMK Ferienkalender 2021/22 (FER2021_22-neu.pdf)"
+    },
+    {
+      "region": "de-rp",
+      "kind": "summer",
+      "start": "2022-07-25",
+      "end": "2022-09-02",
+      "source": "KMK Ferienkalender 2021/22 (FER2021_22-neu.pdf)"
+    },
+    {
+      "region": "de-rp",
       "kind": "autumn",
       "start": "2022-10-17",
       "end": "2022-10-31",
@@ -168,6 +476,27 @@
       "start": "2022-12-23",
       "end": "2023-01-02",
       "source": "KMK Ferienkalender 2022/23 (FER2022_23-neu.pdf)"
+    },
+    {
+      "region": "de-sh",
+      "kind": "easter",
+      "start": "2022-04-04",
+      "end": "2022-04-16",
+      "source": "KMK Ferienkalender 2021/22 (FER2021_22-neu.pdf)"
+    },
+    {
+      "region": "de-sh",
+      "kind": "pentecost",
+      "start": "2022-05-27",
+      "end": "2022-05-28",
+      "source": "KMK Ferienkalender 2021/22 (FER2021_22-neu.pdf)"
+    },
+    {
+      "region": "de-sh",
+      "kind": "summer",
+      "start": "2022-07-04",
+      "end": "2022-08-13",
+      "source": "KMK Ferienkalender 2021/22 (FER2021_22-neu.pdf)"
     },
     {
       "region": "de-sh",
@@ -185,6 +514,34 @@
     },
     {
       "region": "de-sl",
+      "kind": "winter",
+      "start": "2022-02-21",
+      "end": "2022-03-01",
+      "source": "KMK Ferienkalender 2021/22 (FER2021_22-neu.pdf)"
+    },
+    {
+      "region": "de-sl",
+      "kind": "easter",
+      "start": "2022-04-14",
+      "end": "2022-04-22",
+      "source": "KMK Ferienkalender 2021/22 (FER2021_22-neu.pdf)"
+    },
+    {
+      "region": "de-sl",
+      "kind": "pentecost",
+      "start": "2022-06-07",
+      "end": "2022-06-10",
+      "source": "KMK Ferienkalender 2021/22 (FER2021_22-neu.pdf)"
+    },
+    {
+      "region": "de-sl",
+      "kind": "summer",
+      "start": "2022-07-25",
+      "end": "2022-09-02",
+      "source": "KMK Ferienkalender 2021/22 (FER2021_22-neu.pdf)"
+    },
+    {
+      "region": "de-sl",
       "kind": "autumn",
       "start": "2022-10-24",
       "end": "2022-11-04",
@@ -196,6 +553,34 @@
       "start": "2022-12-22",
       "end": "2023-01-04",
       "source": "KMK Ferienkalender 2022/23 (FER2022_23-neu.pdf)"
+    },
+    {
+      "region": "de-sn",
+      "kind": "winter",
+      "start": "2022-02-12",
+      "end": "2022-02-26",
+      "source": "KMK Ferienkalender 2021/22 (FER2021_22-neu.pdf)"
+    },
+    {
+      "region": "de-sn",
+      "kind": "easter",
+      "start": "2022-04-15",
+      "end": "2022-04-23",
+      "source": "KMK Ferienkalender 2021/22 (FER2021_22-neu.pdf)"
+    },
+    {
+      "region": "de-sn",
+      "kind": "other",
+      "start": "2022-05-27",
+      "end": "2022-05-27",
+      "source": "KMK Ferienkalender 2021/22 (FER2021_22-neu.pdf)"
+    },
+    {
+      "region": "de-sn",
+      "kind": "summer",
+      "start": "2022-07-18",
+      "end": "2022-08-26",
+      "source": "KMK Ferienkalender 2021/22 (FER2021_22-neu.pdf)"
     },
     {
       "region": "de-sn",
@@ -213,6 +598,34 @@
     },
     {
       "region": "de-st",
+      "kind": "winter",
+      "start": "2022-02-12",
+      "end": "2022-02-19",
+      "source": "KMK Ferienkalender 2021/22 (FER2021_22-neu.pdf)"
+    },
+    {
+      "region": "de-st",
+      "kind": "easter",
+      "start": "2022-04-11",
+      "end": "2022-04-16",
+      "source": "KMK Ferienkalender 2021/22 (FER2021_22-neu.pdf)"
+    },
+    {
+      "region": "de-st",
+      "kind": "pentecost",
+      "start": "2022-05-23",
+      "end": "2022-05-28",
+      "source": "KMK Ferienkalender 2021/22 (FER2021_22-neu.pdf)"
+    },
+    {
+      "region": "de-st",
+      "kind": "summer",
+      "start": "2022-07-14",
+      "end": "2022-08-24",
+      "source": "KMK Ferienkalender 2021/22 (FER2021_22-neu.pdf)"
+    },
+    {
+      "region": "de-st",
       "kind": "autumn",
       "start": "2022-10-24",
       "end": "2022-11-04",
@@ -224,6 +637,34 @@
       "start": "2022-12-21",
       "end": "2023-01-05",
       "source": "KMK Ferienkalender 2022/23 (FER2022_23-neu.pdf)"
+    },
+    {
+      "region": "de-th",
+      "kind": "winter",
+      "start": "2022-02-12",
+      "end": "2022-02-19",
+      "source": "KMK Ferienkalender 2021/22 (FER2021_22-neu.pdf)"
+    },
+    {
+      "region": "de-th",
+      "kind": "easter",
+      "start": "2022-04-11",
+      "end": "2022-04-23",
+      "source": "KMK Ferienkalender 2021/22 (FER2021_22-neu.pdf)"
+    },
+    {
+      "region": "de-th",
+      "kind": "other",
+      "start": "2022-05-27",
+      "end": "2022-05-27",
+      "source": "KMK Ferienkalender 2021/22 (FER2021_22-neu.pdf)"
+    },
+    {
+      "region": "de-th",
+      "kind": "summer",
+      "start": "2022-07-18",
+      "end": "2022-08-27",
+      "source": "KMK Ferienkalender 2021/22 (FER2021_22-neu.pdf)"
     },
     {
       "region": "de-th",

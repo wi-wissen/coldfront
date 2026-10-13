@@ -1,0 +1,649 @@
+{
+  "year": 2014,
+  "entries": [
+    {
+      "region": "de-bb",
+      "kind": "winter",
+      "start": "2014-02-03",
+      "end": "2014-02-08",
+      "source": "KMK Ferienkalender 2013/14 (FER2013_14.pdf)"
+    },
+    {
+      "region": "de-bb",
+      "kind": "easter",
+      "start": "2014-04-16",
+      "end": "2014-04-26",
+      "source": "KMK Ferienkalender 2013/14 (FER2013_14.pdf)"
+    },
+    {
+      "region": "de-bb",
+      "kind": "other",
+      "start": "2014-05-02",
+      "end": "2014-05-02",
+      "source": "KMK Ferienkalender 2013/14 (FER2013_14.pdf)"
+    },
+    {
+      "region": "de-bb",
+      "kind": "other",
+      "start": "2014-05-30",
+      "end": "2014-05-30",
+      "source": "KMK Ferienkalender 2013/14 (FER2013_14.pdf)"
+    },
+    {
+      "region": "de-bb",
+      "kind": "summer",
+      "start": "2014-07-10",
+      "end": "2014-08-22",
+      "source": "KMK Ferienkalender 2013/14 (FER2013_14.pdf)"
+    },
+    {
+      "region": "de-bb",
+      "kind": "autumn",
+      "start": "2014-10-20",
+      "end": "2014-11-01",
+      "source": "KMK Ferienkalender 2014/15 (FER2014_15.pdf)"
+    },
+    {
+      "region": "de-bb",
+      "kind": "christmas",
+      "start": "2014-12-22",
+      "end": "2015-01-02",
+      "source": "KMK Ferienkalender 2014/15 (FER2014_15.pdf)"
+    },
+    {
+      "region": "de-be",
+      "kind": "winter",
+      "start": "2014-02-03",
+      "end": "2014-02-08",
+      "source": "KMK Ferienkalender 2013/14 (FER2013_14.pdf)"
+    },
+    {
+      "region": "de-be",
+      "kind": "easter",
+      "start": "2014-04-14",
+      "end": "2014-04-26",
+      "source": "KMK Ferienkalender 2013/14 (FER2013_14.pdf)"
+    },
+    {
+      "region": "de-be",
+      "kind": "other",
+      "start": "2014-05-02",
+      "end": "2014-05-02",
+      "source": "KMK Ferienkalender 2013/14 (FER2013_14.pdf)"
+    },
+    {
+      "region": "de-be",
+      "kind": "other",
+      "start": "2014-05-30",
+      "end": "2014-05-30",
+      "source": "KMK Ferienkalender 2013/14 (FER2013_14.pdf)"
+    },
+    {
+      "region": "de-be",
+      "kind": "autumn",
+      "start": "2014-10-20",
+      "end": "2014-11-01",
+      "source": "KMK Ferienkalender 2014/15 (FER2014_15.pdf)"
+    },
+    {
+      "region": "de-be",
+      "kind": "christmas",
+      "start": "2014-12-22",
+      "end": "2015-01-02",
+      "source": "KMK Ferienkalender 2014/15 (FER2014_15.pdf)"
+    },
+    {
+      "region": "de-bw",
+      "kind": "easter",
+      "start": "2014-04-14",
+      "end": "2014-04-25",
+      "source": "KMK Ferienkalender 2013/14 (FER2013_14.pdf)"
+    },
+    {
+      "region": "de-bw",
+      "kind": "pentecost",
+      "start": "2014-06-10",
+      "end": "2014-06-21",
+      "source": "KMK Ferienkalender 2013/14 (FER2013_14.pdf)"
+    },
+    {
+      "region": "de-bw",
+      "kind": "summer",
+      "start": "2014-07-31",
+      "end": "2014-09-13",
+      "source": "KMK Ferienkalender 2013/14 (FER2013_14.pdf)"
+    },
+    {
+      "region": "de-bw",
+      "kind": "autumn",
+      "start": "2014-10-27",
+      "end": "2014-10-30",
+      "source": "KMK Ferienkalender 2014/15 (FER2014_15.pdf)"
+    },
+    {
+      "region": "de-bw",
+      "kind": "christmas",
+      "start": "2014-12-22",
+      "end": "2015-01-05",
+      "source": "KMK Ferienkalender 2014/15 (FER2014_15.pdf)"
+    },
+    {
+      "region": "de-by",
+      "kind": "other",
+      "start": "2014-03-03",
+      "end": "2014-03-07",
+      "source": "KMK Ferienkalender 2013/14 (FER2013_14.pdf)"
+    },
+    {
+      "region": "de-by",
+      "kind": "other",
+      "start": "2014-04-14",
+      "end": "2014-04-26",
+      "source": "KMK Ferienkalender 2013/14 (FER2013_14.pdf)"
+    },
+    {
+      "region": "de-by",
+      "kind": "pentecost",
+      "start": "2014-06-10",
+      "end": "2014-06-21",
+      "source": "KMK Ferienkalender 2013/14 (FER2013_14.pdf)"
+    },
+    {
+      "region": "de-by",
+      "kind": "summer",
+      "start": "2014-07-30",
+      "end": "2014-09-15",
+      "source": "KMK Ferienkalender 2013/14 (FER2013_14.pdf)"
+    },
+    {
+      "region": "de-by",
+      "kind": "autumn",
+      "start": "2014-10-27",
+      "end": "2014-10-31",
+      "source": "KMK Ferienkalender 2014/15 (FER2014_15.pdf)"
+    },
+    {
+      "region": "de-by",
+      "kind": "christmas",
+      "start": "2014-12-24",
+      "end": "2015-01-05",
+      "source": "KMK Ferienkalender 2014/15 (FER2014_15.pdf)"
+    },
+    {
+      "region": "de-hb",
+      "kind": "winter",
+      "start": "2014-01-30",
+      "end": "2014-01-31",
+      "source": "KMK Ferienkalender 2013/14 (FER2013_14.pdf)"
+    },
+    {
+      "region": "de-hb",
+      "kind": "easter",
+      "start": "2014-04-03",
+      "end": "2014-04-22",
+      "source": "KMK Ferienkalender 2013/14 (FER2013_14.pdf)"
+    },
+    {
+      "region": "de-hb",
+      "kind": "other",
+      "start": "2014-06-10",
+      "end": "2014-06-10",
+      "source": "KMK Ferienkalender 2013/14 (FER2013_14.pdf)"
+    },
+    {
+      "region": "de-hb",
+      "kind": "summer",
+      "start": "2014-07-31",
+      "end": "2014-09-10",
+      "source": "KMK Ferienkalender 2013/14 (FER2013_14.pdf)"
+    },
+    {
+      "region": "de-hb",
+      "kind": "autumn",
+      "start": "2014-10-27",
+      "end": "2014-11-08",
+      "source": "KMK Ferienkalender 2014/15 (FER2014_15.pdf)"
+    },
+    {
+      "region": "de-hb",
+      "kind": "christmas",
+      "start": "2014-12-22",
+      "end": "2015-01-05",
+      "source": "KMK Ferienkalender 2014/15 (FER2014_15.pdf)"
+    },
+    {
+      "region": "de-he",
+      "kind": "easter",
+      "start": "2014-04-14",
+      "end": "2014-04-26",
+      "source": "KMK Ferienkalender 2013/14 (FER2013_14.pdf)"
+    },
+    {
+      "region": "de-he",
+      "kind": "summer",
+      "start": "2014-07-28",
+      "end": "2014-09-05",
+      "source": "KMK Ferienkalender 2013/14 (FER2013_14.pdf)"
+    },
+    {
+      "region": "de-he",
+      "kind": "autumn",
+      "start": "2014-10-20",
+      "end": "2014-11-01",
+      "source": "KMK Ferienkalender 2014/15 (FER2014_15.pdf)"
+    },
+    {
+      "region": "de-he",
+      "kind": "christmas",
+      "start": "2014-12-22",
+      "end": "2015-01-10",
+      "source": "KMK Ferienkalender 2014/15 (FER2014_15.pdf)"
+    },
+    {
+      "region": "de-hh",
+      "kind": "other",
+      "start": "2014-01-31",
+      "end": "2014-01-31",
+      "source": "KMK Ferienkalender 2013/14 (FER2013_14.pdf)"
+    },
+    {
+      "region": "de-hh",
+      "kind": "easter",
+      "start": "2014-03-03",
+      "end": "2014-03-14",
+      "source": "KMK Ferienkalender 2013/14 (FER2013_14.pdf)"
+    },
+    {
+      "region": "de-hh",
+      "kind": "pentecost",
+      "start": "2014-04-28",
+      "end": "2014-05-02",
+      "source": "KMK Ferienkalender 2013/14 (FER2013_14.pdf)"
+    },
+    {
+      "region": "de-hh",
+      "kind": "other",
+      "start": "2014-05-30",
+      "end": "2014-05-30",
+      "source": "KMK Ferienkalender 2013/14 (FER2013_14.pdf)"
+    },
+    {
+      "region": "de-hh",
+      "kind": "summer",
+      "start": "2014-07-10",
+      "end": "2014-08-20",
+      "source": "KMK Ferienkalender 2013/14 (FER2013_14.pdf)"
+    },
+    {
+      "region": "de-hh",
+      "kind": "autumn",
+      "start": "2014-10-13",
+      "end": "2014-10-24",
+      "source": "KMK Ferienkalender 2014/15 (FER2014_15.pdf)"
+    },
+    {
+      "region": "de-hh",
+      "kind": "christmas",
+      "start": "2014-12-22",
+      "end": "2015-01-06",
+      "source": "KMK Ferienkalender 2014/15 (FER2014_15.pdf)"
+    },
+    {
+      "region": "de-mv",
+      "kind": "winter",
+      "start": "2014-02-03",
+      "end": "2014-02-15",
+      "source": "KMK Ferienkalender 2013/14 (FER2013_14.pdf)"
+    },
+    {
+      "region": "de-mv",
+      "kind": "easter",
+      "start": "2014-04-14",
+      "end": "2014-04-23",
+      "source": "KMK Ferienkalender 2013/14 (FER2013_14.pdf)"
+    },
+    {
+      "region": "de-mv",
+      "kind": "pentecost",
+      "start": "2014-06-06",
+      "end": "2014-06-10",
+      "source": "KMK Ferienkalender 2013/14 (FER2013_14.pdf)"
+    },
+    {
+      "region": "de-mv",
+      "kind": "summer",
+      "start": "2014-07-14",
+      "end": "2014-08-23",
+      "source": "KMK Ferienkalender 2013/14 (FER2013_14.pdf)"
+    },
+    {
+      "region": "de-mv",
+      "kind": "autumn",
+      "start": "2014-10-20",
+      "end": "2014-10-25",
+      "source": "KMK Ferienkalender 2014/15 (FER2014_15.pdf)"
+    },
+    {
+      "region": "de-mv",
+      "kind": "christmas",
+      "start": "2014-12-22",
+      "end": "2015-01-02",
+      "source": "KMK Ferienkalender 2014/15 (FER2014_15.pdf)"
+    },
+    {
+      "region": "de-ni",
+      "kind": "winter",
+      "start": "2014-01-30",
+      "end": "2014-01-31",
+      "source": "KMK Ferienkalender 2013/14 (FER2013_14.pdf)"
+    },
+    {
+      "region": "de-ni",
+      "kind": "easter",
+      "start": "2014-04-03",
+      "end": "2014-04-22",
+      "source": "KMK Ferienkalender 2013/14 (FER2013_14.pdf)"
+    },
+    {
+      "region": "de-ni",
+      "kind": "other",
+      "start": "2014-05-02",
+      "end": "2014-05-02",
+      "source": "KMK Ferienkalender 2013/14 (FER2013_14.pdf)"
+    },
+    {
+      "region": "de-ni",
+      "kind": "other",
+      "start": "2014-05-30",
+      "end": "2014-05-30",
+      "source": "KMK Ferienkalender 2013/14 (FER2013_14.pdf)"
+    },
+    {
+      "region": "de-ni",
+      "kind": "other",
+      "start": "2014-06-10",
+      "end": "2014-06-10",
+      "source": "KMK Ferienkalender 2013/14 (FER2013_14.pdf)"
+    },
+    {
+      "region": "de-ni",
+      "kind": "summer",
+      "start": "2014-07-31",
+      "end": "2014-09-10",
+      "source": "KMK Ferienkalender 2013/14 (FER2013_14.pdf)"
+    },
+    {
+      "region": "de-ni",
+      "kind": "autumn",
+      "start": "2014-10-27",
+      "end": "2014-11-08",
+      "source": "KMK Ferienkalender 2014/15 (FER2014_15.pdf)"
+    },
+    {
+      "region": "de-ni",
+      "kind": "christmas",
+      "start": "2014-12-22",
+      "end": "2015-01-05",
+      "source": "KMK Ferienkalender 2014/15 (FER2014_15.pdf)"
+    },
+    {
+      "region": "de-nw",
+      "kind": "easter",
+      "start": "2014-04-14",
+      "end": "2014-04-26",
+      "source": "KMK Ferienkalender 2013/14 (FER2013_14.pdf)"
+    },
+    {
+      "region": "de-nw",
+      "kind": "other",
+      "start": "2014-06-10",
+      "end": "2014-06-10",
+      "source": "KMK Ferienkalender 2013/14 (FER2013_14.pdf)"
+    },
+    {
+      "region": "de-nw",
+      "kind": "summer",
+      "start": "2014-07-07",
+      "end": "2014-08-19",
+      "source": "KMK Ferienkalender 2013/14 (FER2013_14.pdf)"
+    },
+    {
+      "region": "de-nw",
+      "kind": "autumn",
+      "start": "2014-10-06",
+      "end": "2014-10-18",
+      "source": "KMK Ferienkalender 2014/15 (FER2014_15.pdf)"
+    },
+    {
+      "region": "de-nw",
+      "kind": "christmas",
+      "start": "2014-12-22",
+      "end": "2015-01-06",
+      "source": "KMK Ferienkalender 2014/15 (FER2014_15.pdf)"
+    },
+    {
+      "region": "de-rp",
+      "kind": "easter",
+      "start": "2014-04-11",
+      "end": "2014-04-25",
+      "source": "KMK Ferienkalender 2013/14 (FER2013_14.pdf)"
+    },
+    {
+      "region": "de-rp",
+      "kind": "summer",
+      "start": "2014-07-28",
+      "end": "2014-09-05",
+      "source": "KMK Ferienkalender 2013/14 (FER2013_14.pdf)"
+    },
+    {
+      "region": "de-rp",
+      "kind": "autumn",
+      "start": "2014-10-20",
+      "end": "2014-10-31",
+      "source": "KMK Ferienkalender 2014/15 (FER2014_15.pdf)"
+    },
+    {
+      "region": "de-rp",
+      "kind": "christmas",
+      "start": "2014-12-22",
+      "end": "2015-01-07",
+      "source": "KMK Ferienkalender 2014/15 (FER2014_15.pdf)"
+    },
+    {
+      "region": "de-sh",
+      "kind": "easter",
+      "start": "2014-04-16",
+      "end": "2014-05-02",
+      "source": "KMK Ferienkalender 2013/14 (FER2013_14.pdf)"
+    },
+    {
+      "region": "de-sh",
+      "kind": "other",
+      "start": "2014-05-30",
+      "end": "2014-05-30",
+      "source": "KMK Ferienkalender 2013/14 (FER2013_14.pdf)"
+    },
+    {
+      "region": "de-sh",
+      "kind": "summer",
+      "start": "2014-07-14",
+      "end": "2014-08-23",
+      "source": "KMK Ferienkalender 2013/14 (FER2013_14.pdf)"
+    },
+    {
+      "region": "de-sh",
+      "kind": "autumn",
+      "start": "2014-10-13",
+      "end": "2014-10-25",
+      "source": "KMK Ferienkalender 2014/15 (FER2014_15.pdf)"
+    },
+    {
+      "region": "de-sh",
+      "kind": "christmas",
+      "start": "2014-12-22",
+      "end": "2015-01-06",
+      "source": "KMK Ferienkalender 2014/15 (FER2014_15.pdf)"
+    },
+    {
+      "region": "de-sl",
+      "kind": "winter",
+      "start": "2014-03-03",
+      "end": "2014-03-08",
+      "source": "KMK Ferienkalender 2013/14 (FER2013_14.pdf)"
+    },
+    {
+      "region": "de-sl",
+      "kind": "easter",
+      "start": "2014-04-14",
+      "end": "2014-04-26",
+      "source": "KMK Ferienkalender 2013/14 (FER2013_14.pdf)"
+    },
+    {
+      "region": "de-sl",
+      "kind": "summer",
+      "start": "2014-07-28",
+      "end": "2014-09-06",
+      "source": "KMK Ferienkalender 2013/14 (FER2013_14.pdf)"
+    },
+    {
+      "region": "de-sl",
+      "kind": "autumn",
+      "start": "2014-10-20",
+      "end": "2014-10-31",
+      "source": "KMK Ferienkalender 2014/15 (FER2014_15.pdf)"
+    },
+    {
+      "region": "de-sl",
+      "kind": "christmas",
+      "start": "2014-12-22",
+      "end": "2015-01-07",
+      "source": "KMK Ferienkalender 2014/15 (FER2014_15.pdf)"
+    },
+    {
+      "region": "de-sn",
+      "kind": "winter",
+      "start": "2014-02-17",
+      "end": "2014-03-01",
+      "source": "KMK Ferienkalender 2013/14 (FER2013_14.pdf)"
+    },
+    {
+      "region": "de-sn",
+      "kind": "easter",
+      "start": "2014-04-18",
+      "end": "2014-04-26",
+      "source": "KMK Ferienkalender 2013/14 (FER2013_14.pdf)"
+    },
+    {
+      "region": "de-sn",
+      "kind": "other",
+      "start": "2014-05-30",
+      "end": "2014-05-30",
+      "source": "KMK Ferienkalender 2013/14 (FER2013_14.pdf)"
+    },
+    {
+      "region": "de-sn",
+      "kind": "summer",
+      "start": "2014-07-21",
+      "end": "2014-08-29",
+      "source": "KMK Ferienkalender 2013/14 (FER2013_14.pdf)"
+    },
+    {
+      "region": "de-sn",
+      "kind": "autumn",
+      "start": "2014-10-20",
+      "end": "2014-10-31",
+      "source": "KMK Ferienkalender 2014/15 (FER2014_15.pdf)"
+    },
+    {
+      "region": "de-sn",
+      "kind": "christmas",
+      "start": "2014-12-22",
+      "end": "2015-01-03",
+      "source": "KMK Ferienkalender 2014/15 (FER2014_15.pdf)"
+    },
+    {
+      "region": "de-st",
+      "kind": "winter",
+      "start": "2014-02-01",
+      "end": "2014-02-12",
+      "source": "KMK Ferienkalender 2013/14 (FER2013_14.pdf)"
+    },
+    {
+      "region": "de-st",
+      "kind": "easter",
+      "start": "2014-04-14",
+      "end": "2014-04-17",
+      "source": "KMK Ferienkalender 2013/14 (FER2013_14.pdf)"
+    },
+    {
+      "region": "de-st",
+      "kind": "pentecost",
+      "start": "2014-05-30",
+      "end": "2014-06-07",
+      "source": "KMK Ferienkalender 2013/14 (FER2013_14.pdf)"
+    },
+    {
+      "region": "de-st",
+      "kind": "summer",
+      "start": "2014-07-21",
+      "end": "2014-09-03",
+      "source": "KMK Ferienkalender 2013/14 (FER2013_14.pdf)"
+    },
+    {
+      "region": "de-st",
+      "kind": "autumn",
+      "start": "2014-10-27",
+      "end": "2014-10-30",
+      "source": "KMK Ferienkalender 2014/15 (FER2014_15.pdf)"
+    },
+    {
+      "region": "de-st",
+      "kind": "christmas",
+      "start": "2014-12-22",
+      "end": "2015-01-05",
+      "source": "KMK Ferienkalender 2014/15 (FER2014_15.pdf)"
+    },
+    {
+      "region": "de-th",
+      "kind": "winter",
+      "start": "2014-02-17",
+      "end": "2014-02-22",
+      "source": "KMK Ferienkalender 2013/14 (FER2013_14.pdf)"
+    },
+    {
+      "region": "de-th",
+      "kind": "easter",
+      "start": "2014-04-19",
+      "end": "2014-05-02",
+      "source": "KMK Ferienkalender 2013/14 (FER2013_14.pdf)"
+    },
+    {
+      "region": "de-th",
+      "kind": "other",
+      "start": "2014-05-30",
+      "end": "2014-05-30",
+      "source": "KMK Ferienkalender 2013/14 (FER2013_14.pdf)"
+    },
+    {
+      "region": "de-th",
+      "kind": "summer",
+      "start": "2014-07-21",
+      "end": "2014-08-29",
+      "source": "KMK Ferienkalender 2013/14 (FER2013_14.pdf)"
+    },
+    {
+      "region": "de-th",
+      "kind": "autumn",
+      "start": "2014-10-06",
+      "end": "2014-10-18",
+      "source": "KMK Ferienkalender 2014/15 (FER2014_15.pdf)"
+    },
+    {
+      "region": "de-th",
+      "kind": "christmas",
+      "start": "2014-12-22",
+      "end": "2015-01-03",
+      "source": "KMK Ferienkalender 2014/15 (FER2014_15.pdf)"
+    }
+  ]
+}

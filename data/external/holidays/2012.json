@@ -1,0 +1,229 @@
+{
+  "year": 2012,
+  "entries": [
+    {
+      "region": "de-bb",
+      "kind": "autumn",
+      "start": "2012-10-01",
+      "end": "2012-10-13",
+      "source": "KMK Ferienkalender 2012/13 (FER2012_13.pdf)"
+    },
+    {
+      "region": "de-bb",
+      "kind": "christmas",
+      "start": "2012-12-24",
+      "end": "2013-01-04",
+      "source": "KMK Ferienkalender 2012/13 (FER2012_13.pdf)"
+    },
+    {
+      "region": "de-be",
+      "kind": "autumn",
+      "start": "2012-10-01",
+      "end": "2012-10-13",
+      "source": "KMK Ferienkalender 2012/13 (FER2012_13.pdf)"
+    },
+    {
+      "region": "de-be",
+      "kind": "christmas",
+      "start": "2012-12-24",
+      "end": "2013-01-04",
+      "source": "KMK Ferienkalender 2012/13 (FER2012_13.pdf)"
+    },
+    {
+      "region": "de-bw",
+      "kind": "autumn",
+      "start": "2012-10-29",
+      "end": "2012-11-02",
+      "source": "KMK Ferienkalender 2012/13 (FER2012_13.pdf)"
+    },
+    {
+      "region": "de-bw",
+      "kind": "christmas",
+      "start": "2012-12-24",
+      "end": "2013-01-05",
+      "source": "KMK Ferienkalender 2012/13 (FER2012_13.pdf)"
+    },
+    {
+      "region": "de-by",
+      "kind": "autumn",
+      "start": "2012-10-29",
+      "end": "2012-11-03",
+      "source": "KMK Ferienkalender 2012/13 (FER2012_13.pdf)"
+    },
+    {
+      "region": "de-by",
+      "kind": "christmas",
+      "start": "2012-12-24",
+      "end": "2013-01-05",
+      "source": "KMK Ferienkalender 2012/13 (FER2012_13.pdf)"
+    },
+    {
+      "region": "de-hb",
+      "kind": "autumn",
+      "start": "2012-10-22",
+      "end": "2012-11-03",
+      "source": "KMK Ferienkalender 2012/13 (FER2012_13.pdf)"
+    },
+    {
+      "region": "de-hb",
+      "kind": "christmas",
+      "start": "2012-12-24",
+      "end": "2013-01-05",
+      "source": "KMK Ferienkalender 2012/13 (FER2012_13.pdf)"
+    },
+    {
+      "region": "de-he",
+      "kind": "autumn",
+      "start": "2012-10-15",
+      "end": "2012-10-27",
+      "source": "KMK Ferienkalender 2012/13 (FER2012_13.pdf)"
+    },
+    {
+      "region": "de-he",
+      "kind": "christmas",
+      "start": "2012-12-24",
+      "end": "2013-01-12",
+      "source": "KMK Ferienkalender 2012/13 (FER2012_13.pdf)"
+    },
+    {
+      "region": "de-hh",
+      "kind": "autumn",
+      "start": "2012-10-01",
+      "end": "2012-10-12",
+      "source": "KMK Ferienkalender 2012/13 (FER2012_13.pdf)"
+    },
+    {
+      "region": "de-hh",
+      "kind": "christmas",
+      "start": "2012-12-21",
+      "end": "2013-01-04",
+      "source": "KMK Ferienkalender 2012/13 (FER2012_13.pdf)"
+    },
+    {
+      "region": "de-mv",
+      "kind": "autumn",
+      "start": "2012-10-01",
+      "end": "2012-10-05",
+      "source": "KMK Ferienkalender 2012/13 (FER2012_13.pdf)"
+    },
+    {
+      "region": "de-mv",
+      "kind": "christmas",
+      "start": "2012-12-21",
+      "end": "2013-01-04",
+      "source": "KMK Ferienkalender 2012/13 (FER2012_13.pdf)"
+    },
+    {
+      "region": "de-ni",
+      "kind": "autumn",
+      "start": "2012-10-22",
+      "end": "2012-11-03",
+      "source": "KMK Ferienkalender 2012/13 (FER2012_13.pdf)"
+    },
+    {
+      "region": "de-ni",
+      "kind": "christmas",
+      "start": "2012-12-24",
+      "end": "2013-01-05",
+      "source": "KMK Ferienkalender 2012/13 (FER2012_13.pdf)"
+    },
+    {
+      "region": "de-nw",
+      "kind": "autumn",
+      "start": "2012-10-08",
+      "end": "2012-10-20",
+      "source": "KMK Ferienkalender 2012/13 (FER2012_13.pdf)"
+    },
+    {
+      "region": "de-nw",
+      "kind": "christmas",
+      "start": "2012-12-21",
+      "end": "2013-01-04",
+      "source": "KMK Ferienkalender 2012/13 (FER2012_13.pdf)"
+    },
+    {
+      "region": "de-rp",
+      "kind": "autumn",
+      "start": "2012-10-01",
+      "end": "2012-10-12",
+      "source": "KMK Ferienkalender 2012/13 (FER2012_13.pdf)"
+    },
+    {
+      "region": "de-rp",
+      "kind": "christmas",
+      "start": "2012-12-20",
+      "end": "2013-01-04",
+      "source": "KMK Ferienkalender 2012/13 (FER2012_13.pdf)"
+    },
+    {
+      "region": "de-sh",
+      "kind": "autumn",
+      "start": "2012-10-04",
+      "end": "2012-10-19",
+      "source": "KMK Ferienkalender 2012/13 (FER2012_13.pdf)"
+    },
+    {
+      "region": "de-sh",
+      "kind": "christmas",
+      "start": "2012-12-24",
+      "end": "2013-01-05",
+      "source": "KMK Ferienkalender 2012/13 (FER2012_13.pdf)"
+    },
+    {
+      "region": "de-sl",
+      "kind": "autumn",
+      "start": "2012-10-22",
+      "end": "2012-11-03",
+      "source": "KMK Ferienkalender 2012/13 (FER2012_13.pdf)"
+    },
+    {
+      "region": "de-sl",
+      "kind": "christmas",
+      "start": "2012-12-24",
+      "end": "2013-01-05",
+      "source": "KMK Ferienkalender 2012/13 (FER2012_13.pdf)"
+    },
+    {
+      "region": "de-sn",
+      "kind": "autumn",
+      "start": "2012-10-22",
+      "end": "2012-11-02",
+      "source": "KMK Ferienkalender 2012/13 (FER2012_13.pdf)"
+    },
+    {
+      "region": "de-sn",
+      "kind": "christmas",
+      "start": "2012-12-22",
+      "end": "2013-01-02",
+      "source": "KMK Ferienkalender 2012/13 (FER2012_13.pdf)"
+    },
+    {
+      "region": "de-st",
+      "kind": "autumn",
+      "start": "2012-10-29",
+      "end": "2012-11-02",
+      "source": "KMK Ferienkalender 2012/13 (FER2012_13.pdf)"
+    },
+    {
+      "region": "de-st",
+      "kind": "christmas",
+      "start": "2012-12-19",
+      "end": "2013-01-04",
+      "source": "KMK Ferienkalender 2012/13 (FER2012_13.pdf)"
+    },
+    {
+      "region": "de-th",
+      "kind": "autumn",
+      "start": "2012-10-22",
+      "end": "2012-11-03",
+      "source": "KMK Ferienkalender 2012/13 (FER2012_13.pdf)"
+    },
+    {
+      "region": "de-th",
+      "kind": "christmas",
+      "start": "2012-12-24",
+      "end": "2013-01-05",
+      "source": "KMK Ferienkalender 2012/13 (FER2012_13.pdf)"
+    }
+  ]
+}

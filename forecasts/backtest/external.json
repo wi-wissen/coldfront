@@ -1,0 +1,3181 @@
+{
+ "generated": "2026-10-13",
+ "source": {
+  "id": "respinow-hub",
+  "name": "RESPINOW-Hub forecast archive (KITmetricslab)",
+  "url": "https://github.com/KITmetricslab/RESPINOW-Hub",
+  "attribution": "RESPINOW-Hub, KITmetricslab (MIT licence); Prognosen der Teams KIT-*, MPIDS-*",
+  "license": "MIT",
+  "license_url": "https://github.com/KITmetricslab/RESPINOW-Hub/blob/main/LICENSE",
+  "doi": "",
+  "retrieved": "2026-10-13",
+  "commit": "23510acb2c02bef4704f3db2e0bc4d48e3b5dd2c",
+  "truth_sha256": "6e3328e3a39708f0829cda61d7d8abc3fd91b7950e30fb731b3eedcf32de14e8"
+ },
+ "target": {
+  "region": "de",
+  "unit": "per_100k",
+  "actuals": "Coldfront final ARE series (RKI ARE-Konsultationsinzidenz), data/clean/de/series.csv"
+ },
+ "seasons": [
+  "2024/25",
+  "2025/26"
+ ],
+ "unit_ratio": {
+  "ratio": 831.3832206416016,
+  "window": {
+   "from": "2025-W41",
+   "to": "2026-W40",
+   "n": 52
+  },
+  "min": 831.3819577735125,
+  "max": 831.3836793128131,
+  "rel_range": 0.0000020706928621103507,
+  "cv": 5.20584385314895e-7,
+  "n_dev_gt_2pct": 0,
+  "all_weeks": {
+   "from": "2012-W40",
+   "to": "2026-W40",
+   "n": 731,
+   "median": 831.3832167832168,
+   "min": 831.3806228373702,
+   "max": 831.3836793128131
+  }
+ },
+ "alignment": {
+  "rows_checked": 816,
+  "forecast_date_thursday": 816,
+  "target_end_sunday": 816,
+  "horizon_aligned": 816,
+  "nowcast_rows": 58,
+  "nowcast_aligned": 58,
+  "truth_label_mismatches": 0
+ },
+ "coverage": {
+  "respinow:KIT-LightGBM": {
+   "forecast_dates": 41,
+   "first": "2024-10-17",
+   "last": "2026-10-08",
+   "cells": 160,
+   "cells_by_season": {
+    "2024/25": 88,
+    "2025/26": 72
+   },
+   "cells_common_with_coldfront": 160
+  },
+  "respinow:KIT-MeanEnsemble": {
+   "forecast_dates": 40,
+   "first": "2024-10-17",
+   "last": "2026-10-08",
+   "cells": 156,
+   "cells_by_season": {
+    "2024/25": 88,
+    "2025/26": 68
+   },
+   "cells_common_with_coldfront": 156
+  },
+  "respinow:KIT-TSMixer": {
+   "forecast_dates": 41,
+   "first": "2024-10-17",
+   "last": "2026-10-08",
+   "cells": 160,
+   "cells_by_season": {
+    "2024/25": 88,
+    "2025/26": 72
+   },
+   "cells_common_with_coldfront": 160
+  },
+  "respinow:KIT-hhh4": {
+   "forecast_dates": 60,
+   "first": "2024-07-04",
+   "last": "2026-10-08",
+   "cells": 190,
+   "cells_by_season": {
+    "2024/25": 114,
+    "2025/26": 76
+   },
+   "cells_common_with_coldfront": 190
+  },
+  "respinow:KIT-simple_nowcast": {
+   "forecast_dates": 0,
+   "first": null,
+   "last": null,
+   "cells": 0,
+   "cells_by_season": {},
+   "cells_common_with_coldfront": 0,
+   "note": "No horizon 1..4 forecasts (nowcast-only submission); excluded from the comparison."
+  },
+  "respinow:MPIDS-PS_embedding": {
+   "forecast_dates": 22,
+   "first": "2024-10-17",
+   "last": "2025-03-27",
+   "cells": 88,
+   "cells_by_season": {
+    "2024/25": 88
+   },
+   "cells_common_with_coldfront": 88
+  }
+ },
+ "coldfront_models": [
+  "baseline-seasonal",
+  "persistence",
+  "ensemble"
+ ],
+ "panels": {
+  "all": {
+   "description": "Cells where Coldfront and every RESPINOW model with horizon 1..4 forecasts have a forecast (strict intersection).",
+   "models": [
+    "baseline-seasonal",
+    "persistence",
+    "ensemble",
+    "respinow:KIT-LightGBM",
+    "respinow:KIT-MeanEnsemble",
+    "respinow:KIT-TSMixer",
+    "respinow:KIT-hhh4",
+    "respinow:MPIDS-PS_embedding"
+   ],
+   "n_cells": 88,
+   "n_origins": 22,
+   "cells_by_season": {
+    "2024/25": 88
+   },
+   "overall": {
+    "baseline-seasonal": {
+     "n": 88,
+     "mae": 459.8068181818182,
+     "wis": 297.84797727272723,
+     "coverage50": 0.10227272727272728,
+     "coverage80": 0.6477272727272727
+    },
+    "persistence": {
+     "n": 88,
+     "mae": 403.41974293255953,
+     "wis": 300.9002830587029,
+     "coverage50": 0.48863636363636365,
+     "coverage80": 0.7727272727272727
+    },
+    "ensemble": {
+     "n": 88,
+     "mae": 300.4094734247878,
+     "wis": 225.2987405754984,
+     "coverage50": 0.6477272727272727,
+     "coverage80": 0.8636363636363636
+    },
+    "respinow:KIT-LightGBM": {
+     "n": 88,
+     "mae": 307.40619271211546,
+     "wis": 208.93605717546308,
+     "coverage50": 0.375,
+     "coverage80": 0.7159090909090909
+    },
+    "respinow:KIT-MeanEnsemble": {
+     "n": 88,
+     "mae": 278.29961488790417,
+     "wis": 219.36267208155505,
+     "coverage50": 0.6704545454545454,
+     "coverage80": 0.8295454545454546
+    },
+    "respinow:KIT-TSMixer": {
+     "n": 88,
+     "mae": 354.8244952509948,
+     "wis": 246.9373898720289,
+     "coverage50": 0.5568181818181818,
+     "coverage80": 0.8636363636363636
+    },
+    "respinow:KIT-hhh4": {
+     "n": 88,
+     "mae": 376.5466752731129,
+     "wis": 292.35773404215973,
+     "coverage50": 0.5568181818181818,
+     "coverage80": 0.7613636363636364
+    },
+    "respinow:MPIDS-PS_embedding": {
+     "n": 88,
+     "mae": 405.17037469886947,
+     "wis": 313.56607833695716,
+     "coverage50": 0.5227272727272727,
+     "coverage80": 0.6477272727272727
+    }
+   },
+   "by_season": {
+    "2024/25": {
+     "baseline-seasonal": {
+      "n": 88,
+      "mae": 459.8068181818182,
+      "wis": 297.84797727272723,
+      "coverage50": 0.10227272727272728,
+      "coverage80": 0.6477272727272727
+     },
+     "persistence": {
+      "n": 88,
+      "mae": 403.41974293255953,
+      "wis": 300.9002830587029,
+      "coverage50": 0.48863636363636365,
+      "coverage80": 0.7727272727272727
+     },
+     "ensemble": {
+      "n": 88,
+      "mae": 300.4094734247878,
+      "wis": 225.2987405754984,
+      "coverage50": 0.6477272727272727,
+      "coverage80": 0.8636363636363636
+     },
+     "respinow:KIT-LightGBM": {
+      "n": 88,
+      "mae": 307.40619271211546,
+      "wis": 208.93605717546308,
+      "coverage50": 0.375,
+      "coverage80": 0.7159090909090909
+     },
+     "respinow:KIT-MeanEnsemble": {
+      "n": 88,
+      "mae": 278.29961488790417,
+      "wis": 219.36267208155505,
+      "coverage50": 0.6704545454545454,
+      "coverage80": 0.8295454545454546
+     },
+     "respinow:KIT-TSMixer": {
+      "n": 88,
+      "mae": 354.8244952509948,
+      "wis": 246.9373898720289,
+      "coverage50": 0.5568181818181818,
+      "coverage80": 0.8636363636363636
+     },
+     "respinow:KIT-hhh4": {
+      "n": 88,
+      "mae": 376.5466752731129,
+      "wis": 292.35773404215973,
+      "coverage50": 0.5568181818181818,
+      "coverage80": 0.7613636363636364
+     },
+     "respinow:MPIDS-PS_embedding": {
+      "n": 88,
+      "mae": 405.17037469886947,
+      "wis": 313.56607833695716,
+      "coverage50": 0.5227272727272727,
+      "coverage80": 0.6477272727272727
+     }
+    }
+   },
+   "by_horizon": {
+    "h1": {
+     "baseline-seasonal": {
+      "n": 22,
+      "mae": 471.34090909090907,
+      "wis": 306.6931818181818,
+      "coverage50": 0.09090909090909091,
+      "coverage80": 0.6363636363636364
+     },
+     "persistence": {
+      "n": 22,
+      "mae": 223.91724643114128,
+      "wis": 170.54233454419776,
+      "coverage50": 0.5909090909090909,
+      "coverage80": 0.7272727272727273
+     },
+     "ensemble": {
+      "n": 22,
+      "mae": 272.6806440501548,
+      "wis": 190.96559177453702,
+      "coverage50": 0.5454545454545454,
+      "coverage80": 0.9090909090909091
+     },
+     "respinow:KIT-LightGBM": {
+      "n": 22,
+      "mae": 152.94286796842306,
+      "wis": 120.37311393707415,
+      "coverage50": 0.5909090909090909,
+      "coverage80": 0.7727272727272727
+     },
+     "respinow:KIT-MeanEnsemble": {
+      "n": 22,
+      "mae": 183.0550277499339,
+      "wis": 145.85327677746292,
+      "coverage50": 0.7727272727272727,
+      "coverage80": 0.8636363636363636
+     },
+     "respinow:KIT-TSMixer": {
+      "n": 22,
+      "mae": 282.23525028588324,
+      "wis": 198.16037435053656,
+      "coverage50": 0.6818181818181818,
+      "coverage80": 0.9090909090909091
+     },
+     "respinow:KIT-hhh4": {
+      "n": 22,
+      "mae": 220.338866070229,
+      "wis": 176.063205991881,
+      "coverage50": 0.6363636363636364,
+      "coverage80": 0.8181818181818182
+     },
+     "respinow:MPIDS-PS_embedding": {
+      "n": 22,
+      "mae": 304.13632394693684,
+      "wis": 228.24543320762314,
+      "coverage50": 0.5909090909090909,
+      "coverage80": 0.7272727272727273
+     }
+    },
+    "h2": {
+     "baseline-seasonal": {
+      "n": 22,
+      "mae": 469.6136363636364,
+      "wis": 305.09772727272724,
+      "coverage50": 0.09090909090909091,
+      "coverage80": 0.6363636363636364
+     },
+     "persistence": {
+      "n": 22,
+      "mae": 352.42845961530725,
+      "wis": 269.6071209629651,
+      "coverage50": 0.5,
+      "coverage80": 0.8636363636363636
+     },
+     "ensemble": {
+      "n": 22,
+      "mae": 297.0676163072469,
+      "wis": 220.2905054975944,
+      "coverage50": 0.6818181818181818,
+      "coverage80": 0.8636363636363636
+     },
+     "respinow:KIT-LightGBM": {
+      "n": 22,
+      "mae": 276.2940841129908,
+      "wis": 187.48832906092375,
+      "coverage50": 0.3181818181818182,
+      "coverage80": 0.6818181818181818
+     },
+     "respinow:KIT-MeanEnsemble": {
+      "n": 22,
+      "mae": 278.450295579671,
+      "wis": 208.2926099863894,
+      "coverage50": 0.6818181818181818,
+      "coverage80": 0.8181818181818182
+     },
+     "respinow:KIT-TSMixer": {
+      "n": 22,
+      "mae": 370.67727699993696,
+      "wis": 241.73594144069202,
+      "coverage50": 0.5,
+      "coverage80": 0.8636363636363636
+     },
+     "respinow:KIT-hhh4": {
+      "n": 22,
+      "mae": 340.4628441872191,
+      "wis": 269.9726929546095,
+      "coverage50": 0.5909090909090909,
+      "coverage80": 0.7727272727272727
+     },
+     "respinow:MPIDS-PS_embedding": {
+      "n": 22,
+      "mae": 396.0908061226708,
+      "wis": 320.03900058112316,
+      "coverage50": 0.5454545454545454,
+      "coverage80": 0.6363636363636364
+     }
+    },
+    "h3": {
+     "baseline-seasonal": {
+      "n": 22,
+      "mae": 459.75,
+      "wis": 296.0889545454545,
+      "coverage50": 0.09090909090909091,
+      "coverage80": 0.6363636363636364
+     },
+     "persistence": {
+      "n": 22,
+      "mae": 494.12467481670114,
+      "wis": 357.87583218415136,
+      "coverage50": 0.4090909090909091,
+      "coverage80": 0.7727272727272727
+     },
+     "ensemble": {
+      "n": 22,
+      "mae": 322.58025475256704,
+      "wis": 245.42015478288002,
+      "coverage50": 0.6363636363636364,
+      "coverage80": 0.8181818181818182
+     },
+     "respinow:KIT-LightGBM": {
+      "n": 22,
+      "mae": 396.7139985325104,
+      "wis": 251.24666508655017,
+      "coverage50": 0.3181818181818182,
+      "coverage80": 0.6818181818181818
+     },
+     "respinow:KIT-MeanEnsemble": {
+      "n": 22,
+      "mae": 315.7405850785184,
+      "wis": 249.15689643560074,
+      "coverage50": 0.5909090909090909,
+      "coverage80": 0.8181818181818182
+     },
+     "respinow:KIT-TSMixer": {
+      "n": 22,
+      "mae": 351.60487916229727,
+      "wis": 254.6993912647247,
+      "coverage50": 0.6363636363636364,
+      "coverage80": 0.8181818181818182
+     },
+     "respinow:KIT-hhh4": {
+      "n": 22,
+      "mae": 450.3946915868819,
+      "wis": 347.40192063932074,
+      "coverage50": 0.5,
+      "coverage80": 0.6818181818181818
+     },
+     "respinow:MPIDS-PS_embedding": {
+      "n": 22,
+      "mae": 456.9089690744199,
+      "wis": 359.37630378008174,
+      "coverage50": 0.45454545454545453,
+      "coverage80": 0.5909090909090909
+     }
+    },
+    "h4": {
+     "baseline-seasonal": {
+      "n": 22,
+      "mae": 438.52272727272725,
+      "wis": 283.51204545454544,
+      "coverage50": 0.13636363636363635,
+      "coverage80": 0.6818181818181818
+     },
+     "persistence": {
+      "n": 22,
+      "mae": 543.2085908670878,
+      "wis": 405.5758445434977,
+      "coverage50": 0.45454545454545453,
+      "coverage80": 0.7272727272727273
+     },
+     "ensemble": {
+      "n": 22,
+      "mae": 309.30937858918236,
+      "wis": 244.51871024698212,
+      "coverage50": 0.7272727272727273,
+      "coverage80": 0.8636363636363636
+     },
+     "respinow:KIT-LightGBM": {
+      "n": 22,
+      "mae": 403.67382023453723,
+      "wis": 276.6361206173046,
+      "coverage50": 0.2727272727272727,
+      "coverage80": 0.7272727272727273
+     },
+     "respinow:KIT-MeanEnsemble": {
+      "n": 22,
+      "mae": 335.95255114349396,
+      "wis": 274.1479051267667,
+      "coverage50": 0.6363636363636364,
+      "coverage80": 0.8181818181818182
+     },
+     "respinow:KIT-TSMixer": {
+      "n": 22,
+      "mae": 414.7805745558619,
+      "wis": 293.15385243216275,
+      "coverage50": 0.4090909090909091,
+      "coverage80": 0.8636363636363636
+     },
+     "respinow:KIT-hhh4": {
+      "n": 22,
+      "mae": 494.9902992481217,
+      "wis": 375.9931165828273,
+      "coverage50": 0.5,
+      "coverage80": 0.7727272727272727
+     },
+     "respinow:MPIDS-PS_embedding": {
+      "n": 22,
+      "mae": 463.54539965145034,
+      "wis": 346.6035757790007,
+      "coverage50": 0.5,
+      "coverage80": 0.6363636363636364
+     }
+    }
+   },
+   "comparisons": {
+    "ensemble vs respinow:KIT-LightGBM": {
+     "meanDiff": 16.36268340003522,
+     "relImprovement": -0.07831431118801074,
+     "ci95": [
+      -21.694924247870706,
+      52.91345292760519
+     ],
+     "seasonsBetter": 0,
+     "seasonsTotal": 1,
+     "n": 88
+    },
+    "ensemble vs respinow:KIT-MeanEnsemble": {
+     "meanDiff": 5.936068493943426,
+     "relImprovement": -0.027060522365156565,
+     "ci95": [
+      -38.53177925422238,
+      44.56953821277681
+     ],
+     "seasonsBetter": 0,
+     "seasonsTotal": 1,
+     "n": 88
+    },
+    "ensemble vs respinow:KIT-TSMixer": {
+     "meanDiff": -21.638649296530602,
+     "relImprovement": 0.08762807976444743,
+     "ci95": [
+      -63.91424891453872,
+      28.861690313105797
+     ],
+     "seasonsBetter": 1,
+     "seasonsTotal": 1,
+     "n": 88
+    },
+    "ensemble vs respinow:KIT-hhh4": {
+     "meanDiff": -67.05899346666128,
+     "relImprovement": 0.22937307845254734,
+     "ci95": [
+      -142.02906266302958,
+      -4.971389492769437
+     ],
+     "seasonsBetter": 1,
+     "seasonsTotal": 1,
+     "n": 88
+    },
+    "ensemble vs respinow:MPIDS-PS_embedding": {
+     "meanDiff": -88.26733776145879,
+     "relImprovement": 0.28149517393462115,
+     "ci95": [
+      -156.50010940227457,
+      -25.33266545949307
+     ],
+     "seasonsBetter": 1,
+     "seasonsTotal": 1,
+     "n": 88
+    },
+    "ensemble vs baseline-seasonal": {
+     "meanDiff": -72.54923669722888,
+     "relImprovement": 0.24357807416230495,
+     "ci95": [
+      -106.88852097140777,
+      -37.13854965316358
+     ],
+     "seasonsBetter": 1,
+     "seasonsTotal": 1,
+     "n": 88
+    }
+   },
+   "comparisons_by_season": {
+    "2024/25": {
+     "ensemble vs respinow:KIT-LightGBM": {
+      "meanDiff": 16.36268340003522,
+      "relImprovement": -0.07831431118801074,
+      "ci95": [
+       -21.694924247870706,
+       52.91345292760519
+      ],
+      "seasonsBetter": 0,
+      "seasonsTotal": 1,
+      "n": 88
+     },
+     "ensemble vs respinow:KIT-MeanEnsemble": {
+      "meanDiff": 5.936068493943426,
+      "relImprovement": -0.027060522365156565,
+      "ci95": [
+       -38.53177925422238,
+       44.56953821277681
+      ],
+      "seasonsBetter": 0,
+      "seasonsTotal": 1,
+      "n": 88
+     },
+     "ensemble vs respinow:KIT-TSMixer": {
+      "meanDiff": -21.638649296530602,
+      "relImprovement": 0.08762807976444743,
+      "ci95": [
+       -63.91424891453872,
+       28.861690313105797
+      ],
+      "seasonsBetter": 1,
+      "seasonsTotal": 1,
+      "n": 88
+     },
+     "ensemble vs respinow:KIT-hhh4": {
+      "meanDiff": -67.05899346666128,
+      "relImprovement": 0.22937307845254734,
+      "ci95": [
+       -142.02906266302958,
+       -4.971389492769437
+      ],
+      "seasonsBetter": 1,
+      "seasonsTotal": 1,
+      "n": 88
+     },
+     "ensemble vs respinow:MPIDS-PS_embedding": {
+      "meanDiff": -88.26733776145879,
+      "relImprovement": 0.28149517393462115,
+      "ci95": [
+       -156.50010940227457,
+       -25.33266545949307
+      ],
+      "seasonsBetter": 1,
+      "seasonsTotal": 1,
+      "n": 88
+     },
+     "ensemble vs baseline-seasonal": {
+      "meanDiff": -72.54923669722888,
+      "relImprovement": 0.24357807416230495,
+      "ci95": [
+       -106.88852097140777,
+       -37.13854965316358
+      ],
+      "seasonsBetter": 1,
+      "seasonsTotal": 1,
+      "n": 88
+     }
+    }
+   },
+   "respinow_truth": {
+    "n_cells": 88,
+    "overall": {
+     "baseline-seasonal": {
+      "n": 88,
+      "mae": 459.807271824189,
+      "wis": 297.84830661615405,
+      "coverage50": 0.10227272727272728,
+      "coverage80": 0.6477272727272727
+     },
+     "persistence": {
+      "n": 88,
+      "mae": 403.41972974348266,
+      "wis": 300.9003172604737,
+      "coverage50": 0.48863636363636365,
+      "coverage80": 0.7727272727272727
+     },
+     "ensemble": {
+      "n": 88,
+      "mae": 300.409873210639,
+      "wis": 225.2989408543883,
+      "coverage50": 0.6477272727272727,
+      "coverage80": 0.8636363636363636
+     },
+     "respinow:KIT-LightGBM": {
+      "n": 88,
+      "mae": 307.4063680259667,
+      "wis": 208.9362369362967,
+      "coverage50": 0.375,
+      "coverage80": 0.7159090909090909
+     },
+     "respinow:KIT-MeanEnsemble": {
+      "n": 88,
+      "mae": 278.2998406487427,
+      "wis": 219.36282207436687,
+      "coverage50": 0.6704545454545454,
+      "coverage80": 0.8295454545454546
+     },
+     "respinow:KIT-TSMixer": {
+      "n": 88,
+      "mae": 354.8248556452026,
+      "wis": 246.9375727723109,
+      "coverage50": 0.5568181818181818,
+      "coverage80": 0.8636363636363636
+     },
+     "respinow:KIT-hhh4": {
+      "n": 88,
+      "mae": 376.5467065774682,
+      "wis": 292.35783140651813,
+      "coverage50": 0.5568181818181818,
+      "coverage80": 0.7613636363636364
+     },
+     "respinow:MPIDS-PS_embedding": {
+      "n": 88,
+      "mae": 405.1706495657879,
+      "wis": 313.56631950031965,
+      "coverage50": 0.5227272727272727,
+      "coverage80": 0.6477272727272727
+     }
+    },
+    "comparisons": {
+     "ensemble vs respinow:KIT-LightGBM": {
+      "meanDiff": 16.362703918091665,
+      "relImprovement": -0.07831434201181936,
+      "ci95": [
+       -21.69486291602287,
+       52.91341113527204
+      ],
+      "seasonsBetter": 0,
+      "seasonsTotal": 1,
+      "n": 88
+     },
+     "ensemble vs respinow:KIT-MeanEnsemble": {
+      "meanDiff": 5.936118780021476,
+      "relImprovement": -0.027060733099107625,
+      "ci95": [
+       -38.531753793947054,
+       44.56961204621206
+      ],
+      "seasonsBetter": 0,
+      "seasonsTotal": 1,
+      "n": 88
+     },
+     "ensemble vs respinow:KIT-TSMixer": {
+      "meanDiff": -21.638631917922453,
+      "relImprovement": 0.08762794448406756,
+      "ci95": [
+       -63.91431094457133,
+       28.86184216226877
+      ],
+      "seasonsBetter": 1,
+      "seasonsTotal": 1,
+      "n": 88
+     },
+     "ensemble vs respinow:KIT-hhh4": {
+      "meanDiff": -67.0588905521298,
+      "relImprovement": 0.2293726500484458,
+      "ci95": [
+       -142.02898432103214,
+       -4.97119181641595
+      ],
+      "seasonsBetter": 1,
+      "seasonsTotal": 1,
+      "n": 88
+     },
+     "ensemble vs respinow:MPIDS-PS_embedding": {
+      "meanDiff": -88.26737864593116,
+      "relImprovement": 0.28149508782253374,
+      "ci95": [
+       -156.50019606657114,
+       -25.332669176382904
+      ],
+      "seasonsBetter": 1,
+      "seasonsTotal": 1,
+      "n": 88
+     },
+     "ensemble vs baseline-seasonal": {
+      "meanDiff": -72.54936576176569,
+      "relImprovement": 0.24357823815081214,
+      "ci95": [
+       -106.88861875135633,
+       -37.13864910829688
+      ],
+      "seasonsBetter": 1,
+      "seasonsTotal": 1,
+      "n": 88
+     }
+    }
+   }
+  },
+  "core": {
+   "description": "Cells where Coldfront and the RESPINOW models covering every season with RESPINOW data (2024/25, 2025/26) have a forecast.",
+   "models": [
+    "baseline-seasonal",
+    "persistence",
+    "ensemble",
+    "respinow:KIT-LightGBM",
+    "respinow:KIT-MeanEnsemble",
+    "respinow:KIT-TSMixer",
+    "respinow:KIT-hhh4"
+   ],
+   "n_cells": 156,
+   "n_origins": 39,
+   "cells_by_season": {
+    "2024/25": 88,
+    "2025/26": 68
+   },
+   "overall": {
+    "baseline-seasonal": {
+     "n": 156,
+     "mae": 330.56410256410254,
+     "wis": 216.3407051282051,
+     "coverage50": 0.2948717948717949,
+     "coverage80": 0.7628205128205128
+    },
+    "persistence": {
+     "n": 156,
+     "mae": 350.0026552138082,
+     "wis": 258.467130250652,
+     "coverage50": 0.4935897435897436,
+     "coverage80": 0.8141025641025641
+    },
+    "ensemble": {
+     "n": 156,
+     "mae": 234.96799046444707,
+     "wis": 181.16617604388435,
+     "coverage50": 0.75,
+     "coverage80": 0.9230769230769231
+    },
+    "respinow:KIT-LightGBM": {
+     "n": 156,
+     "mae": 244.83181853086643,
+     "wis": 170.66051585991363,
+     "coverage50": 0.36538461538461536,
+     "coverage80": 0.6987179487179487
+    },
+    "respinow:KIT-MeanEnsemble": {
+     "n": 156,
+     "mae": 239.79870272713043,
+     "wis": 183.44603650769992,
+     "coverage50": 0.6153846153846154,
+     "coverage80": 0.8589743589743589
+    },
+    "respinow:KIT-TSMixer": {
+     "n": 156,
+     "mae": 278.58336370350236,
+     "wis": 193.9134341564385,
+     "coverage50": 0.5512820512820513,
+     "coverage80": 0.8782051282051282
+    },
+    "respinow:KIT-hhh4": {
+     "n": 156,
+     "mae": 363.59781962925234,
+     "wis": 265.8246514431392,
+     "coverage50": 0.5128205128205128,
+     "coverage80": 0.8205128205128205
+    }
+   },
+   "by_season": {
+    "2024/25": {
+     "baseline-seasonal": {
+      "n": 88,
+      "mae": 459.8068181818182,
+      "wis": 297.84797727272723,
+      "coverage50": 0.10227272727272728,
+      "coverage80": 0.6477272727272727
+     },
+     "persistence": {
+      "n": 88,
+      "mae": 403.41974293255953,
+      "wis": 300.9002830587029,
+      "coverage50": 0.48863636363636365,
+      "coverage80": 0.7727272727272727
+     },
+     "ensemble": {
+      "n": 88,
+      "mae": 300.4094734247878,
+      "wis": 225.2987405754984,
+      "coverage50": 0.6477272727272727,
+      "coverage80": 0.8636363636363636
+     },
+     "respinow:KIT-LightGBM": {
+      "n": 88,
+      "mae": 307.40619271211546,
+      "wis": 208.93605717546308,
+      "coverage50": 0.375,
+      "coverage80": 0.7159090909090909
+     },
+     "respinow:KIT-MeanEnsemble": {
+      "n": 88,
+      "mae": 278.29961488790417,
+      "wis": 219.36267208155505,
+      "coverage50": 0.6704545454545454,
+      "coverage80": 0.8295454545454546
+     },
+     "respinow:KIT-TSMixer": {
+      "n": 88,
+      "mae": 354.8244952509948,
+      "wis": 246.9373898720289,
+      "coverage50": 0.5568181818181818,
+      "coverage80": 0.8636363636363636
+     },
+     "respinow:KIT-hhh4": {
+      "n": 88,
+      "mae": 376.5466752731129,
+      "wis": 292.35773404215973,
+      "coverage50": 0.5568181818181818,
+      "coverage80": 0.7613636363636364
+     }
+    },
+    "2025/26": {
+     "baseline-seasonal": {
+      "n": 68,
+      "mae": 163.30882352941177,
+      "wis": 110.860705882353,
+      "coverage50": 0.5441176470588235,
+      "coverage80": 0.9117647058823529
+     },
+     "persistence": {
+      "n": 68,
+      "mae": 280.8746593424825,
+      "wis": 203.55363838140957,
+      "coverage50": 0.5,
+      "coverage80": 0.8676470588235294
+     },
+     "ensemble": {
+      "n": 68,
+      "mae": 150.279012515771,
+      "wis": 124.05344547356023,
+      "coverage50": 0.8823529411764706,
+      "coverage80": 1
+     },
+     "respinow:KIT-LightGBM": {
+      "n": 68,
+      "mae": 163.85321664924987,
+      "wis": 121.12746239273214,
+      "coverage50": 0.35294117647058826,
+      "coverage80": 0.6764705882352942
+     },
+     "respinow:KIT-MeanEnsemble": {
+      "n": 68,
+      "mae": 189.9739928720116,
+      "wis": 136.96568458859326,
+      "coverage50": 0.5441176470588235,
+      "coverage80": 0.8970588235294118
+     },
+     "respinow:KIT-TSMixer": {
+      "n": 68,
+      "mae": 179.9183699361592,
+      "wis": 125.29419734802741,
+      "coverage50": 0.5441176470588235,
+      "coverage80": 0.8970588235294118
+     },
+     "respinow:KIT-hhh4": {
+      "n": 68,
+      "mae": 346.84047703131523,
+      "wis": 231.48772102087736,
+      "coverage50": 0.45588235294117646,
+      "coverage80": 0.8970588235294118
+     }
+    }
+   },
+   "by_horizon": {
+    "h1": {
+     "baseline-seasonal": {
+      "n": 39,
+      "mae": 341.7692307692308,
+      "wis": 224.45005128205122,
+      "coverage50": 0.2564102564102564,
+      "coverage80": 0.7692307692307693
+     },
+     "persistence": {
+      "n": 39,
+      "mae": 207.86290056995486,
+      "wis": 156.2294885771583,
+      "coverage50": 0.5384615384615384,
+      "coverage80": 0.7692307692307693
+     },
+     "ensemble": {
+      "n": 39,
+      "mae": 213.26283564847094,
+      "wis": 158.55543390083747,
+      "coverage50": 0.6666666666666666,
+      "coverage80": 0.9487179487179487
+     },
+     "respinow:KIT-LightGBM": {
+      "n": 39,
+      "mae": 139.007565194894,
+      "wis": 110.09159689794326,
+      "coverage50": 0.5384615384615384,
+      "coverage80": 0.717948717948718
+     },
+     "respinow:KIT-MeanEnsemble": {
+      "n": 39,
+      "mae": 165.9478180455126,
+      "wis": 129.31067286914185,
+      "coverage50": 0.6923076923076923,
+      "coverage80": 0.8717948717948718
+     },
+     "respinow:KIT-TSMixer": {
+      "n": 39,
+      "mae": 214.56647960115674,
+      "wis": 154.83363157756838,
+      "coverage50": 0.6923076923076923,
+      "coverage80": 0.9487179487179487
+     },
+     "respinow:KIT-hhh4": {
+      "n": 39,
+      "mae": 224.29686000922914,
+      "wis": 172.04415825407654,
+      "coverage50": 0.6153846153846154,
+      "coverage80": 0.8717948717948718
+     }
+    },
+    "h2": {
+     "baseline-seasonal": {
+      "n": 39,
+      "mae": 332.9871794871795,
+      "wis": 218.17966666666658,
+      "coverage50": 0.3076923076923077,
+      "coverage80": 0.7692307692307693
+     },
+     "persistence": {
+      "n": 39,
+      "mae": 331.98377592127355,
+      "wis": 247.378520202522,
+      "coverage50": 0.46153846153846156,
+      "coverage80": 0.8717948717948718
+     },
+     "ensemble": {
+      "n": 39,
+      "mae": 237.27430750494457,
+      "wis": 179.48054880604994,
+      "coverage50": 0.7692307692307693,
+      "coverage80": 0.9230769230769231
+     },
+     "respinow:KIT-LightGBM": {
+      "n": 39,
+      "mae": 238.32428316969083,
+      "wis": 163.05492994431341,
+      "coverage50": 0.28205128205128205,
+      "coverage80": 0.6666666666666666
+     },
+     "respinow:KIT-MeanEnsemble": {
+      "n": 39,
+      "mae": 246.53546850298756,
+      "wis": 180.65642228578668,
+      "coverage50": 0.5897435897435898,
+      "coverage80": 0.8461538461538461
+     },
+     "respinow:KIT-TSMixer": {
+      "n": 39,
+      "mae": 295.7657054822587,
+      "wis": 192.38813565179188,
+      "coverage50": 0.48717948717948717,
+      "coverage80": 0.8717948717948718
+     },
+     "respinow:KIT-hhh4": {
+      "n": 39,
+      "mae": 343.23344394502044,
+      "wis": 255.3591123663594,
+      "coverage50": 0.5384615384615384,
+      "coverage80": 0.8205128205128205
+     }
+    },
+    "h3": {
+     "baseline-seasonal": {
+      "n": 39,
+      "mae": 333.47435897435895,
+      "wis": 216.28,
+      "coverage50": 0.28205128205128205,
+      "coverage80": 0.7435897435897436
+     },
+     "persistence": {
+      "n": 39,
+      "mae": 418.41093001753455,
+      "wis": 298.79898839764195,
+      "coverage50": 0.46153846153846156,
+      "coverage80": 0.8205128205128205
+     },
+     "ensemble": {
+      "n": 39,
+      "mae": 252.64211750948678,
+      "wis": 194.6001775887627,
+      "coverage50": 0.7435897435897436,
+      "coverage80": 0.8974358974358975
+     },
+     "respinow:KIT-LightGBM": {
+      "n": 39,
+      "mae": 297.56211604488914,
+      "wis": 195.5894192634026,
+      "coverage50": 0.38461538461538464,
+      "coverage80": 0.717948717948718
+     },
+     "respinow:KIT-MeanEnsemble": {
+      "n": 39,
+      "mae": 266.9686510030356,
+      "wis": 204.10296589340487,
+      "coverage50": 0.5897435897435898,
+      "coverage80": 0.8461538461538461
+     },
+     "respinow:KIT-TSMixer": {
+      "n": 39,
+      "mae": 286.95942200326516,
+      "wis": 205.68070199084323,
+      "coverage50": 0.5641025641025641,
+      "coverage80": 0.8205128205128205
+     },
+     "respinow:KIT-hhh4": {
+      "n": 39,
+      "mae": 424.13434828267765,
+      "wis": 303.9498852909723,
+      "coverage50": 0.46153846153846156,
+      "coverage80": 0.7435897435897436
+     }
+    },
+    "h4": {
+     "baseline-seasonal": {
+      "n": 39,
+      "mae": 314.02564102564105,
+      "wis": 206.45310256410258,
+      "coverage50": 0.3333333333333333,
+      "coverage80": 0.7692307692307693
+     },
+     "persistence": {
+      "n": 39,
+      "mae": 441.7530143464689,
+      "wis": 331.46152382528595,
+      "coverage50": 0.5128205128205128,
+      "coverage80": 0.7948717948717948
+     },
+     "ensemble": {
+      "n": 39,
+      "mae": 236.69270119488618,
+      "wis": 192.0285438798872,
+      "coverage50": 0.8205128205128205,
+      "coverage80": 0.9230769230769231
+     },
+     "respinow:KIT-LightGBM": {
+      "n": 39,
+      "mae": 304.43330971399126,
+      "wis": 213.90611733399564,
+      "coverage50": 0.2564102564102564,
+      "coverage80": 0.6923076923076923
+     },
+     "respinow:KIT-MeanEnsemble": {
+      "n": 39,
+      "mae": 279.7428733569864,
+      "wis": 219.71408498246606,
+      "coverage50": 0.5897435897435898,
+      "coverage80": 0.8717948717948718
+     },
+     "respinow:KIT-TSMixer": {
+      "n": 39,
+      "mae": 317.0418477273289,
+      "wis": 222.75126740555083,
+      "coverage50": 0.46153846153846156,
+      "coverage80": 0.8717948717948718
+     },
+     "respinow:KIT-hhh4": {
+      "n": 39,
+      "mae": 462.7266262800826,
+      "wis": 331.94544986114846,
+      "coverage50": 0.4358974358974359,
+      "coverage80": 0.8461538461538461
+     }
+    }
+   },
+   "comparisons": {
+    "ensemble vs respinow:KIT-LightGBM": {
+     "meanDiff": 10.505660183970589,
+     "relImprovement": -0.06155882121318642,
+     "ci95": [
+      -14.736889554203776,
+      38.66365570308353
+     ],
+     "seasonsBetter": 0,
+     "seasonsTotal": 2,
+     "n": 156
+    },
+    "ensemble vs respinow:KIT-MeanEnsemble": {
+     "meanDiff": -2.2798604638155506,
+     "relImprovement": 0.012427962507218608,
+     "ci95": [
+      -30.66312739643834,
+      29.147121219361047
+     ],
+     "seasonsBetter": 1,
+     "seasonsTotal": 2,
+     "n": 156
+    },
+    "ensemble vs respinow:KIT-TSMixer": {
+     "meanDiff": -12.747258112554245,
+     "relImprovement": 0.06573684885736421,
+     "ci95": [
+      -43.18663237995981,
+      20.26825476782237
+     ],
+     "seasonsBetter": 2,
+     "seasonsTotal": 2,
+     "n": 156
+    },
+    "ensemble vs respinow:KIT-hhh4": {
+     "meanDiff": -84.65847539925494,
+     "relImprovement": 0.31847488537895696,
+     "ci95": [
+      -131.94465119440932,
+      -35.45598576086143
+     ],
+     "seasonsBetter": 2,
+     "seasonsTotal": 2,
+     "n": 156
+    },
+    "ensemble vs baseline-seasonal": {
+     "meanDiff": -35.17452908432082,
+     "relImprovement": 0.1625885848133671,
+     "ci95": [
+      -69.91261690755972,
+      -3.858836776780086
+     ],
+     "seasonsBetter": 1,
+     "seasonsTotal": 2,
+     "n": 156
+    }
+   },
+   "comparisons_by_season": {
+    "2024/25": {
+     "ensemble vs respinow:KIT-LightGBM": {
+      "meanDiff": 16.36268340003522,
+      "relImprovement": -0.07831431118801074,
+      "ci95": [
+       -21.694924247870706,
+       52.91345292760519
+      ],
+      "seasonsBetter": 0,
+      "seasonsTotal": 1,
+      "n": 88
+     },
+     "ensemble vs respinow:KIT-MeanEnsemble": {
+      "meanDiff": 5.936068493943426,
+      "relImprovement": -0.027060522365156565,
+      "ci95": [
+       -38.53177925422238,
+       44.56953821277681
+      ],
+      "seasonsBetter": 0,
+      "seasonsTotal": 1,
+      "n": 88
+     },
+     "ensemble vs respinow:KIT-TSMixer": {
+      "meanDiff": -21.638649296530602,
+      "relImprovement": 0.08762807976444743,
+      "ci95": [
+       -63.91424891453872,
+       28.861690313105797
+      ],
+      "seasonsBetter": 1,
+      "seasonsTotal": 1,
+      "n": 88
+     },
+     "ensemble vs respinow:KIT-hhh4": {
+      "meanDiff": -67.05899346666128,
+      "relImprovement": 0.22937307845254734,
+      "ci95": [
+       -142.02906266302958,
+       -4.971389492769437
+      ],
+      "seasonsBetter": 1,
+      "seasonsTotal": 1,
+      "n": 88
+     },
+     "ensemble vs baseline-seasonal": {
+      "meanDiff": -72.54923669722888,
+      "relImprovement": 0.24357807416230495,
+      "ci95": [
+       -106.88852097140777,
+       -37.13854965316358
+      ],
+      "seasonsBetter": 1,
+      "seasonsTotal": 1,
+      "n": 88
+     }
+    },
+    "2025/26": {
+     "ensemble vs respinow:KIT-LightGBM": {
+      "meanDiff": 2.9259830808281175,
+      "relImprovement": -0.024156231980995264,
+      "ci95": [
+       -24.29861068592239,
+       31.931652657691416
+      ],
+      "seasonsBetter": 0,
+      "seasonsTotal": 1,
+      "n": 68
+     },
+     "ensemble vs respinow:KIT-MeanEnsemble": {
+      "meanDiff": -12.91223911503305,
+      "relImprovement": 0.09427353394259165,
+      "ci95": [
+       -40.54740673531237,
+       15.949361845881265
+      ],
+      "seasonsBetter": 1,
+      "seasonsTotal": 1,
+      "n": 68
+     },
+     "ensemble vs respinow:KIT-TSMixer": {
+      "meanDiff": -1.2407518744671935,
+      "relImprovement": 0.00990270819183094,
+      "ci95": [
+       -31.239885720317012,
+       24.573038080578236
+      ],
+      "seasonsBetter": 1,
+      "seasonsTotal": 1,
+      "n": 68
+     },
+     "ensemble vs respinow:KIT-hhh4": {
+      "meanDiff": -107.43427554731714,
+      "relImprovement": 0.4641035605410271,
+      "ci95": [
+       -136.50136133178734,
+       -76.18622029194489
+      ],
+      "seasonsBetter": 1,
+      "seasonsTotal": 1,
+      "n": 68
+     },
+     "ensemble vs baseline-seasonal": {
+      "meanDiff": 13.19273959120729,
+      "relImprovement": -0.11900284673640468,
+      "ci95": [
+       -6.158622805104196,
+       38.198142554973465
+      ],
+      "seasonsBetter": 0,
+      "seasonsTotal": 1,
+      "n": 68
+     }
+    }
+   },
+   "respinow_truth": {
+    "n_cells": 156,
+    "overall": {
+     "baseline-seasonal": {
+      "n": 156,
+      "mae": 330.5644270379638,
+      "wis": 216.34091336671275,
+      "coverage50": 0.2948717948717949,
+      "coverage80": 0.7628205128205128
+     },
+     "persistence": {
+      "n": 156,
+      "mae": 350.0026878839122,
+      "wis": 258.4671839099792,
+      "coverage50": 0.4935897435897436,
+      "coverage80": 0.8141025641025641
+     },
+     "ensemble": {
+      "n": 156,
+      "mae": 234.96828971082962,
+      "wis": 181.16630456975855,
+      "coverage50": 0.75,
+      "coverage80": 0.9230769230769231
+     },
+     "respinow:KIT-LightGBM": {
+      "n": 156,
+      "mae": 244.8319383269474,
+      "wis": 170.6606403794452,
+      "coverage50": 0.36538461538461536,
+      "coverage80": 0.6987179487179487
+     },
+     "respinow:KIT-MeanEnsemble": {
+      "n": 156,
+      "mae": 239.79886703295378,
+      "wis": 183.44614367473469,
+      "coverage50": 0.6153846153846154,
+      "coverage80": 0.8589743589743589
+     },
+     "respinow:KIT-TSMixer": {
+      "n": 156,
+      "mae": 278.58358248666764,
+      "wis": 193.91354564436708,
+      "coverage50": 0.5512820512820513,
+      "coverage80": 0.8782051282051282
+     },
+     "respinow:KIT-hhh4": {
+      "n": 156,
+      "mae": 363.5978913119643,
+      "wis": 265.8247443107265,
+      "coverage50": 0.5128205128205128,
+      "coverage80": 0.8205128205128205
+     }
+    },
+    "comparisons": {
+     "ensemble vs respinow:KIT-LightGBM": {
+      "meanDiff": 10.505664190313537,
+      "relImprovement": -0.061558799773370976,
+      "ci95": [
+       -14.73688965474005,
+       38.66362635331201
+      ],
+      "seasonsBetter": 0,
+      "seasonsTotal": 2,
+      "n": 156
+     },
+     "ensemble vs respinow:KIT-MeanEnsemble": {
+      "meanDiff": -2.279839104975986,
+      "relImprovement": 0.012427838815834313,
+      "ci95": [
+       -30.663125106316055,
+       29.14718167256148
+      ],
+      "seasonsBetter": 1,
+      "seasonsTotal": 2,
+      "n": 156
+     },
+     "ensemble vs respinow:KIT-TSMixer": {
+      "meanDiff": -12.747241074608405,
+      "relImprovement": 0.0657367231992475,
+      "ci95": [
+       -43.18669681007081,
+       20.268313436586183
+      ],
+      "seasonsBetter": 2,
+      "seasonsTotal": 2,
+      "n": 156
+     },
+     "ensemble vs respinow:KIT-hhh4": {
+      "meanDiff": -84.65843974096782,
+      "relImprovement": 0.3184746399756123,
+      "ci95": [
+       -131.94462218208463,
+       -35.455921111632875
+      ],
+      "seasonsBetter": 2,
+      "seasonsTotal": 2,
+      "n": 156
+     },
+     "ensemble vs baseline-seasonal": {
+      "meanDiff": -35.17460879695398,
+      "relImprovement": 0.1625887967724838,
+      "ci95": [
+       -69.91275295882971,
+       -3.858902741198416
+      ],
+      "seasonsBetter": 1,
+      "seasonsTotal": 2,
+      "n": 156
+     }
+    }
+   }
+  },
+  "vs:respinow:KIT-LightGBM": {
+   "description": "Head to head: Coldfront and respinow:KIT-LightGBM on all cells where both have a forecast.",
+   "models": [
+    "baseline-seasonal",
+    "persistence",
+    "ensemble",
+    "respinow:KIT-LightGBM"
+   ],
+   "n_cells": 160,
+   "n_origins": 40,
+   "cells_by_season": {
+    "2024/25": 88,
+    "2025/26": 72
+   },
+   "overall": {
+    "baseline-seasonal": {
+     "n": 160,
+     "mae": 326.965625,
+     "wis": 214.61768749999996,
+     "coverage50": 0.30625,
+     "coverage80": 0.76875
+    },
+    "persistence": {
+     "n": 160,
+     "mae": 351.1090615343986,
+     "wis": 257.91478242950564,
+     "coverage50": 0.49375,
+     "coverage80": 0.81875
+    },
+    "ensemble": {
+     "n": 160,
+     "mae": 231.32862855279714,
+     "wis": 180.32544584658694,
+     "coverage50": 0.75625,
+     "coverage80": 0.925
+    },
+    "respinow:KIT-LightGBM": {
+     "n": 160,
+     "mae": 245.06437985638576,
+     "wis": 170.27892601915306,
+     "coverage50": 0.35625,
+     "coverage80": 0.7
+    }
+   },
+   "by_season": {
+    "2024/25": {
+     "baseline-seasonal": {
+      "n": 88,
+      "mae": 459.8068181818182,
+      "wis": 297.84797727272723,
+      "coverage50": 0.10227272727272728,
+      "coverage80": 0.6477272727272727
+     },
+     "persistence": {
+      "n": 88,
+      "mae": 403.41974293255953,
+      "wis": 300.9002830587029,
+      "coverage50": 0.48863636363636365,
+      "coverage80": 0.7727272727272727
+     },
+     "ensemble": {
+      "n": 88,
+      "mae": 300.4094734247878,
+      "wis": 225.2987405754984,
+      "coverage50": 0.6477272727272727,
+      "coverage80": 0.8636363636363636
+     },
+     "respinow:KIT-LightGBM": {
+      "n": 88,
+      "mae": 307.40619271211546,
+      "wis": 208.93605717546308,
+      "coverage50": 0.375,
+      "coverage80": 0.7159090909090909
+     }
+    },
+    "2025/26": {
+     "baseline-seasonal": {
+      "n": 72,
+      "mae": 164.60416666666666,
+      "wis": 112.89177777777783,
+      "coverage50": 0.5555555555555556,
+      "coverage80": 0.9166666666666666
+     },
+     "persistence": {
+      "n": 72,
+      "mae": 287.17378426997925,
+      "wis": 205.37694832715334,
+      "coverage50": 0.5,
+      "coverage80": 0.875
+     },
+     "ensemble": {
+      "n": 72,
+      "mae": 146.8964848203642,
+      "wis": 125.35808562236187,
+      "coverage50": 0.8888888888888888,
+      "coverage80": 1
+     },
+     "respinow:KIT-LightGBM": {
+      "n": 72,
+      "mae": 168.8688308104939,
+      "wis": 123.03132127255205,
+      "coverage50": 0.3333333333333333,
+      "coverage80": 0.6805555555555556
+     }
+    }
+   },
+   "by_horizon": {
+    "h1": {
+     "baseline-seasonal": {
+      "n": 40,
+      "mae": 334.3,
+      "wis": 221.16789999999997,
+      "coverage50": 0.275,
+      "coverage80": 0.775
+     },
+     "persistence": {
+      "n": 40,
+      "mae": 207.12316718741027,
+      "wis": 155.12540616912196,
+      "coverage50": 0.55,
+      "coverage80": 0.775
+     },
+     "ensemble": {
+      "n": 40,
+      "mae": 208.21978259288485,
+      "wis": 157.33283137138636,
+      "coverage50": 0.675,
+      "coverage80": 0.95
+     },
+     "respinow:KIT-LightGBM": {
+      "n": 40,
+      "mae": 140.85136069870845,
+      "wis": 110.10029937638421,
+      "coverage50": 0.525,
+      "coverage80": 0.725
+     }
+    },
+    "h2": {
+     "baseline-seasonal": {
+      "n": 40,
+      "mae": 328.4125,
+      "wis": 216.3401749999999,
+      "coverage50": 0.325,
+      "coverage80": 0.775
+     },
+     "persistence": {
+      "n": 40,
+      "mae": 331.7964366769739,
+      "wis": 245.99100333571863,
+      "coverage50": 0.45,
+      "coverage80": 0.875
+     },
+     "ensemble": {
+      "n": 40,
+      "mae": 231.67647481309237,
+      "wis": 178.6209412072294,
+      "coverage50": 0.775,
+      "coverage80": 0.925
+     },
+     "respinow:KIT-LightGBM": {
+      "n": 40,
+      "mae": 238.53289407754832,
+      "wis": 162.74588477046956,
+      "coverage50": 0.275,
+      "coverage80": 0.675
+     }
+    },
+    "h3": {
+     "baseline-seasonal": {
+      "n": 40,
+      "mae": 329.325,
+      "wis": 214.55939999999995,
+      "coverage50": 0.3,
+      "coverage80": 0.75
+     },
+     "persistence": {
+      "n": 40,
+      "mae": 418.291174238812,
+      "wis": 297.3141936705495,
+      "coverage50": 0.475,
+      "coverage80": 0.825
+     },
+     "ensemble": {
+      "n": 40,
+      "mae": 248.46005267922692,
+      "wis": 193.69120004040252,
+      "coverage50": 0.75,
+      "coverage80": 0.9
+     },
+     "respinow:KIT-LightGBM": {
+      "n": 40,
+      "mae": 293.99698111302166,
+      "wis": 193.62956529346647,
+      "coverage50": 0.375,
+      "coverage80": 0.725
+     }
+    },
+    "h4": {
+     "baseline-seasonal": {
+      "n": 40,
+      "mae": 315.825,
+      "wis": 206.40327500000004,
+      "coverage50": 0.325,
+      "coverage80": 0.775
+     },
+     "persistence": {
+      "n": 40,
+      "mae": 447.22546803439747,
+      "wis": 333.22852654263255,
+      "coverage50": 0.5,
+      "coverage80": 0.8
+     },
+     "ensemble": {
+      "n": 40,
+      "mae": 236.9582041259845,
+      "wis": 191.65681076732955,
+      "coverage50": 0.825,
+      "coverage80": 0.925
+     },
+     "respinow:KIT-LightGBM": {
+      "n": 40,
+      "mae": 306.8762835362643,
+      "wis": 214.63995463629232,
+      "coverage50": 0.25,
+      "coverage80": 0.675
+     }
+    }
+   },
+   "comparisons": {
+    "ensemble vs respinow:KIT-LightGBM": {
+     "meanDiff": 10.046519827433807,
+     "relImprovement": -0.059000371110537596,
+     "ci95": [
+      -14.751314906133967,
+      36.788008657593345
+     ],
+     "seasonsBetter": 0,
+     "seasonsTotal": 2,
+     "n": 160
+    },
+    "ensemble vs baseline-seasonal": {
+     "meanDiff": -34.29224165341306,
+     "relImprovement": 0.15978292401185742,
+     "ci95": [
+      -69.11111515754324,
+      -2.531099371348633
+     ],
+     "seasonsBetter": 1,
+     "seasonsTotal": 2,
+     "n": 160
+    }
+   },
+   "comparisons_by_season": {
+    "2024/25": {
+     "ensemble vs respinow:KIT-LightGBM": {
+      "meanDiff": 16.36268340003522,
+      "relImprovement": -0.07831431118801074,
+      "ci95": [
+       -21.694924247870706,
+       52.91345292760519
+      ],
+      "seasonsBetter": 0,
+      "seasonsTotal": 1,
+      "n": 88
+     },
+     "ensemble vs baseline-seasonal": {
+      "meanDiff": -72.54923669722888,
+      "relImprovement": 0.24357807416230495,
+      "ci95": [
+       -106.88852097140777,
+       -37.13854965316358
+      ],
+      "seasonsBetter": 1,
+      "seasonsTotal": 1,
+      "n": 88
+     }
+    },
+    "2025/26": {
+     "ensemble vs respinow:KIT-LightGBM": {
+      "meanDiff": 2.326764349809852,
+      "relImprovement": -0.01891196750342424,
+      "ci95": [
+       -28.780977659621946,
+       31.640725894002664
+      ],
+      "seasonsBetter": 0,
+      "seasonsTotal": 1,
+      "n": 72
+     },
+     "ensemble vs baseline-seasonal": {
+      "meanDiff": 12.466307844584072,
+      "relImprovement": -0.11042706643457609,
+      "ci95": [
+       -6.679420389123533,
+       37.87532733307882
+      ],
+      "seasonsBetter": 0,
+      "seasonsTotal": 1,
+      "n": 72
+     }
+    }
+   },
+   "respinow_truth": {
+    "n_cells": 160,
+    "overall": {
+     "baseline-seasonal": {
+      "n": 160,
+      "mae": 326.9659444988552,
+      "wis": 214.6178916468754,
+      "coverage50": 0.30625,
+      "coverage80": 0.76875
+     },
+     "persistence": {
+      "n": 160,
+      "mae": 351.1090965245905,
+      "wis": 257.91483617212725,
+      "coverage50": 0.49375,
+      "coverage80": 0.81875
+     },
+     "ensemble": {
+      "n": 160,
+      "mae": 231.3289219026246,
+      "wis": 180.3255714762352,
+      "coverage50": 0.75625,
+      "coverage80": 0.925
+     },
+     "respinow:KIT-LightGBM": {
+      "n": 160,
+      "mae": 245.06449979440526,
+      "wis": 170.27904979476293,
+      "coverage50": 0.35625,
+      "coverage80": 0.7
+     }
+    },
+    "comparisons": {
+     "ensemble vs respinow:KIT-LightGBM": {
+      "meanDiff": 10.04652168147246,
+      "relImprovement": -0.059000339111485035,
+      "ci95": [
+       -14.751307504361057,
+       36.787981091405626
+      ],
+      "seasonsBetter": 0,
+      "seasonsTotal": 2,
+      "n": 160
+     },
+     "ensemble vs baseline-seasonal": {
+      "meanDiff": -34.29232017063992,
+      "relImprovement": 0.1597831378712045,
+      "ci95": [
+       -69.11119399704049,
+       -2.5311448271021453
+      ],
+      "seasonsBetter": 1,
+      "seasonsTotal": 2,
+      "n": 160
+     }
+    }
+   }
+  },
+  "vs:respinow:KIT-MeanEnsemble": {
+   "description": "Head to head: Coldfront and respinow:KIT-MeanEnsemble on all cells where both have a forecast.",
+   "models": [
+    "baseline-seasonal",
+    "persistence",
+    "ensemble",
+    "respinow:KIT-MeanEnsemble"
+   ],
+   "n_cells": 156,
+   "n_origins": 39,
+   "cells_by_season": {
+    "2024/25": 88,
+    "2025/26": 68
+   },
+   "overall": {
+    "baseline-seasonal": {
+     "n": 156,
+     "mae": 330.56410256410254,
+     "wis": 216.3407051282051,
+     "coverage50": 0.2948717948717949,
+     "coverage80": 0.7628205128205128
+    },
+    "persistence": {
+     "n": 156,
+     "mae": 350.0026552138082,
+     "wis": 258.467130250652,
+     "coverage50": 0.4935897435897436,
+     "coverage80": 0.8141025641025641
+    },
+    "ensemble": {
+     "n": 156,
+     "mae": 234.96799046444707,
+     "wis": 181.16617604388435,
+     "coverage50": 0.75,
+     "coverage80": 0.9230769230769231
+    },
+    "respinow:KIT-MeanEnsemble": {
+     "n": 156,
+     "mae": 239.79870272713043,
+     "wis": 183.44603650769992,
+     "coverage50": 0.6153846153846154,
+     "coverage80": 0.8589743589743589
+    }
+   },
+   "by_season": {
+    "2024/25": {
+     "baseline-seasonal": {
+      "n": 88,
+      "mae": 459.8068181818182,
+      "wis": 297.84797727272723,
+      "coverage50": 0.10227272727272728,
+      "coverage80": 0.6477272727272727
+     },
+     "persistence": {
+      "n": 88,
+      "mae": 403.41974293255953,
+      "wis": 300.9002830587029,
+      "coverage50": 0.48863636363636365,
+      "coverage80": 0.7727272727272727
+     },
+     "ensemble": {
+      "n": 88,
+      "mae": 300.4094734247878,
+      "wis": 225.2987405754984,
+      "coverage50": 0.6477272727272727,
+      "coverage80": 0.8636363636363636
+     },
+     "respinow:KIT-MeanEnsemble": {
+      "n": 88,
+      "mae": 278.29961488790417,
+      "wis": 219.36267208155505,
+      "coverage50": 0.6704545454545454,
+      "coverage80": 0.8295454545454546
+     }
+    },
+    "2025/26": {
+     "baseline-seasonal": {
+      "n": 68,
+      "mae": 163.30882352941177,
+      "wis": 110.860705882353,
+      "coverage50": 0.5441176470588235,
+      "coverage80": 0.9117647058823529
+     },
+     "persistence": {
+      "n": 68,
+      "mae": 280.8746593424825,
+      "wis": 203.55363838140957,
+      "coverage50": 0.5,
+      "coverage80": 0.8676470588235294
+     },
+     "ensemble": {
+      "n": 68,
+      "mae": 150.279012515771,
+      "wis": 124.05344547356023,
+      "coverage50": 0.8823529411764706,
+      "coverage80": 1
+     },
+     "respinow:KIT-MeanEnsemble": {
+      "n": 68,
+      "mae": 189.9739928720116,
+      "wis": 136.96568458859326,
+      "coverage50": 0.5441176470588235,
+      "coverage80": 0.8970588235294118
+     }
+    }
+   },
+   "by_horizon": {
+    "h1": {
+     "baseline-seasonal": {
+      "n": 39,
+      "mae": 341.7692307692308,
+      "wis": 224.45005128205122,
+      "coverage50": 0.2564102564102564,
+      "coverage80": 0.7692307692307693
+     },
+     "persistence": {
+      "n": 39,
+      "mae": 207.86290056995486,
+      "wis": 156.2294885771583,
+      "coverage50": 0.5384615384615384,
+      "coverage80": 0.7692307692307693
+     },
+     "ensemble": {
+      "n": 39,
+      "mae": 213.26283564847094,
+      "wis": 158.55543390083747,
+      "coverage50": 0.6666666666666666,
+      "coverage80": 0.9487179487179487
+     },
+     "respinow:KIT-MeanEnsemble": {
+      "n": 39,
+      "mae": 165.9478180455126,
+      "wis": 129.31067286914185,
+      "coverage50": 0.6923076923076923,
+      "coverage80": 0.8717948717948718
+     }
+    },
+    "h2": {
+     "baseline-seasonal": {
+      "n": 39,
+      "mae": 332.9871794871795,
+      "wis": 218.17966666666658,
+      "coverage50": 0.3076923076923077,
+      "coverage80": 0.7692307692307693
+     },
+     "persistence": {
+      "n": 39,
+      "mae": 331.98377592127355,
+      "wis": 247.378520202522,
+      "coverage50": 0.46153846153846156,
+      "coverage80": 0.8717948717948718
+     },
+     "ensemble": {
+      "n": 39,
+      "mae": 237.27430750494457,
+      "wis": 179.48054880604994,
+      "coverage50": 0.7692307692307693,
+      "coverage80": 0.9230769230769231
+     },
+     "respinow:KIT-MeanEnsemble": {
+      "n": 39,
+      "mae": 246.53546850298756,
+      "wis": 180.65642228578668,
+      "coverage50": 0.5897435897435898,
+      "coverage80": 0.8461538461538461
+     }
+    },
+    "h3": {
+     "baseline-seasonal": {
+      "n": 39,
+      "mae": 333.47435897435895,
+      "wis": 216.28,
+      "coverage50": 0.28205128205128205,
+      "coverage80": 0.7435897435897436
+     },
+     "persistence": {
+      "n": 39,
+      "mae": 418.41093001753455,
+      "wis": 298.79898839764195,
+      "coverage50": 0.46153846153846156,
+      "coverage80": 0.8205128205128205
+     },
+     "ensemble": {
+      "n": 39,
+      "mae": 252.64211750948678,
+      "wis": 194.6001775887627,
+      "coverage50": 0.7435897435897436,
+      "coverage80": 0.8974358974358975
+     },
+     "respinow:KIT-MeanEnsemble": {
+      "n": 39,
+      "mae": 266.9686510030356,
+      "wis": 204.10296589340487,
+      "coverage50": 0.5897435897435898,
+      "coverage80": 0.8461538461538461
+     }
+    },
+    "h4": {
+     "baseline-seasonal": {
+      "n": 39,
+      "mae": 314.02564102564105,
+      "wis": 206.45310256410258,
+      "coverage50": 0.3333333333333333,
+      "coverage80": 0.7692307692307693
+     },
+     "persistence": {
+      "n": 39,
+      "mae": 441.7530143464689,
+      "wis": 331.46152382528595,
+      "coverage50": 0.5128205128205128,
+      "coverage80": 0.7948717948717948
+     },
+     "ensemble": {
+      "n": 39,
+      "mae": 236.69270119488618,
+      "wis": 192.0285438798872,
+      "coverage50": 0.8205128205128205,
+      "coverage80": 0.9230769230769231
+     },
+     "respinow:KIT-MeanEnsemble": {
+      "n": 39,
+      "mae": 279.7428733569864,
+      "wis": 219.71408498246606,
+      "coverage50": 0.5897435897435898,
+      "coverage80": 0.8717948717948718
+     }
+    }
+   },
+   "comparisons": {
+    "ensemble vs respinow:KIT-MeanEnsemble": {
+     "meanDiff": -2.2798604638155506,
+     "relImprovement": 0.012427962507218608,
+     "ci95": [
+      -30.66312739643834,
+      29.147121219361047
+     ],
+     "seasonsBetter": 1,
+     "seasonsTotal": 2,
+     "n": 156
+    },
+    "ensemble vs baseline-seasonal": {
+     "meanDiff": -35.17452908432082,
+     "relImprovement": 0.1625885848133671,
+     "ci95": [
+      -69.91261690755972,
+      -3.858836776780086
+     ],
+     "seasonsBetter": 1,
+     "seasonsTotal": 2,
+     "n": 156
+    }
+   },
+   "comparisons_by_season": {
+    "2024/25": {
+     "ensemble vs respinow:KIT-MeanEnsemble": {
+      "meanDiff": 5.936068493943426,
+      "relImprovement": -0.027060522365156565,
+      "ci95": [
+       -38.53177925422238,
+       44.56953821277681
+      ],
+      "seasonsBetter": 0,
+      "seasonsTotal": 1,
+      "n": 88
+     },
+     "ensemble vs baseline-seasonal": {
+      "meanDiff": -72.54923669722888,
+      "relImprovement": 0.24357807416230495,
+      "ci95": [
+       -106.88852097140777,
+       -37.13854965316358
+      ],
+      "seasonsBetter": 1,
+      "seasonsTotal": 1,
+      "n": 88
+     }
+    },
+    "2025/26": {
+     "ensemble vs respinow:KIT-MeanEnsemble": {
+      "meanDiff": -12.91223911503305,
+      "relImprovement": 0.09427353394259165,
+      "ci95": [
+       -40.54740673531237,
+       15.949361845881265
+      ],
+      "seasonsBetter": 1,
+      "seasonsTotal": 1,
+      "n": 68
+     },
+     "ensemble vs baseline-seasonal": {
+      "meanDiff": 13.19273959120729,
+      "relImprovement": -0.11900284673640468,
+      "ci95": [
+       -6.158622805104196,
+       38.198142554973465
+      ],
+      "seasonsBetter": 0,
+      "seasonsTotal": 1,
+      "n": 68
+     }
+    }
+   },
+   "respinow_truth": {
+    "n_cells": 156,
+    "overall": {
+     "baseline-seasonal": {
+      "n": 156,
+      "mae": 330.5644270379638,
+      "wis": 216.34091336671275,
+      "coverage50": 0.2948717948717949,
+      "coverage80": 0.7628205128205128
+     },
+     "persistence": {
+      "n": 156,
+      "mae": 350.0026878839122,
+      "wis": 258.4671839099792,
+      "coverage50": 0.4935897435897436,
+      "coverage80": 0.8141025641025641
+     },
+     "ensemble": {
+      "n": 156,
+      "mae": 234.96828971082962,
+      "wis": 181.16630456975855,
+      "coverage50": 0.75,
+      "coverage80": 0.9230769230769231
+     },
+     "respinow:KIT-MeanEnsemble": {
+      "n": 156,
+      "mae": 239.79886703295378,
+      "wis": 183.44614367473469,
+      "coverage50": 0.6153846153846154,
+      "coverage80": 0.8589743589743589
+     }
+    },
+    "comparisons": {
+     "ensemble vs respinow:KIT-MeanEnsemble": {
+      "meanDiff": -2.279839104975986,
+      "relImprovement": 0.012427838815834313,
+      "ci95": [
+       -30.663125106316055,
+       29.14718167256148
+      ],
+      "seasonsBetter": 1,
+      "seasonsTotal": 2,
+      "n": 156
+     },
+     "ensemble vs baseline-seasonal": {
+      "meanDiff": -35.17460879695398,
+      "relImprovement": 0.1625887967724838,
+      "ci95": [
+       -69.91275295882971,
+       -3.858902741198416
+      ],
+      "seasonsBetter": 1,
+      "seasonsTotal": 2,
+      "n": 156
+     }
+    }
+   }
+  },
+  "vs:respinow:KIT-TSMixer": {
+   "description": "Head to head: Coldfront and respinow:KIT-TSMixer on all cells where both have a forecast.",
+   "models": [
+    "baseline-seasonal",
+    "persistence",
+    "ensemble",
+    "respinow:KIT-TSMixer"
+   ],
+   "n_cells": 160,
+   "n_origins": 40,
+   "cells_by_season": {
+    "2024/25": 88,
+    "2025/26": 72
+   },
+   "overall": {
+    "baseline-seasonal": {
+     "n": 160,
+     "mae": 326.965625,
+     "wis": 214.61768749999996,
+     "coverage50": 0.30625,
+     "coverage80": 0.76875
+    },
+    "persistence": {
+     "n": 160,
+     "mae": 351.1090615343986,
+     "wis": 257.91478242950564,
+     "coverage50": 0.49375,
+     "coverage80": 0.81875
+    },
+    "ensemble": {
+     "n": 160,
+     "mae": 231.32862855279714,
+     "wis": 180.32544584658694,
+     "coverage50": 0.75625,
+     "coverage80": 0.925
+    },
+    "respinow:KIT-TSMixer": {
+     "n": 160,
+     "mae": 282.0371082793705,
+     "wis": 195.12494814962616,
+     "coverage50": 0.5375,
+     "coverage80": 0.88125
+    }
+   },
+   "by_season": {
+    "2024/25": {
+     "baseline-seasonal": {
+      "n": 88,
+      "mae": 459.8068181818182,
+      "wis": 297.84797727272723,
+      "coverage50": 0.10227272727272728,
+      "coverage80": 0.6477272727272727
+     },
+     "persistence": {
+      "n": 88,
+      "mae": 403.41974293255953,
+      "wis": 300.9002830587029,
+      "coverage50": 0.48863636363636365,
+      "coverage80": 0.7727272727272727
+     },
+     "ensemble": {
+      "n": 88,
+      "mae": 300.4094734247878,
+      "wis": 225.2987405754984,
+      "coverage50": 0.6477272727272727,
+      "coverage80": 0.8636363636363636
+     },
+     "respinow:KIT-TSMixer": {
+      "n": 88,
+      "mae": 354.8244952509948,
+      "wis": 246.9373898720289,
+      "coverage50": 0.5568181818181818,
+      "coverage80": 0.8636363636363636
+     }
+    },
+    "2025/26": {
+     "baseline-seasonal": {
+      "n": 72,
+      "mae": 164.60416666666666,
+      "wis": 112.89177777777783,
+      "coverage50": 0.5555555555555556,
+      "coverage80": 0.9166666666666666
+     },
+     "persistence": {
+      "n": 72,
+      "mae": 287.17378426997925,
+      "wis": 205.37694832715334,
+      "coverage50": 0.5,
+      "coverage80": 0.875
+     },
+     "ensemble": {
+      "n": 72,
+      "mae": 146.8964848203642,
+      "wis": 125.35808562236187,
+      "coverage50": 0.8888888888888888,
+      "coverage80": 1
+     },
+     "respinow:KIT-TSMixer": {
+      "n": 72,
+      "mae": 193.07474642516308,
+      "wis": 131.79863048891173,
+      "coverage50": 0.5138888888888888,
+      "coverage80": 0.9027777777777778
+     }
+    }
+   },
+   "by_horizon": {
+    "h1": {
+     "baseline-seasonal": {
+      "n": 40,
+      "mae": 334.3,
+      "wis": 221.16789999999997,
+      "coverage50": 0.275,
+      "coverage80": 0.775
+     },
+     "persistence": {
+      "n": 40,
+      "mae": 207.12316718741027,
+      "wis": 155.12540616912196,
+      "coverage50": 0.55,
+      "coverage80": 0.775
+     },
+     "ensemble": {
+      "n": 40,
+      "mae": 208.21978259288485,
+      "wis": 157.33283137138636,
+      "coverage50": 0.675,
+      "coverage80": 0.95
+     },
+     "respinow:KIT-TSMixer": {
+      "n": 40,
+      "mae": 216.3312902133592,
+      "wis": 155.05085649208027,
+      "coverage50": 0.675,
+      "coverage80": 0.95
+     }
+    },
+    "h2": {
+     "baseline-seasonal": {
+      "n": 40,
+      "mae": 328.4125,
+      "wis": 216.3401749999999,
+      "coverage50": 0.325,
+      "coverage80": 0.775
+     },
+     "persistence": {
+      "n": 40,
+      "mae": 331.7964366769739,
+      "wis": 245.99100333571863,
+      "coverage50": 0.45,
+      "coverage80": 0.875
+     },
+     "ensemble": {
+      "n": 40,
+      "mae": 231.67647481309237,
+      "wis": 178.6209412072294,
+      "coverage50": 0.775,
+      "coverage80": 0.925
+     },
+     "respinow:KIT-TSMixer": {
+      "n": 40,
+      "mae": 300.217525903482,
+      "wis": 194.48478769483617,
+      "coverage50": 0.475,
+      "coverage80": 0.875
+     }
+    },
+    "h3": {
+     "baseline-seasonal": {
+      "n": 40,
+      "mae": 329.325,
+      "wis": 214.55939999999995,
+      "coverage50": 0.3,
+      "coverage80": 0.75
+     },
+     "persistence": {
+      "n": 40,
+      "mae": 418.291174238812,
+      "wis": 297.3141936705495,
+      "coverage50": 0.475,
+      "coverage80": 0.825
+     },
+     "ensemble": {
+      "n": 40,
+      "mae": 248.46005267922692,
+      "wis": 193.69120004040252,
+      "coverage50": 0.75,
+      "coverage80": 0.9
+     },
+     "respinow:KIT-TSMixer": {
+      "n": 40,
+      "mae": 289.96868923692404,
+      "wis": 206.4542605562321,
+      "coverage50": 0.55,
+      "coverage80": 0.825
+     }
+    },
+    "h4": {
+     "baseline-seasonal": {
+      "n": 40,
+      "mae": 315.825,
+      "wis": 206.40327500000004,
+      "coverage50": 0.325,
+      "coverage80": 0.775
+     },
+     "persistence": {
+      "n": 40,
+      "mae": 447.22546803439747,
+      "wis": 333.22852654263255,
+      "coverage50": 0.5,
+      "coverage80": 0.8
+     },
+     "ensemble": {
+      "n": 40,
+      "mae": 236.9582041259845,
+      "wis": 191.65681076732955,
+      "coverage50": 0.825,
+      "coverage80": 0.925
+     },
+     "respinow:KIT-TSMixer": {
+      "n": 40,
+      "mae": 321.63092776371684,
+      "wis": 224.50988785535645,
+      "coverage50": 0.45,
+      "coverage80": 0.875
+     }
+    }
+   },
+   "comparisons": {
+    "ensemble vs respinow:KIT-TSMixer": {
+     "meanDiff": -14.799502303039299,
+     "relImprovement": 0.07584628435975656,
+     "ci95": [
+      -44.46584860846448,
+      17.271595868833135
+     ],
+     "seasonsBetter": 2,
+     "seasonsTotal": 2,
+     "n": 160
+    },
+    "ensemble vs baseline-seasonal": {
+     "meanDiff": -34.29224165341306,
+     "relImprovement": 0.15978292401185742,
+     "ci95": [
+      -69.11111515754324,
+      -2.531099371348633
+     ],
+     "seasonsBetter": 1,
+     "seasonsTotal": 2,
+     "n": 160
+    }
+   },
+   "comparisons_by_season": {
+    "2024/25": {
+     "ensemble vs respinow:KIT-TSMixer": {
+      "meanDiff": -21.638649296530602,
+      "relImprovement": 0.08762807976444743,
+      "ci95": [
+       -63.91424891453872,
+       28.861690313105797
+      ],
+      "seasonsBetter": 1,
+      "seasonsTotal": 1,
+      "n": 88
+     },
+     "ensemble vs baseline-seasonal": {
+      "meanDiff": -72.54923669722888,
+      "relImprovement": 0.24357807416230495,
+      "ci95": [
+       -106.88852097140777,
+       -37.13854965316358
+      ],
+      "seasonsBetter": 1,
+      "seasonsTotal": 1,
+      "n": 88
+     }
+    },
+    "2025/26": {
+     "ensemble vs respinow:KIT-TSMixer": {
+      "meanDiff": -6.44054486654991,
+      "relImprovement": 0.048866553792391305,
+      "ci95": [
+       -43.81790404608904,
+       23.618003141203513
+      ],
+      "seasonsBetter": 1,
+      "seasonsTotal": 1,
+      "n": 72
+     },
+     "ensemble vs baseline-seasonal": {
+      "meanDiff": 12.466307844584072,
+      "relImprovement": -0.11042706643457609,
+      "ci95": [
+       -6.679420389123533,
+       37.87532733307882
+      ],
+      "seasonsBetter": 0,
+      "seasonsTotal": 1,
+      "n": 72
+     }
+    }
+   },
+   "respinow_truth": {
+    "n_cells": 160,
+    "overall": {
+     "baseline-seasonal": {
+      "n": 160,
+      "mae": 326.9659444988552,
+      "wis": 214.6178916468754,
+      "coverage50": 0.30625,
+      "coverage80": 0.76875
+     },
+     "persistence": {
+      "n": 160,
+      "mae": 351.1090965245905,
+      "wis": 257.91483617212725,
+      "coverage50": 0.49375,
+      "coverage80": 0.81875
+     },
+     "ensemble": {
+      "n": 160,
+      "mae": 231.3289219026246,
+      "wis": 180.3255714762352,
+      "coverage50": 0.75625,
+      "coverage80": 0.925
+     },
+     "respinow:KIT-TSMixer": {
+      "n": 160,
+      "mae": 282.03732472979715,
+      "wis": 195.12505873246084,
+      "coverage50": 0.5375,
+      "coverage80": 0.88125
+     }
+    },
+    "comparisons": {
+     "ensemble vs respinow:KIT-TSMixer": {
+      "meanDiff": -14.799487256225499,
+      "relImprovement": 0.07584616426185074,
+      "ci95": [
+       -44.46589658822715,
+       17.27166199922257
+      ],
+      "seasonsBetter": 2,
+      "seasonsTotal": 2,
+      "n": 160
+     },
+     "ensemble vs baseline-seasonal": {
+      "meanDiff": -34.29232017063992,
+      "relImprovement": 0.1597831378712045,
+      "ci95": [
+       -69.11119399704049,
+       -2.5311448271021453
+      ],
+      "seasonsBetter": 1,
+      "seasonsTotal": 2,
+      "n": 160
+     }
+    }
+   }
+  },
+  "vs:respinow:KIT-hhh4": {
+   "description": "Head to head: Coldfront and respinow:KIT-hhh4 on all cells where both have a forecast.",
+   "models": [
+    "baseline-seasonal",
+    "persistence",
+    "ensemble",
+    "respinow:KIT-hhh4"
+   ],
+   "n_cells": 190,
+   "n_origins": 49,
+   "cells_by_season": {
+    "2024/25": 114,
+    "2025/26": 76
+   },
+   "overall": {
+    "baseline-seasonal": {
+     "n": 190,
+     "mae": 346.40526315789475,
+     "wis": 225.57365789473647,
+     "coverage50": 0.2578947368421053,
+     "coverage80": 0.7210526315789474
+    },
+    "persistence": {
+     "n": 190,
+     "mae": 364.0282648539839,
+     "wis": 273.5510457388406,
+     "coverage50": 0.5,
+     "coverage80": 0.7947368421052632
+    },
+    "ensemble": {
+     "n": 190,
+     "mae": 249.30807360250998,
+     "wis": 186.853572900071,
+     "coverage50": 0.7,
+     "coverage80": 0.9157894736842105
+    },
+    "respinow:KIT-hhh4": {
+     "n": 190,
+     "mae": 376.45848025990654,
+     "wis": 283.7108913934431,
+     "coverage50": 0.5105263157894737,
+     "coverage80": 0.7947368421052632
+    }
+   },
+   "by_season": {
+    "2024/25": {
+     "baseline-seasonal": {
+      "n": 114,
+      "mae": 454.17543859649123,
+      "wis": 295.2552982456139,
+      "coverage50": 0.09649122807017543,
+      "coverage80": 0.5877192982456141
+     },
+     "persistence": {
+      "n": 114,
+      "mae": 414.00380055174605,
+      "wis": 315.72168672022957,
+      "coverage50": 0.4824561403508772,
+      "coverage80": 0.7543859649122807
+     },
+     "ensemble": {
+      "n": 114,
+      "mae": 309.9936458482076,
+      "wis": 223.62305739833792,
+      "coverage50": 0.5877192982456141,
+      "coverage80": 0.8596491228070176
+     },
+     "respinow:KIT-hhh4": {
+      "n": 114,
+      "mae": 394.2754958001623,
+      "wis": 316.22245711102477,
+      "coverage50": 0.5263157894736842,
+      "coverage80": 0.7368421052631579
+     }
+    },
+    "2025/26": {
+     "baseline-seasonal": {
+      "n": 76,
+      "mae": 184.75,
+      "wis": 121.05119736842107,
+      "coverage50": 0.5,
+      "coverage80": 0.9210526315789473
+     },
+     "persistence": {
+      "n": 76,
+      "mae": 289.06496130734,
+      "wis": 210.29508426675685,
+      "coverage50": 0.5263157894736842,
+      "coverage80": 0.8552631578947368
+     },
+     "ensemble": {
+      "n": 76,
+      "mae": 158.27971523396369,
+      "wis": 131.69934615267076,
+      "coverage50": 0.868421052631579,
+      "coverage80": 1
+     },
+     "respinow:KIT-hhh4": {
+      "n": 76,
+      "mae": 349.73295694952276,
+      "wis": 234.943542817071,
+      "coverage50": 0.4868421052631579,
+      "coverage80": 0.881578947368421
+     }
+    }
+   },
+   "by_horizon": {
+    "h1": {
+     "baseline-seasonal": {
+      "n": 46,
+      "mae": 352.8695652173913,
+      "wis": 227.85763043478255,
+      "coverage50": 0.2391304347826087,
+      "coverage80": 0.7391304347826086
+     },
+     "persistence": {
+      "n": 46,
+      "mae": 230.932549640498,
+      "wis": 178.71241479496086,
+      "coverage50": 0.5434782608695652,
+      "coverage80": 0.7391304347826086
+     },
+     "ensemble": {
+      "n": 46,
+      "mae": 223.13251777680023,
+      "wis": 164.11885242632897,
+      "coverage50": 0.6521739130434783,
+      "coverage80": 0.9130434782608695
+     },
+     "respinow:KIT-hhh4": {
+      "n": 46,
+      "mae": 234.499790123466,
+      "wis": 179.57293952055232,
+      "coverage50": 0.5869565217391305,
+      "coverage80": 0.8478260869565217
+     }
+    },
+    "h2": {
+     "baseline-seasonal": {
+      "n": 47,
+      "mae": 340.56382978723406,
+      "wis": 223.7223829787234,
+      "coverage50": 0.2765957446808511,
+      "coverage80": 0.7446808510638298
+     },
+     "persistence": {
+      "n": 47,
+      "mae": 346.1113273338435,
+      "wis": 259.3570411947708,
+      "coverage50": 0.44680851063829785,
+      "coverage80": 0.851063829787234
+     },
+     "ensemble": {
+      "n": 47,
+      "mae": 245.54762145122177,
+      "wis": 182.86408650312475,
+      "coverage50": 0.723404255319149,
+      "coverage80": 0.9148936170212766
+     },
+     "respinow:KIT-hhh4": {
+      "n": 47,
+      "mae": 348.499248901947,
+      "wis": 264.5947047945832,
+      "coverage50": 0.5319148936170213,
+      "coverage80": 0.8085106382978723
+     }
+    },
+    "h3": {
+     "baseline-seasonal": {
+      "n": 48,
+      "mae": 354.9270833333333,
+      "wis": 229.0621666666666,
+      "coverage50": 0.22916666666666666,
+      "coverage80": 0.6875
+     },
+     "persistence": {
+      "n": 48,
+      "mae": 421.57458784872875,
+      "wis": 307.1064494371685,
+      "coverage50": 0.4791666666666667,
+      "coverage80": 0.8125
+     },
+     "ensemble": {
+      "n": 48,
+      "mae": 271.6088157539511,
+      "wis": 199.0178587556957,
+      "coverage50": 0.6666666666666666,
+      "coverage80": 0.9166666666666666
+     },
+     "respinow:KIT-hhh4": {
+      "n": 48,
+      "mae": 442.1233534134479,
+      "wis": 330.8142225493977,
+      "coverage50": 0.4791666666666667,
+      "coverage80": 0.7083333333333334
+     }
+    },
+    "h4": {
+     "baseline-seasonal": {
+      "n": 49,
+      "mae": 337.59183673469386,
+      "wis": 221.78791836734695,
+      "coverage50": 0.2857142857142857,
+      "coverage80": 0.7142857142857143
+     },
+     "persistence": {
+      "n": 49,
+      "mae": 449.78898851764006,
+      "wis": 343.32728776884056,
+      "coverage50": 0.5306122448979592,
+      "coverage80": 0.7755102040816326
+     },
+     "ensemble": {
+      "n": 49,
+      "mae": 255.64238372136828,
+      "wis": 200.1069868057573,
+      "coverage50": 0.7551020408163265,
+      "coverage80": 0.9183673469387755
+     },
+     "respinow:KIT-hhh4": {
+      "n": 49,
+      "mae": 472.21908656052693,
+      "wis": 353.66694569576134,
+      "coverage50": 0.4489795918367347,
+      "coverage80": 0.8163265306122449
+     }
+    }
+   },
+   "comparisons": {
+    "ensemble vs respinow:KIT-hhh4": {
+     "meanDiff": -96.85731849337219,
+     "relImprovement": 0.3413944315555123,
+     "ci95": [
+      -178.92097098029728,
+      -30.22032314324957
+     ],
+     "seasonsBetter": 2,
+     "seasonsTotal": 2,
+     "n": 190
+    },
+    "ensemble vs baseline-seasonal": {
+     "meanDiff": -38.72008499466581,
+     "relImprovement": 0.17165162526528016,
+     "ci95": [
+      -73.0203775204073,
+      -7.017741233015846
+     ],
+     "seasonsBetter": 1,
+     "seasonsTotal": 2,
+     "n": 190
+    }
+   },
+   "comparisons_by_season": {
+    "2024/25": {
+     "ensemble vs respinow:KIT-hhh4": {
+      "meanDiff": -92.59939971268682,
+      "relImprovement": 0.2928299291538787,
+      "ci95": [
+       -234.75118496823222,
+       13.389610960790815
+      ],
+      "seasonsBetter": 1,
+      "seasonsTotal": 1,
+      "n": 114
+     },
+     "ensemble vs baseline-seasonal": {
+      "meanDiff": -71.63224084727612,
+      "relImprovement": 0.24261119537197073,
+      "ci95": [
+       -115.29451789422691,
+       -32.07221851918776
+      ],
+      "seasonsBetter": 1,
+      "seasonsTotal": 1,
+      "n": 114
+     }
+    },
+    "2025/26": {
+     "ensemble vs respinow:KIT-hhh4": {
+      "meanDiff": -103.24419666440015,
+      "relImprovement": 0.43944258023208127,
+      "ci95": [
+       -138.1798564128407,
+       -68.22710668559156
+      ],
+      "seasonsBetter": 1,
+      "seasonsTotal": 1,
+      "n": 76
+     },
+     "ensemble vs baseline-seasonal": {
+      "meanDiff": 10.648148784249718,
+      "relImprovement": -0.08796401040001219,
+      "ci95": [
+       -8.025602867814412,
+       35.84475179818931
+      ],
+      "seasonsBetter": 0,
+      "seasonsTotal": 1,
+      "n": 76
+     }
+    }
+   },
+   "respinow_truth": {
+    "n_cells": 190,
+    "overall": {
+     "baseline-seasonal": {
+      "n": 190,
+      "mae": 346.40560311572955,
+      "wis": 225.57388905285362,
+      "coverage50": 0.2578947368421053,
+      "coverage80": 0.7210526315789474
+     },
+     "persistence": {
+      "n": 190,
+      "mae": 364.02835643512634,
+      "wis": 273.55112778249304,
+      "coverage50": 0.5,
+      "coverage80": 0.7947368421052632
+     },
+     "ensemble": {
+      "n": 190,
+      "mae": 249.3083948742028,
+      "wis": 186.85372438198155,
+      "coverage50": 0.7,
+      "coverage80": 0.9157894736842105
+     },
+     "respinow:KIT-hhh4": {
+      "n": 190,
+      "mae": 376.45859982158186,
+      "wis": 283.7110016891609,
+      "coverage50": 0.5105263157894737,
+      "coverage80": 0.7947368421052632
+     }
+    },
+    "comparisons": {
+     "ensemble vs respinow:KIT-hhh4": {
+      "meanDiff": -96.85727730717946,
+      "relImprovement": 0.34139415366520787,
+      "ci95": [
+       -178.92094805232207,
+       -30.2202707875813
+      ],
+      "seasonsBetter": 2,
+      "seasonsTotal": 2,
+      "n": 190
+     },
+     "ensemble vs baseline-seasonal": {
+      "meanDiff": -38.720164670871874,
+      "relImprovement": 0.1716518025798609,
+      "ci95": [
+       -73.02045693281269,
+       -7.017796256807382
+      ],
+      "seasonsBetter": 1,
+      "seasonsTotal": 2,
+      "n": 190
+     }
+    }
+   }
+  },
+  "vs:respinow:MPIDS-PS_embedding": {
+   "description": "Head to head: Coldfront and respinow:MPIDS-PS_embedding on all cells where both have a forecast.",
+   "models": [
+    "baseline-seasonal",
+    "persistence",
+    "ensemble",
+    "respinow:MPIDS-PS_embedding"
+   ],
+   "n_cells": 88,
+   "n_origins": 22,
+   "cells_by_season": {
+    "2024/25": 88
+   },
+   "overall": {
+    "baseline-seasonal": {
+     "n": 88,
+     "mae": 459.8068181818182,
+     "wis": 297.84797727272723,
+     "coverage50": 0.10227272727272728,
+     "coverage80": 0.6477272727272727
+    },
+    "persistence": {
+     "n": 88,
+     "mae": 403.41974293255953,
+     "wis": 300.9002830587029,
+     "coverage50": 0.48863636363636365,
+     "coverage80": 0.7727272727272727
+    },
+    "ensemble": {
+     "n": 88,
+     "mae": 300.4094734247878,
+     "wis": 225.2987405754984,
+     "coverage50": 0.6477272727272727,
+     "coverage80": 0.8636363636363636
+    },
+    "respinow:MPIDS-PS_embedding": {
+     "n": 88,
+     "mae": 405.17037469886947,
+     "wis": 313.56607833695716,
+     "coverage50": 0.5227272727272727,
+     "coverage80": 0.6477272727272727
+    }
+   },
+   "by_season": {
+    "2024/25": {
+     "baseline-seasonal": {
+      "n": 88,
+      "mae": 459.8068181818182,
+      "wis": 297.84797727272723,
+      "coverage50": 0.10227272727272728,
+      "coverage80": 0.6477272727272727
+     },
+     "persistence": {
+      "n": 88,
+      "mae": 403.41974293255953,
+      "wis": 300.9002830587029,
+      "coverage50": 0.48863636363636365,
+      "coverage80": 0.7727272727272727
+     },
+     "ensemble": {
+      "n": 88,
+      "mae": 300.4094734247878,
+      "wis": 225.2987405754984,
+      "coverage50": 0.6477272727272727,
+      "coverage80": 0.8636363636363636
+     },
+     "respinow:MPIDS-PS_embedding": {
+      "n": 88,
+      "mae": 405.17037469886947,
+      "wis": 313.56607833695716,
+      "coverage50": 0.5227272727272727,
+      "coverage80": 0.6477272727272727
+     }
+    }
+   },
+   "by_horizon": {
+    "h1": {
+     "baseline-seasonal": {
+      "n": 22,
+      "mae": 471.34090909090907,
+      "wis": 306.6931818181818,
+      "coverage50": 0.09090909090909091,
+      "coverage80": 0.6363636363636364
+     },
+     "persistence": {
+      "n": 22,
+      "mae": 223.91724643114128,
+      "wis": 170.54233454419776,
+      "coverage50": 0.5909090909090909,
+      "coverage80": 0.7272727272727273
+     },
+     "ensemble": {
+      "n": 22,
+      "mae": 272.6806440501548,
+      "wis": 190.96559177453702,
+      "coverage50": 0.5454545454545454,
+      "coverage80": 0.9090909090909091
+     },
+     "respinow:MPIDS-PS_embedding": {
+      "n": 22,
+      "mae": 304.13632394693684,
+      "wis": 228.24543320762314,
+      "coverage50": 0.5909090909090909,
+      "coverage80": 0.7272727272727273
+     }
+    },
+    "h2": {
+     "baseline-seasonal": {
+      "n": 22,
+      "mae": 469.6136363636364,
+      "wis": 305.09772727272724,
+      "coverage50": 0.09090909090909091,
+      "coverage80": 0.6363636363636364
+     },
+     "persistence": {
+      "n": 22,
+      "mae": 352.42845961530725,
+      "wis": 269.6071209629651,
+      "coverage50": 0.5,
+      "coverage80": 0.8636363636363636
+     },
+     "ensemble": {
+      "n": 22,
+      "mae": 297.0676163072469,
+      "wis": 220.2905054975944,
+      "coverage50": 0.6818181818181818,
+      "coverage80": 0.8636363636363636
+     },
+     "respinow:MPIDS-PS_embedding": {
+      "n": 22,
+      "mae": 396.0908061226708,
+      "wis": 320.03900058112316,
+      "coverage50": 0.5454545454545454,
+      "coverage80": 0.6363636363636364
+     }
+    },
+    "h3": {
+     "baseline-seasonal": {
+      "n": 22,
+      "mae": 459.75,
+      "wis": 296.0889545454545,
+      "coverage50": 0.09090909090909091,
+      "coverage80": 0.6363636363636364
+     },
+     "persistence": {
+      "n": 22,
+      "mae": 494.12467481670114,
+      "wis": 357.87583218415136,
+      "coverage50": 0.4090909090909091,
+      "coverage80": 0.7727272727272727
+     },
+     "ensemble": {
+      "n": 22,
+      "mae": 322.58025475256704,
+      "wis": 245.42015478288002,
+      "coverage50": 0.6363636363636364,
+      "coverage80": 0.8181818181818182
+     },
+     "respinow:MPIDS-PS_embedding": {
+      "n": 22,
+      "mae": 456.9089690744199,
+      "wis": 359.37630378008174,
+      "coverage50": 0.45454545454545453,
+      "coverage80": 0.5909090909090909
+     }
+    },
+    "h4": {
+     "baseline-seasonal": {
+      "n": 22,
+      "mae": 438.52272727272725,
+      "wis": 283.51204545454544,
+      "coverage50": 0.13636363636363635,
+      "coverage80": 0.6818181818181818
+     },
+     "persistence": {
+      "n": 22,
+      "mae": 543.2085908670878,
+      "wis": 405.5758445434977,
+      "coverage50": 0.45454545454545453,
+      "coverage80": 0.7272727272727273
+     },
+     "ensemble": {
+      "n": 22,
+      "mae": 309.30937858918236,
+      "wis": 244.51871024698212,
+      "coverage50": 0.7272727272727273,
+      "coverage80": 0.8636363636363636
+     },
+     "respinow:MPIDS-PS_embedding": {
+      "n": 22,
+      "mae": 463.54539965145034,
+      "wis": 346.6035757790007,
+      "coverage50": 0.5,
+      "coverage80": 0.6363636363636364
+     }
+    }
+   },
+   "comparisons": {
+    "ensemble vs respinow:MPIDS-PS_embedding": {
+     "meanDiff": -88.26733776145879,
+     "relImprovement": 0.28149517393462115,
+     "ci95": [
+      -156.50010940227457,
+      -25.33266545949307
+     ],
+     "seasonsBetter": 1,
+     "seasonsTotal": 1,
+     "n": 88
+    },
+    "ensemble vs baseline-seasonal": {
+     "meanDiff": -72.54923669722888,
+     "relImprovement": 0.24357807416230495,
+     "ci95": [
+      -106.88852097140777,
+      -37.13854965316358
+     ],
+     "seasonsBetter": 1,
+     "seasonsTotal": 1,
+     "n": 88
+    }
+   },
+   "comparisons_by_season": {
+    "2024/25": {
+     "ensemble vs respinow:MPIDS-PS_embedding": {
+      "meanDiff": -88.26733776145879,
+      "relImprovement": 0.28149517393462115,
+      "ci95": [
+       -156.50010940227457,
+       -25.33266545949307
+      ],
+      "seasonsBetter": 1,
+      "seasonsTotal": 1,
+      "n": 88
+     },
+     "ensemble vs baseline-seasonal": {
+      "meanDiff": -72.54923669722888,
+      "relImprovement": 0.24357807416230495,
+      "ci95": [
+       -106.88852097140777,
+       -37.13854965316358
+      ],
+      "seasonsBetter": 1,
+      "seasonsTotal": 1,
+      "n": 88
+     }
+    }
+   },
+   "respinow_truth": {
+    "n_cells": 88,
+    "overall": {
+     "baseline-seasonal": {
+      "n": 88,
+      "mae": 459.807271824189,
+      "wis": 297.84830661615405,
+      "coverage50": 0.10227272727272728,
+      "coverage80": 0.6477272727272727
+     },
+     "persistence": {
+      "n": 88,
+      "mae": 403.41972974348266,
+      "wis": 300.9003172604737,
+      "coverage50": 0.48863636363636365,
+      "coverage80": 0.7727272727272727
+     },
+     "ensemble": {
+      "n": 88,
+      "mae": 300.409873210639,
+      "wis": 225.2989408543883,
+      "coverage50": 0.6477272727272727,
+      "coverage80": 0.8636363636363636
+     },
+     "respinow:MPIDS-PS_embedding": {
+      "n": 88,
+      "mae": 405.1706495657879,
+      "wis": 313.56631950031965,
+      "coverage50": 0.5227272727272727,
+      "coverage80": 0.6477272727272727
+     }
+    },
+    "comparisons": {
+     "ensemble vs respinow:MPIDS-PS_embedding": {
+      "meanDiff": -88.26737864593116,
+      "relImprovement": 0.28149508782253374,
+      "ci95": [
+       -156.50019606657114,
+       -25.332669176382904
+      ],
+      "seasonsBetter": 1,
+      "seasonsTotal": 1,
+      "n": 88
+     },
+     "ensemble vs baseline-seasonal": {
+      "meanDiff": -72.54936576176569,
+      "relImprovement": 0.24357823815081214,
+      "ci95": [
+       -106.88861875135633,
+       -37.13864910829688
+      ],
+      "seasonsBetter": 1,
+      "seasonsTotal": 1,
+      "n": 88
+     }
+    }
+   }
+  }
+ },
+ "notes": [
+  "Descriptive comparison, not a fair contest. RESPINOW forecasts were produced in real time from vintage data (the most recent data week was still incomplete and reporting delays had to be handled by the models); Coldfront forecasts here use today's corrected data for all inputs and for the origin week (final-data backtest), which flatters Coldfront. A vintage-based variant is being built separately.",
+  "Season 2025/26 was already used once as the untouched test season of Coldfront's own pre-registered protocol (forecasts/backtest/test.json); the model choice and spread factor were tuned on 2023/24 and 2024/25, so 2024/25 is in-sample for the choice of features and spread. These results were not used to change anything.",
+  "Alignment of horizon (verified against the files, see alignment): forecast_date is a Thursday in ISO week F; horizon 1 has target_end_date = Sunday of week F, i.e. the week after the last published data week F-1 (the reporting triangle of the clone ends with week F-1 at delay 0). RESPINOW horizon h therefore equals Coldfront horizon h for origin F-1. 816 of 816 rows satisfy this; horizon 0 rows (nowcast of week F-1) are not scored.",
+  "Unit conversion: RESPINOW counts / 831.38 (median of weekly count/incidence over 52 weeks 2025-W41..2026-W40; within the window min 831.38, max 831.38, relative range 0.0 %). Over all 731 overlapping weeks the ratio ranges 831.4..831.4. Coldfront values are not scaled. The ratio is practically constant, i.e. RESPINOW's counts are the RKI incidence multiplied by a fixed population (about 83.14 million), so the conversion adds no uncertainty.",
+  "Only quantile levels 0.1/0.25/0.5/0.75/0.9 of RESPINOW are used (0.025/0.975 are ignored) so that all models are scored with the same WIS definition as Coldfront (K=2 intervals plus median). This is not the WIS of the RESPINOW-Hub dashboard (7 levels).",
+  "Coverage of cells: every model is scored on exactly the same (origin, horizon) cells within a panel. The RESPINOW archive has gaps (summer, weeks between seasons, single missing weeks) and models differ in how long they were submitted, so the strict intersection (panel \"all\") has 88 cells in season(s) 2024/25; panel \"core\" drops the models that do not cover every season; the head-to-head panels \"vs:<model>\" use all cells shared with one model. KIT-simple_nowcast contains nowcasts only (horizons <= 0) and is not compared.",
+  "Bootstrap: confidence intervals (ci95) are for the mean WIS difference ensemble minus the other model, in units of incidence per 100k (negative = ensemble better), from a block bootstrap over origin weeks (blocks of 4, 1000 draws, fixed seed). With so few cells they are wide, horizons of one origin are strongly dependent, and the bootstrap cannot account for the choice of panel; seasonsBetter counts at most two seasons.",
+  "Actuals: Coldfront's final ARE incidence per 100k (RKI). The variant \"respinow_truth\" re-scores the same cells against RESPINOW's latest truth divided by the same ratio; it differs only through the ratio and data revisions."
+ ]
+}

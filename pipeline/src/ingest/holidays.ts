@@ -67,9 +67,19 @@ const ROW_DEFS: readonly RowDef[] = [
   ...Object.entries(NAME_ALIASES).map(([name, region]) => ({ name, region })),
 ].map((d) => ({ ...d, re: new RegExp(`^\\s*${escapeRe(d.name)}(?=\\s|\\(|$)`) }));
 
-/** "d.m." or "d.m." with an optional range end "- d.m."; the dot after the month is optional. */
-const DATE_RE = /(\d{1,2})\.(\d{1,2})\.?(?:\s*[–-]\s*(\d{1,2})\.(\d{1,2})\.?)?/g;
-const MARKER_RE = /--|–|keine/g;
+/**
+ * "d.m." or "d.m." with an optional range end "- d.m."; the dot after the month is optional.
+ * Older PDFs sometimes print "17. 05." with a space after the day dot; that is still unambiguous.
+ */
+const DATE_RE = /(\d{1,2})\.\s?(\d{1,2})\.?(?:\s*[–-]\s*(\d{1,2})\.\s?(\d{1,2})\.?)?/g;
+/**
+ * Cells whose start day or month cannot be read unambiguously: "19./20.06. - 02.08." (two
+ * alternative start days) and "05. – 17.10." (start month missing). Reported and dropped.
+ */
+const AMBIGUOUS_RE =
+  /(?<![\d.])\d{1,2}\.\s*(?:\/|[–-])\s*\d{1,2}\.\d{1,2}\.?(?:\s*[–-]\s*\d{1,2}\.\s?\d{1,2}\.?)?/g;
+/** "--", en dash, a lone hyphen (older PDFs) or "keine" mark an empty cell. */
+const MARKER_RE = /--|–|(?<!\S)-(?!\S)|keine/g;
 /** Max distance (in lines) between a wrapped cell line and the row it belongs to. */
 const MAX_WRAP_DISTANCE = 2;
 /** Max distance (in characters) between a date and a column header center. */
@@ -111,7 +121,7 @@ interface Row {
 
 /**
  * Parse the text of one KMK overview PDF (output of `pdftotext -layout`).
- * `yearFrom` is the first calendar year of the school year named in the PDF, e.g. 2025 for "2025/2026".
+ * `yearFrom` is the first calendar year of the season named in the PDF, e.g. 2025 for "2025/2026".
  * Pure: no I/O. Returns entries plus issues for everything that could not be parsed.
  */
 export function parseKmkDetailed(text: string, yearFrom: number, source: string): KmkParseResult {
@@ -147,15 +157,25 @@ export function parseKmkDetailed(text: string, yearFrom: number, source: string)
   // The table ends at the footnote block ("*in Klammern ...", "Stand: ...").
   const footIdx = lines.findIndex((l, i) => i > headerIdx && /^\s*(\*|Stand:)/.test(l));
   const stop = footIdx < 0 ? lines.length : footIdx;
+  // Header text of older PDFs ("(in Klammern Zahl der ...") sits between the column header and the first row.
+  const firstRowIdx = lines.findIndex((l, i) => i > headerIdx && i < stop && ROW_DEFS.some((d) => d.re.test(l)));
 
   const rows: Row[] = [];
   /** Non-row lines: date segments or markers still waiting for a row */
   const pending: { line: number; column: number; seg?: Segment; raw: string }[] = [];
 
   for (let i = headerIdx + 1; i < stop; i++) {
-    const raw = lines[i] ?? '';
+    const rawLine = lines[i] ?? '';
     const lineNo = i + 1;
     const segments: Segment[] = [];
+
+    for (const m of rawLine.matchAll(AMBIGUOUS_RE)) {
+      const txt = m[0].trimEnd();
+      const col = nearestColumn((m.index ?? 0) + txt.length / 2);
+      const label = col === null ? 'outside the table' : `column ${COLUMNS[col]?.name ?? '?'}`;
+      issues.push(`line ${lineNo}: "${txt}" in ${label} has an ambiguous start day or month; dropped`);
+    }
+    const raw = rawLine.replace(AMBIGUOUS_RE, blank);
 
     for (const m of raw.matchAll(DATE_RE)) {
       const txt = m[0].trimEnd();
@@ -176,9 +196,9 @@ export function parseKmkDetailed(text: string, yearFrom: number, source: string)
 
     // Blank out everything already understood; what remains must be markers or noise.
     let masked = raw.replace(DATE_RE, blank);
-    const rowDef = ROW_DEFS.find((d) => d.re.test(raw));
+    const rowDef = ROW_DEFS.find((d) => d.re.test(rawLine));
     if (rowDef) masked = masked.replace(rowDef.re, blank);
-    masked = masked.replace(/\(\d+\)/g, blank).replace(/(^|\s)\d{1,2}(?=\s|$)/g, blank);
+    masked = masked.replace(/\([^()]*\)/g, blank).replace(/(^|\s)\d{1,2}(?=\s|$)/g, blank);
     masked = masked.replace(/\d{4}(\/\d{4})?/g, blank).replace(/Land\*?/g, blank);
     masked = masked.replace(/[¹²³⁴⁵⁶⁷⁸⁹⁰*]/g, blank);
 
@@ -190,9 +210,11 @@ export function parseKmkDetailed(text: string, yearFrom: number, source: string)
     }
     masked = masked.replace(MARKER_RE, blank);
 
-    for (const tok of masked.split(/\s+/)) {
-      if (tok && !['und', '/', '-'].includes(tok)) {
-        issues.push(`line ${lineNo}: unrecognized text "${tok}"`);
+    if (i >= firstRowIdx) {
+      for (const tok of masked.split(/\s+/)) {
+        if (tok && !['und', '/', '-'].includes(tok)) {
+          issues.push(`line ${lineNo}: unrecognized text "${tok}"`);
+        }
       }
     }
 
