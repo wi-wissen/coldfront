@@ -1,9 +1,11 @@
+import type { ForecastFile } from '@coldfront/forecast-core';
 import { copyFileSync, existsSync, mkdirSync, writeFileSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { buildCleanSeries, loadRegionData } from './clean-series';
 import { loadEvalConfig, runTest, runTuning, type ModelChoice } from './evaluation';
 import { CONFIG, FORECASTS } from './paths';
 import { readJson, runForecast } from './run-forecast';
+import { exportHubverse } from './export-hubverse';
 import { exportSeries } from './export-series';
 import { evaluateArchive, readArchive, writeLiveReport } from './monitor';
 import { runIngest } from './run-ingest';
@@ -68,6 +70,7 @@ async function main(): Promise<void> {
       console.log(`forecasts for ${idx.regions.length} regions (model ${idx.model})`);
       exportSeries();
       publishConfig();
+      exportHubverse(idx.regions.map((r) => readJson<ForecastFile>(resolve(FORECASTS, r.file))));
       break;
     }
     default:

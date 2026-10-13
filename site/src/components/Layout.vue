@@ -21,6 +21,9 @@ export default defineComponent({
       const other = this.ctx.locale === 'de' ? 'en' : 'de';
       return { href: pageHref(e.path, { page: e.page, locale: other, region: e.region }), label: other.toUpperCase(), lang: other };
     },
+    logoSrc(): string {
+      return `${pageHref(this.ctx.entry.path, { page: 'index', locale: 'de' }).replace(/index\.html$/, '')}brand/logo.svg`;
+    },
     homeHref(): string {
       return pageHref(this.ctx.entry.path, { page: 'index', locale: this.ctx.locale });
     },
@@ -41,7 +44,7 @@ export default defineComponent({
   <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:left-2 focus:top-2 focus:z-50 focus:rounded focus:bg-[var(--cf-surface)] focus:p-2">{{ $t('skip') }}</a>
   <header class="border-b border-[var(--cf-border)] bg-[var(--cf-surface)]">
     <div class="mx-auto flex max-w-6xl flex-wrap items-center gap-x-6 gap-y-2 px-4 py-3">
-      <a :href="homeHref" class="text-xl font-bold no-underline" style="color: var(--cf-text)">❄ {{ $t('brand') }}</a>
+      <a :href="homeHref" class="flex items-center no-underline" :aria-label="$t('brand')"><img :src="logoSrc" alt="" width="148" height="34" class="h-8 w-auto" /></a>
       <nav :aria-label="$t('nav.menu')" class="flex flex-wrap gap-x-4 gap-y-1 text-sm">
         <a v-for="n in nav" :key="n.href" :href="n.href" :aria-current="n.current ? 'page' : undefined" :class="n.current ? 'font-semibold' : ''">{{ n.label }}</a>
       </nav>

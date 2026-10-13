@@ -11,6 +11,8 @@ export function apiSource(rel: string): string | null {
   if ((m = /^regions\/(de(?:-[a-z]{2})?)\.json$/.exec(rel))) return f('forecasts', m[1]!, 'latest.json');
   if ((m = /^backtest\/([\w.-]+\.json)$/.exec(rel))) return f('forecasts/backtest', m[1]!);
   if (rel === 'series.json') return f('forecasts/series.json');
+  if (rel === 'wastewater.json') return f('forecasts/wastewater.json');
+  if ((m = /^hubverse\/([\w.-]+\.(?:csv|yml))$/.exec(rel))) return f('forecasts/hubverse', m[1]!);
   if (rel === 'geo/laender.topo.json') return f('data/external/geo/vg250-laender.topo.json');
   if (rel === 'geo/plz.json') return f('data/external/geo/plz.json');
   if (rel === 'wastewater-sites.json') return f('data/external/wastewater-sites.json');
@@ -26,12 +28,13 @@ export function apiFiles(): [string, string][] {
     const s = apiSource(rel);
     if (s && existsSync(s)) out.push([rel, s]);
   };
-  for (const rel of ['index.json', 'series.json', 'geo/laender.topo.json', 'geo/plz.json', 'wastewater-sites.json']) add(rel);
+  for (const rel of ['index.json', 'series.json', 'wastewater.json', 'geo/laender.topo.json', 'geo/plz.json', 'wastewater-sites.json']) add(rel);
   const fc = resolve(REPO, 'forecasts');
   if (existsSync(fc)) {
     for (const d of readdirSync(fc)) if (/^de(-[a-z]{2})?$/.test(d)) add(`regions/${d}.json`);
     for (const f of existsSync(resolve(fc, 'backtest')) ? readdirSync(resolve(fc, 'backtest')) : []) add(`backtest/${f}`);
     for (const f of existsSync(resolve(fc, 'archive')) ? readdirSync(resolve(fc, 'archive')) : []) add(`archive/${f}`);
+    for (const f of existsSync(resolve(fc, 'hubverse')) ? readdirSync(resolve(fc, 'hubverse')) : []) add(`hubverse/${f}`);
   }
   const hol = resolve(REPO, 'data/external/holidays');
   for (const f of existsSync(hol) ? readdirSync(hol) : []) add(`holidays/${f}`);
