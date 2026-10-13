@@ -122,3 +122,41 @@ export function validateForecastFile(f: unknown): string[] {
   if (!Array.isArray(o.normal) || o.normal.length < 52) errs.push('normal must cover 52 weeks');
   return errs;
 }
+
+/** One wastewater treatment plant in forecasts/wastewater.json (/api/v1/wastewater.json). */
+export interface WastewaterSiteExport {
+  id: string;
+  name: string;
+  /** federal state region id, e.g. "de-sn" */
+  region: string;
+  population: number | null;
+  /** null when the plant could not be located */
+  lat: number | null;
+  lon: number | null;
+  /** how the position was found: exact name match, population-ranked match, manual, or none */
+  geo_match: 'name+state' | 'name+state+population' | 'manual' | 'none';
+  /** per pathogen as published by AMELAG, e.g. "SARS-CoV-2", "Influenza A+B", "RSV A+B" */
+  pathogens: Record<
+    string,
+    {
+      last_week: IsoWeek;
+      /** normalised viral load of the last week */
+      value: number;
+      /** share (0..1) of the plant's own weekly values since the start of its record that are <= value */
+      percentile: number;
+      trend: 'up' | 'flat' | 'down';
+      /** last 26 weekly values ending at last_week, null = missing */
+      recent: (number | null)[];
+    }
+  >;
+}
+
+/** forecasts/wastewater.json */
+export interface WastewaterExport {
+  schema_version: 1;
+  /** newest week with any measurement */
+  last_week: IsoWeek;
+  data_version: string;
+  attribution: string;
+  sites: WastewaterSiteExport[];
+}
