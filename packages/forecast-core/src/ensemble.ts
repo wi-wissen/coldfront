@@ -46,3 +46,22 @@ export function ensembleFactory(name: string, members: readonly EnsembleFactoryM
     },
   };
 }
+
+/**
+ * Scale the spread of one forecast around its median in log space:
+ * q' = median * (q / median)^k. k > 1 widens, k < 1 narrows. Keeps ordering.
+ */
+export function rescaleQuantiles(f: QuantileSet, k: number): QuantileSet {
+  const m = f.q50;
+  const s = (q: number) => (m > 0 && q > 0 ? m * Math.pow(q / m, k) : q);
+  return { ...f, q10: s(f.q10), q25: s(f.q25), q50: m, q75: s(f.q75), q90: s(f.q90) };
+}
+
+/** Forecaster whose bands are widened/narrowed by k (calibrated on tuning seasons only). */
+export function scaleSpread(f: Forecaster, k: number, name = f.name): Forecaster {
+  return { name, forecast: (d, o, hs) => f.forecast(d, o, hs)?.map((x) => rescaleQuantiles(x, k)) ?? null };
+}
+
+export function scaleSpreadFactory(f: ForecasterFactory, k: number, name = f.name): ForecasterFactory {
+  return { name, fit: (t, o) => scaleSpread(f.fit(t, o), k, name) };
+}

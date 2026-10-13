@@ -1,0 +1,12 @@
+{
+  "id": "bkg-vg250",
+  "name": "BKG VG250 Verwaltungsgebiete 1:250 000 (Bundesländer)",
+  "url": "https://sgx.geodatenzentrum.de/wfs_vg250",
+  "attribution": "© GeoBasis-DE / BKG (2026) dl-de/by-2-0; Datenquellen: https://sgx.geodatenzentrum.de/web_public/gdz/datenquellen/datenquellen_vg_nuts.pdf; Geometrie vereinfacht (bearbeitet)",
+  "license": "dl-de/by-2-0",
+  "license_url": "https://www.govdata.de/dl-de/by-2-0",
+  "retrieved": "2026-10-13",
+  "sha256": "edc6778c747d149d9c598a996c82f4777ea0bb695b1ee9df163b59b735b541c6",
+  "sha256_of": "derived simplified TopoJSON artifact",
+  "doi": ""
+}

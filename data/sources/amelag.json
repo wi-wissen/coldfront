@@ -1,0 +1,11 @@
+{
+  "id": "amelag",
+  "name": "Abwassersurveillance AMELAG (Einzelstandorte)",
+  "url": "https://raw.githubusercontent.com/robert-koch-institut/Abwassersurveillance_AMELAG/main/amelag_einzelstandorte.tsv",
+  "attribution": "Robert Koch-Institut und Umweltbundesamt, Abwassersurveillance AMELAG, CC BY 4.0",
+  "license": "CC BY 4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/",
+  "doi": "",
+  "retrieved": "2026-10-13",
+  "sha256": "8f15105e87dd7a33f1979997b6ea57aa0516699f68216e808bd503b67eba3767"
+}

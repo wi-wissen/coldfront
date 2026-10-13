@@ -1,0 +1,11 @@
+DE	04109	Leipzig	Sachsen	14	Leipzig, Kreisfreie Stadt	14713			51.3300	12.3600	
+DE	04109	Leipzig	Sachsen	14	Leipzig, Kreisfreie Stadt	14713			51.3500	12.3800	
+DE	01067	Dresden	Saxony	14	Dresden, Kreisfreie Stadt	14612			51.0504	13.7373	
+DE	80331	München	Bavaria	09	Oberbayern	091			48.1372	11.5756	
+DE	10115	Berlin	Land Berlin	11	Berlin	11000			52.5323	13.3846	
+DE	99084	Erfurt	Thuringia	16	Erfurt, Kreisfreie Stadt	16051			50.9787	11.0328	
+DE	99084	Erfurt	Sachsen	14	Erfurt, Kreisfreie Stadt	16051			50.9001	11.0001	
+DE	19055	Schwerin	Mecklenburg-Western Pomerania	13	Schwerin, Kreisfreie Stadt	13003			53.6355	11.4012	
+DE	60311	Frankfurt am Main	Hesse	06	Darmstadt	06412			50.1109	8.6821	
+DE	70173	Stuttgart	Baden-Wuerttemberg	08	Stuttgart	08111			48.7758	9.1829	
+DE	20095	Hamburg	Hamburg	02	Hamburg	02000			53.5503	10.0006	

@@ -14,8 +14,6 @@ export interface RegionalModelConfig {
   excludeWeek?: (week: IsoWeek) => boolean;
   /** Max IRLS iterations (speed vs. precision in the backtest). */
   maxIter?: number;
-  /** Multiplies the spread around the median. Calibrated on tuning seasons only. */
-  spreadFactor?: number;
 }
 
 interface Fitted {
@@ -54,9 +52,7 @@ export function regionalQuantileModel(cfg: RegionalModelConfig): ForecasterFacto
             if (!coefs || !row) return null;
             const x = standardise(row, fitted.mean, fitted.sd);
             const z = coefs.map((c) => predictLinear(c, x)).sort((a, b) => a - b);
-            const med = z[2]!;
-            const k = cfg.spreadFactor ?? 1;
-            const v = z.map((q) => Math.exp(ly0 + med + (q - med) * k));
+            const v = z.map((q) => Math.exp(ly0 + q));
             out.push({ iso_week: addWeeks(o, h), h, q10: v[0]!, q25: v[1]!, q50: v[2]!, q75: v[3]!, q90: v[4]! });
           }
           return out;

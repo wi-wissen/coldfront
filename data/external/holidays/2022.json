@@ -1,0 +1,243 @@
+{
+  "year": 2022,
+  "entries": [
+    {
+      "region": "de-bb",
+      "kind": "autumn",
+      "start": "2022-10-24",
+      "end": "2022-11-05",
+      "source": "KMK Ferienkalender 2022/23 (FER2022_23-neu.pdf)"
+    },
+    {
+      "region": "de-bb",
+      "kind": "christmas",
+      "start": "2022-12-22",
+      "end": "2023-01-03",
+      "source": "KMK Ferienkalender 2022/23 (FER2022_23-neu.pdf)"
+    },
+    {
+      "region": "de-be",
+      "kind": "autumn",
+      "start": "2022-10-24",
+      "end": "2022-11-05",
+      "source": "KMK Ferienkalender 2022/23 (FER2022_23-neu.pdf)"
+    },
+    {
+      "region": "de-be",
+      "kind": "christmas",
+      "start": "2022-12-22",
+      "end": "2023-01-02",
+      "source": "KMK Ferienkalender 2022/23 (FER2022_23-neu.pdf)"
+    },
+    {
+      "region": "de-bw",
+      "kind": "other",
+      "start": "2022-10-31",
+      "end": "2022-10-31",
+      "source": "KMK Ferienkalender 2022/23 (FER2022_23-neu.pdf)"
+    },
+    {
+      "region": "de-bw",
+      "kind": "autumn",
+      "start": "2022-11-02",
+      "end": "2022-11-04",
+      "source": "KMK Ferienkalender 2022/23 (FER2022_23-neu.pdf)"
+    },
+    {
+      "region": "de-bw",
+      "kind": "christmas",
+      "start": "2022-12-21",
+      "end": "2023-01-07",
+      "source": "KMK Ferienkalender 2022/23 (FER2022_23-neu.pdf)"
+    },
+    {
+      "region": "de-by",
+      "kind": "autumn",
+      "start": "2022-10-31",
+      "end": "2022-11-04",
+      "source": "KMK Ferienkalender 2022/23 (FER2022_23-neu.pdf)"
+    },
+    {
+      "region": "de-by",
+      "kind": "christmas",
+      "start": "2022-12-24",
+      "end": "2023-01-07",
+      "source": "KMK Ferienkalender 2022/23 (FER2022_23-neu.pdf)"
+    },
+    {
+      "region": "de-hb",
+      "kind": "autumn",
+      "start": "2022-10-17",
+      "end": "2022-10-29",
+      "source": "KMK Ferienkalender 2022/23 (FER2022_23-neu.pdf)"
+    },
+    {
+      "region": "de-hb",
+      "kind": "christmas",
+      "start": "2022-12-23",
+      "end": "2023-01-06",
+      "source": "KMK Ferienkalender 2022/23 (FER2022_23-neu.pdf)"
+    },
+    {
+      "region": "de-he",
+      "kind": "autumn",
+      "start": "2022-10-24",
+      "end": "2022-10-29",
+      "source": "KMK Ferienkalender 2022/23 (FER2022_23-neu.pdf)"
+    },
+    {
+      "region": "de-he",
+      "kind": "christmas",
+      "start": "2022-12-22",
+      "end": "2023-01-07",
+      "source": "KMK Ferienkalender 2022/23 (FER2022_23-neu.pdf)"
+    },
+    {
+      "region": "de-hh",
+      "kind": "autumn",
+      "start": "2022-10-10",
+      "end": "2022-10-21",
+      "source": "KMK Ferienkalender 2022/23 (FER2022_23-neu.pdf)"
+    },
+    {
+      "region": "de-hh",
+      "kind": "christmas",
+      "start": "2022-12-23",
+      "end": "2023-01-06",
+      "source": "KMK Ferienkalender 2022/23 (FER2022_23-neu.pdf)"
+    },
+    {
+      "region": "de-mv",
+      "kind": "other",
+      "start": "2022-10-10",
+      "end": "2022-10-14",
+      "source": "KMK Ferienkalender 2022/23 (FER2022_23-neu.pdf)"
+    },
+    {
+      "region": "de-mv",
+      "kind": "other",
+      "start": "2022-11-01",
+      "end": "2022-11-02",
+      "source": "KMK Ferienkalender 2022/23 (FER2022_23-neu.pdf)"
+    },
+    {
+      "region": "de-mv",
+      "kind": "christmas",
+      "start": "2022-12-22",
+      "end": "2023-01-02",
+      "source": "KMK Ferienkalender 2022/23 (FER2022_23-neu.pdf)"
+    },
+    {
+      "region": "de-ni",
+      "kind": "autumn",
+      "start": "2022-10-17",
+      "end": "2022-10-28",
+      "source": "KMK Ferienkalender 2022/23 (FER2022_23-neu.pdf)"
+    },
+    {
+      "region": "de-ni",
+      "kind": "christmas",
+      "start": "2022-12-23",
+      "end": "2023-01-06",
+      "source": "KMK Ferienkalender 2022/23 (FER2022_23-neu.pdf)"
+    },
+    {
+      "region": "de-nw",
+      "kind": "autumn",
+      "start": "2022-10-04",
+      "end": "2022-10-15",
+      "source": "KMK Ferienkalender 2022/23 (FER2022_23-neu.pdf)"
+    },
+    {
+      "region": "de-nw",
+      "kind": "christmas",
+      "start": "2022-12-23",
+      "end": "2023-01-06",
+      "source": "KMK Ferienkalender 2022/23 (FER2022_23-neu.pdf)"
+    },
+    {
+      "region": "de-rp",
+      "kind": "autumn",
+      "start": "2022-10-17",
+      "end": "2022-10-31",
+      "source": "KMK Ferienkalender 2022/23 (FER2022_23-neu.pdf)"
+    },
+    {
+      "region": "de-rp",
+      "kind": "christmas",
+      "start": "2022-12-23",
+      "end": "2023-01-02",
+      "source": "KMK Ferienkalender 2022/23 (FER2022_23-neu.pdf)"
+    },
+    {
+      "region": "de-sh",
+      "kind": "autumn",
+      "start": "2022-10-10",
+      "end": "2022-10-21",
+      "source": "KMK Ferienkalender 2022/23 (FER2022_23-neu.pdf)"
+    },
+    {
+      "region": "de-sh",
+      "kind": "christmas",
+      "start": "2022-12-23",
+      "end": "2023-01-07",
+      "source": "KMK Ferienkalender 2022/23 (FER2022_23-neu.pdf)"
+    },
+    {
+      "region": "de-sl",
+      "kind": "autumn",
+      "start": "2022-10-24",
+      "end": "2022-11-04",
+      "source": "KMK Ferienkalender 2022/23 (FER2022_23-neu.pdf)"
+    },
+    {
+      "region": "de-sl",
+      "kind": "christmas",
+      "start": "2022-12-22",
+      "end": "2023-01-04",
+      "source": "KMK Ferienkalender 2022/23 (FER2022_23-neu.pdf)"
+    },
+    {
+      "region": "de-sn",
+      "kind": "autumn",
+      "start": "2022-10-17",
+      "end": "2022-10-29",
+      "source": "KMK Ferienkalender 2022/23 (FER2022_23-neu.pdf)"
+    },
+    {
+      "region": "de-sn",
+      "kind": "christmas",
+      "start": "2022-12-22",
+      "end": "2023-01-02",
+      "source": "KMK Ferienkalender 2022/23 (FER2022_23-neu.pdf)"
+    },
+    {
+      "region": "de-st",
+      "kind": "autumn",
+      "start": "2022-10-24",
+      "end": "2022-11-04",
+      "source": "KMK Ferienkalender 2022/23 (FER2022_23-neu.pdf)"
+    },
+    {
+      "region": "de-st",
+      "kind": "christmas",
+      "start": "2022-12-21",
+      "end": "2023-01-05",
+      "source": "KMK Ferienkalender 2022/23 (FER2022_23-neu.pdf)"
+    },
+    {
+      "region": "de-th",
+      "kind": "autumn",
+      "start": "2022-10-17",
+      "end": "2022-10-29",
+      "source": "KMK Ferienkalender 2022/23 (FER2022_23-neu.pdf)"
+    },
+    {
+      "region": "de-th",
+      "kind": "christmas",
+      "start": "2022-12-22",
+      "end": "2023-01-03",
+      "source": "KMK Ferienkalender 2022/23 (FER2022_23-neu.pdf)"
+    }
+  ]
+}

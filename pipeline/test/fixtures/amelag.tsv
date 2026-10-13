@@ -1,0 +1,18 @@
+standort	bundesland	datum	viruslast	viruslast_normalisiert	vorhersage	obere_schranke	untere_schranke	einwohner	laborwechsel	typ	unter_bg
+Aachen	NW	2025-12-28	4500	50	48.1	60.2	40.0	250000	nein	SARS-CoV-2	nein
+Aachen	NW	2025-12-30	6300	70	66.5	80.1	55.0	NA	nein	SARS-CoV-2	nein
+Aachen	NW	2026-01-05	0.5	0.5	NA	NA	NA	NA	nein	RSV A/B	ja
+Leipzig	SN	2024-12-31	800	8	7.5	9.1	6.0	600000	nein	Influenza A	nein
+Leipzig	SN	2025-01-01	1200	12	11.0	13.0	9.0	600000	nein	Influenza A	nein
+Leipzig	SN	2025-12-28	9000	100	95.2	110.0	80.0	600000	nein	SARS-CoV-2	nein
+Leipzig	SN	2025-12-29	1000	10	10.5	12.0	9.1	600000	nein	SARS-CoV-2	nein
+Leipzig	SN	2025-12-31	500	5	5.2	6.0	4.4	600000	nein	Influenza A	nein
+Leipzig	SN	2026-01-01	2000	20	19.8	23.0	17.0	600000	nein	SARS-CoV-2	nein
+Leipzig	SN	2026-01-02	999	NA	NA	NA	NA	600000	nein	SARS-CoV-2	nein
+Leipzig	SN	2026-01-04	3000	30	29.0	34.0	25.0	600000	nein	SARS-CoV-2	nein
+Leipzig	SN	2026-01-05	4000	40	39.1	45.0	33.0	600000	nein	SARS-CoV-2	nein
+Süd	BW	2026-01-05	360	3	2.9	3.4	2.5	120000	nein	SARS-CoV-2	nein
+Süd	BW	2026-01-12	NA	NA	NA	NA	NA	120000	nein	SARS-CoV-2	nein
+Süd	BY	2026-01-05	100	1	0.9	1.2	0.7	100000	nein	SARS-CoV-2	nein
+Süd	BY	2026-01-06	200	2	2.1	2.4	1.8	100000	nein	SARS-CoV-2	nein
+Süd	BY	2026-01-07	200	2	2.0	2.3	1.7	100000	nein	SARS-CoV-2	nein

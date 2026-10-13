@@ -1,0 +1,11 @@
+{
+  "id": "rki-are",
+  "name": "ARE-Konsultationsinzidenz",
+  "url": "https://raw.githubusercontent.com/robert-koch-institut/ARE-Konsultationsinzidenz/main/ARE-Konsultationsinzidenz.tsv",
+  "attribution": "Robert Koch-Institut, ARE-Konsultationsinzidenz, CC BY 4.0",
+  "license": "CC BY 4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/",
+  "doi": "",
+  "retrieved": "2026-10-13",
+  "sha256": "9f4487193945bfd2a99dc522ca313cfcdf3bd5a8c8db5cbfedca0f76870f4a6d"
+}

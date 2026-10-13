@@ -1,0 +1,67 @@
+{
+  "_comment": "DWD daily climate stations (kl) used for weekly tmax/tmin per Bundesland. Selection criteria: (a) the station lies in the Bundesland (column Bundesland of KL_Tageswerte_Beschreibung_Stationen.txt); (b) von_datum <= 2022-01-01 and bis_datum in late September 2026 or later, so the station covers 2022 up to the present; (c) the station is in or next to a large city or populated area (preferably the city itself, otherwise the main airport station close to it). Ids are DWD Stations_id (5 digits). Stations with gaps of more than a few weeks since 2022 were replaced (Berlin-Marzahn, Mainz-Lerchenberg); the product files were checked for gaps before the choice.",
+  "de-bw": [
+    { "id": "04928", "name": "Stuttgart (Schnarrenberg)" },
+    { "id": "01443", "name": "Freiburg" }
+  ],
+  "de-by": [
+    { "id": "03379", "name": "München-Stadt" },
+    { "id": "03668", "name": "Nürnberg" }
+  ],
+  "de-be": [
+    { "id": "00433", "name": "Berlin-Tempelhof" },
+    { "id": "00400", "name": "Berlin-Buch" }
+  ],
+  "de-bb": [
+    { "id": "03987", "name": "Potsdam" },
+    { "id": "00880", "name": "Cottbus" }
+  ],
+  "de-hb": [
+    { "id": "00691", "name": "Bremen" },
+    { "id": "00701", "name": "Bremerhaven" }
+  ],
+  "de-hh": [
+    { "id": "01975", "name": "Hamburg-Fuhlsbüttel" },
+    { "id": "01981", "name": "Hamburg-Neuwiedenthal" }
+  ],
+  "de-he": [
+    { "id": "01420", "name": "Frankfurt/Main" },
+    { "id": "00917", "name": "Darmstadt" }
+  ],
+  "de-mv": [
+    { "id": "04625", "name": "Schwerin" },
+    { "id": "04271", "name": "Rostock-Warnemünde" }
+  ],
+  "de-ni": [
+    { "id": "02014", "name": "Hannover" },
+    { "id": "00662", "name": "Braunschweig" }
+  ],
+  "de-nw": [
+    { "id": "01078", "name": "Düsseldorf" },
+    { "id": "02667", "name": "Köln/Bonn" }
+  ],
+  "de-rp": [
+    { "id": "05100", "name": "Trier-Petrisberg" },
+    { "id": "02486", "name": "Kaiserslautern" }
+  ],
+  "de-sl": [
+    { "id": "06217", "name": "Saarbrücken-Burbach" },
+    { "id": "04336", "name": "Saarbrücken-Ensheim" }
+  ],
+  "de-sn": [
+    { "id": "01048", "name": "Dresden-Klotzsche" },
+    { "id": "02932", "name": "Leipzig/Halle" }
+  ],
+  "de-st": [
+    { "id": "03126", "name": "Magdeburg" },
+    { "id": "05490", "name": "Wernigerode" }
+  ],
+  "de-sh": [
+    { "id": "02564", "name": "Kiel-Holtenau" },
+    { "id": "03086", "name": "Lübeck-Blankensee" }
+  ],
+  "de-th": [
+    { "id": "01270", "name": "Erfurt-Weimar" },
+    { "id": "01612", "name": "Gera-Leumnitz" }
+  ]
+}

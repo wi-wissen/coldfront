@@ -1,0 +1,21 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": { "gf": 4, "ags": "14", "gen": "Sachsen" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[12, 50.5], [13, 50.5], [13, 51], [12, 51], [12, 50.5]]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "gf": 4, "ags": "09", "gen": "Bayern" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[11, 48], [12, 48], [12, 49], [11, 49], [11, 48]]]
+      }
+    }
+  ]
+}

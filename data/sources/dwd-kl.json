@@ -1,0 +1,11 @@
+{
+  "id": "dwd-kl",
+  "name": "DWD Climate Data Center, daily station observations (kl)",
+  "url": "https://opendata.dwd.de/climate_environment/CDC/observations_germany/climate/daily/kl/",
+  "attribution": "Quelle: Deutscher Wetterdienst; Wochenmittel der Tageswerte (TXK, TNK) aus mehreren Stationen berechnet",
+  "license": "CC BY 4.0",
+  "license_url": "https://www.dwd.de/copyright",
+  "doi": "",
+  "retrieved": "2026-10-13",
+  "sha256": "n/a (many station files)"
+}

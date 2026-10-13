@@ -1,0 +1,2547 @@
+[
+ {
+  "id": "ww-aachen",
+  "name": "Aachen",
+  "region": "de-nw",
+  "population": 206424,
+  "first_week": "2021-W47",
+  "last_week": "2026-W34",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "RSV A",
+   "RSV A+B",
+   "RSV B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-aalen",
+  "name": "Aalen",
+  "region": "de-bw",
+  "population": 30000,
+  "first_week": "2023-W48",
+  "last_week": "2024-W51",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "RSV A/B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-altoetting",
+  "name": "Altötting",
+  "region": "de-by",
+  "population": 34550,
+  "first_week": "2022-W13",
+  "last_week": "2026-W40",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "RSV A/B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-andernach",
+  "name": "Andernach",
+  "region": "de-rp",
+  "population": 47086,
+  "first_week": "2022-W40",
+  "last_week": "2024-W51",
+  "pathogens": [
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-arnstadt",
+  "name": "Arnstadt",
+  "region": "de-th",
+  "population": 37475,
+  "first_week": "2024-W01",
+  "last_week": "2025-W01",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-aschaffenburg",
+  "name": "Aschaffenburg",
+  "region": "de-by",
+  "population": 102806,
+  "first_week": "2023-W41",
+  "last_week": "2026-W40",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "RSV A/B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-augsburg",
+  "name": "Augsburg",
+  "region": "de-by",
+  "population": 380000,
+  "first_week": "2022-W05",
+  "last_week": "2026-W40",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "RSV A/B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-bad-kreuznach",
+  "name": "Bad Kreuznach",
+  "region": "de-rp",
+  "population": 75000,
+  "first_week": "2022-W40",
+  "last_week": "2024-W51",
+  "pathogens": [
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-bad-mergentheim",
+  "name": "Bad Mergentheim",
+  "region": "de-bw",
+  "population": 27257,
+  "first_week": "2023-W45",
+  "last_week": "2024-W51",
+  "pathogens": [
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-bad-reichenhall",
+  "name": "Bad Reichenhall",
+  "region": "de-by",
+  "population": 19480,
+  "first_week": "2022-W07",
+  "last_week": "2024-W51",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "RSV A/B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-bautzen",
+  "name": "Bautzen",
+  "region": "de-sn",
+  "population": 45500,
+  "first_week": "2024-W01",
+  "last_week": "2024-W51",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "RSV A",
+   "RSV A+B",
+   "RSV B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-bayreuth",
+  "name": "Bayreuth",
+  "region": "de-by",
+  "population": 88906,
+  "first_week": "2022-W42",
+  "last_week": "2026-W40",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "RSV A/B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-berchtesgaden",
+  "name": "Berchtesgaden",
+  "region": "de-by",
+  "population": 25000,
+  "first_week": "2022-W07",
+  "last_week": "2026-W40",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "RSV A/B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-berg",
+  "name": "Berg",
+  "region": "de-bw",
+  "population": 14000,
+  "first_week": "2023-W45",
+  "last_week": "2024-W51",
+  "pathogens": [
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-berlin-ruhleben",
+  "name": "Berlin Ruhleben",
+  "region": "de-be",
+  "population": 1639198,
+  "first_week": "2022-W06",
+  "last_week": "2026-W39",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "RSV A/B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-berlin-schoenerlinde",
+  "name": "Berlin Schönerlinde",
+  "region": "de-be",
+  "population": 650000,
+  "first_week": "2022-W44",
+  "last_week": "2026-W39",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "RSV A/B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-berlin-wassmannsdorf",
+  "name": "Berlin Waßmannsdorf",
+  "region": "de-be",
+  "population": 1586494,
+  "first_week": "2022-W44",
+  "last_week": "2026-W39",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "RSV A/B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-bernburg",
+  "name": "Bernburg",
+  "region": "de-st",
+  "population": 37000,
+  "first_week": "2022-W45",
+  "last_week": "2025-W22",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "RSV A/B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-bielefeld",
+  "name": "Bielefeld",
+  "region": "de-nw",
+  "population": 171564,
+  "first_week": "2024-W25",
+  "last_week": "2024-W51",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-bonn",
+  "name": "Bonn",
+  "region": "de-nw",
+  "population": 279186,
+  "first_week": "2022-W22",
+  "last_week": "2024-W51",
+  "pathogens": [
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-borken",
+  "name": "Borken",
+  "region": "de-nw",
+  "population": 42861,
+  "first_week": "2023-W48",
+  "last_week": "2024-W51",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-bottrop",
+  "name": "Bottrop",
+  "region": "de-nw",
+  "population": 732616,
+  "first_week": "2022-W22",
+  "last_week": "2026-W40",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "RSV A",
+   "RSV A+B",
+   "RSV B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-bramsche",
+  "name": "Bramsche",
+  "region": "de-ni",
+  "population": 31534,
+  "first_week": "2022-W11",
+  "last_week": "2023-W42",
+  "pathogens": [
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-brandenburg-an-der-havel",
+  "name": "Brandenburg an der Havel",
+  "region": "de-bb",
+  "population": 82881,
+  "first_week": "2023-W45",
+  "last_week": "2026-W40",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "RSV A",
+   "RSV A+B",
+   "RSV B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-braunschweig",
+  "name": "Braunschweig",
+  "region": "de-ni",
+  "population": 280000,
+  "first_week": "2023-W45",
+  "last_week": "2026-W40",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "RSV A",
+   "RSV A+B",
+   "RSV B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-bremen",
+  "name": "Bremen",
+  "region": "de-hb",
+  "population": 595000,
+  "first_week": "2022-W08",
+  "last_week": "2026-W40",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "RSV A",
+   "RSV A+B",
+   "RSV B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-buedingen",
+  "name": "Büdingen",
+  "region": "de-he",
+  "population": 14594,
+  "first_week": "2022-W13",
+  "last_week": "2024-W51",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "RSV A/B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-celle",
+  "name": "Celle",
+  "region": "de-ni",
+  "population": 71244,
+  "first_week": "2023-W45",
+  "last_week": "2024-W51",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "RSV A",
+   "RSV A+B",
+   "RSV B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-chemnitz",
+  "name": "Chemnitz",
+  "region": "de-sn",
+  "population": 246807,
+  "first_week": "2024-W01",
+  "last_week": "2024-W51",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "RSV A",
+   "RSV A+B",
+   "RSV B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-cottbus",
+  "name": "Cottbus",
+  "region": "de-bb",
+  "population": 103830,
+  "first_week": "2023-W45",
+  "last_week": "2026-W40",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "RSV A",
+   "RSV A+B",
+   "RSV B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-darmstadt",
+  "name": "Darmstadt",
+  "region": "de-he",
+  "population": 133633,
+  "first_week": "2023-W49",
+  "last_week": "2024-W51",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "RSV A/B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-dessau",
+  "name": "Dessau",
+  "region": "de-st",
+  "population": 83000,
+  "first_week": "2022-W44",
+  "last_week": "2026-W39",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "RSV A/B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-dinslaken",
+  "name": "Dinslaken",
+  "region": "de-nw",
+  "population": 56812,
+  "first_week": "2022-W22",
+  "last_week": "2026-W40",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "RSV A",
+   "RSV A+B",
+   "RSV B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-doebeln",
+  "name": "Döbeln",
+  "region": "de-sn",
+  "population": 21092,
+  "first_week": "2023-W12",
+  "last_week": "2025-W01",
+  "pathogens": [
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-donaueschingen",
+  "name": "Donaueschingen",
+  "region": "de-bw",
+  "population": 100000,
+  "first_week": "2023-W45",
+  "last_week": "2024-W51",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "RSV A/B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-dortmund-deusen",
+  "name": "Dortmund-Deusen",
+  "region": "de-nw",
+  "population": 399425,
+  "first_week": "2022-W22",
+  "last_week": "2026-W40",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "RSV A",
+   "RSV A+B",
+   "RSV B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-dortmund-scharnhorst",
+  "name": "Dortmund-Scharnhorst",
+  "region": "de-nw",
+  "population": 113439,
+  "first_week": "2022-W22",
+  "last_week": "2026-W40",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "RSV A",
+   "RSV A+B",
+   "RSV B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-dresden",
+  "name": "Dresden",
+  "region": "de-sn",
+  "population": 700000,
+  "first_week": "2022-W07",
+  "last_week": "2026-W40",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "RSV A",
+   "RSV A+B",
+   "RSV B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-duesseldorf-nord",
+  "name": "Düsseldorf (Nord)",
+  "region": "de-nw",
+  "population": 333122,
+  "first_week": "2022-W25",
+  "last_week": "2024-W51",
+  "pathogens": [
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-duesseldorf-sued",
+  "name": "Düsseldorf (Süd)",
+  "region": "de-nw",
+  "population": 340577,
+  "first_week": "2022-W24",
+  "last_week": "2024-W51",
+  "pathogens": [
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-duisburg",
+  "name": "Duisburg",
+  "region": "de-nw",
+  "population": 242172,
+  "first_week": "2022-W22",
+  "last_week": "2026-W40",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "RSV A",
+   "RSV A+B",
+   "RSV B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-ebersbach",
+  "name": "Ebersbach",
+  "region": "de-sn",
+  "population": 16000,
+  "first_week": "2024-W01",
+  "last_week": "2024-W51",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "RSV A",
+   "RSV A+B",
+   "RSV B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-ebersberg",
+  "name": "Ebersberg",
+  "region": "de-by",
+  "population": 12500,
+  "first_week": "2023-W45",
+  "last_week": "2024-W51",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "RSV A/B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-emschermuendung",
+  "name": "Emschermündung",
+  "region": "de-nw",
+  "population": 906222,
+  "first_week": "2022-W22",
+  "last_week": "2026-W40",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "RSV A",
+   "RSV A+B",
+   "RSV B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-erfurt",
+  "name": "Erfurt",
+  "region": "de-th",
+  "population": 222166,
+  "first_week": "2024-W02",
+  "last_week": "2026-W40",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "RSV A",
+   "RSV A+B",
+   "RSV B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-eriskirch",
+  "name": "Eriskirch",
+  "region": "de-bw",
+  "population": 36000,
+  "first_week": "2023-W45",
+  "last_week": "2024-W51",
+  "pathogens": [
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-erlangen",
+  "name": "Erlangen",
+  "region": "de-by",
+  "population": 170332,
+  "first_week": "2022-W49",
+  "last_week": "2026-W40",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "RSV A/B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-eschweiler",
+  "name": "Eschweiler",
+  "region": "de-nw",
+  "population": 68244,
+  "first_week": "2022-W03",
+  "last_week": "2024-W51",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "RSV A",
+   "RSV A+B",
+   "RSV B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-flensburg",
+  "name": "Flensburg",
+  "region": "de-sh",
+  "population": 115000,
+  "first_week": "2023-W45",
+  "last_week": "2024-W52",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "RSV A",
+   "RSV A+B",
+   "RSV B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-frankfurt-griesheim",
+  "name": "Frankfurt-Griesheim",
+  "region": "de-he",
+  "population": 617300,
+  "first_week": "2023-W45",
+  "last_week": "2026-W40",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "RSV A",
+   "RSV A+B",
+   "RSV A/B",
+   "RSV B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-frankfurt-niederrad",
+  "name": "Frankfurt-Niederrad",
+  "region": "de-he",
+  "population": 818276,
+  "first_week": "2023-W45",
+  "last_week": "2026-W40",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "RSV A",
+   "RSV A+B",
+   "RSV A/B",
+   "RSV B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-frankfurt-oder",
+  "name": "Frankfurt (Oder)",
+  "region": "de-bb",
+  "population": 65444,
+  "first_week": "2023-W45",
+  "last_week": "2026-W40",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "RSV A",
+   "RSV A+B",
+   "RSV B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-frankfurt-sindlingen",
+  "name": "Frankfurt-Sindlingen",
+  "region": "de-he",
+  "population": 245495,
+  "first_week": "2023-W45",
+  "last_week": "2024-W51",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "RSV A/B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-freilassing",
+  "name": "Freilassing",
+  "region": "de-by",
+  "population": 19976,
+  "first_week": "2022-W13",
+  "last_week": "2024-W51",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "RSV A/B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-freising",
+  "name": "Freising",
+  "region": "de-by",
+  "population": 51617,
+  "first_week": "2023-W41",
+  "last_week": "2026-W40",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "RSV A/B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-fulda",
+  "name": "Fulda",
+  "region": "de-he",
+  "population": 95000,
+  "first_week": "2023-W47",
+  "last_week": "2024-W51",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "RSV A/B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-gera",
+  "name": "Gera",
+  "region": "de-th",
+  "population": 101650,
+  "first_week": "2024-W01",
+  "last_week": "2026-W40",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "RSV A",
+   "RSV A+B",
+   "RSV B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-germersheim",
+  "name": "Germersheim",
+  "region": "de-rp",
+  "population": 28318,
+  "first_week": "2022-W41",
+  "last_week": "2024-W51",
+  "pathogens": [
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-gerwisch",
+  "name": "Gerwisch",
+  "region": "de-st",
+  "population": 278000,
+  "first_week": "2022-W45",
+  "last_week": "2026-W39",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "RSV A/B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-gleisdreieck",
+  "name": "Gleisdreieck",
+  "region": "de-th",
+  "population": 2468,
+  "first_week": "2024-W03",
+  "last_week": "2025-W01",
+  "pathogens": [
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-glonn",
+  "name": "Glonn",
+  "region": "de-by",
+  "population": 5300,
+  "first_week": "2022-W14",
+  "last_week": "2024-W51",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "RSV A/B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-goeppingen",
+  "name": "Göppingen",
+  "region": "de-bw",
+  "population": 100000,
+  "first_week": "2023-W48",
+  "last_week": "2026-W26",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "RSV A",
+   "RSV A+B",
+   "RSV A/B",
+   "RSV B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-goerlitz",
+  "name": "Görlitz",
+  "region": "de-sn",
+  "population": 65000,
+  "first_week": "2023-W41",
+  "last_week": "2024-W52",
+  "pathogens": [
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-goettingen",
+  "name": "Göttingen",
+  "region": "de-ni",
+  "population": 170000,
+  "first_week": "2023-W45",
+  "last_week": "2026-W40",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "RSV A",
+   "RSV A+B",
+   "RSV B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-grafing",
+  "name": "Grafing",
+  "region": "de-by",
+  "population": 14900,
+  "first_week": "2022-W14",
+  "last_week": "2024-W51",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "RSV A/B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-greifswald",
+  "name": "Greifswald",
+  "region": "de-mv",
+  "population": 61963,
+  "first_week": "2023-W45",
+  "last_week": "2024-W51",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "RSV A",
+   "RSV A+B",
+   "RSV B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-grimma",
+  "name": "Grimma",
+  "region": "de-sn",
+  "population": 19800,
+  "first_week": "2023-W12",
+  "last_week": "2025-W01",
+  "pathogens": [
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-groemitz",
+  "name": "Grömitz",
+  "region": "de-sh",
+  "population": 31836,
+  "first_week": "2022-W13",
+  "last_week": "2024-W52",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "RSV A",
+   "RSV A+B",
+   "RSV B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-guetersloh",
+  "name": "Gütersloh",
+  "region": "de-nw",
+  "population": 80000,
+  "first_week": "2023-W48",
+  "last_week": "2024-W51",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-hagen",
+  "name": "Hagen",
+  "region": "de-nw",
+  "population": 187768,
+  "first_week": "2024-W04",
+  "last_week": "2026-W40",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "RSV A",
+   "RSV A+B",
+   "RSV B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-halberstadt",
+  "name": "Halberstadt",
+  "region": "de-st",
+  "population": 35345,
+  "first_week": "2022-W46",
+  "last_week": "2025-W02",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "RSV A/B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-halle-saale",
+  "name": "Halle (Saale)",
+  "region": "de-st",
+  "population": 337000,
+  "first_week": "2023-W01",
+  "last_week": "2026-W39",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "RSV A/B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-hamburg-01",
+  "name": "Hamburg 01",
+  "region": "de-hh",
+  "population": 581423,
+  "first_week": "2022-W08",
+  "last_week": "2026-W40",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "RSV A",
+   "RSV A+B",
+   "RSV B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-hamburg-02",
+  "name": "Hamburg 02",
+  "region": "de-hh",
+  "population": 1464784,
+  "first_week": "2022-W08",
+  "last_week": "2026-W40",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "RSV A",
+   "RSV A+B",
+   "RSV B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-hanau",
+  "name": "Hanau",
+  "region": "de-he",
+  "population": 140000,
+  "first_week": "2023-W47",
+  "last_week": "2024-W51",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "RSV A/B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-hannover-guemmerwald",
+  "name": "Hannover-Gümmerwald",
+  "region": "de-ni",
+  "population": 437416,
+  "first_week": "2023-W47",
+  "last_week": "2026-W40",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "RSV A",
+   "RSV A+B",
+   "RSV B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-hannover-herrenhausen",
+  "name": "Hannover-Herrenhausen",
+  "region": "de-ni",
+  "population": 303144,
+  "first_week": "2023-W47",
+  "last_week": "2026-W40",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "RSV A",
+   "RSV A+B",
+   "RSV B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-heidelberg",
+  "name": "Heidelberg",
+  "region": "de-bw",
+  "population": 200000,
+  "first_week": "2022-W01",
+  "last_week": "2026-W40",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "RSV A/B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-hetlingen",
+  "name": "Hetlingen",
+  "region": "de-sh",
+  "population": 540000,
+  "first_week": "2023-W45",
+  "last_week": "2026-W40",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "RSV A",
+   "RSV A+B",
+   "RSV B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-hildesheim",
+  "name": "Hildesheim",
+  "region": "de-ni",
+  "population": 104230,
+  "first_week": "2023-W45",
+  "last_week": "2024-W52",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "RSV A",
+   "RSV A+B",
+   "RSV B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-hof",
+  "name": "Hof",
+  "region": "de-by",
+  "population": 100000,
+  "first_week": "2022-W13",
+  "last_week": "2026-W40",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "RSV A/B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-husum",
+  "name": "Husum",
+  "region": "de-sh",
+  "population": 40000,
+  "first_week": "2023-W45",
+  "last_week": "2024-W52",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "RSV A",
+   "RSV A+B",
+   "RSV B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-ilmenau",
+  "name": "Ilmenau",
+  "region": "de-th",
+  "population": 25882,
+  "first_week": "2024-W02",
+  "last_week": "2025-W01",
+  "pathogens": [
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-ingolstadt",
+  "name": "Ingolstadt",
+  "region": "de-by",
+  "population": 177591,
+  "first_week": "2023-W39",
+  "last_week": "2026-W40",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "RSV A/B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-jena",
+  "name": "Jena",
+  "region": "de-th",
+  "population": 116186,
+  "first_week": "2022-W19",
+  "last_week": "2026-W40",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "RSV A",
+   "RSV A+B",
+   "RSV B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-kaiserslautern",
+  "name": "Kaiserslautern",
+  "region": "de-rp",
+  "population": 140000,
+  "first_week": "2022-W40",
+  "last_week": "2026-W40",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "RSV A",
+   "RSV A+B",
+   "RSV B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-karlsruhe",
+  "name": "Karlsruhe",
+  "region": "de-bw",
+  "population": 355000,
+  "first_week": "2022-W05",
+  "last_week": "2026-W40",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "RSV A/B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-kassel",
+  "name": "Kassel",
+  "region": "de-he",
+  "population": 271330,
+  "first_week": "2023-W45",
+  "last_week": "2026-W40",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "RSV A",
+   "RSV A+B",
+   "RSV A/B",
+   "RSV B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-kellinghusen",
+  "name": "Kellinghusen",
+  "region": "de-sh",
+  "population": 8282,
+  "first_week": "2023-W45",
+  "last_week": "2024-W52",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "RSV A",
+   "RSV A+B",
+   "RSV B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-kiel",
+  "name": "Kiel",
+  "region": "de-sh",
+  "population": 351644,
+  "first_week": "2023-W45",
+  "last_week": "2026-W40",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "RSV A",
+   "RSV A+B",
+   "RSV B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-koblenz",
+  "name": "Koblenz",
+  "region": "de-rp",
+  "population": 127672,
+  "first_week": "2022-W40",
+  "last_week": "2026-W40",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "RSV A",
+   "RSV A+B",
+   "RSV B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-koeln",
+  "name": "Köln",
+  "region": "de-nw",
+  "population": 863455,
+  "first_week": "2022-W22",
+  "last_week": "2026-W40",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "RSV A",
+   "RSV A+B",
+   "RSV B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-koenigsbach",
+  "name": "Königsbach",
+  "region": "de-bw",
+  "population": 27239,
+  "first_week": "2023-W27",
+  "last_week": "2024-W51",
+  "pathogens": [
+   "RSV A/B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-koenigsbrunn",
+  "name": "Königsbrunn",
+  "region": "de-by",
+  "population": 28100,
+  "first_week": "2022-W05",
+  "last_week": "2024-W51",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "RSV A/B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-koethen",
+  "name": "Köthen",
+  "region": "de-st",
+  "population": 36000,
+  "first_week": "2022-W45",
+  "last_week": "2025-W02",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "RSV A/B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-landau-in-der-pfalz",
+  "name": "Landau in der Pfalz",
+  "region": "de-rp",
+  "population": 54708,
+  "first_week": "2022-W40",
+  "last_week": "2024-W51",
+  "pathogens": [
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-leinetal",
+  "name": "Leinetal",
+  "region": "de-th",
+  "population": 24818,
+  "first_week": "2024-W02",
+  "last_week": "2025-W01",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-leipzig",
+  "name": "Leipzig",
+  "region": "de-sn",
+  "population": 606548,
+  "first_week": "2024-W01",
+  "last_week": "2026-W40",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "RSV A",
+   "RSV A+B",
+   "RSV B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-leonberg",
+  "name": "Leonberg",
+  "region": "de-bw",
+  "population": 49832,
+  "first_week": "2023-W48",
+  "last_week": "2024-W51",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "RSV A/B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-linsenstein",
+  "name": "Linsenstein",
+  "region": "de-th",
+  "population": 8543,
+  "first_week": "2024-W02",
+  "last_week": "2025-W01",
+  "pathogens": [
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-ludwigshafen-basf",
+  "name": "Ludwigshafen (BASF)",
+  "region": "de-rp",
+  "population": 250000,
+  "first_week": "2022-W42",
+  "last_week": "2024-W51",
+  "pathogens": [
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-luebeck",
+  "name": "Lübeck",
+  "region": "de-sh",
+  "population": 245000,
+  "first_week": "2023-W45",
+  "last_week": "2024-W52",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "RSV A",
+   "RSV A+B",
+   "RSV B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-mainz",
+  "name": "Mainz",
+  "region": "de-rp",
+  "population": 250000,
+  "first_week": "2022-W40",
+  "last_week": "2026-W40",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "RSV A",
+   "RSV A+B",
+   "RSV B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-marburg",
+  "name": "Marburg",
+  "region": "de-he",
+  "population": 77933,
+  "first_week": "2023-W45",
+  "last_week": "2024-W51",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "RSV A/B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-markkleeberg",
+  "name": "Markkleeberg",
+  "region": "de-sn",
+  "population": 27393,
+  "first_week": "2024-W01",
+  "last_week": "2024-W51",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "RSV A",
+   "RSV A+B",
+   "RSV B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-meuselwitz",
+  "name": "Meuselwitz",
+  "region": "de-th",
+  "population": 9860,
+  "first_week": "2024-W09",
+  "last_week": "2024-W51",
+  "pathogens": [
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-moenchengladbach",
+  "name": "Mönchengladbach",
+  "region": "de-nw",
+  "population": 411656,
+  "first_week": "2022-W22",
+  "last_week": "2026-W40",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "RSV A",
+   "RSV A+B",
+   "RSV B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-montabaur",
+  "name": "Montabaur",
+  "region": "de-rp",
+  "population": 31110,
+  "first_week": "2022-W40",
+  "last_week": "2024-W51",
+  "pathogens": [
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-muehlacker-lomersheim",
+  "name": "Mühlacker-Lomersheim",
+  "region": "de-bw",
+  "population": 25311,
+  "first_week": "2023-W28",
+  "last_week": "2024-W51",
+  "pathogens": [
+   "RSV A/B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-muenchen",
+  "name": "München",
+  "region": "de-by",
+  "population": 1240000,
+  "first_week": "2022-W05",
+  "last_week": "2026-W40",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "RSV A/B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-muenster",
+  "name": "Münster",
+  "region": "de-nw",
+  "population": 241200,
+  "first_week": "2023-W48",
+  "last_week": "2024-W51",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-naumburg",
+  "name": "Naumburg",
+  "region": "de-st",
+  "population": 40000,
+  "first_week": "2022-W45",
+  "last_week": "2025-W02",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "RSV A/B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-neu-ulm",
+  "name": "Neu-Ulm",
+  "region": "de-by",
+  "population": 220000,
+  "first_week": "2023-W32",
+  "last_week": "2026-W40",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "RSV A/B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-neubrandenburg",
+  "name": "Neubrandenburg",
+  "region": "de-mv",
+  "population": 64003,
+  "first_week": "2023-W45",
+  "last_week": "2024-W51",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "RSV A",
+   "RSV A+B",
+   "RSV B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-neustadt-an-der-weinstrasse",
+  "name": "Neustadt an der Weinstraße",
+  "region": "de-rp",
+  "population": 53000,
+  "first_week": "2022-W12",
+  "last_week": "2024-W51",
+  "pathogens": [
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-nordhausen",
+  "name": "Nordhausen",
+  "region": "de-th",
+  "population": 53000,
+  "first_week": "2024-W02",
+  "last_week": "2025-W01",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-nuernberg",
+  "name": "Nürnberg",
+  "region": "de-by",
+  "population": 588807,
+  "first_week": "2022-W51",
+  "last_week": "2026-W40",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "RSV A/B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-offenburg",
+  "name": "Offenburg",
+  "region": "de-bw",
+  "population": 120000,
+  "first_week": "2023-W45",
+  "last_week": "2026-W26",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "RSV A",
+   "RSV A+B",
+   "RSV A/B",
+   "RSV B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-oldenburg",
+  "name": "Oldenburg",
+  "region": "de-ni",
+  "population": 170000,
+  "first_week": "2023-W45",
+  "last_week": "2026-W40",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "RSV A",
+   "RSV A+B",
+   "RSV B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-osnabrueck",
+  "name": "Osnabrück",
+  "region": "de-ni",
+  "population": 156679,
+  "first_week": "2023-W45",
+  "last_week": "2024-W52",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "RSV A",
+   "RSV A+B",
+   "RSV B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-paderborn",
+  "name": "Paderborn",
+  "region": "de-nw",
+  "population": 154378,
+  "first_week": "2023-W48",
+  "last_week": "2024-W51",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-passau",
+  "name": "Passau",
+  "region": "de-by",
+  "population": 54000,
+  "first_week": "2022-W46",
+  "last_week": "2026-W40",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "RSV A/B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-pforzheim",
+  "name": "Pforzheim",
+  "region": "de-bw",
+  "population": 125000,
+  "first_week": "2023-W48",
+  "last_week": "2026-W26",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "RSV A",
+   "RSV A+B",
+   "RSV A/B",
+   "RSV B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-piding",
+  "name": "Piding",
+  "region": "de-by",
+  "population": 9070,
+  "first_week": "2022-W07",
+  "last_week": "2024-W51",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "RSV A/B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-pirmasens-bluemelstal",
+  "name": "Pirmasens-Blümelstal",
+  "region": "de-rp",
+  "population": 27780,
+  "first_week": "2022-W40",
+  "last_week": "2024-W51",
+  "pathogens": [
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-pirmasens-felsalbe",
+  "name": "Pirmasens-Felsalbe",
+  "region": "de-rp",
+  "population": 15300,
+  "first_week": "2022-W40",
+  "last_week": "2024-W51",
+  "pathogens": [
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-plauen",
+  "name": "Plauen",
+  "region": "de-sn",
+  "population": 63046,
+  "first_week": "2024-W01",
+  "last_week": "2024-W51",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "RSV A",
+   "RSV A+B",
+   "RSV B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-potsdam",
+  "name": "Potsdam",
+  "region": "de-bb",
+  "population": 78000,
+  "first_week": "2022-W24",
+  "last_week": "2026-W40",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "RSV A",
+   "RSV A+B",
+   "RSV B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-ratzeburg",
+  "name": "Ratzeburg",
+  "region": "de-sh",
+  "population": 14894,
+  "first_week": "2023-W47",
+  "last_week": "2024-W52",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "RSV A",
+   "RSV A+B",
+   "RSV B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-regensburg",
+  "name": "Regensburg",
+  "region": "de-by",
+  "population": 279474,
+  "first_week": "2023-W11",
+  "last_week": "2026-W40",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "RSV A/B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-rollsdorf",
+  "name": "Rollsdorf",
+  "region": "de-st",
+  "population": 40867,
+  "first_week": "2022-W34",
+  "last_week": "2025-W01",
+  "pathogens": [
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-rostock",
+  "name": "Rostock",
+  "region": "de-mv",
+  "population": 240420,
+  "first_week": "2022-W08",
+  "last_week": "2026-W40",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "RSV A",
+   "RSV A+B",
+   "RSV B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-saalfeld",
+  "name": "Saalfeld",
+  "region": "de-th",
+  "population": 33061,
+  "first_week": "2024-W02",
+  "last_week": "2024-W51",
+  "pathogens": [
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-saarbruecken",
+  "name": "Saarbrücken",
+  "region": "de-sl",
+  "population": 123994,
+  "first_week": "2022-W07",
+  "last_week": "2026-W40",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "RSV A",
+   "RSV A+B",
+   "RSV A/B",
+   "RSV B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-saarlouis",
+  "name": "Saarlouis",
+  "region": "de-sl",
+  "population": 43027,
+  "first_week": "2023-W01",
+  "last_week": "2026-W40",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "RSV A",
+   "RSV A+B",
+   "RSV A/B",
+   "RSV B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-schleswig",
+  "name": "Schleswig",
+  "region": "de-sh",
+  "population": 49743,
+  "first_week": "2023-W49",
+  "last_week": "2024-W52",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "RSV A",
+   "RSV A+B",
+   "RSV B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-schmalkalden",
+  "name": "Schmalkalden",
+  "region": "de-th",
+  "population": 53000,
+  "first_week": "2024-W03",
+  "last_week": "2025-W01",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-schoenebeck",
+  "name": "Schönebeck",
+  "region": "de-st",
+  "population": 72000,
+  "first_week": "2023-W15",
+  "last_week": "2024-W50",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "RSV A/B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-schwabmuenchen",
+  "name": "Schwabmünchen",
+  "region": "de-by",
+  "population": 18000,
+  "first_week": "2023-W39",
+  "last_week": "2026-W40",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "RSV A/B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-schwaebisch-hall",
+  "name": "Schwäbisch Hall",
+  "region": "de-bw",
+  "population": 100000,
+  "first_week": "2023-W48",
+  "last_week": "2024-W51",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "RSV A/B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-schweinfurt",
+  "name": "Schweinfurt",
+  "region": "de-by",
+  "population": 82500,
+  "first_week": "2022-W07",
+  "last_week": "2026-W40",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "RSV A/B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-schwerin",
+  "name": "Schwerin",
+  "region": "de-mv",
+  "population": 129460,
+  "first_week": "2023-W46",
+  "last_week": "2026-W40",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "RSV A",
+   "RSV A+B",
+   "RSV B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-silstedt",
+  "name": "Silstedt",
+  "region": "de-st",
+  "population": 45130,
+  "first_week": "2022-W45",
+  "last_week": "2025-W22",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "RSV A/B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-speyer",
+  "name": "Speyer",
+  "region": "de-rp",
+  "population": 73215,
+  "first_week": "2022-W40",
+  "last_week": "2024-W51",
+  "pathogens": [
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-stadtbergen",
+  "name": "Stadtbergen",
+  "region": "de-by",
+  "population": 13800,
+  "first_week": "2022-W10",
+  "last_week": "2024-W51",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "RSV A/B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-starnberg",
+  "name": "Starnberg",
+  "region": "de-by",
+  "population": 65142,
+  "first_week": "2023-W40",
+  "last_week": "2026-W40",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "RSV A/B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-stendal",
+  "name": "Stendal",
+  "region": "de-st",
+  "population": 102242,
+  "first_week": "2022-W45",
+  "last_week": "2025-W20",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "RSV A/B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-straubing",
+  "name": "Straubing",
+  "region": "de-by",
+  "population": 58895,
+  "first_week": "2022-W45",
+  "last_week": "2026-W40",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "RSV A/B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-stuttgart",
+  "name": "Stuttgart",
+  "region": "de-bw",
+  "population": 600000,
+  "first_week": "2022-W09",
+  "last_week": "2026-W27",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "RSV A",
+   "RSV A+B",
+   "RSV A/B",
+   "RSV B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-suhl",
+  "name": "Suhl",
+  "region": "de-th",
+  "population": 29955,
+  "first_week": "2024-W03",
+  "last_week": "2024-W51",
+  "pathogens": [
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-teisendorf",
+  "name": "Teisendorf",
+  "region": "de-by",
+  "population": 8300,
+  "first_week": "2022-W07",
+  "last_week": "2024-W51",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "RSV A/B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-trier",
+  "name": "Trier",
+  "region": "de-rp",
+  "population": 97927,
+  "first_week": "2022-W40",
+  "last_week": "2026-W40",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "RSV A",
+   "RSV A+B",
+   "RSV B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-tuebingen",
+  "name": "Tübingen",
+  "region": "de-bw",
+  "population": 105000,
+  "first_week": "2022-W08",
+  "last_week": "2026-W26",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "RSV A",
+   "RSV A+B",
+   "RSV A/B",
+   "RSV B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-waldbroel",
+  "name": "Waldbröl",
+  "region": "de-nw",
+  "population": 8912,
+  "first_week": "2023-W48",
+  "last_week": "2024-W51",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-weiden",
+  "name": "Weiden",
+  "region": "de-by",
+  "population": 43754,
+  "first_week": "2022-W40",
+  "last_week": "2026-W40",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "RSV A/B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-weil-am-rhein",
+  "name": "Weil am Rhein",
+  "region": "de-bw",
+  "population": 103000,
+  "first_week": "2023-W49",
+  "last_week": "2024-W51",
+  "pathogens": [
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-weimar",
+  "name": "Weimar",
+  "region": "de-th",
+  "population": 67443,
+  "first_week": "2023-W49",
+  "last_week": "2025-W01",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-weissenfels",
+  "name": "Weißenfels",
+  "region": "de-st",
+  "population": 33600,
+  "first_week": "2022-W45",
+  "last_week": "2025-W22",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "RSV A/B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-wellesweiler",
+  "name": "Wellesweiler",
+  "region": "de-sl",
+  "population": 44905,
+  "first_week": "2023-W01",
+  "last_week": "2024-W51",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "RSV A/B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-wiesbaden-biebrich",
+  "name": "Wiesbaden-Biebrich",
+  "region": "de-he",
+  "population": 130229,
+  "first_week": "2023-W49",
+  "last_week": "2024-W51",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "RSV A/B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-wiesbaden-stadt",
+  "name": "Wiesbaden-Stadt",
+  "region": "de-he",
+  "population": 177681,
+  "first_week": "2023-W49",
+  "last_week": "2026-W40",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "RSV A",
+   "RSV A+B",
+   "RSV A/B",
+   "RSV B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-wolfsburg",
+  "name": "Wolfsburg",
+  "region": "de-ni",
+  "population": 137608,
+  "first_week": "2023-W45",
+  "last_week": "2026-W40",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "RSV A",
+   "RSV A+B",
+   "RSV B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-worms",
+  "name": "Worms",
+  "region": "de-rp",
+  "population": 119513,
+  "first_week": "2022-W40",
+  "last_week": "2026-W40",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "RSV A",
+   "RSV A+B",
+   "RSV B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-wuppertal",
+  "name": "Wuppertal",
+  "region": "de-nw",
+  "population": 317483,
+  "first_week": "2022-W22",
+  "last_week": "2024-W51",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "RSV A",
+   "RSV A+B",
+   "RSV B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-wustweiler",
+  "name": "Wustweiler",
+  "region": "de-sl",
+  "population": 26528,
+  "first_week": "2023-W01",
+  "last_week": "2024-W51",
+  "pathogens": [
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-zeitz",
+  "name": "Zeitz",
+  "region": "de-st",
+  "population": 35431,
+  "first_week": "2022-W45",
+  "last_week": "2025-W02",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "RSV A/B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-zittau",
+  "name": "Zittau",
+  "region": "de-sn",
+  "population": 76000,
+  "first_week": "2024-W01",
+  "last_week": "2024-W51",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "RSV A",
+   "RSV A+B",
+   "RSV B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-zusmarshausen",
+  "name": "Zusmarshausen",
+  "region": "de-by",
+  "population": 6375,
+  "first_week": "2023-W51",
+  "last_week": "2026-W40",
+  "pathogens": [
+   "Influenza A",
+   "Influenza A+B",
+   "Influenza B",
+   "RSV A/B",
+   "SARS-CoV-2"
+  ]
+ },
+ {
+  "id": "ww-zweibruecken",
+  "name": "Zweibrücken",
+  "region": "de-rp",
+  "population": 36498,
+  "first_week": "2022-W40",
+  "last_week": "2024-W51",
+  "pathogens": [
+   "SARS-CoV-2"
+  ]
+ }
+]

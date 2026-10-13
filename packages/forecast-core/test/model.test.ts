@@ -113,3 +113,19 @@ describe('backtest evaluation', () => {
     expect(peakErrors(rec).length).toBeGreaterThan(0);
   });
 });
+
+import { rescaleQuantiles, rescaleRecords } from '../src';
+describe('rescale', () => {
+  const f = { iso_week: '2026-W43', h: 1 as const, q10: 50, q25: 80, q50: 100, q75: 130, q90: 200 };
+  it('keeps the median and widens in log space', () => {
+    const g = rescaleQuantiles(f, 2);
+    expect(g.q50).toBe(100);
+    expect(g.q90).toBeCloseTo(400, 8);
+    expect(g.q10).toBeCloseTo(25, 8);
+    expect(rescaleQuantiles(f, 1)).toEqual(f);
+  });
+  it('rescales records under a new name', () => {
+    const rec = [{ model: 'a', region: 'de', origin: '2026-W42', season: '2026/27', forecast: f, actual: 120, phase: 'rise' as const }];
+    expect(rescaleRecords(rec, 'a', 2, 'b')[0]!.model).toBe('b');
+  });
+});

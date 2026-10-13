@@ -1,0 +1,11 @@
+{
+  "id": "rki-ifsg-influenza",
+  "name": "Influenzafälle in Deutschland",
+  "url": "https://raw.githubusercontent.com/robert-koch-institut/Influenzafaelle_in_Deutschland/main/IfSG_Influenzafaelle.tsv",
+  "attribution": "Robert Koch-Institut, Influenzafälle in Deutschland, CC BY 4.0",
+  "license": "CC BY 4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/",
+  "doi": "",
+  "retrieved": "2026-10-13",
+  "sha256": "70b7b610a65214214f90dd84a812af2a6bfc6f1818be3e1a4dbeaa63e419519d"
+}

@@ -10,3 +10,4 @@ export * from './features';
 export * from './regional-model';
 export * from './ensemble';
 export * from './backtest';
+export * from './api-types';

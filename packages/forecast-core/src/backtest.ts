@@ -1,3 +1,4 @@
+import { rescaleQuantiles } from './ensemble';
 import { KNOWN_AHEAD_SIGNALS } from './features';
 import { addWeeks, compareWeeks, seasonOf, weekRange } from './isoweek';
 import { summarize, weightedIntervalScore } from './metrics';
@@ -254,3 +255,8 @@ function weeksDiff(a: IsoWeek, b: IsoWeek): number {
   return n;
 }
 
+
+/** Copy of the records of `model` with the band spread rescaled by k, under a new model name. */
+export function rescaleRecords(records: readonly BacktestRecord[], model: string, k: number, newName: string): BacktestRecord[] {
+  return records.filter((r) => r.model === model).map((r) => ({ ...r, model: newName, forecast: rescaleQuantiles(r.forecast, k) }));
+}

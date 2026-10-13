@@ -1,0 +1,12 @@
+{
+  "id": "geonames-plz",
+  "name": "GeoNames Postal Codes Germany",
+  "url": "https://download.geonames.org/export/zip/DE.zip",
+  "attribution": "GeoNames, https://www.geonames.org, CC BY 4.0",
+  "license": "CC BY 4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/",
+  "retrieved": "2026-10-13",
+  "sha256": "128138d8c2f9eda9038ad406f5ea1bc1991e9503b5f990de4588c19aa251e023",
+  "sha256_of": "derived postcode index artifact",
+  "doi": ""
+}
